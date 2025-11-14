@@ -973,7 +973,7 @@ if (
 #  Instructions
 # ---------------------------------------------------------
 
-st.subheader(" Instructions for YOU" if language == "English" else "📄 Anweisungen für SIE")
+st.subheader(" Instructions for YOU" if language == "English" else " Anweisungen für SIE")
 
 if language == "English":
     st.markdown(current_rp["user_en"])
