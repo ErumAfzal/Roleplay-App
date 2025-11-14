@@ -1163,7 +1163,8 @@ To save chats and feedback in the cloud:
 3. In Streamlit Cloud (or `.streamlit/secrets.toml` locally), add something like:
 """
     )
-```toml
+```
+toml
 OPENAI_API_KEY = "YOUR_REAL_OPENAI_KEY"
 GSPREAD_SHEET_ID = "your_google_sheet_id"
 
@@ -1175,3 +1176,5 @@ private_key = "-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n"
 client_email = "your-sa@your-project.iam.gserviceaccount.com"
 client_id = "..."
 token_uri = "https://oauth2.googleapis.com/token"
+"""
+    )
