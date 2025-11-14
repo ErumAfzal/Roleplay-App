@@ -1,14 +1,7 @@
 import streamlit as st
-import time
 import json
-from openai import OpenAI    
-# ... your other imports
-
-# ---------------------------------------------------------
-#  OpenAI client (NEW 2025 API)
-# ---------------------------------------------------------
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])   # <--- MUST EXIST
-
+from datetime import datetime
+from openai import OpenAI
 
 # Optional: Google Sheets logging
 try:
@@ -19,78 +12,106 @@ except ImportError:
     GSHEETS_AVAILABLE = False
 
 # ---------------------------------------------------------
-#  CONFIG: OpenAI + Google Sheets
+#  OpenAI setup (2025 API)
 # ---------------------------------------------------------
 
-def setup_openai():
-    """Set OpenAI API key from Streamlit secrets or sidebar input."""
+def setup_openai_client():
+    """
+    Create and return an OpenAI client.
+    Reads OPENAI_API_KEY from Streamlit secrets or sidebar (for local tests).
+    """
     api_key = st.secrets.get("OPENAI_API_KEY", "")
     if not api_key:
         api_key = st.sidebar.text_input(
-            "🔑 OpenAI API key (for LOCAL testing only)",
+            "🔑 OpenAI API key (local testing)",
             type="password",
-            help="When deployed on Streamlit Cloud, put the key into st.secrets instead."
+            help="On Streamlit Cloud, configure OPENAI_API_KEY in Secrets."
         )
-    if api_key:
-        openai.api_key = api_key
-        return True
-    st.sidebar.warning("Please enter or configure your OpenAI API key.")
-    return False
 
+    if not api_key:
+        st.sidebar.error("Please provide an OpenAI API key.")
+        return None
+
+    try:
+        client = OpenAI(api_key=api_key)
+        return client
+    except Exception as e:
+        st.sidebar.error(f"Could not create OpenAI client: {e}")
+        return None
+
+
+# ---------------------------------------------------------
+#  Google Sheets helpers (DEBUG version)
+# ---------------------------------------------------------
 
 def get_gsheets_client():
     """Create a gspread client from service-account info in st.secrets."""
     if not GSHEETS_AVAILABLE:
-        st.sidebar.warning("gspread not installed – data will NOT be saved to Google Sheets.")
+        st.sidebar.error("gspread is not installed. Cannot save data.")
         return None
 
-    sa_info = st.secrets.get("gcp_service_account", None)
-    sheet_id = st.secrets.get("GSPREAD_SHEET_ID", "")
+    sa_info = st.secrets.get("gcp_service_account")
+    sheet_id = st.secrets.get("GSPREAD_SHEET_ID")
 
-    if not sa_info or not sheet_id:
-        st.sidebar.warning(
-            "Google Sheets not configured. "
-            "Add 'gcp_service_account' JSON and 'GSPREAD_SHEET_ID' to st.secrets."
-        )
+    if not sa_info:
+        st.sidebar.error("Missing gcp_service_account in secrets.toml")
+        return None
+    if not sheet_id:
+        st.sidebar.error("Missing GSPREAD_SHEET_ID in secrets.toml")
         return None
 
-    scopes = [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive",
-    ]
-    creds = Credentials.from_service_account_info(sa_info, scopes=scopes)
-    client = gspread.authorize(creds)
-    return client
+    try:
+        scopes = [
+            "https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive",
+        ]
+        creds = Credentials.from_service_account_info(sa_info, scopes=scopes)
+        client = gspread.authorize(creds)
+        return client
+    except Exception as e:
+        st.error(f"Could not create Google Sheets client: {e}")
+        return None
 
 
 def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
-    """
-    Append one row to 'chats' sheet and one row to 'feedback' sheet.
-
-    meta: dict with metadata
-    chat_messages: list of {role, content}
-    feedback: dict with survey results
-    """
+    """Append chat + feedback into Google Sheets with full debug."""
     client = get_gsheets_client()
     if not client:
         return
 
     sheet_id = st.secrets["GSPREAD_SHEET_ID"]
+
+    # Try opening the sheet
     try:
         sh = client.open_by_key(sheet_id)
     except Exception as e:
-        st.error(f"Could not open Google Sheet: {e}")
+        st.error(f"Could not open Google Sheet:\n\n{e}")
         return
-
-    # ----- Chats sheet -----
-    try:
-        chats_ws = sh.worksheet("chats")
-    except Exception:
-        chats_ws = sh.add_worksheet(title="chats", rows="1000", cols="20")
 
     timestamp = datetime.utcnow().isoformat()
     chat_json = json.dumps(chat_messages, ensure_ascii=False)
 
+    # ----- Ensure CHATS sheet exists -----
+    try:
+        chats_ws = sh.worksheet("chats")
+    except Exception:
+        try:
+            chats_ws = sh.add_worksheet("chats", rows=1000, cols=20)
+        except Exception as e:
+            st.error(f"Could not create 'chats' worksheet:\n\n{e}")
+            return
+
+    # ----- Ensure FEEDBACK sheet exists -----
+    try:
+        fb_ws = sh.worksheet("feedback")
+    except Exception:
+        try:
+            fb_ws = sh.add_worksheet("feedback", rows=1000, cols=20)
+        except Exception as e:
+            st.error(f"Could not create 'feedback' worksheet:\n\n{e}")
+            return
+
+    # ----- Prepare rows -----
     chat_row = [
         timestamp,
         meta.get("student_id", ""),
@@ -103,40 +124,39 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
         chat_json,
     ]
 
-    try:
-        chats_ws.append_row(chat_row)
-    except Exception as e:
-        st.error(f"Could not append chat to Google Sheet: {e}")
-
-    # ----- Feedback sheet -----
-    try:
-        fb_ws = sh.worksheet("feedback")
-    except Exception:
-        fb_ws = sh.add_worksheet(title="feedback", rows="1000", cols="20")
-
     fb_row = [
         timestamp,
         meta.get("student_id", ""),
         meta.get("language", ""),
         meta.get("batch_step", ""),
         meta.get("roleplay_id", ""),
-        feedback.get("clarity", ""),
-        feedback.get("authenticity", ""),
-        feedback.get("learning", ""),
-        feedback.get("difficulty", ""),
-        feedback.get("comment", ""),
+        feedback.get("clarity"),
+        feedback.get("authenticity"),
+        feedback.get("learning"),
+        feedback.get("difficulty"),
+        feedback.get("comment"),
     ]
 
+    # ----- Write Chat -----
+    try:
+        chats_ws.append_row(chat_row)
+    except Exception as e:
+        st.error(f"Could not append chat row:\n\n{e}")
+        return
+
+    # ----- Write Feedback -----
     try:
         fb_ws.append_row(fb_row)
     except Exception as e:
-        st.error(f"Could not append feedback to Google Sheet: {e}")
+        st.error(f"Could not append feedback row:\n\n{e}")
+        return
 
+    st.success(" Chat + Feedback saved successfully!")
 
 # ---------------------------------------------------------
 #  ROLEPLAY DEFINITIONS
-#  1–5: Strategic (Batch 1)
-#  6–10: Understanding-oriented (Batch 2)
+#  1–5:(Batch 1)
+#  6–10:(Batch 2)
 # ---------------------------------------------------------
 
 COMMON_USER_HEADER_EN = """
@@ -211,9 +231,6 @@ Kontext und soziale Rolle:
 • Häufig eher gleichberechtigte oder kooperative Situation.  
 • Ziel ist gegenseitiges Verstehen und eine tragfähige Beziehung.
 """
-
-# --- ROLEPLAYS dict: only shortened comments here.
-# (Full texts as given earlier; unchanged.)
 
 ROLEPLAYS = {
     # ---------- 1: Strategic, supervisor / training ----------
@@ -375,7 +392,7 @@ Sie sind der/die **SCHÜLER/IN Jan/Jana Pflüger**.
 
 Sie haben großes schauspielerisches Talent. Viele erwarten, dass Sie die
 Theater-AG wählen, aber Sie möchten lieber in die Judo-AG, vor allem wegen Ihrer
-Abneigung gegen die Theater-Lehrkraft.
+Abneigung gegenüber der Theater-Lehrkraft.
 
 **Verhalten:**
 - Seien Sie offen für das Gespräch, aber deutlich in Ihrem Wunsch nach Judo.  
@@ -860,6 +877,7 @@ Kommunikationstyp: Verstehensorientiert, gleichberechtigte Rollen.
     },
 }
 
+
 # ---------------------------------------------------------
 #  Streamlit UI & Flow Logic
 # ---------------------------------------------------------
@@ -891,26 +909,26 @@ if "feedback_done" not in st.session_state:
 if "meta" not in st.session_state:
     st.session_state.meta = {}
 
-api_ready = setup_openai()
-if not api_ready:
+# OpenAI client
+client = setup_openai_client()
+if client is None:
     st.stop()
 
 # Determine current batch
 if st.session_state.batch_step == "batch1":
     current_phase = 1
-    batch_label_en = "Batch 1 – Role-Plays 1–5 (Strategic communication)"
-    batch_label_de = "Block 1 – Rollenspiele 1–5 (Strategische Kommunikation)"
+    batch_label_en = "Batch 1 – Role-Plays 1–5"
+    batch_label_de = "Block 1 – Rollenspiele 1–5 "
 elif st.session_state.batch_step == "batch2":
     current_phase = 2
-    batch_label_en = "Batch 2 – Role-Plays 6–10 (Understanding-oriented communication)"
-    batch_label_de = "Block 2 – Rollenspiele 6–10 (Verstehensorientierte Kommunikation)"
+    batch_label_en = "Batch 2 – Role-Plays 6–10"
+    batch_label_de = "Block 2 – Rollenspiele 6–10"
 else:
     current_phase = None
 
 if st.session_state.batch_step == "finished":
     st.success(
-        "You have completed one role-play from Batch 1 and one from Batch 2. "
-        "Thank you!"
+        " You have completed one role-play from Batch 1 and one from Batch 2. Thank you!"
         if language == "English"
         else "Sie haben je ein Rollenspiel aus Block 1 und Block 2 abgeschlossen. Vielen Dank!"
     )
@@ -919,7 +937,7 @@ if st.session_state.batch_step == "finished":
 batch_title = batch_label_en if language == "English" else batch_label_de
 st.subheader(batch_title)
 
-# choose roleplays for this batch
+# Choose roleplays for this batch
 available_ids = [rid for rid, r in ROLEPLAYS.items() if r["phase"] == current_phase]
 
 roleplay_id = st.selectbox(
@@ -949,20 +967,24 @@ if (
         "roleplay_title_en": current_rp["title_en"],
         "roleplay_title_de": current_rp["title_de"],
         "communication_type": current_rp["communication_type"],
-    }   
+    }
 
 # ---------------------------------------------------------
 #  Instructions
 # ---------------------------------------------------------
 
-st.subheader("Instructions for YOU")
+st.subheader(" Instructions for YOU" if language == "English" else " Anweisungen für SIE")
 
 if language == "English":
     st.markdown(current_rp["user_en"])
 else:
     st.markdown(current_rp["user_de"])
 
-with st.expander("Hidden instructions for the AI partner (teacher view)"):
+with st.expander(
+    "🤖 Hidden instructions for the AI partner (teacher view)"
+    if language == "English"
+    else "🤖 Verdeckte Anweisungen für die KI-Gesprächspartner:in (nur Lehrkraft)"
+):
     if language == "English":
         st.markdown(current_rp["partner_en"])
     else:
@@ -975,10 +997,10 @@ st.info(
 )
 
 # ---------------------------------------------------------
-#  Start / restart conversation
+#  Start/restart conversation
 # ---------------------------------------------------------
 
-if st.button("▶️ Start / Restart conversation"):
+if st.button("Start / Restart conversation"):
     st.session_state.messages = []
     st.session_state.feedback_done = False
     st.session_state.chat_active = True
@@ -1000,7 +1022,7 @@ if st.button("▶️ Start / Restart conversation"):
 #  Chat interface
 # ---------------------------------------------------------
 
-st.subheader("Conversation")
+st.subheader("Conversation" if language == "English" else " Gespräch")
 
 chat_container = st.container()
 
@@ -1022,14 +1044,13 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
         st.session_state.messages.append({"role": "user", "content": user_input})
 
         try:
-            # NEW OPENAI API 2025
             response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=400,
             )
-            reply = response.choices[0].message["content"]
+            reply = response.choices[0].message.content
         except Exception as e:
             reply = f"[Error from OpenAI API: {e}]"
 
@@ -1041,65 +1062,65 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
         st.session_state.chat_active = False
 
 # ---------------------------------------------------------
-#  Feedback after each batch role-play
+#  Feedback after each batch role-play (Q1–Q12 Version)
 # ---------------------------------------------------------
 
 if not st.session_state.chat_active and st.session_state.messages and not st.session_state.feedback_done:
-    st.subheader("📝 Short feedback / Kurzes Feedback")
+    st.subheader("Short feedback / Kurzes Feedback")
 
     if language == "English":
-        clarity = st.radio(
-            "How clear was the AI partner’s communication?",
-            [1, 2, 3, 4, 5],
-            horizontal=True,
-        )
-        authenticity = st.radio(
-            "How authentic / realistic did the conversation feel?",
-            [1, 2, 3, 4, 5],
-            horizontal=True,
-        )
-        learning = st.radio(
-            "How much did this role-play help you reflect on communication?",
-            [1, 2, 3, 4, 5],
-            horizontal=True,
-        )
-        difficulty = st.radio(
-            "How difficult was this role-play for you?",
-            [1, 2, 3, 4, 5],
-            horizontal=True,
-        )
+        # Personality
+        q1 = st.radio("The chatbot’s personality was realistic and engaging", [1,2,3,4,5], horizontal=True)
+        q2 = st.radio("The chatbot seemed too robotic", [1,2,3,4,5], horizontal=True)
+        q3 = st.radio("The chatbot was welcoming during initial setup", [1,2,3,4,5], horizontal=True)
+        q4 = st.radio("The chatbot seemed very unfriendly", [1,2,3,4,5], horizontal=True)
+         # Onboarding
+        q5 = st.radio("The chatbot explained its scope and purpose well", [1,2,3,4,5], horizontal=True)
+        q6 = st.radio("The chatbot gave no indication as to its purpose", [1,2,3,4,5], horizontal=True)
+
+        # User Experience
+        q7  = st.radio("The chatbot was easy to navigate", [1,2,3,4,5], horizontal=True)
+        q8  = st.radio("It would be easy to get confused when using the chatbot", [1,2,3,4,5], horizontal=True)
+        q11 = st.radio("The chatbot was easy to use", [1,2,3,4,5], horizontal=True)
+        q12 = st.radio("The chatbot was very complex", [1,2,3,4,5], horizontal=True)
+
+        # Error Management
+        q9  = st.radio("The chatbot coped well with any errors or mistakes", [1,2,3,4,5], horizontal=True)
+        q10 = st.radio("The chatbot seemed unable to cope with any errors", [1,2,3,4,5], horizontal=True)
+
         comment = st.text_area("Optional comment")
         submit_label = "Save feedback & chat"
+
     else:
-        clarity = st.radio(
-            "Wie klar war die Kommunikation des KI-Gesprächspartners?",
-            [1, 2, 3, 4, 5],
-            horizontal=True,
-        )
-        authenticity = st.radio(
-            "Wie authentisch / realistisch wirkte das Gespräch?",
-            [1, 2, 3, 4, 5],
-            horizontal=True,
-        )
-        learning = st.radio(
-            "Wie sehr hat Ihnen dieses Rollenspiel geholfen, über Kommunikation nachzudenken?",
-            [1, 2, 3, 4, 5],
-            horizontal=True,
-        )
-        difficulty = st.radio(
-            "Wie schwierig war dieses Rollenspiel für Sie?",
-            [1, 2, 3, 4, 5],
-            horizontal=True,
-        )
+        # Personality (German)
+        q1 = st.radio("Die Persönlichkeit des Chatbots war realistisch und ansprechend", [1,2,3,4,5], horizontal=True)
+        q2 = st.radio("Der Chatbot wirkte zu robotisch", [1,2,3,4,5], horizontal=True)
+        q3 = st.radio("Der Chatbot war beim ersten Setup einladend", [1,2,3,4,5], horizontal=True)
+        q4 = st.radio("Der Chatbot wirkte sehr unfreundlich", [1,2,3,4,5], horizontal=True)
+        # Onboarding
+        q5 = st.radio("Der Chatbot erklärte seinen Zweck und Umfang gut", [1,2,3,4,5], horizontal=True)
+        q6 = st.radio("Der Chatbot gab keinen Hinweis auf seinen Zweck", [1,2,3,4,5], horizontal=True)
+
+        # User Experience
+        q7  = st.radio("Der Chatbot war leicht zu navigieren", [1,2,3,4,5], horizontal=True)
+        q8  = st.radio("Die Nutzung des Chatbots wäre leicht verwirrend", [1,2,3,4,5], horizontal=True)
+        q11 = st.radio("Der Chatbot war leicht zu bedienen", [1,2,3,4,5], horizontal=True)
+        q12 = st.radio("Der Chatbot war sehr komplex", [1,2,3,4,5], horizontal=True)
+
+        # Error Management
+        q9  = st.radio("Der Chatbot ging gut mit Fehlern oder Missverständnissen um", [1,2,3,4,5], horizontal=True)
+        q10 = st.radio("Der Chatbot konnte nicht gut mit Fehlern umgehen", [1,2,3,4,5], horizontal=True)
+
         comment = st.text_area("Optionaler Kommentar")
         submit_label = "Feedback & Chat speichern"
 
+
+    # Submit Button
     if st.button(submit_label):
+
         feedback_data = {
-            "clarity": clarity,
-            "authenticity": authenticity,
-            "learning": learning,
-            "difficulty": difficulty,
+            "Q1": q1, "Q2": q2, "Q3": q3, "Q4": q4, "Q5": q5, "Q6": q6,
+            "Q7": q7, "Q8": q8, "Q9": q9, "Q10": q10, "Q11": q11, "Q12": q12,
             "comment": comment,
         }
 
@@ -1115,9 +1136,9 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         if st.session_state.batch_step == "batch1":
             st.session_state.batch_step = "batch2"
             msg = (
-                "✅ Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
+                "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
                 if language == "English"
-                else "✅ Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
+                else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
             )
             st.success(msg)
         else:
@@ -1125,7 +1146,7 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
             msg = (
                 "Thank you! You completed both batches."
                 if language == "English"
-                else " Vielen Dank! Sie haben beide Blöcke abgeschlossen."
+                else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
             )
             st.success(msg)
 
@@ -1133,12 +1154,12 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         st.session_state.messages = []
 
 # ---------------------------------------------------------
-#  Teacher / admin info
+#  Teacher/admin info
 # ---------------------------------------------------------
 
-with st.expander("ℹ️ Teacher / admin info"):
+with st.expander(" Teacher / admin info"):
     st.markdown(
-        """
+        r"""
 **Batch structure**
 
 - Students must complete **exactly one** role-play from  
@@ -1152,9 +1173,19 @@ To save chats and feedback in the cloud:
 
 1. Create a **Google Cloud service account** with access to Google Sheets & Drive.  
 2. Create a Google Sheet and share it with the service account e-mail (Editor).  
-3. In Streamlit Cloud (or `.streamlit/secrets.toml` locally), add this:
+3. In Streamlit Cloud (or `.streamlit/secrets.toml` locally), add something like:
 
+```toml
+
+GSPREAD_SHEET_ID = "your_google_sheet_id"
+
+[gcp_service_account]
+type = "service_account"
+project_id = "..."
+private_key_id = "..."
+private_key = "-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n"
+client_email = "your-sa@your-project.iam.gserviceaccount.com"
+client_id = "..."
+token_uri = "https://oauth2.googleapis.com/token"
 """
-    )
-
-
+)
