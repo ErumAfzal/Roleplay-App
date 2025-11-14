@@ -859,7 +859,7 @@ Kommunikationstyp: Verstehensorientiert, gleichberechtigte Rollen.
 
 st.set_page_config(page_title="Role-Play Communication Trainer", layout="wide")
 
-st.title("🎭 Role-Play Communication Trainer")
+st.title("Role-Play Communication Trainer")
 
 st.sidebar.header("Settings")
 
@@ -902,10 +902,10 @@ else:
 
 if st.session_state.batch_step == "finished":
     st.success(
-        "✅ You have completed one role-play from Batch 1 and one from Batch 2. "
+        "You have completed one role-play from Batch 1 and one from Batch 2. "
         "Thank you!"
         if language == "English"
-        else "✅ Sie haben je ein Rollenspiel aus Block 1 und Block 2 abgeschlossen. Vielen Dank!"
+        else "Sie haben je ein Rollenspiel aus Block 1 und Block 2 abgeschlossen. Vielen Dank!"
     )
     st.stop()
 
@@ -948,14 +948,14 @@ if (
 #  Instructions
 # ---------------------------------------------------------
 
-st.subheader("📄 Instructions for YOU")
+st.subheader("Instructions for YOU")
 
 if language == "English":
     st.markdown(current_rp["user_en"])
 else:
     st.markdown(current_rp["user_de"])
 
-with st.expander("🤖 Hidden instructions for the AI partner (teacher view)"):
+with st.expander("Hidden instructions for the AI partner (teacher view)"):
     if language == "English":
         st.markdown(current_rp["partner_en"])
     else:
@@ -993,7 +993,7 @@ if st.button("▶️ Start / Restart conversation"):
 #  Chat interface
 # ---------------------------------------------------------
 
-st.subheader("💬 Conversation")
+st.subheader("Conversation")
 
 chat_container = st.container()
 
@@ -1015,13 +1015,14 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
         st.session_state.messages.append({"role": "user", "content": user_input})
 
         try:
-            response = openai.ChatCompletion.create(
+            # NEW OPENAI API 2025
+            response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=400,
             )
-            reply = response.choices[0].message["content"].strip()
+            reply = response.choices[0].message["content"]
         except Exception as e:
             reply = f"[Error from OpenAI API: {e}]"
 
