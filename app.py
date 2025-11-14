@@ -1224,32 +1224,3 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         # Optionally reset conversation for another roleplay
         # st.session_state.messages = []
 
-# ---------------------------------------------------------
-#  Teacher info box
-# ---------------------------------------------------------
-with st.expander("ℹ️ Teacher / admin info"):
-    st.markdown(
-        """
-**Data saving (cloud-based):**
-
-- Chats and feedback are saved to **Google Sheets** (“chats” and “feedback” worksheets).
-- To enable this, you must create:
-  1. A Google Cloud **service account** with access to Google Sheets & Drive.  
-  2. A Google Sheet and share it with the service account email.  
-  3. Add two items to **Streamlit / secrets** or your environment:
-
-```toml
-# .streamlit/secrets.toml  (for Streamlit Cloud)
-OPENAI_API_KEY = "YOUR_REAL_KEY"
-
-GSPREAD_SHEET_ID = "your_google_sheet_id_here"
-
-[gcp_service_account]
-type = "service_account"
-project_id = "..."
-private_key_id = "..."
-private_key = "-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n"
-client_email = "your-service-account@your-project.iam.gserviceaccount.com"
-client_id = "..."
-token_uri = "https://oauth2.googleapis.com/token"
-# etc. (full JSON from Google)
