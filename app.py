@@ -942,7 +942,7 @@ if (
         "roleplay_title_en": current_rp["title_en"],
         "roleplay_title_de": current_rp["title_de"],
         "communication_type": current_rp["communication_type"],
-    )
+    }   
 
 # ---------------------------------------------------------
 #  Instructions
