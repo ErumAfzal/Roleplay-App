@@ -11,7 +11,6 @@ try:
 except ImportError:
     GSHEETS_AVAILABLE = False
 
-
 # ---------------------------------------------------------
 #  OpenAI setup (2025 API)
 # ---------------------------------------------------------
@@ -70,7 +69,7 @@ def get_gsheets_client():
         client = gspread.authorize(creds)
         return client
     except Exception as e:
-        st.error(f"❌ Could not create Google Sheets client: {e}")
+        st.error(f"Could not create Google Sheets client: {e}")
         return None
 
 
@@ -86,7 +85,7 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
     try:
         sh = client.open_by_key(sheet_id)
     except Exception as e:
-        st.error(f"❌ Could not open Google Sheet:\n\n{e}")
+        st.error(f"Could not open Google Sheet:\n\n{e}")
         return
 
     timestamp = datetime.utcnow().isoformat()
@@ -99,7 +98,7 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
         try:
             chats_ws = sh.add_worksheet("chats", rows=1000, cols=20)
         except Exception as e:
-            st.error(f"❌ Could not create 'chats' worksheet:\n\n{e}")
+            st.error(f"Could not create 'chats' worksheet:\n\n{e}")
             return
 
     # ----- Ensure FEEDBACK sheet exists -----
@@ -109,7 +108,7 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
         try:
             fb_ws = sh.add_worksheet("feedback", rows=1000, cols=20)
         except Exception as e:
-            st.error(f"❌ Could not create 'feedback' worksheet:\n\n{e}")
+            st.error(f"Could not create 'feedback' worksheet:\n\n{e}")
             return
 
     # ----- Prepare rows -----
@@ -154,11 +153,10 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
 
     st.success(" Chat + Feedback saved successfully!")
 
-
 # ---------------------------------------------------------
 #  ROLEPLAY DEFINITIONS
-#  1–5: Strategic (Batch 1)
-#  6–10: Understanding-oriented (Batch 2)
+#  1–5:(Batch 1)
+#  6–10:(Batch 2)
 # ---------------------------------------------------------
 
 COMMON_USER_HEADER_EN = """
