@@ -1146,3 +1146,7 @@ To save chats and feedback in the cloud:
 2. Create a Google Sheet and share it with the service account e-mail (Editor).  
 3. In Streamlit Cloud (or `.streamlit/secrets.toml` locally), add this:
 
+"""
+    )
+
+
