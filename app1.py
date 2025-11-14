@@ -917,12 +917,12 @@ if client is None:
 # Determine current batch
 if st.session_state.batch_step == "batch1":
     current_phase = 1
-    batch_label_en = "Batch 1 – Role-Plays 1–5 (Strategic communication)"
-    batch_label_de = "Block 1 – Rollenspiele 1–5 (Strategische Kommunikation)"
+    batch_label_en = "Batch 1 – Role-Plays 1–5"
+    batch_label_de = "Block 1 – Rollenspiele 1–5 "
 elif st.session_state.batch_step == "batch2":
     current_phase = 2
-    batch_label_en = "Batch 2 – Role-Plays 6–10 (Understanding-oriented communication)"
-    batch_label_de = "Block 2 – Rollenspiele 6–10 (Verstehensorientierte Kommunikation)"
+    batch_label_en = "Batch 2 – Role-Plays 6–10"
+    batch_label_de = "Block 2 – Rollenspiele 6–10"
 else:
     current_phase = None
 
