@@ -42,62 +42,77 @@ def setup_openai_client():
 
 
 # ---------------------------------------------------------
-#  Google Sheets helpers
+#  Google Sheets helpers (DEBUG version)
 # ---------------------------------------------------------
 
 def get_gsheets_client():
     """Create a gspread client from service-account info in st.secrets."""
     if not GSHEETS_AVAILABLE:
-        st.sidebar.warning("gspread not installed – data will NOT be saved to Google Sheets.")
+        st.sidebar.error("gspread is not installed. Cannot save data.")
         return None
 
-    sa_info = st.secrets.get("gcp_service_account", None)
-    sheet_id = st.secrets.get("GSPREAD_SHEET_ID", "")
+    sa_info = st.secrets.get("gcp_service_account")
+    sheet_id = st.secrets.get("GSPREAD_SHEET_ID")
 
-    if not sa_info or not sheet_id:
-        st.sidebar.warning(
-            "Google Sheets not configured. "
-            "Add 'gcp_service_account' JSON and 'GSPREAD_SHEET_ID' to st.secrets."
-        )
+    if not sa_info:
+        st.sidebar.error("Missing gcp_service_account in secrets.toml")
+        return None
+    if not sheet_id:
+        st.sidebar.error("Missing GSPREAD_SHEET_ID in secrets.toml")
         return None
 
-    scopes = [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive",
-    ]
-    creds = Credentials.from_service_account_info(sa_info, scopes=scopes)
-    sheets_client = gspread.authorize(creds)
-    return sheets_client
+    try:
+        scopes = [
+            "https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive",
+        ]
+        creds = Credentials.from_service_account_info(sa_info, scopes=scopes)
+        client = gspread.authorize(creds)
+        return client
+    except Exception as e:
+        st.error(f"❌ Could not create Google Sheets client: {e}")
+        return None
 
 
 def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
-    """
-    Append one row to 'chats' sheet and one row to 'feedback' sheet.
-
-    meta: dict with metadata
-    chat_messages: list of {role, content}
-    feedback: dict with survey results
-    """
-    sheets_client = get_gsheets_client()
-    if not sheets_client:
+    """Append chat + feedback into Google Sheets with full debug."""
+    client = get_gsheets_client()
+    if not client:
         return
 
     sheet_id = st.secrets["GSPREAD_SHEET_ID"]
-    try:
-        sh = sheets_client.open_by_key(sheet_id)
-    except Exception as e:
-        st.error(f"Could not open Google Sheet: {e}")
-        return
 
-    # ----- Chats sheet -----
+    # Try opening the sheet
     try:
-        chats_ws = sh.worksheet("chats")
-    except Exception:
-        chats_ws = sh.add_worksheet(title="chats", rows="1000", cols="20")
+        sh = client.open_by_key(sheet_id)
+    except Exception as e:
+        st.error(f"❌ Could not open Google Sheet:\n\n{e}")
+        return
 
     timestamp = datetime.utcnow().isoformat()
     chat_json = json.dumps(chat_messages, ensure_ascii=False)
 
+    # ----- Ensure CHATS sheet exists -----
+    try:
+        chats_ws = sh.worksheet("chats")
+    except Exception:
+        try:
+            chats_ws = sh.add_worksheet("chats", rows=1000, cols=20)
+        except Exception as e:
+            st.error(f"❌ Could not create 'chats' worksheet:\n\n{e}")
+            return
+
+    # ----- Ensure FEEDBACK sheet exists -----
+    try:
+        fb_ws = sh.worksheet("feedback")
+    except Exception:
+        try:
+            fb_ws = sh.add_worksheet("feedback", rows=1000, cols=20)
+        except Exception as e:
+            st.error(f"❌ Could not create 'feedback' worksheet:\n\n{e}")
+            return
+
+    # ----- Prepare rows -----
     chat_row = [
         timestamp,
         meta.get("student_id", ""),
@@ -110,34 +125,34 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
         chat_json,
     ]
 
-    try:
-        chats_ws.append_row(chat_row)
-    except Exception as e:
-        st.error(f"Could not append chat to Google Sheet: {e}")
-
-    # ----- Feedback sheet -----
-    try:
-        fb_ws = sh.worksheet("feedback")
-    except Exception:
-        fb_ws = sh.add_worksheet(title="feedback", rows="1000", cols="20")
-
     fb_row = [
         timestamp,
         meta.get("student_id", ""),
         meta.get("language", ""),
         meta.get("batch_step", ""),
         meta.get("roleplay_id", ""),
-        feedback.get("clarity", ""),
-        feedback.get("authenticity", ""),
-        feedback.get("learning", ""),
-        feedback.get("difficulty", ""),
-        feedback.get("comment", ""),
+        feedback.get("clarity"),
+        feedback.get("authenticity"),
+        feedback.get("learning"),
+        feedback.get("difficulty"),
+        feedback.get("comment"),
     ]
 
+    # ----- Write Chat -----
+    try:
+        chats_ws.append_row(chat_row)
+    except Exception as e:
+        st.error(f"Could not append chat row:\n\n{e}")
+        return
+
+    # ----- Write Feedback -----
     try:
         fb_ws.append_row(fb_row)
     except Exception as e:
-        st.error(f"Could not append feedback to Google Sheet: {e}")
+        st.error(f"Could not append feedback row:\n\n{e}")
+        return
+
+    st.success(" Chat + Feedback saved successfully!")
 
 
 # ---------------------------------------------------------
@@ -984,7 +999,7 @@ st.info(
 )
 
 # ---------------------------------------------------------
-#  Start / restart conversation
+#  Start/restart conversation
 # ---------------------------------------------------------
 
 if st.button("Start / Restart conversation"):
@@ -1141,7 +1156,7 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         st.session_state.messages = []
 
 # ---------------------------------------------------------
-#  Teacher / admin info
+#  Teacher/admin info
 # ---------------------------------------------------------
 
 with st.expander(" Teacher / admin info"):
