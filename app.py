@@ -1115,9 +1115,9 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         else:
             st.session_state.batch_step = "finished"
             msg = (
-                "✅ Thank you! You completed both batches."
+                "Thank you! You completed both batches."
                 if language == "English"
-                else "✅ Vielen Dank! Sie haben beide Blöcke abgeschlossen."
+                else " Vielen Dank! Sie haben beide Blöcke abgeschlossen."
             )
             st.success(msg)
 
@@ -1144,19 +1144,5 @@ To save chats and feedback in the cloud:
 
 1. Create a **Google Cloud service account** with access to Google Sheets & Drive.  
 2. Create a Google Sheet and share it with the service account e-mail (Editor).  
-3. In Streamlit Cloud (or `.streamlit/secrets.toml` locally) add:
+3. In Streamlit Cloud (or `.streamlit/secrets.toml` locally), add this:
 
-```toml
-OPENAI_API_KEY = "YOUR_REAL_OPENAI_KEY"
-GSPREAD_SHEET_ID = "your_google_sheet_id"
-
-[gcp_service_account]
-# paste the full JSON content from your service account key here
-type = "service_account"
-project_id = "..."
-private_key_id = "..."
-private_key = "-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n"
-client_email = "your-sa@your-project.iam.gserviceaccount.com"
-client_id = "..."
-token_uri = "https://oauth2.googleapis.com/token"
-# etc.
