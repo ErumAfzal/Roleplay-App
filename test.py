@@ -614,10 +614,6 @@ FRAMEWORK_UNDERSTANDING_DE = (
     "Ziel: gegenseitiges Verstehen und eine tragfähige Beziehung."
 )
 
-# ---------------------------------------------------------
-#  ROLEPLAYS 1–10
-# ---------------------------------------------------------
-
 ROLEPLAYS = {
 
     # ---------- 1 ----------
@@ -626,36 +622,37 @@ ROLEPLAYS = {
         "communication_type": "strategic",
         "title_en": "1. Convincing supervisor to approve a training course",
         "title_de": "1. Vorgesetzte/n überzeugen, eine Fortbildung zu genehmigen",
-        "user_en": COMMON_USER_HEADER_EN + """
-You want to attend a PD course on self-directed learning. The principal is sceptical.
-
-**Your task:**
-• Explain benefits for you AND the school  
-• Address concerns (budget/organisation)  
-• Maintain professional relationship
-""" + FRAMEWORK_STRATEGIC_EN,
-        "partner_en": """
-You are the PRINCIPAL.
-
-- Ask for school benefit  
-- Worry about costs & substitution  
-- Agree only with clear link to school development
-""",
-        "user_de": COMMON_USER_HEADER_DE + """
-Sie möchten eine Fortbildung besuchen. Die Schulleitung ist skeptisch.
-
-**Ihre Aufgabe:**
-• Nutzen für Schule & Person erklären  
-• Bedenken ansprechen  
-• Professionelle Beziehung erhalten
-""" + FRAMEWORK_STRATEGIC_DE,
-        "partner_de": """
-Sie sind die SCHULLEITUNG.
-
-- Fragen nach schulischem Nutzen  
-- Sorgen um Kosten & Organisation  
-- Zustimmung nur bei klarer Relevanz
-""",
+        "user_en": (
+            COMMON_USER_HEADER_EN +
+            "\nYou want to attend a PD course on self-directed learning. "
+            "The principal is sceptical.\n\n"
+            "Your task:\n"
+            "- Explain benefits for you AND the school\n"
+            "- Address concerns (budget, organisation)\n"
+            "- Maintain professional relationship\n"
+            + FRAMEWORK_STRATEGIC_EN
+        ),
+        "partner_en": (
+            "You are the PRINCIPAL.\n\n"
+            "- Ask for school benefit\n"
+            "- Worry about costs and substitution\n"
+            "- Agree only with a clear link to school development\n"
+        ),
+        "user_de": (
+            COMMON_USER_HEADER_DE +
+            "\nSie möchten eine Fortbildung besuchen. Die Schulleitung ist skeptisch.\n\n"
+            "Ihre Aufgabe:\n"
+            "- Nutzen für Schule und Person erklären\n"
+            "- Bedenken ansprechen\n"
+            "- Professionelle Beziehung erhalten\n"
+            + FRAMEWORK_STRATEGIC_DE
+        ),
+        "partner_de": (
+            "Sie sind die SCHULLEITUNG.\n\n"
+            "- Fragen nach schulischem Nutzen\n"
+            "- Sorgen um Kosten und Organisation\n"
+            "- Zustimmung nur bei klarer Relevanz\n"
+        ),
     },
 
     # ---------- 2 ----------
@@ -663,37 +660,37 @@ Sie sind die SCHULLEITUNG.
         "phase": 1,
         "communication_type": "strategic",
         "title_en": "2. Convincing a student to join a group",
-        "title_de": "2. Schüler/in überzeugen, eine AG zu wählen",
-        "user_en": COMMON_USER_HEADER_EN + """
-The student prefers judo over theatre despite talent.
-
-**Your task:**
-• Encourage theatre AG  
-• Emphasise talent and development  
-• Maintain trust
-""" + FRAMEWORK_STRATEGIC_EN,
-        "partner_en": """
-You are the STUDENT.
-
-- Prefer judo  
-- Open but sceptical  
-- May accept theatre with support
-""",
-        "user_de": COMMON_USER_HEADER_DE + """
-Schüler/in will lieber Judo als Theater.
-
-**Ihre Aufgabe:**
-• Für Theater argumentieren  
-• Talent betonen  
-• Vertrauensvolle Beziehung halten
-""" + FRAMEWORK_STRATEGIC_DE,
-        "partner_de": """
-Sie sind der/die SCHÜLER/IN.
-
-- Möchte Judo  
-- Offen für Argumente  
-- Theater bei guter Unterstützung möglich
-""",
+        "title_de": "2. Schueler/in ueberzeugen, eine AG zu waehlen",
+        "user_en": (
+            COMMON_USER_HEADER_EN +
+            "\nThe student prefers judo over theatre despite talent.\n\n"
+            "Your task:\n"
+            "- Encourage theatre AG\n"
+            "- Emphasise talent and development\n"
+            "- Maintain trust\n"
+            + FRAMEWORK_STRATEGIC_EN
+        ),
+        "partner_en": (
+            "You are the STUDENT.\n\n"
+            "- Prefer judo\n"
+            "- Open but sceptical\n"
+            "- May accept theatre with support\n"
+        ),
+        "user_de": (
+            COMMON_USER_HEADER_DE +
+            "\nSchueler/in will lieber Judo als Theater.\n\n"
+            "Ihre Aufgabe:\n"
+            "- Fuer Theater argumentieren\n"
+            "- Talent betonen\n"
+            "- Vertrauensvolle Beziehung halten\n"
+            + FRAMEWORK_STRATEGIC_DE
+        ),
+        "partner_de": (
+            "Sie sind der/die SCHUELER/IN.\n\n"
+            "- Moechte Judo\n"
+            "- Offen fuer Argumente\n"
+            "- Theater bei guter Unterstuetzung moeglich\n"
+        ),
     },
 
     # ---------- 3 ----------
@@ -702,36 +699,36 @@ Sie sind der/die SCHÜLER/IN.
         "communication_type": "strategic",
         "title_en": "3. Talking to a colleague who misses deadlines",
         "title_de": "3. Kolleg/in auf verpasste Termine ansprechen",
-        "user_en": COMMON_USER_HEADER_EN + """
-A colleague frequently misses deadlines.
-
-**Your task:**
-• Address behaviour clearly  
-• Maintain cooperation  
-• Work toward change
-""" + FRAMEWORK_STRATEGIC_EN,
-        "partner_en": """
-You are the COLLEAGUE.
-
-- Downplays issues  
-- Avoids discomfort  
-- Becomes cooperative with respectful clarity
-""",
-        "user_de": COMMON_USER_HEADER_DE + """
-Kolleg/in hält Termine nicht ein.
-
-**Ihre Aufgabe:**
-• Klar ansprechen  
-• Beziehung erhalten  
-• Veränderung vereinbaren
-""" + FRAMEWORK_STRATEGIC_DE,
-        "partner_de": """
-Sie sind die KOLLEGIN/der KOLLEGE.
-
-- Spielt Problem herunter  
-- Weicht aus  
-- Wird einsichtig bei klarer, respektvoller Ansprache
-""",
+        "user_en": (
+            COMMON_USER_HEADER_EN +
+            "\nA colleague frequently misses deadlines.\n\n"
+            "Your task:\n"
+            "- Address behaviour clearly\n"
+            "- Maintain cooperation\n"
+            "- Work toward change\n"
+            + FRAMEWORK_STRATEGIC_EN
+        ),
+        "partner_en": (
+            "You are the COLLEAGUE.\n\n"
+            "- Downplays issues\n"
+            "- Avoids discomfort\n"
+            "- Becomes cooperative with respectful clarity\n"
+        ),
+        "user_de": (
+            COMMON_USER_HEADER_DE +
+            "\nKolleg/in haelt Termine nicht ein.\n\n"
+            "Ihre Aufgabe:\n"
+            "- Klar ansprechen\n"
+            "- Beziehung erhalten\n"
+            "- Veraenderung vereinbaren\n"
+            + FRAMEWORK_STRATEGIC_DE
+        ),
+        "partner_de": (
+            "Sie sind die KOLLEGIN/der KOLLEGE.\n\n"
+            "- Spielt Problem herunter\n"
+            "- Weicht aus\n"
+            "- Wird einsichtig bei klarer, respektvoller Ansprache\n"
+        ),
     },
 
     # ---------- 4 ----------
@@ -739,37 +736,37 @@ Sie sind die KOLLEGIN/der KOLLEGE.
         "phase": 1,
         "communication_type": "strategic",
         "title_en": "4. Getting a colleague to be punctual",
-        "title_de": "4. Kolleg/in zu Pünktlichkeit bewegen",
-        "user_en": COMMON_USER_HEADER_EN + """
-Colleague arrives late regularly.
-
-**Task:**  
-• Focus on behaviour  
-• Explain consequences  
-• Aim for clear agreement
-""" + FRAMEWORK_STRATEGIC_EN,
-        "partner_en": """
-You are the COLLEAGUE.
-
-- Minimises lateness  
-- Provides excuses  
-- Accepts clear expectations
-""",
-        "user_de": COMMON_USER_HEADER_DE + """
-Kolleg/in kommt oft zu spät.
-
-**Aufgabe:**  
-• Verhalten ansprechen  
-• Folgen erklären  
-• Vereinbarung treffen
-""" + FRAMEWORK_STRATEGIC_DE,
-        "partner_de": """
-Sie sind die KOLLEGIN/der KOLLEGE.
-
-- Hält es für „nicht schlimm“  
-- Bringt Ausreden  
-- Einsichtig bei klaren Erwartungen
-""",
+        "title_de": "4. Kolleg/in zu Puenktlichkeit bewegen",
+        "user_en": (
+            COMMON_USER_HEADER_EN +
+            "\nColleague arrives late regularly.\n\n"
+            "Task:\n"
+            "- Focus on behaviour\n"
+            "- Explain consequences\n"
+            "- Aim for clear agreement\n"
+            + FRAMEWORK_STRATEGIC_EN
+        ),
+        "partner_en": (
+            "You are the COLLEAGUE.\n\n"
+            "- Minimises lateness\n"
+            "- Provides excuses\n"
+            "- Accepts clear expectations\n"
+        ),
+        "user_de": (
+            COMMON_USER_HEADER_DE +
+            "\nKolleg/in kommt oft zu spaet.\n\n"
+            "Aufgabe:\n"
+            "- Verhalten ansprechen\n"
+            "- Folgen erklaeren\n"
+            "- Vereinbarung treffen\n"
+            + FRAMEWORK_STRATEGIC_DE
+        ),
+        "partner_de": (
+            "Sie sind die KOLLEGIN/der KOLLEGE.\n\n"
+            "- Haelt es fuer nicht schlimm\n"
+            "- Bringt Ausreden\n"
+            "- Wird einsichtig bei klaren Erwartungen\n"
+        ),
     },
 
     # ---------- 5 ----------
@@ -778,36 +775,36 @@ Sie sind die KOLLEGIN/der KOLLEGE.
         "communication_type": "strategic",
         "title_en": "5. Convincing supervisor to reduce my hours",
         "title_de": "5. Stundenreduzierung beantragen",
-        "user_en": COMMON_USER_HEADER_EN + """
-You need reduced hours for personal reasons.
-
-**Task:**  
-• Explain carefully  
-• Show commitment  
-• Understand organisational limits
-""" + FRAMEWORK_STRATEGIC_EN,
-        "partner_en": """
-You are the SUPERVISOR.
-
-- Worry about staffing  
-- Ask for reasoning  
-- May accept compromise
-""",
-        "user_de": COMMON_USER_HEADER_DE + """
-Sie wollen Stunden reduzieren.
-
-**Aufgabe:**  
-• Gründe vorsichtig erklären  
-• Engagement zeigen  
-• Zwänge verstehen
-""" + FRAMEWORK_STRATEGIC_DE,
-        "partner_de": """
-Sie sind die SCHULLEITUNG.
-
-- Sorgen um Versorgung  
-- Fragen nach Gründen  
-- Kompromisse möglich
-""",
+        "user_en": (
+            COMMON_USER_HEADER_EN +
+            "\nYou need reduced hours for personal reasons.\n\n"
+            "Task:\n"
+            "- Explain carefully\n"
+            "- Show commitment\n"
+            "- Understand organisational limits\n"
+            + FRAMEWORK_STRATEGIC_EN
+        ),
+        "partner_en": (
+            "You are the SUPERVISOR.\n\n"
+            "- Worry about staffing\n"
+            "- Ask for reasoning\n"
+            "- May accept compromise\n"
+        ),
+        "user_de": (
+            COMMON_USER_HEADER_DE +
+            "\nSie wollen Stunden reduzieren.\n\n"
+            "Aufgabe:\n"
+            "- Gruende vorsichtig erklaeren\n"
+            "- Engagement zeigen\n"
+            "- Zwaenge verstehen\n"
+            + FRAMEWORK_STRATEGIC_DE
+        ),
+        "partner_de": (
+            "Sie sind die SCHULLEITUNG.\n\n"
+            "- Sorgen um Versorgung\n"
+            "- Fragen nach Gruenden\n"
+            "- Kompromisse moeglich\n"
+        ),
     },
 
     # ---------- 6 ----------
@@ -815,34 +812,34 @@ Sie sind die SCHULLEITUNG.
         "phase": 2,
         "communication_type": "understanding",
         "title_en": "6. Explaining the reason for a poor evaluation",
-        "title_de": "6. Schlechte Bewertung erklären",
-        "user_en": COMMON_USER_HEADER_EN + """
-Explain criteria clearly.
-
-• Listen to feelings  
-• Aim for understanding
-""" + FRAMEWORK_UNDERSTANDING_EN,
-        "partner_en": """
-You are the PERSON with the poor evaluation.
-
-- Hurt  
-- Wants explanation  
-- Accepts fairness
-""",
-        "user_de": COMMON_USER_HEADER_DE + """
-Schlechte Bewertung erklären.
-
-• Kriterien erläutern  
-• Zuhören  
-• Verständnis erreichen
-""" + FRAMEWORK_UNDERSTANDING_DE,
-        "partner_de": """
-Sie sind die PERSON.
-
-- Enttäuscht  
-- Will Klarheit  
-- Akzeptiert bei Transparenz
-""",
+        "title_de": "6. Schlechte Bewertung erklaeren",
+        "user_en": (
+            COMMON_USER_HEADER_EN +
+            "\nExplain criteria clearly.\n\n"
+            "- Listen to feelings\n"
+            "- Aim for understanding\n"
+            + FRAMEWORK_UNDERSTANDING_EN
+        ),
+        "partner_en": (
+            "You are the PERSON with the poor evaluation.\n\n"
+            "- Hurt\n"
+            "- Wants explanation\n"
+            "- Accepts fairness\n"
+        ),
+        "user_de": (
+            COMMON_USER_HEADER_DE +
+            "\nSchlechte Bewertung erklaeren.\n\n"
+            "- Kriterien erklaeren\n"
+            "- Zuhoeren\n"
+            "- Verstaendnis erreichen\n"
+            + FRAMEWORK_UNDERSTANDING_DE
+        ),
+        "partner_de": (
+            "Sie sind die PERSON.\n\n"
+            "- Enttaeuscht\n"
+            "- Will Klarheit\n"
+            "- Akzeptiert bei Transparenz\n"
+        ),
     },
 
     # ---------- 7 ----------
@@ -850,35 +847,35 @@ Sie sind die PERSON.
         "phase": 2,
         "communication_type": "understanding",
         "title_en": "7. Explaining neutrality in a conflict",
-        "title_de": "7. Neutralität erklären",
-        "user_en": COMMON_USER_HEADER_EN + """
-A person accuses you of taking sides.
-
-• Explain neutrality  
-• Clarify role  
-• Show empathy
-""" + FRAMEWORK_UNDERSTANDING_EN,
-        "partner_en": """
-You are the CONFLICTING PARTY.
-
-- Feels unsupported  
-- Questions neutrality  
-- Accepts role explanation
-""",
-        "user_de": COMMON_USER_HEADER_DE + """
-Ihnen wird Parteilichkeit vorgeworfen.
-
-• Neutralität erklären  
-• Rolle klären  
-• Empathie zeigen
-""" + FRAMEWORK_UNDERSTANDING_DE,
-        "partner_de": """
-Sie sind die KONFLIKTPARTEI.
-
-- Zweifel an Neutralität  
-- Will verstanden werden  
-- Akzeptiert klare Rollenklärung
-""",
+        "title_de": "7. Neutralitaet erklaeren",
+        "user_en": (
+            COMMON_USER_HEADER_EN +
+            "\nA person accuses you of taking sides.\n\n"
+            "- Explain neutrality\n"
+            "- Clarify role\n"
+            "- Show empathy\n"
+            + FRAMEWORK_UNDERSTANDING_EN
+        ),
+        "partner_en": (
+            "You are the CONFLICTING PARTY.\n\n"
+            "- Feels unsupported\n"
+            "- Questions neutrality\n"
+            "- Accepts role explanation\n"
+        ),
+        "user_de": (
+            COMMON_USER_HEADER_DE +
+            "\nIhnen wird Parteilichkeit vorgeworfen.\n\n"
+            "- Neutralitaet erklaeren\n"
+            "- Rolle klaeren\n"
+            "- Empathie zeigen\n"
+            + FRAMEWORK_UNDERSTANDING_DE
+        ),
+        "partner_de": (
+            "Sie sind die KONFLIKTPARTEI.\n\n"
+            "- Zweifel an Neutralitaet\n"
+            "- Will verstanden werden\n"
+            "- Akzeptiert klare Rollenklärung\n"
+        ),
     },
 
     # ---------- 8 ----------
@@ -887,32 +884,32 @@ Sie sind die KONFLIKTPARTEI.
         "communication_type": "understanding",
         "title_en": "8. Advising someone to make a good decision",
         "title_de": "8. Entscheidung beraten",
-        "user_en": COMMON_USER_HEADER_EN + """
-Help structure thinking.
-
-• Clarify options  
-• Strengthen autonomy
-""" + FRAMEWORK_UNDERSTANDING_EN,
-        "partner_en": """
-You are the PERSON seeking advice.
-
-- Unsure  
-- Thinking aloud  
-- Decides independently
-""",
-        "user_de": COMMON_USER_HEADER_DE + """
-Sie beraten eine Person.
-
-• Optionen klären  
-• Autonomie stärken
-""" + FRAMEWORK_UNDERSTANDING_DE,
-        "partner_de": """
-Sie sind die PERSON.
-
-- Unsicher  
-- Sortiert Gedanken  
-- Entscheidet selbst
-""",
+        "user_en": (
+            COMMON_USER_HEADER_EN +
+            "\nHelp structure thinking.\n\n"
+            "- Clarify options\n"
+            "- Strengthen autonomy\n"
+            + FRAMEWORK_UNDERSTANDING_EN
+        ),
+        "partner_en": (
+            "You are the PERSON seeking advice.\n\n"
+            "- Unsure\n"
+            "- Thinking aloud\n"
+            "- Decides independently\n"
+        ),
+        "user_de": (
+            COMMON_USER_HEADER_DE +
+            "\nSie beraten eine Person.\n\n"
+            "- Optionen klaeren\n"
+            "- Autonomie staerken\n"
+            + FRAMEWORK_UNDERSTANDING_DE
+        ),
+        "partner_de": (
+            "Sie sind die PERSON.\n\n"
+            "- Unsicher\n"
+            "- Sortiert Gedanken\n"
+            "- Entscheidet selbst\n"
+        ),
     },
 
     # ---------- 9 ----------
@@ -920,35 +917,35 @@ Sie sind die PERSON.
         "phase": 2,
         "communication_type": "understanding",
         "title_en": "9. Explaining viewpoint on feedback procedures",
-        "title_de": "9. Sicht auf Feedbackverfahren erklären",
-        "user_en": COMMON_USER_HEADER_EN + """
-You are sceptical about new feedback criteria.
-
-• Explain reservations  
-• Suggest criteria  
-• Maintain cooperation
-""" + FRAMEWORK_UNDERSTANDING_EN,
-        "partner_en": """
-You are the PRINCIPAL.
-
-- Supportive  
-- Feedback for development  
-- Open to suggestions
-""",
-        "user_de": COMMON_USER_HEADER_DE + """
-Sie sind skeptisch gegenüber neuen Feedbackkriterien.
-
-• Bedenken darlegen  
-• Vorschläge machen  
-• Zusammenarbeit sichern
-""" + FRAMEWORK_UNDERSTANDING_DE,
-        "partner_de": """
-Sie sind die SCHULLEITUNG.
-
-- Unterstützend  
-- Entwicklungsorientiert  
-- Offen für Vorschläge
-""",
+        "title_de": "9. Sicht auf Feedbackverfahren erklaeren",
+        "user_en": (
+            COMMON_USER_HEADER_EN +
+            "\nYou are sceptical about new feedback criteria.\n\n"
+            "- Explain reservations\n"
+            "- Suggest criteria\n"
+            "- Maintain cooperation\n"
+            + FRAMEWORK_UNDERSTANDING_EN
+        ),
+        "partner_en": (
+            "You are the PRINCIPAL.\n\n"
+            "- Supportive\n"
+            "- Feedback for development\n"
+            "- Open to suggestions\n"
+        ),
+        "user_de": (
+            COMMON_USER_HEADER_DE +
+            "\nSie sind skeptisch gegenueber neuen Feedbackkriterien.\n\n"
+            "- Bedenken darlegen\n"
+            "- Vorschläge machen\n"
+            "- Zusammenarbeit sichern\n"
+            + FRAMEWORK_UNDERSTANDING_DE
+        ),
+        "partner_de": (
+            "Sie sind die SCHULLEITUNG.\n\n"
+            "- Unterstuetzend\n"
+            "- Entwicklungsorientiert\n"
+            "- Offen fuer Vorschlaege\n"
+        ),
     },
 
     # ---------- 10 ----------
@@ -957,37 +954,36 @@ Sie sind die SCHULLEITUNG.
         "communication_type": "understanding",
         "title_en": "10. Developing guidelines with a colleague",
         "title_de": "10. Leitlinien mit Kolleg/in entwickeln",
-        "user_en": COMMON_USER_HEADER_EN + """
-Develop guidelines together.
-
-• Offer ideas  
-• Build on suggestions  
-• Aim for shared outcome
-""" + FRAMEWORK_UNDERSTANDING_EN,
-        "partner_en": """
-You are the COLLEAGUE.
-
-- Has ideas  
-- Cooperative  
-- Appreciates listening
-""",
-        "user_de": COMMON_USER_HEADER_DE + """
-Sie entwickeln gemeinsam einen Leitfaden.
-
-• Ideen einbringen  
-• Anknüpfen  
-• Gemeinsames Ergebnis
-""" + FRAMEWORK_UNDERSTANDING_DE,
-        "partner_de": """
-Sie sind die KOLLEGIN/der KOLLEGE.
-
-- Eigene Vorstellungen  
-- Kompromissbereit  
-- Schätzt gutes Zuhören
-""",
+        "user_en": (
+            COMMON_USER_HEADER_EN +
+            "\nDevelop guidelines together.\n\n"
+            "- Offer ideas\n"
+            "- Build on suggestions\n"
+            "- Aim for shared outcome\n"
+            + FRAMEWORK_UNDERSTANDING_EN
+        ),
+        "partner_en": (
+            "You are the COLLEAGUE.\n\n"
+            "- Has ideas\n"
+            "- Cooperative\n"
+            "- Appreciates listening\n"
+        ),
+        "user_de": (
+            COMMON_USER_HEADER_DE +
+            "\nSie entwickeln gemeinsam einen Leitfaden.\n\n"
+            "- Ideen einbringen\n"
+            "- Anknuepfen\n"
+            "- Gemeinsames Ergebnis\n"
+            + FRAMEWORK_UNDERSTANDING_DE
+        ),
+        "partner_de": (
+            "Sie sind die KOLLEGIN/der KOLLEGE.\n\n"
+            "- Eigene Vorstellungen\n"
+            "- Kompromissbereit\n"
+            "- Schaetzt gutes Zuhoeren\n"
+        ),
     },
 }
-
 # ---------------------------------------------------------
 #  Streamlit UI & Flow Logic
 # ---------------------------------------------------------
