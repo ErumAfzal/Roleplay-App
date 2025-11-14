@@ -134,10 +134,6 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
     fb_ws.append_row(fb_row)
 
     st.success(" Chat + Feedback saved successfully!")
-✅ Reply “NEXT” to receive PART 2 (Roleplay definitions)
-
-
-
 
 # ---------------------------------------------------------
 #  ROLEPLAY DEFINITIONS (Batch 1 + Batch 2)
