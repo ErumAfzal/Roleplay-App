@@ -1,7 +1,14 @@
 import streamlit as st
-import openai
+import time
 import json
-from datetime import datetime
+from openai import OpenAI    
+# ... your other imports
+
+# ---------------------------------------------------------
+#  OpenAI client (NEW 2025 API)
+# ---------------------------------------------------------
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])   # <--- MUST EXIST
+
 
 # Optional: Google Sheets logging
 try:
