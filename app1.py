@@ -1140,13 +1140,9 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         # Clear chat for next step
         st.session_state.messages = []
 
-# ---------------------------------------------------------
-#  Teacher/admin info
-# ---------------------------------------------------------
-
 with st.expander(" Teacher / admin info"):
     st.markdown(
-        """
+        r"""
 **Batch structure**
 
 - Students must complete **exactly one** role-play from  
@@ -1161,10 +1157,8 @@ To save chats and feedback in the cloud:
 1. Create a **Google Cloud service account** with access to Google Sheets & Drive.  
 2. Create a Google Sheet and share it with the service account e-mail (Editor).  
 3. In Streamlit Cloud (or `.streamlit/secrets.toml` locally), add something like:
-"""
-    )
-```
-toml
+
+```toml
 OPENAI_API_KEY = "YOUR_REAL_OPENAI_KEY"
 GSPREAD_SHEET_ID = "your_google_sheet_id"
 
@@ -1176,5 +1170,3 @@ private_key = "-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n"
 client_email = "your-sa@your-project.iam.gserviceaccount.com"
 client_id = "..."
 token_uri = "https://oauth2.googleapis.com/token"
-"""
-    )
