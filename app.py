@@ -1104,9 +1104,6 @@ if not api_ready:
 #  Chat interface
 # ---------------------------------------------------------
 
-from openai import OpenAI
-client = OpenAI()
-
 st.subheader("💬 Conversation")
 
 chat_container = st.container()
@@ -1120,40 +1117,44 @@ with chat_container:
             label = "AI Partner" if language == "English" else "Gesprächspartner:in (KI)"
             st.markdown(f"**{label}:** {msg['content']}")
 
+# Only active while chat is ongoing
 if st.session_state.chat_active and not st.session_state.feedback_done:
+
     user_input = st.chat_input(
         "Write your next message…" if language == "English" else "Schreiben Sie Ihre nächste Nachricht…"
     )
 
     if user_input:
-        # Add user message
+        # Save user message
         st.session_state.messages.append({"role": "user", "content": user_input})
 
-        # Call OpenAI (NEW API)
+        # Call OpenAI (new API style)
         try:
-            response = client.chat.completions.create(
+            from openai import OpenAI
+            client = OpenAI(api_key=openai.api_key)
+
+            completion = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=400,
             )
 
-            reply = response.choices[0].message.content.strip()
+            reply = completion.choices[0].message["content"].strip()
 
         except Exception as e:
             reply = f"[Error from OpenAI API: {e}]"
 
-        # Add assistant reply
+        # Save assistant reply
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
-        # Re-render
-        st.experimental_rerun()
+        # Display immediately (no rerun needed)
+        st.markdown(f"**{label}:** {reply}")
 
-# Button to end conversation
+# Exit button
 if st.session_state.chat_active and not st.session_state.feedback_done:
     if st.button("⏹ End conversation / Gespräch beenden"):
         st.session_state.chat_active = False
-
 # ---------------------------------------------------------
 #  Feedback form (after conversation)
 # ---------------------------------------------------------
