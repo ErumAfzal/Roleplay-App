@@ -40,18 +40,18 @@ SURVEY_QUESTIONS = [
     ("Q2", "The chatbot seemed too robotic.", "Personality"),
     ("Q3", "The chatbot was welcoming during initial setup.", "Personality"),
     ("Q4", "The chatbot seemed very unfriendly.", "Personality"),
-    ("Q9", "The chatbot understood me well.", "Personality"),
+    ("Q5", "The chatbot understood me well.", "Personality"),
     # UX
-    ("Q7", "The chatbot was easy to navigate.", "User Experience"),
-    ("Q8", "It would be easy to get confused when using the chatbot.", "User Experience"),
-    ("Q15", "The chatbot was easy to use.", "User Experience"),
-    ("Q16", "The chatbot was very complex.", "User Experience"),
+    ("Q6", "The chatbot was easy to navigate.", "User Experience"),
+    ("Q7", "It would be easy to get confused when using the chatbot.", "User Experience"),
+    ("Q8", "The chatbot was easy to use.", "User Experience"),
+    ("Q9", "The chatbot was very complex.", "User Experience"),
     # Error handling
-    ("Q13", "The chatbot coped well with any errors or mistakes.", "Error Handling"),
-    ("Q14", "The chatbot seemed unable to cope with any errors.", "Error Handling"),
+    ("Q10", "The chatbot coped well with any errors or mistakes.", "Error Handling"),
+    ("Q11", "The chatbot seemed unable to cope with any errors.", "Error Handling"),
     # Onboarding
-    ("Q5", "The chatbot explained its scope and purpose well.", "Onboarding"),
-    ("Q6", "The chatbot gave no indication as to its purpose.", "Onboarding"),
+    ("Q12", "The chatbot explained its scope and purpose well.", "Onboarding"),
+    ("Q13", "The chatbot gave no indication as to its purpose.", "Onboarding"),
 ]
 
 
@@ -243,7 +243,7 @@ st.markdown(f"## Role-play {role_id}: {meta['title']}")
 col_instr, col_chat = st.columns([1.1, 1.9])
 
 with col_instr:
-    st.markdown("### 📘 Instructions for you (student)")
+    st.markdown("### Instructions for you (student)")
     st.markdown(meta["student_instructions"])
 
     st.info(
