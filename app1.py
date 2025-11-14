@@ -1123,22 +1123,26 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         if st.session_state.batch_step == "batch1":
             st.session_state.batch_step = "batch2"
             msg = (
-                "✅ Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
+                "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
                 if language == "English"
-                else "✅ Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
+                else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
             )
             st.success(msg)
         else:
             st.session_state.batch_step = "finished"
             msg = (
-                "✅ Thank you! You completed both batches."
+                "Thank you! You completed both batches."
                 if language == "English"
-                else "✅ Vielen Dank! Sie haben beide Blöcke abgeschlossen."
+                else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
             )
             st.success(msg)
 
         # Clear chat for next step
         st.session_state.messages = []
+
+# ---------------------------------------------------------
+#  Teacher / admin info
+# ---------------------------------------------------------
 
 with st.expander(" Teacher / admin info"):
     st.markdown(
@@ -1170,3 +1174,5 @@ private_key = "-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n"
 client_email = "your-sa@your-project.iam.gserviceaccount.com"
 client_id = "..."
 token_uri = "https://oauth2.googleapis.com/token"
+"""
+)
