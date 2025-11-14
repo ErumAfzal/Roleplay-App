@@ -871,7 +871,7 @@ Kommunikationstyp: Verstehensorientiert, gleichberechtigte Rollen.
 
 st.set_page_config(page_title="Role-Play Communication Trainer", layout="wide")
 
-st.title("🎭 Role-Play Communication Trainer")
+st.title("Role-Play Communication Trainer")
 
 st.sidebar.header("Settings")
 
@@ -915,9 +915,9 @@ else:
 
 if st.session_state.batch_step == "finished":
     st.success(
-        "✅ You have completed one role-play from Batch 1 and one from Batch 2. Thank you!"
+        " You have completed one role-play from Batch 1 and one from Batch 2. Thank you!"
         if language == "English"
-        else "✅ Sie haben je ein Rollenspiel aus Block 1 und Block 2 abgeschlossen. Vielen Dank!"
+        else "Sie haben je ein Rollenspiel aus Block 1 und Block 2 abgeschlossen. Vielen Dank!"
     )
     st.stop()
 
@@ -960,7 +960,7 @@ if (
 #  Instructions
 # ---------------------------------------------------------
 
-st.subheader("📄 Instructions for YOU" if language == "English" else "📄 Anweisungen für SIE")
+st.subheader(" Instructions for YOU" if language == "English" else "📄 Anweisungen für SIE")
 
 if language == "English":
     st.markdown(current_rp["user_en"])
@@ -987,7 +987,7 @@ st.info(
 #  Start / restart conversation
 # ---------------------------------------------------------
 
-if st.button("▶️ Start / Restart conversation"):
+if st.button("Start / Restart conversation"):
     st.session_state.messages = []
     st.session_state.feedback_done = False
     st.session_state.chat_active = True
@@ -1009,7 +1009,7 @@ if st.button("▶️ Start / Restart conversation"):
 #  Chat interface
 # ---------------------------------------------------------
 
-st.subheader("💬 Conversation" if language == "English" else "💬 Gespräch")
+st.subheader("Conversation" if language == "English" else " Gespräch")
 
 chat_container = st.container()
 
@@ -1053,7 +1053,7 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 # ---------------------------------------------------------
 
 if not st.session_state.chat_active and st.session_state.messages and not st.session_state.feedback_done:
-    st.subheader("📝 Short feedback / Kurzes Feedback")
+    st.subheader("Short feedback / Kurzes Feedback")
 
     if language == "English":
         clarity = st.radio(
@@ -1062,7 +1062,7 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
             horizontal=True,
         )
         authenticity = st.radio(
-            "How authentic / realistic did the conversation feel?",
+            "How authentic/realistic did the conversation feel?",
             [1, 2, 3, 4, 5],
             horizontal=True,
         )
@@ -1141,10 +1141,10 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         st.session_state.messages = []
 
 # ---------------------------------------------------------
-#  Teacher / admin info
+#  Teacher/admin info
 # ---------------------------------------------------------
 
-with st.expander("ℹ️ Teacher / admin info"):
+with st.expander(" Teacher / admin info"):
     st.markdown(
         """
 **Batch structure**
@@ -1161,7 +1161,8 @@ To save chats and feedback in the cloud:
 1. Create a **Google Cloud service account** with access to Google Sheets & Drive.  
 2. Create a Google Sheet and share it with the service account e-mail (Editor).  
 3. In Streamlit Cloud (or `.streamlit/secrets.toml` locally), add something like:
-
+"""
+    )
 ```toml
 OPENAI_API_KEY = "YOUR_REAL_OPENAI_KEY"
 GSPREAD_SHEET_ID = "your_google_sheet_id"
