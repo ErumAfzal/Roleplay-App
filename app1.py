@@ -1037,7 +1037,7 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
                 temperature=0.7,
                 max_tokens=400,
             )
-            reply = response.choices[0].message["content"]
+            reply = response.choices[0].message.content
         except Exception as e:
             reply = f"[Error from OpenAI API: {e}]"
 
