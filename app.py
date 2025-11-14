@@ -1026,7 +1026,7 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
             reply = f"[Error from OpenAI API: {e}]"
 
         st.session_state.messages.append({"role": "assistant", "content": reply})
-        st.experimental_rerun()
+        st.rerun()
 
 if st.session_state.chat_active and not st.session_state.feedback_done:
     if st.button("⏹ End conversation / Gespräch beenden"):
