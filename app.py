@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 import json
 from datetime import datetime
-
+st.rerun()
 # Optional: Google Sheets logging
 try:
     import gspread
@@ -1104,6 +1104,9 @@ if not api_ready:
 #  Chat interface
 # ---------------------------------------------------------
 
+from openai import OpenAI
+client = OpenAI()
+
 st.subheader("💬 Conversation")
 
 chat_container = st.container()
@@ -1126,18 +1129,21 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
         # Add user message
         st.session_state.messages.append({"role": "user", "content": user_input})
 
-        # Call OpenAI
+        # Call OpenAI (NEW API)
         try:
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=400,
             )
-            reply = response.choices[0].message["content"].strip()
+
+            reply = response.choices[0].message.content.strip()
+
         except Exception as e:
             reply = f"[Error from OpenAI API: {e}]"
 
+        # Add assistant reply
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
         # Re-render
