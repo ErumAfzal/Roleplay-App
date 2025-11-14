@@ -561,66 +561,58 @@ Sie sind die KOLLEGI
 #  ROLEPLAY DEFINITIONS (Batch 1 + Batch 2)
 # ---------------------------------------------------------
 
-COMMON_USER_HEADER_EN = """
-Please use the information provided below to guide your conversation.
+COMMON_USER_HEADER_EN = (
+    "Please use the information provided below to guide your conversation.\n\n"
+    "Preparation time: about 5 minutes\n"
+    "Conversation time: up to 10 minutes\n"
+    "Please behave as if YOU were really in this situation.\n"
+    "You may end the conversation at any time by saying: 'Thank you, goodbye.'"
+)
 
-• Preparation time: about 5 minutes  
-• Conversation time: up to 10 minutes  
-• Please behave as if YOU were really in this situation.  
-• You may end the conversation at any time by saying: “Thank you, goodbye.”
-"""
+COMMON_USER_HEADER_DE = (
+    "Bitte nutzen Sie die folgenden Informationen für die Gesprächsführung.\n\n"
+    "Vorbereitungszeit: ca. 5 Minuten\n"
+    "Gesprächsdauer: bis zu 10 Minuten\n"
+    "Verhalten Sie sich so, als wären SIE wirklich in dieser Situation.\n"
+    "Sie können das Gespräch jederzeit mit 'Danke, tschüss' beenden."
+)
 
-COMMON_USER_HEADER_DE = """
-Bitte nutzen Sie die folgenden Informationen für die Gesprächsführung.
+FRAMEWORK_STRATEGIC_EN = (
+    "Communication framework – Strategic communication\n\n"
+    "Conversation intention: relational goal in the foreground.\n"
+    "Content goal: you may partially breach quantity, quality, relevance, "
+    "and clarity if this helps your strategic aim.\n"
+    "Relational goal: you often use future-oriented self-disclosure "
+    "(plans, hopes, fears).\n"
+    "Context: often a power difference.\n"
+    "Goal: achieve your desired outcome strategically."
+)
 
-• Vorbereitungszeit: ca. 5 Minuten  
-• Gesprächsdauer: bis zu 10 Minuten  
-• Verhalten Sie sich so, als wären SIE wirklich in dieser Situation.  
-• Sie können das Gespräch jederzeit mit „Danke, tschüss“ beenden.
-"""
+FRAMEWORK_STRATEGIC_DE = (
+    "Kommunikationsrahmen – Strategische Kommunikation\n\n"
+    "Gesprächsabsicht: Beziehungsziel im Vordergrund.\n"
+    "Sachziel: Menge/Qualität/Relevanz/Klarheit dürfen verletzt werden, "
+    "wenn es strategisch sinnvoll ist.\n"
+    "Beziehungsziel: häufig zukunftsorientierte Selbstoffenbarung.\n"
+    "Kontext: häufig Machtunterschied.\n"
+    "Ziel: gewünschtes Ergebnis strategisch erreichen."
+)
 
-FRAMEWORK_STRATEGIC_EN = """
-**Communication framework – Strategic communication**
+FRAMEWORK_UNDERSTANDING_EN = (
+    "Communication framework – Understanding-oriented communication\n\n"
+    "Content goal in the foreground.\n"
+    "Clear, honest, relevant communication.\n"
+    "Use authentic self-disclosure.\n"
+    "Aim: mutual understanding and a stable relationship."
+)
 
-• Conversation intention: Relational goal in the foreground  
-• Content goal: You may partially breach quantity, quality, relevance and clarity
-  if this helps your strategic aim.  
-• Relational goal: You often use **future-oriented self-disclosure**
-  (what could happen, what you fear or hope). 
-
-• Context: Often power difference  
-• Goal: Achieve your desired outcome strategically
-"""
-
-FRAMEWORK_STRATEGIC_DE = """
-**Kommunikationsrahmen – Strategische Kommunikation**
-
-• Gesprächsabsicht: Beziehungsziel im Vordergrund  
-• Sachziel: Menge/Qualität/Relevanz/Klarheit dürfen bewusst verletzt werden,
-  wenn es dem strategischen Ziel dient  
-• Beziehungsziel: Häufig zukunftsorientierte Selbstoffenbarung  
-
-• Kontext: Häufig Machtunterschied  
-• Ziel: Gewünschtes Ergebnis strategisch erreichen
-"""
-
-FRAMEWORK_UNDERSTANDING_EN = """
-**Communication framework – Understanding-oriented communication**
-
-• Content goal in the foreground  
-• Clear, honest, relevant communication  
-• Use authentic self-disclosure  
-• Aim: mutual understanding & stable relationship
-"""
-
-FRAMEWORK_UNDERSTANDING_DE = """
-**Kommunikationsrahmen – Verstehensorientierte Kommunikation**
-
-• Sachziel im Vordergrund  
-• Klar, ehrlich, relevant kommunizieren  
-• Authentische Selbstoffenbarung  
-• Ziel: gegenseitiges Verstehen & tragfähige Beziehung
-"""
+FRAMEWORK_UNDERSTANDING_DE = (
+    "Kommunikationsrahmen – Verstehensorientierte Kommunikation\n\n"
+    "Sachziel im Vordergrund.\n"
+    "Klar, ehrlich, relevant kommunizieren.\n"
+    "Authentische Selbstoffenbarung.\n"
+    "Ziel: gegenseitiges Verstehen und eine tragfähige Beziehung."
+)
 
 # ---------------------------------------------------------
 #  ROLEPLAYS 1–10
