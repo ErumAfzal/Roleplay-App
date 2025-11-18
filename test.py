@@ -327,15 +327,15 @@ Sie haben Herr/Frau Horn, Ihre Schulleitung, um ein Gespräch gebeten, um Ihr An
     # USER INSTRUCTIONS (EN) – EXACT TRANSLATION OF THE ABOVE
     # -------------------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN + """
-Background information:
+**Background information:**
 You work as a teacher at the Friedrich-Ebert-School. You would like to further educate yourself on the topic of “self-directed learning”. The training is helpful for your professional development because it would complement your previous professional experience well. In addition, there have been repeated job postings recently that included this qualification.
 At the school where you work, however, self-directed learning of students is hardly practiced. Your school leadership does not think highly of this approach. Furthermore, the school management (legally) has the right to deny approval for the training if it does not see any connection to your duties or any benefit for the school. You have decided to approach your principal Mrs. Horn/Mr. Horn to “place” the topic of training. You see the topic as a challenge for the school at present because the educational policy also calls for greater student participation so that students learn to show more social engagement and take on responsibility, as well as be prepared for lifelong learning. You wish to see the school move in this direction and want to be qualified in order to potentially take on functional (leadership) roles in this area. If your current school does not develop in this direction, you would possibly consider transferring.
 
-Your task:
+**Your task:**
 You have asked Mr./Mrs. Horn, your school leadership, for a conversation in order to address your concern.
 
-• Content goal: You want to participate in the training.
-• Relationship goal: You want to collaborate with your supervisor on this topic.
+• **Content goal:** You want to participate in the training.
+• **Relationship goal:** You want to collaborate with your supervisor on this topic.
 """,
 
     # -------------------------------------------------------------------------
@@ -347,12 +347,12 @@ Sie haben 5 Minuten Zeit, um sich auf das Gespräch vorzubereiten.
 Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
 Ihr Gegenüber kann das Gespräch jederzeit mit „Danke, tschüss“ beenden.
 
-Hintergrundinformation:
+**Hintergrundinformation:**
 Sie sind Herr/Frau Horn, Schulleiter/Schulleiterin an der Friedrich-Ebert-Schule. Eine Lehrkraft richtet an Sie die Bitte, an einer Weiterbildung zum Thema „selbstgesteuertes Lernen“ teilnehmen zu dürfen. Inhaltlich erscheint Ihnen dieses Thema für die aktuellen Aufgaben und Ziele Ihrer Schule nicht relevant zu sein. Sie selbst sind eher skeptisch gegenüber der Wirksamkeit von modernen Methoden der Schülerzentrierung. Sie legen stattdessen viel Wert auf die genaue Einhaltung des fachlichen schulinternen und schulübergreifenden Curriculums.
 Zudem befürchten Sie, dass durch die Teilnahme an der Fortbildung Unterricht ausfällt und durch die Organisation von Vertretungen mehr Arbeit anfällt.
 Sie sind den Überlegungen der Lehrkraft also skeptisch gegenüber und möchten wissen, warum er/sie genau dieses Thema für wichtig erachtet. Sie halten ihn/sie zwar für sehr kompetent und Sie möchten ihn/sie an der Schule als Lehrkraft behalten. Sie wären jedoch nicht bereit, seine/ihre privaten Ambitionen mit Schulgeldern zu fördern. Andererseits wissen Sie durchaus, dass selbstgesteuertes Lernen künftig eine wichtige Herausforderung für die Schule darstellen wird. So fordert auch die derzeitige Schulpolitik, dass mehr in Richtung lebenslanges Lernen unternommen wird und fachübergreifende Kompetenzen zum Selbstmanagement und zur Selbstaktivierung der Schüler und Schülerinnen (Kommunikation, Koordination, Teamfähigkeit, Präsentationstechniken, Kritikfähigkeit u. Ä.) gefördert werden. Zudem haben Sie wahrgenommen, dass die Unzufriedenheit der Schülerinnen und Schüler wächst. Sie sind daher an dem, was die Lehrkraft Ihnen zu berichten hat, interessiert.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Es ist Ihnen wichtig, dass die Lehrkraft einen klaren und deutlichen Bezug zur schulischen Entwicklung herstellt. Zudem soll die Argumentation die Schule als Ganzes betreffen und nicht die persönlichen Karriereambitionen der Lehrkraft. Auch wenn er/sie eine heimliche Agenda verfolgt, um sich karrieretechnisch besser zu positionieren, sollte er/sie in der Argumentation die „kollektiven“ Vorteile für die Schule in den Vordergrund stellen, um Ihre volle Aufmerksamkeit zu bekommen.
 Sie gehen auf die Bitte der Lehrkraft um ein Gespräch ein. Handeln Sie während der Interaktion wie folgt:
 • Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
@@ -364,8 +364,8 @@ Sie gehen auf die Bitte der Lehrkraft um ein Gespräch ein. Handeln Sie während
 • Fragen Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, wie die Weiterbildung mit der künftigen Karrierelaufbahn der Lehrkraft zusammenhängt.
 • Falls Ihr Gesprächspartner/Ihre Gesprächspartnerin einen Zusammenhang mit den Zielen der Schule argumentativ verdeutlicht und er/sie die aktuelle Schulleitung für die treibende Kraft bei der Weiterentwicklung der Schule hält, stimmen Sie der Teilnahme an einer entsprechenden Weiterbildung zu.
 
-• Sachziel: Sie wollen eine gute Begründung der Lehrkraft hören (Schule steht im Vordergrund), wieso diese an der Weiterbildung teilnehmen möchte.
-• Beziehungsziel: Sie wollen weiterhin mit der Lehrkraft zusammenarbeiten und diese an der Schule halten.
+• **Sachziel:** Sie wollen eine gute Begründung der Lehrkraft hören (Schule steht im Vordergrund), wieso diese an der Weiterbildung teilnehmen möchte.
+• **Beziehungsziel:** Sie wollen weiterhin mit der Lehrkraft zusammenarbeiten und diese an der Schule halten.
 """,
 
     # -------------------------------------------------------------------------
@@ -377,12 +377,12 @@ You have 5 minutes to prepare for the conversation.
 You then have up to 10 minutes to conduct the conversation.
 Your counterpart may end the conversation at any time by saying “Thank you, bye”.
 
-Background information:
+**Background information:**
 You are Mr./Mrs. Horn, principal of the Friedrich-Ebert-School. A teacher is requesting permission to participate in training on the topic of “self-directed learning”. In terms of content, this topic appears not very relevant to the current tasks and goals of your school. You are personally skeptical about the effectiveness of modern student-centered methods. Instead, you place great emphasis on strict adherence to the internal and external curriculum.
 You also fear that participation in the training may cause lesson cancellations and increased work due to substitute planning.
 You are therefore skeptical about the teacher’s considerations and want to know why he/she considers this particular topic important. You consider the teacher competent and would like to keep him/her at the school, but you would not be willing to support his/her private career ambitions with school funds. On the other hand, you are aware that self-directed learning will become an important challenge for schools in the future. Current educational policy demands more steps toward lifelong learning and the promotion of interdisciplinary competences for student self-management and activation (communication, coordination, teamwork, presentation skills, critical thinking, etc.). You have also noticed increasing dissatisfaction among students. You are therefore interested in what the teacher has to report.
 
-Your task:
+**Your task:**
 It is important to you that the teacher presents a clear and explicit connection between the training and school development. The argumentation should concern the school as a whole, not personal career ambitions. Even if the teacher might have a hidden agenda to position themself better careerwise, in their argumentation they should emphasize the “collective” advantages for the school in order to receive your full attention.
 You accept the teacher’s request for a conversation. Act as follows:
 • Create a supportive environment and behave in a way that allows your counterpart to show their best behavior.
@@ -394,8 +394,8 @@ You accept the teacher’s request for a conversation. Act as follows:
 • Ask how the training is related to the teacher’s future career path.
 • If the teacher convincingly demonstrates a connection with the school’s goals and acknowledges the school leadership as the driving force behind school development, approve participation in the training.
 
-• Content goal: You want to hear a good, school-focused justification for why the teacher wants to participate in the training.
-• Relationship goal: You want to continue working with the teacher and keep them at the school long term.
+• **Content goal:** You want to hear a good, school-focused justification for why the teacher wants to participate in the training.
+• **Relationship goal:** You want to continue working with the teacher and keep them at the school long term.
 """
 }
 
