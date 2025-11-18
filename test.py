@@ -1476,15 +1476,7 @@ else:
     st.subheader("Anweisungen für SIE")
     st.markdown(current_rp["user_de"])
 
-with st.expander(
-    "🤖 Hidden instructions for the AI partner (teacher view)"
-    if language == "English"
-    else "🤖 Verdeckte Anweisungen für die KI-Gesprächspartner:in (nur Lehrkraft)"
-):
-    if language == "English" and current_rp.get("partner_en"):
-        st.markdown(current_rp["partner_en"])
-    else:
-        st.markdown(current_rp["partner_de"])
+
 
 st.info(
     "Suggested maximum conversation time: about 10 minutes. "
