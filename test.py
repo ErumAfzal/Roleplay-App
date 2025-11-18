@@ -612,6 +612,110 @@ You show an open attitude and accept the perspective of your colleague when he/s
 The good working relationship should be maintained, but not at any price. You are open to constructive feedback and take your colleague’s concern seriously without initially feeling personally attacked. If he/she personally targets you and repeatedly criticises your way of working or lectures you, e.g. that you do not meet deadlines, you distance yourself and show this clearly (e.g. indignation: “Deadlines are there so that you can let them pass. I have been around long enough to know that, and it has always worked out so far”, or “Relax, I have always been reliable and everything has always worked, right?”).
 """
 }
+ROLEPLAYS[4] = {
+    "phase": 1,
+    "communication_type": "strategic",
+    "title_en": "4. Addressing a student about repeated tardiness and issuing a second warning",
+    "title_de": "4. Schüler/in wegen wiederholtem Zuspätkommen ansprechen und zweite Abmahnung aussprechen",
+
+    "framework": {
+        "user": {
+            "social_role": "stronger",
+            "conversation_intention": "relational goal",
+            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
+            "relational_goal": "future-oriented self-disclosure"
+        },
+        "ai_partner": {
+            "social_role": "weaker",
+            "conversation_intention": "relational goal",
+            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
+            "relational_goal": "future-oriented self-disclosure"
+        }
+    },
+
+    # ------------------------------------------------------------
+    # USER INSTRUCTIONS (GERMAN – EXACT, UNCHANGED)
+    # ------------------------------------------------------------
+    "user_de": """
+**Hintergrundinformation:**
+Sie sind Referendar/Referendarin an der Lilly-Truant-Schule. Das Verhalten des Schülers/der Schülerin Klaus/Katrin Hermann beschäftigt Sie, da er/sie ständig und unbegründet zu spät in Ihrem Unterricht erscheint, gelegentlich auch gar nicht. Sie schätzen die Leistungsfähigkeit des Schülers/der Schülerin, sein/ihr Verhalten stellt jedoch ein Problem für die ganze Klasse dar. Trotz entsprechender Hinweise und höflicher Ansprachen, der Informierung der Eltern sowie einer ersten Abmahnung hat sich die Situation nicht geändert. Der Schüler/Die Schülerin nennt keinen Grund, der auf eine tieferliegende Ursache für sein/ihr Verhalten hinweisen könnte. Die Situation ist für Sie kritisch, da Ihre Kompetenz auch in Hinblick auf das Verhalten Ihrer Schülerinnen und Schüler evaluiert wird.
+Sie entscheiden sich deswegen dafür, den Schüler/die Schülerin direkt auf seine/ihre Verstöße gegen die Schulordnung anzusprechen. Sie wollen ihn/sie zum zweiten Mal abmahnen und ihm/ihr mitteilen, dass ein solches Verhalten von Ihnen nicht mehr geduldet wird und dass ihm/ihr demnächst ein Schulverweis droht. Dem Schüler/Der Schülerin droht bei einem Ausschluss von der Schule eine entsprechende Verschlechterung ihrer/seiner beruflichen Chancen. Sie können das soziale Verhalten auch in die Noten einfließen lassen. Sie handeln nicht im Alleingang, Sie haben die Rückendeckung Ihrer Schulleitung.
+
+**Ihre Aufgabe:**
+Sie bestellen den Schüler/die Schülerin zu sich in ein gerade nicht genutztes Klassenzimmer.
+
+**Sachziel:** Sie wollen das Zugeständnis des Schülers/der Schülerin erreichen, dass er/sie nicht mehr zu spät zu ihrem Unterricht erscheint, oder Sie sind bereit, zeitnah einen Schulausschluss auszusprechen.
+**Beziehungsziel:** Für Sie ist ein gutes Verhältnis zum Schüler/zur Schülerin nicht mehr oberstes Ziel.
+""",
+
+    # ------------------------------------------------------------
+    # USER INSTRUCTIONS (ENGLISH – VERY LITERAL TRANSLATION)
+    # ------------------------------------------------------------
+    "user_en": """
+**Background information:**
+You are a trainee teacher at the Lilly-Truant-School. You are concerned about the behaviour of the student Klaus/Katrin Hermann, as he/she constantly and without justification appears late to your lessons, occasionally not at all. You value the student’s performance capability, but his/her behaviour represents a problem for the entire class. Despite corresponding notices and polite addresses, informing the parents, as well as a first written warning, the situation has not changed. The student does not name any reason that could point to a deeper cause for his/her behaviour. The situation is critical for you, since your competence is also evaluated with respect to the behaviour of your pupils.
+You therefore decide to address the student directly about his/her violations of the school rules. You want to issue him/her a second warning and tell him/her that such behaviour will no longer be tolerated by you and that he/she is threatened with expulsion from school. For the student, an exclusion from school threatens to worsen his/her future career chances. You can also include social behaviour in the grades. You are not acting alone; you have the support of your school management.
+
+**Your task:**
+You summon the student to an unused classroom.
+
+**Content goal:** You want to obtain the student’s commitment that he/she will no longer appear late to your lessons, or you are prepared to issue a school exclusion in the near future.
+**Relationship goal:** A good relationship with the student is no longer your top priority.
+""",
+
+    # ------------------------------------------------------------
+    # AI PARTNER INSTRUCTIONS (GERMAN – EXACT)
+    # ------------------------------------------------------------
+    "partner_de": """
+Hintergrundinformation:
+Sie sind Klaus/Katrin Hermann, Schüler/Schülerin an der Lilly-Truant-Schule. Sie werden von Ihrem Lehrer/Ihrer Lehrerin zu sich bestellt. Sie haben in der letzten Zeit keine Lust auf seinen/ihren Unterricht gehabt, Sie kommen mit seinem/ihrem Lehrstil und auch mit dem Stoff nicht zurecht. Folglich sind Sie immer zu spät erschienen, manchmal auch gar nicht. Er/Sie hat Sie mal vor einiger Zeit darauf angesprochen, Ihre Eltern informiert sowie eine Abmahnung ausgesprochen, was aber für Sie nichts geändert hat. Ihre Motivation bleibt nach wie vor am Boden und Ihre Wertschätzung der Lehrerin/des Lehrers hält sich in Grenzen. Zudem halten Sie Ihre Leistung im Unterricht für angemessen und kommen oft mit neuen Ideen für die Klassenprojekte, an denen Sie teilnehmen. Sie können natürlich Ihre Meinung über den Referendar/die Referendarin nicht offen sagen, haben aber ein paar Ausreden für Ihr Verhalten parat (Probleme mit den Eltern, mal hat der Wecker nicht funktioniert, mal kam der Bus zu spät o. Ä.). Hoffentlich wird er/sie Ihnen etwas davon abkaufen. Sie wissen jedoch auch, dass eine schriftliche Abmahnung und ein Schulverweis eine ernsthafte Drohung darstellen.
+
+Ihre Aufgabe:
+Sprechen Sie mit Ihrem Lehrer/Ihrer Lehrerin über Ihr Verhalten. Er/Sie hat Sie in ein gerade nicht genutztes Klassenzimmer bestellt. Sie wollen versuchen, das Beste für sich aus der Situation herauszuholen und den Schaden für sich möglichst zu minimieren.
+Sie werden in ein Besprechungszimmer zu dem Lehrers/der Lehrerin beordert.
+
+Handeln Sie während der Interaktion wie folgt:
+•	Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
+•	Behaupten Sie, nicht zu verstehen, wo das Problem liegt (z.B. „Kann doch mal passieren“).
+•	Versuchen Sie Ihrem Lehrer/Ihrer Lehrerin mit Ausreden ins Wort zu fallen, um Ihr Verhalten zu rechtfertigen.
+•	Behaupten Sie, dass Sie beim Arbeiten meistens „nachtaktiv“ sind und deswegen morgens nicht so einfach aus dem Bett kommen.
+•	Heben Sie hervor, dass Ihre Leistung und Noten trotzdem stimmen.
+•	Falls die Lehrkraft droht, Ihre Eltern noch einmal zu informieren, versuchen Sie das abzuwenden („Lassen Sie meine Eltern aus dem Spiel.“, „Haben Sie doch Mitgefühl.“, „Seien Sie nicht so hart.“).
+•	Deuten Sie an, dass der „militärische“ Stil der Lehrkraft Ihre Kreativität und Motivation erheblich drosselt.
+•	Zeigen Sie sich bereit, Ihr Verhalten zu ändern, wenn Ihnen seitens des Lehrers/der Lehrerin die Forderungen und die Konsequenzen für Ihr Verhalten klar und deutlich vermittelt werden.
+
+Sachziel: Sie wollen „ungeschoren“ aus dem Gespräch rauskommen (unmittelbaren Konsequenzen des eigenen Verhaltens minimieren). Sie sind bereit Ihr Verhalten zu ändern und Zugeständnisse zu machen, wenn die Lehrkraft klar und deutlich kommuniziert und auch Zugeständnisse macht.
+Beziehungsziel: Für Sie ist ein gutes Verhältnis zur Lehrkraft weiterhin wichtig.
+
+Übergeordnetes Ziel: Gleichzeitig könnte das Ziel sein, eine langfristige Lösung zu finden, um den eigenen Unmut gegenüber der Lehrkraft zu äußern und möglicherweise einen Lehrstil zu erreichen, der besser zum eigenen Lernstil passt.
+""",
+
+    # ------------------------------------------------------------
+    # AI PARTNER INSTRUCTIONS (ENGLISH – VERY LITERAL TRANSLATION)
+    # ------------------------------------------------------------
+    "partner_en": """
+Background information:
+You are Klaus/Katrin Hermann, a student at the Lilly-Truant-School. You are summoned by your teacher. Recently, you have not felt like attending his/her lessons; you do not get along with his/her teaching style or with the material. Consequently, you have always arrived late, sometimes not at all. He/She addressed this some time ago, informed your parents, and issued a warning, which changed nothing for you. Your motivation remains low and your appreciation of the teacher is limited. In addition, you consider your performance in the lessons appropriate and often bring new ideas for the class projects in which you participate. You cannot openly express your opinion about the trainee teacher, but you have some excuses ready (problems with the parents, alarm clock not working, bus being late, etc.). Hopefully he/she will believe some of it. However, you know that a written warning and a school expulsion represent a serious threat.
+
+Your task:
+Talk with your teacher about your behaviour. He/She has summoned you to an unused classroom. You want to try to get the best outcome for yourself and minimise the damage. You are ordered into a meeting room by the teacher.
+
+Act as follows during the interaction:
+• You create a supportive environment and behave in such a way that your counterpart can show his/her best behaviour.
+• Claim not to understand what the problem is (e.g. “It can happen once in a while”).
+• Try to interrupt your teacher with excuses to justify your behaviour.
+• Claim that you are mostly “nocturnal” when working and therefore cannot get out of bed so easily in the morning.
+• Emphasise that your performance and grades are still fine.
+• If the teacher threatens to inform your parents again, try to avert this (“Leave my parents out of it.”, “Have compassion.”, “Do not be so harsh.”).
+• Hint that the teacher’s “military” style significantly reduces your creativity and motivation.
+• Show yourself ready to change your behaviour if the teacher clearly conveys the demands and consequences for your behaviour.
+
+Content goal: You want to get out of the conversation “unscathed” (minimise the immediate consequences of your behaviour). You are ready to change your behaviour and make concessions if the teacher communicates clearly and also makes concessions.
+Relationship goal: A good relationship with the teacher remains important to you.
+
+Overarching goal: At the same time, the goal could be to find a long-term solution to express your dissatisfaction with the teacher and possibly achieve a teaching style that better fits your own learning style.
+"""
+}
 
 
 
