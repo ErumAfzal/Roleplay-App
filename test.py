@@ -253,7 +253,7 @@ ROLEPLAYS = {
         # --------------------------------------------------------------
 
         "user_en": COMMON_USER_HEADER_EN + """
-**Background information (your role):**
+**Background information:**
 
 You are a teacher at the Friedrich-Ebert School. You want to participate in a
 professional development course on “self-directed learning”. This training would
@@ -262,7 +262,7 @@ skills. It has also appeared in several recent job postings.
 
 At your school, self-directed learning is not widely practiced. Your principal
 is sceptical of this educational approach and may legally refuse approval if no
-clear benefit for the school is demonstrated. You therefore decided to bring up
+clear benefit for the school is demonstrated. So, you decided to bring up
 the topic proactively.
 
 You see self-directed learning as important for the **future development of the
@@ -280,32 +280,29 @@ You have asked your principal (Mr/Ms Horn) for a meeting to discuss your request
 """,
 
         "user_de": COMMON_USER_HEADER_DE + """
-**Hintergrundinformation (Ihre Rolle):**
+**Hintergrundinformation ):**
 
-Sie arbeiten als Lehrkraft an der Friedrich-Ebert-Schule. Sie möchten an einer
-Fortbildung zum Thema „selbstgesteuertes Lernen“ teilnehmen. Die Weiterbildung
-unterstützt Ihre langfristige berufliche Entwicklung und ergänzt Ihre bisherigen
-Erfahrungen. Auch in jüngsten Stellenausschreibungen wurde diese Kompetenz
-häufig gefordert.
+Sie arbeiten als Lehrkraft an der Friedrich-Ebert-Schule. 
+Sie möchten sich zum Thema „selbstgesteuertes Lernen“ weiterbilden.
+Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würde Ihre bisherigen beruflichen Erfahrungen gut ergänzen. 
+Zudem gab es in letzter Zeit immer wieder Stellenausschreibungen, die diese Qualifikation enthielten.
 
-An Ihrer Schule wird selbstgesteuertes Lernen jedoch kaum praktiziert.
-Ihre Schulleitung ist diesem Ansatz gegenüber skeptisch und darf eine
-Weiterbildung ablehnen, wenn kein Vorteil für die Schule erkennbar ist.
-Deshalb haben Sie entschieden, das Thema aktiv anzusprechen.
-
-Sie sehen selbstgesteuertes Lernen aktuell als wichtige Herausforderung für die
-Schule, da die Schulpolitik mehr Schülerbeteiligung, Verantwortungsübernahme und
-Vorbereitung auf lebenslanges Lernen fordert. Sie möchten, dass sich die Schule
-in diese Richtung entwickelt, und sich ggf. für zukünftige Funktionsaufgaben
-qualifizieren. Falls die Schule sich nicht in diese Richtung bewegt, würden Sie
-einen Schulwechsel in Betracht ziehen.
+In der Schule, an der Sie arbeiten, wird selbstgesteuertes Lernen der Schülerinnen und Schüler jedoch eher nicht praktiziert. 
+Ihre Schulleitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Schulleitung (rechtlich) zu, die Weiterbildung
+nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Schule darin sieht. 
+Sie haben sich dafür entschieden, Ihre Schulleiterin Frau Horn/Ihren Schulleiter Herrn Horn darauf anzusprechen,
+um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, 
+denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, 
+mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen, sowie auf lebenslanges Lernen vorbereitet sind. 
+Sie wünschen sich eine Weiterentwicklung der Schule in diese Richtung und möchten dafür qualifiziert sein, um ggf. 
+Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. 
+Sollte sich Ihre derzeitige Schule nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
 
 **Ihre Aufgabe:**  
-Sie haben Herr/Frau Horn um ein Gespräch gebeten, um Ihr Anliegen zu
-thematisieren.
+Sie haben Herr/Frau Horn, Ihre Schulleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren.
 
 - **Sachziel:** Sie möchten an der Weiterbildung teilnehmen.  
-- **Beziehungsziel:** Sie wollen konstruktiv mit der Schulleitung zusammenarbeiten.
+- **Beziehungsziel:** Sie wollen mit Ihrem Vorgesetzten/Ihrer Vorgesetzten bei diesem Thema zusammenarbeiten.
 """,
         "partner_de": """
 Sie sind die **SCHULLEITUNG (Herr/Frau Horn)** der Friedrich-Ebert-Schule.
