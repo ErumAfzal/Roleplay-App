@@ -50,7 +50,7 @@ def setup_openai_client():
 def get_gsheets_client():
     """Create a gspread client from service-account info in st.secrets."""
     if not GSHEETS_AVAILABLE:
-        st.sidebar.error("gspread is not installed. Cannot save data.")
+        st. sidebar.error("gspread is not installed. Cannot save data.")
         return None
 
     sa_info = st.secrets.get("gcp_service_account")
@@ -633,7 +633,7 @@ Verhalten:
 - Zeigen Sie Wertschätzung für die Ideen Ihres Gegenübers.
 
 Kommunikationstyp: verstehensorientiert, gleichberechtigte Rollen.
-"",
+""",
     },
 }
 
