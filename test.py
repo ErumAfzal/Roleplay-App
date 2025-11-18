@@ -256,7 +256,7 @@ the school and worries about costs and lesson cancellations.
 **Content goal:** Convince your supervisor to approve your participation.  
 **Relationship goal:** Maintain a constructive, professional relationship and
 show long-term commitment to the school.
-""" + FRAMEWORK_STRATEGIC_EN,
+""" ,
         "partner_en": """
 You are the **PRINCIPAL (Mr/Ms Horn)** at Friedrich-Ebert School.
 
@@ -351,7 +351,7 @@ wants to join the judo AG, mainly because they dislike the theatre teacher.
 **Content goal:** Persuade the student to choose the theatre group.  
 **Relationship goal:** Be perceived as a supportive advisor, not only as a
 representative of school interests.
-""" + FRAMEWORK_STRATEGIC_EN,
+""" ,
         "partner_en": """
 You are the **STUDENT (Jan/Jana Pflüger)**.
 
@@ -448,7 +448,7 @@ Abgabetermine nicht einhält. Das führt zu Mehrarbeit und Stress.
 
 **Sachziel:** Bewusstsein schaffen und konkrete nächste Schritte vereinbaren.  
 **Beziehungsziel:** Zusammenarbeit erhalten, Eskalation vermeiden.
-""" + FRAMEWORK_STRATEGIC_DE,
+""" ,
         "partner_de": """
 Sie sind die KOLLEGIN/der KOLLEGE, die/der Termine häufig nicht einhält.
 
