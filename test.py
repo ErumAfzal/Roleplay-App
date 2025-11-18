@@ -816,7 +816,7 @@ Act as follows during the interaction:
 """
 }
 ROLEPLAYS[6] = {
-    "phase": 1,
+    "phase": 2,
     "communication_type": "understanding_oriented",
     "title_en": "6. Parent–Teacher Meeting about Mathematics Grade and Secondary School Recommendation",
     "title_de": "6. Elterngespräch über Mathematiknote und Gymnasialempfehlung",
