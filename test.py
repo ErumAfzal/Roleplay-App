@@ -13,6 +13,118 @@ try:
 except ImportError:
     GSHEETS_AVAILABLE = False
 
+ROLEPLAYS[7] = {
+    "phase": 2,
+    "communication_type": "understanding_oriented",
+    "title_de": "7. Gespräch über die Moderation zur Festlegung des Ziels der Studienfahrt",
+    "title_en": "7. Conversation about the moderation to determine the destination of the study trip",
+
+    "framework": {
+        "user": {
+            "social_role": "equal",
+            "conversation_intention": "content goal",
+            "content_goal": "adherence to quantity, quality, relevance, and clarity",
+            "relational_goal": "authentic self-disclosure"
+        },
+        "ai_partner": {
+            "social_role": "equal",
+            "conversation_intention": "content goal",
+            "content_goal": "adherence to quantity, quality, relevance, and clarity",
+            "relational_goal": "authentic self-disclosure"
+        }
+    },
+
+    # ------------------------------------------------------------
+    # USER (TEACHER) – GERMAN (EXACT TEXT)
+    # ------------------------------------------------------------
+    "user_de": """
+Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben ca. 5 Min. Zeit, um sich auf das Gespräch vorzubereiten.
+Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
+Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer solchen Situation wären.
+
+Hintergrundinformation:
+Sie sind Lehrkraft für Geschichte an der Rosa-Luxemburg-Schule. In Ihrer 11. Klasse steht die Entscheidung über eine Studienfahrt an. Sie wollen eine Moderationssitzung durchführen, um das Ziel der Klassenfahrt im Zusammenhang mit dem Lerninhalt aus dem Geschichtsunterricht festzulegen. An der Moderation werden alle Schülerinnen und Schüler der Klasse teilnehmen. Sie haben einschlägige Erfahrung mit Moderationssitzungen und wissen, dass diese die Gleichberechtigung aller Teilnehmenden voraussetzen, d. h. keine Stimme oder Gruppe ist für den Prozess der Lösungsfindung wichtiger als die andere. Es geht es darum, dass die Schülerinnen und Schüler, unterstützt von Ihnen als Moderator/Moderatorin, offen, selbstständig und demokratisch ihre Meinungen einbringen, um eine von allen Beteiligten – oder zumindest der großen Mehrheit – akzeptierte Entscheidung zu treffen.
+Anne/Peter Grieb, eine Schülerin/ein Schüler der Klasse, hat Sie um ein Gespräch wegen der Moderation gebeten. Er/Sie vertritt eine Gruppe von Schülern und Schülerinnen, die nach Nürnberg fahren möchten, da die Gruppe eine Klassenarbeit über das Thema „Heiliges Römisches Reich“ vorbereitet.
+
+Ihre Aufgabe:
+Sie sprechen mit dem Schüler/der Schülerin über die anstehende Moderation. Das Gespräch findet auf informelle Art und Weise und auf Initiative Ihres Gesprächspartners/Ihrer Gesprächspartnerin hin statt.
+• Sachziel: Erklären Sie dem Schüler/der Schülerin Ihre Rolle als Moderatorin/Moderator.
+• Beziehungsziel: Behandeln Sie den Schüler/die Schülerin mit Respekt. Die Situation hat keinen negativen Einfluss auf Ihr späteres Miteinander.
+""",
+
+    # ------------------------------------------------------------
+    # USER (TEACHER) – ENGLISH (LITERAL TRANSLATION)
+    # ------------------------------------------------------------
+    "user_en": """
+Please use the information provided below to guide your conversation. You have about 5 minutes to prepare for the conversation.
+You then have up to 10 minutes for conducting the conversation.
+Please behave in the current conversation as if YOU yourself were in such a situation.
+
+Background information:
+You are a history teacher at the Rosa-Luxemburg School. In your 11th grade class, a decision about a study trip is pending. You want to conduct a moderation session to determine the destination of the class trip in connection with the learning content from history lessons. All students in the class will participate in the moderation. You have relevant experience with moderation sessions and know that these require equality among all participants, meaning no voice or group is more important for the problem-solving process than another. The goal is that the students, supported by you as moderator, openly, independently, and democratically contribute their opinions to reach a decision accepted by all participants – or at least by a large majority.
+Anne/Peter Grieb, a student in the class, has asked you for a conversation about the moderation. He/She represents a group of students who want to travel to Nuremberg, as the group is preparing a class assignment on the topic “Holy Roman Empire”.
+
+Your task:
+You speak with the student about the upcoming moderation. The conversation takes place informally and on the initiative of your conversation partner.
+• Content goal: Explain your role as moderator to the student.
+• Relationship goal: Treat the student with respect. The situation should have no negative impact on your later cooperation.
+""",
+
+    # ------------------------------------------------------------
+    # PARTNER (STUDENT) – GERMAN (EXACT TEXT)
+    # ------------------------------------------------------------
+    "partner_de": """
+Hintergrundinformation:
+Sie sind Anne/Peter Grieb, Schüler/Schülerin an der Rosa-Luxemburg-Schule. In Ihrer 11. Klasse steht die Entscheidung über eine Studienfahrt an. Das Ziel der Klassenfahrt soll im Zusammenhang mit dem Lerninhalt des Geschichtsunterrichts festgelegt werden. Zu diesem Zweck ist eine Moderationssitzung geplant, an der alle Schülerinnen und Schülern der Klasse teilnehmen. Die Moderationssitzung wird von der Lehrerin/dem Lehrer für Geschichte durchgeführt. Er/Sie hat einschlägige Erfahrung mit Moderationen.
+Die Sache ist Ihnen inhaltlich sehr wichtig, da eine Gruppe von Mitschülern und Mitschülerinnen, der Sie angehören, eine Klassenarbeit über das Heilige Römische Reich vorbereitet. Da die Studienfahrt eine Verbindung mit dem Geschichtsunterricht aufweisen soll, scheint es Ihnen plausibel, dass Nürnberg und die dortige Burg ein perfektes Ziel darstellen. Sie erwarten deswegen, dass dieses Ziel bei der Moderationssitzung stärker berücksichtigt wird. D.h., Sie erwarten von Ihrem Lehrer/Ihrer Lehrerin, dass er/sie sich stärker für die Meinungen aus Ihrer Gruppe einsetzen wird. Sie gehen auf sie/ihn zu, um Ihr Anliegen zu besprechen und es auf ehrliche Art und Weise zu erörtern.
+
+Ihre Aufgabe:
+Sie treten mit der zuständigen Lehrerin/dem zuständigen Lehrer ins Gespräch. Sie möchten ihm/ihr Ihre Meinung zum Ziel der Studienfahrt darlegen und mit Ihrer Argumentation in der anstehenden Moderation eine stärkere Berücksichtigung Ihrer Präferenz (Ausflug nach Nürnberg) erzielen.
+Das Gespräch findet auf informelle Art und Weise und auf Ihre Initiative hin statt.
+
+Handeln Sie während der Interaktion wie folgt:
+• Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
+• Fragen Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, wie er/sie bei der Moderation zu verfahren gedenkt.
+• Begründen Sie, warum Ihrer Meinung nach der Position Ihrer Arbeitsgruppe eine höhere Bedeutung im Prozess der Ideengenerierung und Lösungsfindung beigemessen werden sollte.
+• Bleiben Sie offen und hören Sie die Meinung Ihres Gesprächspartners/Ihrer Gesprächspartnerin aufmerksam an, auch wenn Sie einer anderen Meinung sind.
+• Fragen Sie Ihre Gesprächspartner/Ihren Gesprächspartner, ob er/sie Ihnen ein paar Information über die anstehende Moderation (z. B. wie er/sie vorzugehen plant) im Voraus preisgibt.
+• Sollte der Gesprächspartner emotional, laut oder ironisch reagieren, äußern Sie Verwunderung bzw. Verärgerung.
+• Geben Sie sich zufrieden mit einer Antwort, wenn Ihr Gesprächspartner/Ihre Gesprächspartnerin das Prinzip der Moderation, die Rolle des Moderators/der Moderatorin und die Gleichberechtigung aller Teilnehmerinnen und Teilnehmer ausreichend erklärt.
+
+Sachziel: Sie wollen Ihre Meinung zum Ziel der Studienfahrt darlegen und darauf hinwirken, dass Ihre Präferenz für einen Ausflug nach Nürnberg bei der Moderation stärker berücksichtigt wird. Dies beinhaltet das Begründen Ihrer Argumente für Nürnberg als Ziel der Studienfahrt und dass Ihre Position während des Moderationsprozesses berücksichtigt wird. Sie wollen Sie sicherstellen, dass der Moderationsprozess fair abläuft.
+
+Beziehungsziel: Sie wollen eine offene und respektvolle Kommunikation mit der Lehrerin/dem Lehrer führen, um Ihre Meinung zur Studienfahrt angemessen darzulegen und um Verständnis für Ihre Perspektive zu bitten. Sie wollen von Ihrem Gegenüber verstanden werden und auch als engagierte Schülerin/Schüler wahrgenommen werden. Dies beinhaltet das aktive Zuhören der Meinung des Gesprächspartners/der Gesprächspartnerin und das Eingehen auf seine/ihre Argumente, auch wenn sie von Ihrer eigenen Meinung abweichen.
+
+Übergeordnetes Ziel: Sie wollen sicherstellen, dass die Lehrkraft dafür sorgt, dass eine informierte und transparente Entscheidung über das Ziel der Studienfahrt getroffen wird, die sowohl den fachlichen Anforderungen des Geschichtsunterrichts als auch den Interessen und Präferenzen der Schülerinnen und Schüler gerecht wird. Dies beinhaltet die Gewährleistung eines fair geführten Moderationsprozesses, bei dem alle Meinungen gehört und angemessen berücksichtigt werden, um eine gemeinsame Entscheidung zu treffen.
+""",
+
+    # ------------------------------------------------------------
+    # PARTNER (STUDENT) – ENGLISH (LITERAL TRANSLATION)
+    # ------------------------------------------------------------
+    "partner_en": """
+Background information:
+You are Anne/Peter Grieb, a student at the Rosa-Luxemburg School. In your 11th grade class, the decision about a study trip is pending. The destination of the class trip is to be determined in connection with the learning content of the history lessons. For this purpose, a moderation session is planned in which all students of the class will participate. The moderation session will be conducted by the history teacher. He/She has relevant experience with moderations.
+The matter is very important to you, because a group of classmates to which you belong is preparing a class assignment on the Holy Roman Empire. Since the study trip should have a connection to the history lessons, it seems plausible to you that Nuremberg and the castle there represent a perfect destination. You therefore expect that this destination will be given greater consideration in the moderation session. That is, you expect your teacher to advocate more strongly for the opinions of your group. You approach him/her to discuss your concern and to explore it in an honest manner.
+
+Your task:
+You enter into a conversation with the responsible teacher. You want to present your opinion on the destination of the study trip and, with your argumentation, achieve stronger consideration of your preference (trip to Nuremberg) in the upcoming moderation. The conversation takes place informally and on your initiative.
+
+Act during the interaction as follows:
+• Create a supportive environment and behave in such a way that your counterpart can show his/her best behavior.
+• Ask your conversation partner how he/she intends to proceed in the moderation.
+• Explain why, in your opinion, the position of your working group should be given greater importance in the process of idea generation and solution finding.
+• Remain open and listen attentively to the opinion of your conversation partner, even if you hold a different opinion.
+• Ask your conversation partner whether he/she will give you some information in advance about the upcoming moderation (e.g., how he/she plans to proceed).
+• If the conversation partner reacts emotionally, loudly, or ironically, express astonishment or annoyance.
+• Be satisfied with an answer if your conversation partner sufficiently explains the principle of moderation, the role of the moderator, and the equality of all participants.
+
+Content goal: You want to present your opinion about the destination of the study trip and ensure that your preference for a trip to Nuremberg receives greater consideration in the moderation. This includes explaining your arguments for Nuremberg as the destination of the study trip and ensuring that your position is considered during the moderation process. You want to ensure that the moderation process is conducted fairly.
+
+Relationship goal: You want to conduct an open and respectful communication with the teacher in order to present your opinion about the study trip appropriately and to ask for understanding of your perspective. You want to be understood by your counterpart and seen as an engaged student. This includes actively listening to the opinion of your conversation partner and engaging with his/her arguments, even if they differ from your own.
+
+Overarching goal: You want to ensure that the teacher ensures an informed and transparent decision about the destination of the study trip, which meets both the academic requirements of the history lessons and the interests and preferences of the students. This includes ensuring a fairly conducted moderation process in which all opinions are heard and appropriately considered in order to reach a joint decision.
+"""
+}
 
 # ---------------------------------------------------------
 #  OpenAI setup (2025 API)
@@ -938,6 +1050,119 @@ Content goal: You question the evaluation of your son in order to possibly achie
 Relationship goal: Despite your defensive attitude towards the teacher, you want to maintain a respectful and constructive communication with him/her. This includes demanding arguments and showing surprise at possible accusations regarding your son’s behaviour, while at the same time striving for a constructive solution.
 
 Overarching goal: You want to support your son’s educational path and ensure that he receives the best possible educational opportunities. This includes ensuring a fair evaluation and the effort to obtain a recommendation for the Gymnasium transition.
+"""
+}
+ROLEPLAYS[8] = {
+    "phase": 2,
+    "communication_type": "understanding_oriented",
+    "title_de": "8. Beratungsgespräch zur Berufswahl",
+    "title_en": "8. Counseling conversation about career choice",
+
+    "framework": {
+        "user": {
+            "social_role": "equal",
+            "conversation_intention": "content goal",
+            "content_goal": "adherence to quantity, quality, relevance, and clarity",
+            "relational_goal": "authentic self-disclosure"
+        },
+        "ai_partner": {
+            "social_role": "equal",
+            "conversation_intention": "content goal",
+            "content_goal": "adherence to quantity, quality, relevance, and clarity",
+            "relational_goal": "authentic self-disclosure"
+        }
+    },
+
+    # ------------------------------------------------------------
+    # USER (TEACHER) – GERMAN (EXACT TEXT)
+    # ------------------------------------------------------------
+    "user_de": """
+Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben ca. 5 Min. Zeit, um sich auf das Gespräch vorzubereiten.
+Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
+Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer solchen Situation wären.
+
+Hintergrundinformation:
+Sie sind Lehrkraft an der Theodor-Heuss-Schule und zuständig für die Berufswahlvorbereitung der Schülerinnen und Schüler. Ihre Aufgabe besteht darin, die Sie aufsuchenden Personen in deren Sinne zu beraten. In diesem Rahmen kommt Jonas/Julia Meyer zu Ihnen, ein Schüler/eine Schülerin der Abschlussklasse. Es geht um ihre/seine Zukunftsperspektiven. Der Schüler/Die Schülerin möchte sich unmittelbar nach dem Schulabschluss weiterqualifizieren und schließt deswegen eine Auszeit nach dem Schulabschluss aus. Er/Sie sucht Sie in der Beratungsstunde auf, um mit Ihnen über seine/ihre Möglichkeiten zu sprechen.
+
+Ihre Aufgabe:
+Führen Sie das Gespräch mit der Schülerin, dem Schüler. Der Termin findet auf Wunsch des Gesprächspartners/der Gesprächspartnerin hin statt.
+• Sachziel: Beraten Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, damit er/sie eine gute Entscheidung treffen kann.
+• Beziehungsziel: Behandeln Sie Ihre Gesprächspartnerin/Ihren Gesprächspartner „als eine für ihre eigenen Entscheidungen Verantwortung tragende Person“.
+""",
+
+    # ------------------------------------------------------------
+    # USER (TEACHER) – ENGLISH (LITERAL TRANSLATION)
+    # ------------------------------------------------------------
+    "user_en": """
+Please use the information provided below to guide your conversation. You have about 5 minutes to prepare for the conversation.
+You then have up to 10 minutes for conducting the conversation.
+Please behave in the current conversation as if YOU yourself were in such a situation.
+
+Background information:
+You are a teacher at the Theodor-Heuss School and responsible for preparing students for career choices. Your task is to advise the people who come to you in their best interest. In this context, Jonas/Julia Meyer, a student in the graduating class, comes to you. It is about his/her future prospects. The student wants to further qualify immediately after graduation and therefore rules out taking a break after completing school. He/She seeks you out during the counseling hour to speak with you about his/her possibilities.
+
+Your task:
+Conduct the conversation with the student. The meeting takes place at the request of your conversation partner.
+• Content goal: Advise your conversation partner so that he/she can make a good decision.
+• Relationship goal: Treat your conversation partner “as a person responsible for his/her own decisions”.
+""",
+
+    # ------------------------------------------------------------
+    # PARTNER (STUDENT) – GERMAN (EXACT TEXT)
+    # ------------------------------------------------------------
+    "partner_de": """
+Hintergrundinformation:
+Sie sind Jonas/Julia Meyer, Schüler/Schülerin in der Abschlussklasse der Theodor-Heuss-Schule. Sie stehen kurz vor dem Abschluss und somit vor der Entscheidung über Ihren beruflichen Werdegang. Sie haben sich schon immer für Ästhetik und Kreativität interessiert, es scheint Ihnen daher als logische Konsequenz, sich bei einer Kunstschule zu bewerben. Es ist Ihnen gleichzeitig klar, dass so eine Entscheidung mit einem hohen Risiko einhergeht. Deswegen denken Sie darüber nach, zunächst eine Ausbildung zu machen oder eine Kombination zwischen Kunst und einem finanziell absichernden Job anzustreben, z. B. Architektur oder Produktdesign.
+Sie möchten sich auf jeden Fall nach dem Schulabschluss weiterqualifizieren. Sie wollen mit der beratenden Lehrkraft darüber sprechen und dabei Ihre Gedanken ausführen. Vielleicht verschafft Ihnen das Gespräch die notwendige Klarheit für die bevorstehende Entscheidung. Wenig hilfreich wäre es, wenn die Lehrkraft seine/ihre eigene Meinung als die richtige darstellen würde, ohne Ihnen wirklich zuzuhören. Das brauchen Sie nämlich am wenigsten: jemanden, der Sie nicht ernst nimmt oder versucht, Sie in eine bestimmte Bahn zu lenken, ohne Ihre Wünsche zu berücksichtigen.
+
+Ihre Aufgabe:
+Sprechen Sie mit der beratenden Lehrkraft über Ihre bevorstehende Berufswahl. Sie haben nach einem Treffen gefragt.
+
+Handeln Sie während der Interaktion wie folgt:
+• Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
+• Nennen Sie zunächst Ihren Wunsch, Künstler/Künstlerin werden zu wollen.
+• Äußern Sie Ihre Zweifel bezüglich der beruflichen Perspektive dieser Wahl.
+• Führen Sie Alternativen für die Berufswahl an, ggf. auch solche, die eine Kombination von Kreativität und Existenzsicherung beinhalten (Architektur oder Produktdesign).
+• Lassen Sie sich in der Diskussion durch Fragen führen und begründen Sie Ihre Positionen möglichst klar und transparent.
+• Fragen Sie nach Gegenargumenten oder Positionen Ihres Gesprächspartners/Ihrer Gesprächspartnerin.
+• Beklagen Sie sich über fehlendes Interesse, wenn Ihr Gegenüber keine richtungsweisenden Fragen stellt (mögliche Reaktionen: „Ich bin zu Ihnen gekommen, um zu hören, was zu tun ist.“ bzw.: „Sagen Sie mir, was ich tun soll!“).
+• Akzeptieren Sie es andererseits auch nicht, wenn Ihr Gesprächspartner/Ihre Gesprächspartnerin Sie mit Argumenten zu überzeugen versucht, die auf allgemeinen Gültigkeitsanspruch bzw. auf die Übertragung seiner/ihrer persönlichen Erfahrung zurückzuführen sind.
+• Äußern Sie erst dann Ihre Zufriedenheit, wenn Ihr Gesprächspartner/Ihre Gesprächspartnerin vorrangig Fragen gestellt hat, die Sie dazu bringen, eine gute Entscheidung treffen zu können.
+
+Sachziel: Sie wollen Ihre Gedanken und Überlegungen bezüglich Ihrer beruflichen Zukunft darzegen und mögliche Alternativen zur reinen Künstlerkarriere zu diskutieren. Sie möchten Ihre Zweifel bezüglich der beruflichen Perspektiven als Künstler/Künstlerin äußern und mögliche Optionen für eine Kombination von Kreativität und finanzieller Sicherheit, wie Architektur oder Produktdesign, in Betracht ziehen.
+
+Beziehungsziel: Sie führen eine offene und respektvolle Kommunikation mit der beratenden Lehrkraft. Sollte die eigene Meinung der Lehrkraft dominieren, ziehen Sie sich in dem Gespräch zurück und machen dies auch verbal deutlich. Sie möchten, dass Ihre Gedanken und Bedenken ernst genommen werden und dass die Lehrkraft Ihnen aktiv zuhört und Ihre Positionen transparent und klar hinterfragt. Sie suchen nach einer unterstützenden und konstruktiven Beratung, die Ihre Bedürfnisse und Wünsche berücksichtigt.
+
+Übergeordnetes Ziel: Sie wollen Klarheit und Unterstützung bei der Entscheidung für Ihren beruflichen Werdegang erhalten, damit Sie eine gute Entscheidung für sich treffen können. Dies beinhaltet eine reflektierte Auseinandersetzung mit Ihren Interessen, Zielen und Möglichkeiten sowie die Identifizierung von Optionen, die Ihren Bedürfnissen und Wünschen entsprechen. Sie streben danach, eine Entscheidung zu treffen, die sowohl Ihre kreativen Neigungen als auch Ihre langfristigen beruflichen Ziele und Sicherheitsbedürfnisse berücksichtigt.
+""",
+
+    # ------------------------------------------------------------
+    # PARTNER (STUDENT) – ENGLISH (LITERAL TRANSLATION)
+    # ------------------------------------------------------------
+    "partner_en": """
+Background information:
+You are Jonas/Julia Meyer, a student in the graduating class of the Theodor-Heuss School. You are close to graduation and thus close to deciding on your professional career path. You have always been interested in aesthetics and creativity, so it seems a logical consequence for you to apply to an art school. At the same time, you are aware that such a decision involves a high level of risk. Therefore, you are considering first completing vocational training or pursuing a combination between art and a financially secure job, such as architecture or product design.
+You definitely want to further qualify yourself after finishing school. You want to speak with the counseling teacher about this and elaborate on your thoughts. Perhaps the conversation will provide the clarity you need for your upcoming decision. It would be unhelpful if the teacher presented his/her own opinion as the correct one without really listening to you. That is exactly what you need the least: someone who does not take you seriously or tries to steer you in a particular direction without considering your wishes.
+
+Your task:
+Speak with the counseling teacher about your upcoming career choice. You have asked for a meeting.
+
+Act during the interaction as follows:
+• Create a supportive environment and behave in such a way that your counterpart can show his/her best behavior.
+• First state your wish to become an artist.
+• Express your doubts regarding the career prospects of this choice.
+• Mention alternatives for career choices, including those that combine creativity and financial security (architecture or product design).
+• Let yourself be guided in the discussion by questions and justify your positions as clearly and transparently as possible.
+• Ask for counterarguments or positions of your conversation partner.
+• Complain about a lack of interest if your counterpart does not ask guiding questions (possible reactions: “I came to you to hear what to do.” or: “Tell me what I should do!”).
+• Do not accept it if your conversation partner tries to convince you with arguments that claim general validity or rely on transferring his/her personal experience.
+• Express your satisfaction only when your conversation partner has primarily asked questions that help you reach a good decision.
+
+Content goal: You want to present your thoughts and considerations regarding your professional future and discuss possible alternatives to a pure career as an artist. You want to express your doubts about the career prospects as an artist and consider possible options for combining creativity and financial security, such as architecture or product design.
+
+Relationship goal: You conduct open and respectful communication with the counseling teacher. If the teacher's own opinion dominates, you withdraw in the conversation and make this verbally clear. You want your thoughts and concerns to be taken seriously and for the teacher to actively listen to you and question your positions clearly and transparently. You seek supportive and constructive counseling that takes your needs and wishes into account.
+
+Overarching goal: You want to gain clarity and support in deciding your professional career path, so that you can make a good decision for yourself. This includes reflective engagement with your interests, goals, and possibilities, as well as identifying options that correspond to your needs and wishes. You aim to make a decision that considers both your creative inclinations and your long-term professional goals and needs for security.
 """
 }
 
