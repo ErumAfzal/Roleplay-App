@@ -739,7 +739,7 @@ ROLEPLAYS[5] = {
     # ------------------------------------------------------------
     # USER INSTRUCTIONS (GERMAN – EXACT, UNCHANGED)
     # ------------------------------------------------------------
-    "user_de": """
+    "user_de": COMMON_USER_HEADER_DE +"""
 **Hintergrundinformation:**
 Sie sind Lehrkraft in Vollzeit. Sie arbeiten seit über drei Jahren an Ihrer Schule. Sie wissen aus vielen Gesprä- chen, dass Sie von Ihren Schülerinnen und Schülern und deren Eltern geschätzt werden und darüber hinaus  auch im Kollegium sehr beliebt sind. Die Schulleitung ist mit Ihnen sehr zufrieden, gerade auch, weil es an der Schule viele Krankmeldungen gibt und daher einige Unruhe herrscht.
 Ihnen macht Ihre Arbeit großen Spaß. Sie möchten jedoch aus persönlichen Gründen Ihre Arbeitszeit auf 50% reduzieren. Sie haben gemerkt, dass Sie mehr Freizeit für sich haben möchten, um Ihren Hobbys nachzugehen.
@@ -747,7 +747,7 @@ Sie müssen jedoch Ihren Wunsch gegenüber Frau/Herrn Weiß, Ihrer Schulleiterin
 
 **Ihre Aufgabe:**
 Sie treffen sich mit Ihrer Schulleitung, um Ihren Wunsch nach Arbeitszeitreduzierung zu besprechen. Das Treffen findet auf Ihren Wunsch statt.
-- **Sachziel:** Sie möchten Ihre Arbeitszeit auf 50% reduzieren.
+- **Sachziel:** Sie möchten Ihre Arbeitszeit auf 50% reduzieren.\n
 - **Beziehungsziel:** Sie möchten weiter an der Schule und zusammen mit Ihrer Schulleitung arbeiten.
 """,
 
@@ -839,9 +839,6 @@ ROLEPLAYS[6] = {
     # USER INSTRUCTIONS (GERMAN – EXACT, UNCHANGED)
     # ------------------------------------------------------------
     "user_de":COMMON_USER_HEADER_DE + """
-Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben ca. 5 Min. Zeit, um sich auf das Gespräch vorzubereiten.
-Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
-Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer solchen Situation wären.
 
 **Hintergrundinformation:**
 Sie sind Lehrkraft in der Johann-Julius-Hecker-Schule. Jan ist einer Ihrer Schüler in der 4. Klasse. Herr/Frau Dr. Jäger, der Vater/die Mutter von Jan und Ingenieur/in, hat Sie um einen Gesprächstermin gebeten. Es geht um die Benotung des Jungen im Fach Mathematik. Sie haben die Leistung des Schülers auf Grund von schriftlichen Tests und seines Verhaltens in der Schulklasse mit einer 4 bewertet. Dadurch ist eine Empfehlung für den Wechsel des Schülers aufs Gymnasium nicht möglich. Sie halten Ihre Benotung für gerecht, auch wenn der Schüler Ihnen sympathisch ist und Sie seine Motivation und sein Bestreben anerkennen. Sie sind überzeugt,  dass es besser ist, Schüler und Schülerinnen realistisch zu bewerten. Sie wissen, dass die Schulleitung in solchen Angelegenheiten hinter Ihnen steht. Sie gehen in das Elterngespräch, um Ihre Entscheidung zu begrün- den.
@@ -857,20 +854,18 @@ Das auf Wunsch von Herrn/Frau Jäger anberaumte Treffen findet in einem freien K
     # ------------------------------------------------------------
     # USER INSTRUCTIONS (ENGLISH – VERY LITERAL TRANSLATION)
     # ------------------------------------------------------------
-    "user_en": """
-Please use the information provided below to guide your conversation. You have about 5 minutes to prepare for the conversation.
-You then have up to 10 minutes for conducting the conversation.
-Please behave in the current conversation as if YOU yourself were in such a situation.
+    "user_en": COMMON_USER_HEADER_EN +"""
 
-Background information:
+
+**Background information**
 You are a teacher at the Johann-Julius-Hecker-School. Jan is one of your pupils in the 4th grade. Mr/Ms Dr. Jäger, the father/mother of Jan and an engineer, has asked you for an appointment. It concerns the grading of the boy in the subject mathematics. You have evaluated the pupil’s performance based on written tests and his behaviour in the school class with a 4. Because of this, a recommendation for the pupil to move to the Gymnasium is not possible. You consider your grading to be fair, even if the pupil is likeable to you and you acknowledge his motivation and his effort. You are convinced that it is better to evaluate pupils realistically. You know that the school management supports you in such matters. You go into the parent meeting to justify your decision.
 Your task:
 You meet with the parent to justify your decision and to learn the parent’s views on the topic. For you, the fairness of the grading is the priority.
 
 The meeting, scheduled at the request of Mr/Ms Jäger, takes place in a free classroom.
 
-• Content goal: Explain to the parent the reasons for your decision regarding the evaluation.
-• Relationship goal: Remain open to the arguments of Mr/Ms Jäger; the pupil Jan is very likeable to you.
+- **Content goal:** Explain to the parent the reasons for your decision regarding the evaluation.
+- **Relationship goal:** Remain open to the arguments of Mr/Ms Jäger; the pupil Jan is very likeable to you.
 """,
 
     # ------------------------------------------------------------
