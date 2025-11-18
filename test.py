@@ -363,22 +363,17 @@ the teacher who runs the theatre group.
 Communication type: *Strategic*; you are in the weaker role.
 """,
         "user_de": COMMON_USER_HEADER_DE + """
-**Hintergrund (Ihre Rolle):**
-
-Sie sind Beratungslehrer/in an der Günter-Grass-Schule. Die Schule ist für
-viele AGs bekannt, insbesondere für die Theater-AG, die das Schulimage prägt.
-Ein/e Schüler/in (Jan/Jana) hat großes schauspielerisches Talent, möchte aber
-wegen einer Abneigung gegen die Theater-Lehrkraft lieber in die Judo-AG.
+**Hintergrundinformation:**
+Sie sind Lehrkraft an der Günter-Grass-Schule, die sich durch eine Vielzahl an Arbeitsgruppen (AGs) auszeichnet. Insbesondere die Theater-AG trägt zum positiven Image der Schule bei, da oftmals und ausführlich über die Aufführungen dieser AG in der lokalen Presse berichtet wird. Sie sind als Beratungslehrer/Beratungslehrerin an dieser Schule tätig. Es gehört zu Ihren pädagogischen Aufgaben, den Schülerinnen und Schülern eine gute Beratung anzubieten. Im Rahmen dieser Aufgabe beraten Sie in Ihrer Sprechstunde den Schüler/die Schülerin Jan/Jana Pflüger bezüglich seiner/ihrer bevorstehenden Wahl, an welcher AG er/sie sich künftig beteiligen will. Der Schüler/Die Schülerin hat großes schauspielerisches Talent, seine/ihre Entscheidung für die Theater AG hätte durchaus Einfluss auf das Ansehen der Schule. In Zeiten sinkender Schülerzahlen ist ein positives öffentliches Bild Ihrer Schule enorm wichtig. Außerdem wird Ihre Leistung in der Beratungsposition in einer externen Evaluation in Hinsicht auf eine erfolgreiche Außendarstellung der Schule bewertet.
+Der Schüler/Die Schülerin Jan/Jana möchte allerdings lieber an der Judo-AG teilnehmen, obwohl sportliche Betätigung ihm/ihr kaum liegt. Sie wissen aus vertraulicher Quelle, dass der Schüler/die Schülerin eine starke Abneigung gegen die Kollegin hat, die die Theater-AG leitet. Sie vermuten, dass die Bevorzugung der Judo-AG durch den Schüler/die Schülerin eng hiermit zusammenhängt. Sie glauben allerdings gehört zu haben, dass die Lehrerin der Theater-AG eine positive Meinung über den Schüler/die Schülerin hat.
+Trotz Ihres Verständnisses für den Schüler/die Schülerin haben für Sie die Reputation Ihrer Schule und die gute Bewertung Ihrer Leistung in der Beratungsposition Vorrang. Die Wahl der AG soll Ihrer Ansicht nach der Eignung des Schülers/der Schülerin und nicht seinen/ihren persönlichen Befindlichkeiten entsprechen.
 
 **Ihre Aufgabe:**
-• Beraten Sie den/die Schüler/in bei der AG-Wahl.  
-• Versuchen Sie, ihn/sie von der Theater-AG zu überzeugen, indem Sie die
-individuellen Talente und Entwicklungschancen betonen.  
-• Sorgen Sie dafür, dass Sie als unterstützende Bezugsperson wahrgenommen werden.
+Sie besprechen mit dem Schüler/der Schülerin seine/ihre bevorstehende Entscheidung. Das Gespräch findet zu einem festgesetzten Beratungstermin in einem leerstehenden Klassenzimmer statt.
 
-**Sachziel:** Den/die Schüler/in für die Theater-AG gewinnen.  
-**Beziehungsziel:** Vertrauen und Unterstützung vermitteln – nicht nur die
-Schulinteressen vertreten.
+** •Sachziel:** Versuchen Sie den Schüler/die Schülerin dazu zu bringen, die Theater-AG zu wählen.
+** •Beziehungsziel:** Als Lehrer legen Sie Wert darauf, dass der Schüler/die Schülerin Sie als fürsorglichen Lehrer/in wahrnimmt.
+
 """,
         "partner_de": """
 Sie sind der/die **SCHÜLER/IN Jan/Jana Pflüger**.
