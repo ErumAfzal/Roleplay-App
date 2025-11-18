@@ -574,8 +574,8 @@ Handeln Sie während der Interaktion wie folgt:
 •	Falls Ihr Gesprächspartner/Ihre Gesprächspartnerin Sie persönlich als Auslöser seines/ihres Unmuts erwähnt, zeigen Sie sich empört.
 •	Akzeptieren Sie die Sichtweise des Kollegen/der Kollegin und betonen Sie die Notwendigkeit, ernsthaft über das Thema zu sprechen. Zeigen Sie, dass Sie beim Thema Zuverlässigkeit vollkommen seiner/ihrer Meinung sind.
 
-•	Sachziel: Sie zeigen eine offene Haltung und akzeptieren die Sichtweise Ihres Kollegen/Ihrer Kollegin, wenn diese/dieser z.B. die Vorteile eine engen Zusammenarbeit betont. Gleichzeitig wollen Sie eine vertrauensvolle und respektvolle Atmosphäre schaffen. Sie wollen, dass Ihr Kollege/Ihre Kollegin Sie weiterhin als eine/einen gute/kompetenten und zuverlässige Kolleg*in wahrnimmt.
-Beziehungsziel: Die gute Arbeitsbeziehung zum Teamkollegen/zur Teamkollegin soll aufrecht erhalten bleiben, aber nicht um jeden Preis. Sie sind offen für konstruktives Feedback und nehmen das Anliegen Ihres Kollegen/Ihrer Kollegin ernst ohne sich zunächst persönlich angegriffen zu fühlen. Wenn Ihre Kollegin/Ihr Kollege Sie jedoch persönlich angeht und Ihre Arbeitsweise mehrfach kritisiert oder Sie belehrt, z.B. dass Sie keine Deadlines einhalten, distanzieren Sie sich und zeigen dies deutlich (z.B. Empörung: „Deadlines sind dazu da, dass man sie verstreichen lassen kann. Ich bin jetzt schon lang genug dabei um das zu wissen und bisher hat es immer geklappt“ oder „Mach dich mal locker, ich war doch bisher immer zuverlässig und es hat doch alles geklappt, oder?“).
+- **Sachziel:** Sie zeigen eine offene Haltung und akzeptieren die Sichtweise Ihres Kollegen/Ihrer Kollegin, wenn diese/dieser z.B. die Vorteile eine engen Zusammenarbeit betont. Gleichzeitig wollen Sie eine vertrauensvolle und respektvolle Atmosphäre schaffen. Sie wollen, dass Ihr Kollege/Ihre Kollegin Sie weiterhin als eine/einen gute/kompetenten und zuverlässige Kolleg*in wahrnimmt.
+- **Beziehungsziel:** Die gute Arbeitsbeziehung zum Teamkollegen/zur Teamkollegin soll aufrecht erhalten bleiben, aber nicht um jeden Preis. Sie sind offen für konstruktives Feedback und nehmen das Anliegen Ihres Kollegen/Ihrer Kollegin ernst ohne sich zunächst persönlich angegriffen zu fühlen. Wenn Ihre Kollegin/Ihr Kollege Sie jedoch persönlich angeht und Ihre Arbeitsweise mehrfach kritisiert oder Sie belehrt, z.B. dass Sie keine Deadlines einhalten, distanzieren Sie sich und zeigen dies deutlich (z.B. Empörung: „Deadlines sind dazu da, dass man sie verstreichen lassen kann. Ich bin jetzt schon lang genug dabei um das zu wissen und bisher hat es immer geklappt“ oder „Mach dich mal locker, ich war doch bisher immer zuverlässig und es hat doch alles geklappt, oder?“).
 """,
 
     # ------------------------------------------------------------
@@ -643,8 +643,8 @@ Sie entscheiden sich deswegen dafür, den Schüler/die Schülerin direkt auf sei
 **Ihre Aufgabe:**
 Sie bestellen den Schüler/die Schülerin zu sich in ein gerade nicht genutztes Klassenzimmer.
 
-**Sachziel:** Sie wollen das Zugeständnis des Schülers/der Schülerin erreichen, dass er/sie nicht mehr zu spät zu ihrem Unterricht erscheint, oder Sie sind bereit, zeitnah einen Schulausschluss auszusprechen.
-**Beziehungsziel:** Für Sie ist ein gutes Verhältnis zum Schüler/zur Schülerin nicht mehr oberstes Ziel.
+- **Sachziel:** Sie wollen das Zugeständnis des Schülers/der Schülerin erreichen, dass er/sie nicht mehr zu spät zu ihrem Unterricht erscheint, oder Sie sind bereit, zeitnah einen Schulausschluss auszusprechen.
+- **Beziehungsziel:** Für Sie ist ein gutes Verhältnis zum Schüler/zur Schülerin nicht mehr oberstes Ziel.
 """,
 
     # ------------------------------------------------------------
@@ -747,8 +747,8 @@ Sie müssen jedoch Ihren Wunsch gegenüber Frau/Herrn Weiß, Ihrer Schulleiterin
 
 **Ihre Aufgabe:**
 Sie treffen sich mit Ihrer Schulleitung, um Ihren Wunsch nach Arbeitszeitreduzierung zu besprechen. Das Treffen findet auf Ihren Wunsch statt.
-•	**Sachziel:** Sie möchten Ihre Arbeitszeit auf 50% reduzieren.
-•	**Beziehungsziel:** Sie möchten weiter an der Schule und zusammen mit Ihrer Schulleitung arbeiten.
+- **Sachziel:** Sie möchten Ihre Arbeitszeit auf 50% reduzieren.
+- **Beziehungsziel:** Sie möchten weiter an der Schule und zusammen mit Ihrer Schulleitung arbeiten.
 """,
 
     # ------------------------------------------------------------
@@ -773,7 +773,7 @@ You meet with your school management to discuss your wish to reduce your working
 **Hintergrundinformation:**
 Sie sind Frau/Herr Weiß und leiten eine Schule. Eine Ihrer Lehrkräfte möchte Sie bezüglich einer Reduzierung ihrer Arbeitszeit ansprechen. Die Lehrkraft hat das Recht, Teilzeitarbeit zu beantragen, da er/sie schon seit knapp drei Jahren an der Schule arbeitet. Allerdings herrscht momentan einige Unruhe im Kollegium (krankheitsbedingt gibt es viele Fehlzeiten), sodass Sie fürchten, dass bei einer Arbeitszeitreduzierung die Belastung im Kollegium weiter steigt. Zudem verfügt er/sie über hervorragende Elternkontakte. Sie sollen aber diese „Abhängigkeit“ von ihm/ihr nicht direkt ansprechen. Wenn eine Arbeitsreduzierung nicht abgelehnt werden kann, sollen Sie versuchen, die Reduzierung auf eine 66%-Stelle zu beschränken. Zusätzlich sollen Sie, um den erwarteten Schaden für die Schule abzuwenden, mögliche Nachteile einer Arbeitszeitreduzierung (z. B. weniger Möglichkeiten zur Teilnahme an von der Schule finanzierten Weiterbildungsmaßnahmen) hervorheben, auch wenn Ihre Argumente nicht der arbeitsrechtlichen Realität entsprechen.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sprechen Sie mit der Lehrkraft über die gewünschte Arbeitszeitreduzierung. Das Treffen findet auf Wunsch der Lehrkraft in Ihrem Büro statt.
 
 Handeln Sie während der Interaktion wie folgt:
@@ -785,10 +785,10 @@ Handeln Sie während der Interaktion wie folgt:
 •	Schlagen Sie eine Reduzierung auf eine Zwei-Drittel-Stelle (66%) vor. Beharren Sie darauf, sofern ihr Gegenüber nur Argumente vorbringt, die mit persönlichen Freizeitaktivitäten zu tun haben und Sie das Gefühl haben, dass die Arbeit an der Schule keinen Stellenwert hat.
 •	Geben Sie dem Mitarbeiter/der Mitarbeiterin Recht, wenn er/sie in erster Linie nicht persönlich, sondern vor allem in Hinblick auf die Schule argumentiert und dies durchgehend geschickt anstellt. Drücken Sie dann auch Ihr Bedauern und Ihre Wertschätzung gegenüber ihrer Mitarbeiterin/ihrem Mitarbeiter aus.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Das Treffen findet auf Wunsch des Kollegen/der Kollegin statt.
-•	Sachziel: Sie möchten den Kollegen/die Kollegin langfristig an der Schule behalten und bei dem Gespräch eine vertrauensvolle Atmosphäre schaffen. Sie nehmen das Anliegen ernst, berücksichtigen aber auch gleichzeitig die Bedürfnisse der Schule.
-•	Beziehungsziel: Sie schätzen den Kollegen/die Kollegin sehr und die weitere Zusammenarbeit mit dem Kollegen/der Kollegin ist Ihnen wichtig und sie wollen diesen/diese langfristig an der Schule halten. Er/Sie ist doch „ihr bestes Pferd im Stall“.
+- **Sachziel:** Sie möchten den Kollegen/die Kollegin langfristig an der Schule behalten und bei dem Gespräch eine vertrauensvolle Atmosphäre schaffen. Sie nehmen das Anliegen ernst, berücksichtigen aber auch gleichzeitig die Bedürfnisse der Schule.
+- **Beziehungsziel:** Sie schätzen den Kollegen/die Kollegin sehr und die weitere Zusammenarbeit mit dem Kollegen/der Kollegin ist Ihnen wichtig und sie wollen diesen/diese langfristig an der Schule halten. Er/Sie ist doch „ihr bestes Pferd im Stall“.
 """,
 
     # ------------------------------------------------------------
@@ -798,7 +798,7 @@ Das Treffen findet auf Wunsch des Kollegen/der Kollegin statt.
 Background information:
 You are Ms/Mr Weiß and lead a school. One of your teachers wants to speak to you regarding a reduction of his/her working hours. The teacher has the right to apply for part-time work, since he/she has already been working at the school for almost three years. However, there is currently some unrest in the staff (due to illness there are many absences), so you fear that, with a reduction of working hours, the workload in the staff will further increase. In addition, he/she has excellent contacts with parents. You should not, however, address this “dependency” directly. If a reduction cannot be refused, you should try to limit the reduction to a 66% position. Additionally, in order to avert the expected damage for the school, you should highlight possible disadvantages of a reduction of working hours (e.g., fewer opportunities to participate in training measures financed by the school), even if your arguments do not correspond to employment law reality.
 
-Your task:
+**Your task:**
 Speak with the teacher about the desired reduction of working hours. The meeting takes place at the teacher’s request in your office.
 
 Act as follows during the interaction:
@@ -810,8 +810,8 @@ Act as follows during the interaction:
 • Propose a reduction to a two-thirds position (66%). Insist on this if your counterpart brings only arguments related to personal leisure activities and you have the feeling that the work at the school has no value for him/her.
 • Agree with the employee if he/she argues not primarily personally but above all with regard to the school and does this skilfully throughout. Then also express your regret and appreciation towards your employee.
 
-• Content goal: You want to retain the colleague long-term at the school and create a trusting atmosphere during the conversation. You take the request seriously but also consider the needs of the school.
-• Relationship goal: You value the colleague greatly and the continued cooperation with him/her is important to you, and you want to keep him/her long-term at the school. He/She is, after all, “your best horse in the stable”.
+- **Content goal:** You want to retain the colleague long-term at the school and create a trusting atmosphere during the conversation. You take the request seriously but also consider the needs of the school.
+- **Relationship goal:** You value the colleague greatly and the continued cooperation with him/her is important to you, and you want to keep him/her long-term at the school. He/She is, after all, “your best horse in the stable”.
 """
 }
 ROLEPLAYS[6] = {
@@ -845,13 +845,13 @@ Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer s
 
 **Hintergrundinformation:**
 Sie sind Lehrkraft in der Johann-Julius-Hecker-Schule. Jan ist einer Ihrer Schüler in der 4. Klasse. Herr/Frau Dr. Jäger, der Vater/die Mutter von Jan und Ingenieur/in, hat Sie um einen Gesprächstermin gebeten. Es geht um die Benotung des Jungen im Fach Mathematik. Sie haben die Leistung des Schülers auf Grund von schriftlichen Tests und seines Verhaltens in der Schulklasse mit einer 4 bewertet. Dadurch ist eine Empfehlung für den Wechsel des Schülers aufs Gymnasium nicht möglich. Sie halten Ihre Benotung für gerecht, auch wenn der Schüler Ihnen sympathisch ist und Sie seine Motivation und sein Bestreben anerkennen. Sie sind überzeugt,  dass es besser ist, Schüler und Schülerinnen realistisch zu bewerten. Sie wissen, dass die Schulleitung in solchen Angelegenheiten hinter Ihnen steht. Sie gehen in das Elterngespräch, um Ihre Entscheidung zu begrün- den.
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sie treffen sich mit dem Elternteil, um Ihre Entscheidung zu begründen und die Ansichten des Elternteils zum Thema zu erfahren. Für Sie ist die Gerechtigkeit der Benotung vorrangig.
 
 Das auf Wunsch von Herrn/Frau Jäger anberaumte Treffen findet in einem freien Klassenzimmer statt.
 
-•	Sachziel: Erklären Sie dem Elternteil die Gründe für Ihre Entscheidung bezüglich der Bewertung.
-•	Beziehungsziel: Bleiben Sie offen für die Argumente von Herrn/Frau Jäger, der Schüler Jan ist Ihnen sehr sympathisch.
+- **Sachziel:** Erklären Sie dem Elternteil die Gründe für Ihre Entscheidung bezüglich der Bewertung.
+- **Beziehungsziel:** Bleiben Sie offen für die Argumente von Herrn/Frau Jäger, der Schüler Jan ist Ihnen sehr sympathisch.
 """,
 
     # ------------------------------------------------------------
@@ -885,7 +885,7 @@ Ihr Gegenüber kann das Gespräch jederzeit mit „Danke, tschüss“ beenden.
 **Hintergrundinformation:**
 Sie sind Frau/Herr Dr. Jäger, Ingenieur/in und Elternteil von Jan, Schüler in einer 4. Klasse der Johann-Julius- Hecker-Schule. Sie möchten, dass Ihr Sohn aufs Gymnasium kommt, als Akademiker/Akademikerin ist für Sie eine gymnasiale Ausbildung und ein Studium für Ihren Sohn selbstverständlich. Jan hat nun in Mathe eine 4 bekommen, was für Sie nicht zu verstehen ist. Sie machen die Hausaufgaben mit ihm und er ist dabei sehr motiviert und löst die Aufgaben trotz kleiner Fehler relativ gut. Sie können nicht nachvollziehen, wie solch eine große Abweichung zwischen der Bewertung und Ihrer Einschätzung Ihres Sohnes zustande kommt. Nun wird dieses Ergebnis eine Empfehlung für den Gymnasialübergang unmöglich machen. Der Lehrer/Die Lehrerin Ihres Kindes stand schon in der Vergangenheit im Mittelpunkt Ihrer Kritik. Sie haben den Verdacht, dass die Bewertung Ihres Sohnes im Zusammenhang mit dieser Kritik an der Lehrperson steht. Sie suchen deshalb das Gespräch mit der Lehrkraft, um deren Entscheidung in Frage zu stellen und evtl. zu ändern.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sie treten ins Gespräch mit der Lehrkraft über die Note Ihres Sohns ein. Sie wollen versuchen, Ihre Ansicht darzulegen, die Bewertung streitig zu machen und evtl. ein Zugeständnis seitens der Lehrkraft bezüglich einer möglichen Nachprüfung der Situation einzuholen.
 Sie haben nach einem Termin mit der Lehrkraft gefragt.
 
@@ -899,9 +899,9 @@ Handeln Sie während der Interaktion wie folgt:
 •	Hinterfragen Sie die Autorität Ihres Gesprächspartners, indem Sie verkünden, mit der Schulleitung über das Thema sprechen zu wollen.
 •	Äußern Sie Einsicht, wenn Ihr Gesprächspartner/Ihre Gesprächspartnerin bis zum Ende der Interaktion und unter allen Umständen zuvorkommend und transparent seine/ihre Meinung vermittelt.
 
-Sachziel: Sie stellen die Bewertung des Sohnes in Frage um ggf. eine Nachprüfung der Situation zu erreichen. Gleichzeitig soll ein Verständnis (Sie wollen es verstehen) für die Bewertung und die zugrundliegenden Kriterien sowie den Prozess, der zu der Bewertung geführt hat, hergestellt werden. Sie als Elternteil wollen Klarheit über die Bewertung Ihres Sohnes erlangen, um sicherzustellen, dass die Bewertung fair und gerechtfertigt ist. Dies soll dazu beitragen, eine konstruktive Lösung zu finden und mögliche Missverständnisse oder Unstimmigkeiten zu klären.
+- **Sachziel:** Sie stellen die Bewertung des Sohnes in Frage um ggf. eine Nachprüfung der Situation zu erreichen. Gleichzeitig soll ein Verständnis (Sie wollen es verstehen) für die Bewertung und die zugrundliegenden Kriterien sowie den Prozess, der zu der Bewertung geführt hat, hergestellt werden. Sie als Elternteil wollen Klarheit über die Bewertung Ihres Sohnes erlangen, um sicherzustellen, dass die Bewertung fair und gerechtfertigt ist. Dies soll dazu beitragen, eine konstruktive Lösung zu finden und mögliche Missverständnisse oder Unstimmigkeiten zu klären.
 
-Beziehungsziel: Trotz Ihrer abwehrenden Haltung gegenüber der Lehrkraft wollen Sie eine respektvolle und konstruktive Kommunikation mit dieser aufrechterhalten. Dies beinhaltet das Fordern von Argumenten und das Zeigen von Überraschung angesichts möglicher Vorwürfe gegenüber dem Verhalten Ihres Sohnes, während gleichzeitig eine konstruktive Lösung angestrebt wird.
+- **Beziehungsziel:** Trotz Ihrer abwehrenden Haltung gegenüber der Lehrkraft wollen Sie eine respektvolle und konstruktive Kommunikation mit dieser aufrechterhalten. Dies beinhaltet das Fordern von Argumenten und das Zeigen von Überraschung angesichts möglicher Vorwürfe gegenüber dem Verhalten Ihres Sohnes, während gleichzeitig eine konstruktive Lösung angestrebt wird.
 
 Übergeordnetes Ziel: Sie wollen die schulische Laufbahn ihres Sohnes unterstützen und sicherstellen, dass er die bestmöglichen Bildungschancen erhält. Dies beinhaltet die Gewährleistung einer fairen Bewertung und die Bemühung um eine Empfehlung für den Gymnasialübergang.
 """,
@@ -971,10 +971,10 @@ Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer s
 **Hintergrundinformation:**
 Sie sind Lehrkraft an der Theodor-Heuss-Schule und zuständig für die Berufswahlvorbereitung der Schülerinnen und Schüler. Ihre Aufgabe besteht darin, die Sie aufsuchenden Personen in deren Sinne zu beraten. In diesem Rahmen kommt Jonas/Julia Meyer zu Ihnen, ein Schüler/eine Schülerin der Abschlussklasse. Es geht um ihre/seine Zukunftsperspektiven. Der Schüler/Die Schülerin möchte sich unmittelbar nach dem Schulabschluss weiterqualifizieren und schließt deswegen eine Auszeit nach dem Schulabschluss aus. Er/Sie sucht Sie in der Beratungsstunde auf, um mit Ihnen über seine/ihre Möglichkeiten zu sprechen.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Führen Sie das Gespräch mit der Schülerin, dem Schüler. Der Termin findet auf Wunsch des Gesprächspartners/der Gesprächspartnerin hin statt.
-• Sachziel: Beraten Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, damit er/sie eine gute Entscheidung treffen kann.
-• Beziehungsziel: Behandeln Sie Ihre Gesprächspartnerin/Ihren Gesprächspartner „als eine für ihre eigenen Entscheidungen Verantwortung tragende Person“.
+- **Sachziel:** Beraten Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, damit er/sie eine gute Entscheidung treffen kann.
+- **Beziehungsziel:** Behandeln Sie Ihre Gesprächspartnerin/Ihren Gesprächspartner „als eine für ihre eigenen Entscheidungen Verantwortung tragende Person“.
 """,
 
     # ------------------------------------------------------------
@@ -1001,8 +1001,7 @@ Conduct the conversation with the student. The meeting takes place at the reques
 **Hintergrundinformation:**
 Sie sind Jonas/Julia Meyer, Schüler/Schülerin in der Abschlussklasse der Theodor-Heuss-Schule. Sie stehen kurz vor dem Abschluss und somit vor der Entscheidung über Ihren beruflichen Werdegang. Sie haben sich schon immer für Ästhetik und Kreativität interessiert, es scheint Ihnen daher als logische Konsequenz, sich bei einer Kunstschule zu bewerben. Es ist Ihnen gleichzeitig klar, dass so eine Entscheidung mit einem hohen Risiko einhergeht. Deswegen denken Sie darüber nach, zunächst eine Ausbildung zu machen oder eine Kombination zwischen Kunst und einem finanziell absichernden Job anzustreben, z. B. Architektur oder Produktdesign.
 Sie möchten sich auf jeden Fall nach dem Schulabschluss weiterqualifizieren. Sie wollen mit der beratenden Lehrkraft darüber sprechen und dabei Ihre Gedanken ausführen. Vielleicht verschafft Ihnen das Gespräch die notwendige Klarheit für die bevorstehende Entscheidung. Wenig hilfreich wäre es, wenn die Lehrkraft seine/ihre eigene Meinung als die richtige darstellen würde, ohne Ihnen wirklich zuzuhören. Das brauchen Sie nämlich am wenigsten: jemanden, der Sie nicht ernst nimmt oder versucht, Sie in eine bestimmte Bahn zu lenken, ohne Ihre Wünsche zu berücksichtigen.
-
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sprechen Sie mit der beratenden Lehrkraft über Ihre bevorstehende Berufswahl. Sie haben nach einem Treffen gefragt.
 
 Handeln Sie während der Interaktion wie folgt:
@@ -1085,10 +1084,10 @@ Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer s
 Sie sind Lehrkraft für Geschichte an der Rosa-Luxemburg-Schule. In Ihrer 11. Klasse steht die Entscheidung über eine Studienfahrt an. Sie wollen eine Moderationssitzung durchführen, um das Ziel der Klassenfahrt im Zusammenhang mit dem Lerninhalt aus dem Geschichtsunterricht festzulegen. An der Moderation werden alle Schülerinnen und Schüler der Klasse teilnehmen. Sie haben einschlägige Erfahrung mit Moderationssitzungen und wissen, dass diese die Gleichberechtigung aller Teilnehmenden voraussetzen, d. h. keine Stimme oder Gruppe ist für den Prozess der Lösungsfindung wichtiger als die andere. Es geht es darum, dass die Schülerinnen und Schüler, unterstützt von Ihnen als Moderator/Moderatorin, offen, selbstständig und demokratisch ihre Meinungen einbringen, um eine von allen Beteiligten – oder zumindest der großen Mehrheit – akzeptierte Entscheidung zu treffen.
 Anne/Peter Grieb, eine Schülerin/ein Schüler der Klasse, hat Sie um ein Gespräch wegen der Moderation gebeten. Er/Sie vertritt eine Gruppe von Schülern und Schülerinnen, die nach Nürnberg fahren möchten, da die Gruppe eine Klassenarbeit über das Thema „Heiliges Römisches Reich“ vorbereitet.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sie sprechen mit dem Schüler/der Schülerin über die anstehende Moderation. Das Gespräch findet auf informelle Art und Weise und auf Initiative Ihres Gesprächspartners/Ihrer Gesprächspartnerin hin statt.
-• Sachziel: Erklären Sie dem Schüler/der Schülerin Ihre Rolle als Moderatorin/Moderator.
-• Beziehungsziel: Behandeln Sie den Schüler/die Schülerin mit Respekt. Die Situation hat keinen negativen Einfluss auf Ihr späteres Miteinander.
+- **Sachziel:** Erklären Sie dem Schüler/der Schülerin Ihre Rolle als Moderatorin/Moderator.
+- **Beziehungsziel:** Behandeln Sie den Schüler/die Schülerin mit Respekt. Die Situation hat keinen negativen Einfluss auf Ihr späteres Miteinander.
 """,
 
     # ------------------------------------------------------------
@@ -1117,7 +1116,7 @@ You speak with the student about the upcoming moderation. The conversation takes
 Sie sind Anne/Peter Grieb, Schüler/Schülerin an der Rosa-Luxemburg-Schule. In Ihrer 11. Klasse steht die Entscheidung über eine Studienfahrt an. Das Ziel der Klassenfahrt soll im Zusammenhang mit dem Lerninhalt des Geschichtsunterrichts festgelegt werden. Zu diesem Zweck ist eine Moderationssitzung geplant, an der alle Schülerinnen und Schülern der Klasse teilnehmen. Die Moderationssitzung wird von der Lehrerin/dem Lehrer für Geschichte durchgeführt. Er/Sie hat einschlägige Erfahrung mit Moderationen.
 Die Sache ist Ihnen inhaltlich sehr wichtig, da eine Gruppe von Mitschülern und Mitschülerinnen, der Sie angehören, eine Klassenarbeit über das Heilige Römische Reich vorbereitet. Da die Studienfahrt eine Verbindung mit dem Geschichtsunterricht aufweisen soll, scheint es Ihnen plausibel, dass Nürnberg und die dortige Burg ein perfektes Ziel darstellen. Sie erwarten deswegen, dass dieses Ziel bei der Moderationssitzung stärker berücksichtigt wird. D.h., Sie erwarten von Ihrem Lehrer/Ihrer Lehrerin, dass er/sie sich stärker für die Meinungen aus Ihrer Gruppe einsetzen wird. Sie gehen auf sie/ihn zu, um Ihr Anliegen zu besprechen und es auf ehrliche Art und Weise zu erörtern.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sie treten mit der zuständigen Lehrerin/dem zuständigen Lehrer ins Gespräch. Sie möchten ihm/ihr Ihre Meinung zum Ziel der Studienfahrt darlegen und mit Ihrer Argumentation in der anstehenden Moderation eine stärkere Berücksichtigung Ihrer Präferenz (Ausflug nach Nürnberg) erzielen.
 Das Gespräch findet auf informelle Art und Weise und auf Ihre Initiative hin statt.
 
@@ -1196,10 +1195,10 @@ Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer s
 **Hintergrundinformation:**
 Sie sind Lehrkraft an der Theodor-Heuss-Schule und zuständig für die Berufswahlvorbereitung der Schülerinnen und Schüler. Ihre Aufgabe besteht darin, die Sie aufsuchenden Personen in deren Sinne zu beraten. In diesem Rahmen kommt Jonas/Julia Meyer zu Ihnen, ein Schüler/eine Schülerin der Abschlussklasse. Es geht um ihre/seine Zukunftsperspektiven. Der Schüler/Die Schülerin möchte sich unmittelbar nach dem Schulabschluss weiterqualifizieren und schließt deswegen eine Auszeit nach dem Schulabschluss aus. Er/Sie sucht Sie in der Beratungsstunde auf, um mit Ihnen über seine/ihre Möglichkeiten zu sprechen.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Führen Sie das Gespräch mit der Schülerin, dem Schüler. Der Termin findet auf Wunsch des Gesprächspartners/der Gesprächspartnerin hin statt.
-• Sachziel: Beraten Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, damit er/sie eine gute Entscheidung treffen kann.
-• Beziehungsziel: Behandeln Sie Ihre Gesprächspartnerin/Ihren Gesprächspartner „als eine für ihre eigenen Entscheidungen Verantwortung tragende Person“.
+- **Sachziel:** Beraten Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, damit er/sie eine gute Entscheidung treffen kann.
+- **Beziehungsziel:** Behandeln Sie Ihre Gesprächspartnerin/Ihren Gesprächspartner „als eine für ihre eigenen Entscheidungen Verantwortung tragende Person“.
 """,
 
     # ------------------------------------------------------------
@@ -1227,7 +1226,7 @@ Conduct the conversation with the student. The meeting takes place at the reques
 Sie sind Jonas/Julia Meyer, Schüler/Schülerin in der Abschlussklasse der Theodor-Heuss-Schule. Sie stehen kurz vor dem Abschluss und somit vor der Entscheidung über Ihren beruflichen Werdegang. Sie haben sich schon immer für Ästhetik und Kreativität interessiert, es scheint Ihnen daher als logische Konsequenz, sich bei einer Kunstschule zu bewerben. Es ist Ihnen gleichzeitig klar, dass so eine Entscheidung mit einem hohen Risiko einhergeht. Deswegen denken Sie darüber nach, zunächst eine Ausbildung zu machen oder eine Kombination zwischen Kunst und einem finanziell absichernden Job anzustreben, z. B. Architektur oder Produktdesign.
 Sie möchten sich auf jeden Fall nach dem Schulabschluss weiterqualifizieren. Sie wollen mit der beratenden Lehrkraft darüber sprechen und dabei Ihre Gedanken ausführen. Vielleicht verschafft Ihnen das Gespräch die notwendige Klarheit für die bevorstehende Entscheidung. Wenig hilfreich wäre es, wenn die Lehrkraft seine/ihre eigene Meinung als die richtige darstellen würde, ohne Ihnen wirklich zuzuhören. Das brauchen Sie nämlich am wenigsten: jemanden, der Sie nicht ernst nimmt oder versucht, Sie in eine bestimmte Bahn zu lenken, ohne Ihre Wünsche zu berücksichtigen.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sprechen Sie mit der beratenden Lehrkraft über Ihre bevorstehende Berufswahl. Sie haben nach einem Treffen gefragt.
 
 Handeln Sie während der Interaktion wie folgt:
@@ -1306,11 +1305,11 @@ ROLEPLAYS[9] = {
 **Hintergrundinformation:**
 Sie sind Lehrkraft an der Alexander-von-Humboldt-Schule. Die Schulleitung hat sich für den zeitnahen Aufbau einer Feedbackkultur entschieden. Daher sollen Kolleginnen und Kollegen Ihren Unterricht besuchen und bewerten und auch die Meinungen der Schülerinnen und Schüler sollen eingeholt werden. Sie selbst haben immer die Meinung vertreten, dass Selbstevaluation und -reflexion der Lehrenden ausreichend sind. Zusätzlich holen Sie sich zu bestimmten, wichtigen Fragen die Meinung anderer Kollegen und Kolleginnen ein. So wird die Qualitätssicherung des Unterrichts gewährleistet. Außerdem haben Sie Zweifel an der Formulierung der Kriterien, da sich diese sehr auf die Person der Lehrenden und nicht auf den Unterrichtsbedingungen beziehen. Sie möchten stattdessen verstärkt eher solche Kriterien in die neue Maßnahme einfließen lassen, die sich auf die Unterrichtsbedingungen beziehen, z. B. Klassengröße, Arbeitsmittel, Zeitdruck usw.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sie besprechen das Thema mit Ihrer Schulleitung, Herrn/Frau Ziegler. Sie sprechen ihn/sie spontan an.
 
-• Sachziel: Sie möchten ihm/ihr Ihre Perspektive nahebringen. Kommunizieren Sie Ihren Wunsch nach einer Umformulierung bzw. Erweiterung der Kriterien für den Aufbau einer Feedbackkultur.
-• Beziehungsziel: Sie arbeiten gern mit Ihrem Schulleiter/Ihrer Schulleiterin zusammen.
+- **Sachziel:** Sie möchten ihm/ihr Ihre Perspektive nahebringen. Kommunizieren Sie Ihren Wunsch nach einer Umformulierung bzw. Erweiterung der Kriterien für den Aufbau einer Feedbackkultur.
+- **Beziehungsziel:** Sie arbeiten gern mit Ihrem Schulleiter/Ihrer Schulleiterin zusammen.
 """,
 
     # ---------------------------------------------------------
@@ -1336,7 +1335,7 @@ Sie sind Herr/Frau Ziegler, Schulleiter/in der Alexander-von-Humboldt-Schule. Si
 Für Sie ist es sinnvoll, dass die Lehrkräfte ihre Wirkung durch eine breite Fremdperspektive gespiegelt bekommen. Ihre Absicht ist nicht, einen Kontrollmechanismus zu installieren, sondern Sie wollen die Qualität des Unterrichts und des Arbeitsklimas durch systematisches Feedback mit Hilfe von Fremdeinschätzungen entwickeln. Bei dem geplanten Vorgehen kann das Lehrerkollegium sich gegenseitig unterstützen und voneinander lernen. Ihr Wunsch ist es, in einen Prozess der Schulentwicklung einzutreten, der maßgeblich durch kollegiale Rückmeldung geprägt sein soll. Zudem sehen Sie das neue Vorgehen als Instrument zur Förderung einer offenen Lernkultur in der Schule.
 Die Kriterien für das Feedback haben Sie zunächst mit den anderen Schulleitern und Schulleiterinnen besprochen, diese sind aber noch nicht fest verabschiedet. Die Kriterien beziehen sich stark auf die Unterrichtsgestaltung und somit auf die Lehrkräfte als Personen. Gerade dieser Punkt führt bei manchen Kolleginnen und Kollegen zu einer gewissen Unsicherheit bzw. Unzufriedenheit in Bezug auf die angestrebte Entwicklung. Dies möchten Sie offen angehen. Sie sehen die erste Zeit als Pilotphase und sind offen für Anregungen und Vorschläge, auch was die Kriterien und deren Formulierung anbelangt.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sie werden von einer Lehrkraft auf die Einführung der Feedbackkultur angesprochen. Sie will offensichtlich bestimmte Einwände zu den Kriterien und zum Vorgehen zum Ausdruck bringen.
 Sie reagieren auf eine spontane Anfrage der Lehrkraft zu dem Thema. 
 
@@ -1410,11 +1409,11 @@ ROLEPLAYS[10] = {
 **Hintergrundinformation:**
 Sie sind Lehrkraft an der Ekkehart-von-Jürgens-Schule. An Ihrer Schule sollen die Elterngespräche systematisiert werden, um von den Eltern leistungsrelevante Informationen zu den Schülern und Schülerinnen zu erhalten. Dazu sollen Sie gemeinsam mit Frau/Herrn Berg, einer Kollegin/einem Kollegen, einen Leitfaden für die Elterngespräche entwickeln. Mit diesem Leitfaden soll herausgearbeitet werden, welche Aspekte aus Sicht der Eltern die Leistung der einzelnen Schülerinnen und Schülern beeinflussen (z.B. Freizeitverhalten). Die Schule möchte auf diese Weise eine stärkere Einbindung der Eltern und die Nutzung ihres Wissens für die bessere Berücksichtigung der spezifischen Lebensumstände der Schüler und Schülerinnen erreichen. Die Eltern sollen auf Basis des Leitfadens, den Sie gemeinsam mit Ihrem Kollegen/Ihrer Kollegin erarbeiten, während des Elterngesprächs befragt und ihre Antworten dokumentiert werden. Die dokumentierten Erkenntnisse aus den Elterngesprächen sollen später dafür genutzt werden, um Maßnahmen zu einer besseren, individualisierten Förderung der Schülerinnen und Schüler zu ergreifen.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 
 Sie treffen sich mit Ihrer Kollegin/Ihrem Kollegen Herrn/Frau Berg für einen ersten gemeinsamen Ideenaustausch. Sie sollen sich gemeinsam über mögliche relevanter Aspekte, die in den Leitfaden kommen, austauschen. Sie treffen sich zu einem ersten Termin, den Ihre Kollegin/Ihr Kollege vorgeschlagen hat.
-• Sachziel: Generieren Sie zusammen mit Ihrem Kollegen/Ihrer Kollegin erste mögliche Aspekte für den Leitfaden.
-• Beziehungsziel: Sie schätzen Ihren Kollegen/Ihre Kollegin und wollen das gute Verhältnis zu ihm/ihr aufrechterhalten
+- **Sachziel:** Generieren Sie zusammen mit Ihrem Kollegen/Ihrer Kollegin erste mögliche Aspekte für den Leitfaden.
+- **Beziehungsziel:** Sie schätzen Ihren Kollegen/Ihre Kollegin und wollen das gute Verhältnis zu ihm/ihr aufrechterhalten
 """,
 
     # ---------------------------------------------------------
@@ -1439,7 +1438,7 @@ You meet with your colleague Mr/Ms Berg for an initial exchange of ideas. You ar
 Sie sind Frau/Herr Berg, Lehrkraft an der der Ekkehart-von-Jürgens-Schule. Im Rahmen der von Ihrer Schule angestrebten Schulentwicklung sollen Sie gemeinsam mit einem Kollegen/einer Kollegin einen Leitfaden für Elterngespräche entwickeln. Mit diesem Leitfaden soll herausgearbeitet werden, welche Aspekte aus Sicht der Eltern die Leistung der einzelnen Schülerinnen und Schüler beeinflussen. Die Schule möchte auf diese Weise eine stärkere Einbindung der Eltern und die Nutzung ihres Wissens für die bessere Berücksichtigung der spezifischen Lebensumstände der Schüler und Schülerinnen erreichen. Die Eltern werden auf Basis des Leitfadens während des Elterngesprächs befragt, die Antworten sollen dokumentiert werden. Die ermittelten Erkenntnisse sollen für eine bessere individualisierte Förderung der Schülerinnen und Schüler genutzt werden.
 Sie treffen sich mit Ihrer Kollegin/Ihrem Kollegen. Sie sind mit der Aufgabe betraut worden, zusammen an der Erstellung des Leitfadens zu arbeiten. Es geht um einen ersten Ideenaustausch und darum, mögliche Aspekte für den Leitfaden zu generieren.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 
 Sie führen mit Ihrem Kollegen/Ihrer Kollegin den geplanten Ideenaustausch durch. Es ist in Ihrem Interesse, dass Aspekte gemeinsam generiert werden. Die Sichtweise und die Erfahrung des Kollegen/der Kollegin heißen Sie willkommen.
 Sie treffen sich zum gemeinsam vereinbarten ersten Termin, den Sie vorgeschlagen haben, zum Ideenaustausch. 
