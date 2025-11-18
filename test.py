@@ -762,8 +762,8 @@ However, you must express and justify your request to Ms/Mr Weiß, your school p
 
 ****Your task:****
 You meet with your school management to discuss your wish to reduce your working hours. The meeting takes place at your request.
-• **Content goal:** You want to reduce your working time to 50%.
-• **Relationship goal:** You want to continue working at the school and together with your school management.
+- **Content goal:** You want to reduce your working time to 50%.
+- **Relationship goal:** You want to continue working at the school and together with your school management.
 """,
 
     # ------------------------------------------------------------
