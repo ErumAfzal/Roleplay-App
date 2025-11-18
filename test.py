@@ -838,7 +838,7 @@ ROLEPLAYS[6] = {
     # ------------------------------------------------------------
     # USER INSTRUCTIONS (GERMAN – EXACT, UNCHANGED)
     # ------------------------------------------------------------
-    "user_de": """
+    "user_de":COMMON_USER_HEADER_DE + """
 Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben ca. 5 Min. Zeit, um sich auf das Gespräch vorzubereiten.
 Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
 Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer solchen Situation wären.
@@ -919,12 +919,12 @@ Background information:
 You are Ms/Mr Dr. Jäger, an engineer and parent of Jan, a pupil in the 4th grade of the Johann-Julius-Hecker-School. You want your son to go to the Gymnasium; as an academic, a Gymnasium education and a university degree are self-evident for your son. Jan has now received a 4 in maths, which is not understandable for you. You do the homework with him and he is very motivated and solves the tasks relatively well despite small mistakes. You cannot understand how such a large deviation between the evaluation and your assessment of your son has arisen. Now this result will make a recommendation for the transition to the Gymnasium impossible. The teacher of your child has already been the focus of your criticism in the past. You suspect that the evaluation of your son is connected to this criticism of the teacher. You therefore seek a conversation with the teacher in order to question and possibly change his/her decision.
 
 Your task:
-You enter into the conversation with the teacher about your son’s grade. You want to try to present your view, dispute the evaluation, and possibly obtain a concession from the teacher regarding a possible re-examination of the situation.
+You enter into a conversation with the teacher about your son’s grade. You want to try to present your view, dispute the evaluation, and possibly obtain a concession from the teacher regarding a possible re-examination of the situation.
 You have asked for an appointment with the teacher.
 
 Act as follows during the interaction:
 • You create a supportive environment and behave in such a way that your counterpart can show his/her best behaviour.
-• Initially take a defensive attitude towards the conversation partner.
+• Initially, take a defensive attitude towards the conversation partner.
 • Demand arguments for the opinion or position of the conversation partner.
 • Show yourself surprised at possible statements of the teacher regarding your son’s behaviour in the class.
 • Counter the position of the conversation partner with arguments related to your child’s future perspective.
@@ -982,11 +982,11 @@ Führen Sie das Gespräch mit der Schülerin, dem Schüler. Der Termin findet au
     # ------------------------------------------------------------
     "user_en": """
 Please use the information provided below to guide your conversation. You have about 5 minutes to prepare for the conversation.
-You then have up to 10 minutes for conducting the conversation.
+You then have up to 10 minutes to conduct the conversation.
 Please behave in the current conversation as if YOU yourself were in such a situation.
 
 Background information:
-You are a teacher at the Theodor-Heuss School and responsible for preparing students for career choices. Your task is to advise the people who come to you in their best interest. In this context, Jonas/Julia Meyer, a student in the graduating class, comes to you. It is about his/her future prospects. The student wants to further qualify immediately after graduation and therefore rules out taking a break after completing school. He/She seeks you out during the counseling hour to speak with you about his/her possibilities.
+You are a teacher at the Theodor-Heuss School and are responsible for preparing students for career choices. Your task is to advise the people who come to you in their best interest. In this context, Jonas/Julia Meyer, a student in the graduating class, comes to you. It is about his/her future prospects. The student wants to further qualify immediately after graduation and therefore rules out taking a break after completing school. He/She seeks you out during the counseling hour to speak with you about his/her possibilities.
 
 Your task:
 Conduct the conversation with the student. The meeting takes place at the request of your conversation partner.
@@ -997,7 +997,7 @@ Conduct the conversation with the student. The meeting takes place at the reques
     # ------------------------------------------------------------
     # PARTNER (STUDENT) – GERMAN (EXACT TEXT)
     # ------------------------------------------------------------
-    "partner_de": """
+    "partner_de":COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:**
 Sie sind Jonas/Julia Meyer, Schüler/Schülerin in der Abschlussklasse der Theodor-Heuss-Schule. Sie stehen kurz vor dem Abschluss und somit vor der Entscheidung über Ihren beruflichen Werdegang. Sie haben sich schon immer für Ästhetik und Kreativität interessiert, es scheint Ihnen daher als logische Konsequenz, sich bei einer Kunstschule zu bewerben. Es ist Ihnen gleichzeitig klar, dass so eine Entscheidung mit einem hohen Risiko einhergeht. Deswegen denken Sie darüber nach, zunächst eine Ausbildung zu machen oder eine Kombination zwischen Kunst und einem finanziell absichernden Job anzustreben, z. B. Architektur oder Produktdesign.
 Sie möchten sich auf jeden Fall nach dem Schulabschluss weiterqualifizieren. Sie wollen mit der beratenden Lehrkraft darüber sprechen und dabei Ihre Gedanken ausführen. Vielleicht verschafft Ihnen das Gespräch die notwendige Klarheit für die bevorstehende Entscheidung. Wenig hilfreich wäre es, wenn die Lehrkraft seine/ihre eigene Meinung als die richtige darstellen würde, ohne Ihnen wirklich zuzuhören. Das brauchen Sie nämlich am wenigsten: jemanden, der Sie nicht ernst nimmt oder versucht, Sie in eine bestimmte Bahn zu lenken, ohne Ihre Wünsche zu berücksichtigen.
@@ -1075,7 +1075,7 @@ ROLEPLAYS[7] = {
     # ------------------------------------------------------------
     # USER (TEACHER) – GERMAN (EXACT TEXT)
     # ------------------------------------------------------------
-    "user_de": """
+    "user_de":COMMON_USER_HEADER_DE + """
 Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben ca. 5 Min. Zeit, um sich auf das Gespräch vorzubereiten.
 Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
 Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer solchen Situation wären.
@@ -1111,7 +1111,7 @@ You speak with the student about the upcoming moderation. The conversation takes
     # ------------------------------------------------------------
     # PARTNER (STUDENT) – GERMAN (EXACT TEXT)
     # ------------------------------------------------------------
-    "partner_de": """
+    "partner_de": COMMON_USER_HEADER_DE +"""
 **Hintergrundinformation:**
 Sie sind Anne/Peter Grieb, Schüler/Schülerin an der Rosa-Luxemburg-Schule. In Ihrer 11. Klasse steht die Entscheidung über eine Studienfahrt an. Das Ziel der Klassenfahrt soll im Zusammenhang mit dem Lerninhalt des Geschichtsunterrichts festgelegt werden. Zu diesem Zweck ist eine Moderationssitzung geplant, an der alle Schülerinnen und Schülern der Klasse teilnehmen. Die Moderationssitzung wird von der Lehrerin/dem Lehrer für Geschichte durchgeführt. Er/Sie hat einschlägige Erfahrung mit Moderationen.
 Die Sache ist Ihnen inhaltlich sehr wichtig, da eine Gruppe von Mitschülern und Mitschülerinnen, der Sie angehören, eine Klassenarbeit über das Heilige Römische Reich vorbereitet. Da die Studienfahrt eine Verbindung mit dem Geschichtsunterricht aufweisen soll, scheint es Ihnen plausibel, dass Nürnberg und die dortige Burg ein perfektes Ziel darstellen. Sie erwarten deswegen, dass dieses Ziel bei der Moderationssitzung stärker berücksichtigt wird. D.h., Sie erwarten von Ihrem Lehrer/Ihrer Lehrerin, dass er/sie sich stärker für die Meinungen aus Ihrer Gruppe einsetzen wird. Sie gehen auf sie/ihn zu, um Ihr Anliegen zu besprechen und es auf ehrliche Art und Weise zu erörtern.
@@ -1187,7 +1187,7 @@ ROLEPLAYS[8] = {
     # ------------------------------------------------------------
     # USER (TEACHER) – GERMAN (EXACT TEXT)
     # ------------------------------------------------------------
-    "user_de": """
+    "user_de": COMMON_USER_HEADER_DE +"""
 Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben ca. 5 Min. Zeit, um sich auf das Gespräch vorzubereiten.
 Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
 Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer solchen Situation wären.
@@ -1301,7 +1301,7 @@ ROLEPLAYS[9] = {
     # ---------------------------------------------------------
     # USER INSTRUCTIONS (GERMAN – EXACT TEXT, UNCHANGED)
     # ---------------------------------------------------------
-    "user_de": """
+    "user_de":COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:**
 Sie sind Lehrkraft an der Alexander-von-Humboldt-Schule. Die Schulleitung hat sich für den zeitnahen Aufbau einer Feedbackkultur entschieden. Daher sollen Kolleginnen und Kollegen Ihren Unterricht besuchen und bewerten und auch die Meinungen der Schülerinnen und Schüler sollen eingeholt werden. Sie selbst haben immer die Meinung vertreten, dass Selbstevaluation und -reflexion der Lehrenden ausreichend sind. Zusätzlich holen Sie sich zu bestimmten, wichtigen Fragen die Meinung anderer Kollegen und Kolleginnen ein. So wird die Qualitätssicherung des Unterrichts gewährleistet. Außerdem haben Sie Zweifel an der Formulierung der Kriterien, da sich diese sehr auf die Person der Lehrenden und nicht auf den Unterrichtsbedingungen beziehen. Sie möchten stattdessen verstärkt eher solche Kriterien in die neue Maßnahme einfließen lassen, die sich auf die Unterrichtsbedingungen beziehen, z. B. Klassengröße, Arbeitsmittel, Zeitdruck usw.
 
@@ -1405,7 +1405,7 @@ ROLEPLAYS[10] = {
     # ---------------------------------------------------------
     # USER INSTRUCTIONS (GERMAN – EXACT TEXT)
     # ---------------------------------------------------------
-    "user_de": """
+    "user_de":COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:**
 Sie sind Lehrkraft an der Ekkehart-von-Jürgens-Schule. An Ihrer Schule sollen die Elterngespräche systematisiert werden, um von den Eltern leistungsrelevante Informationen zu den Schülern und Schülerinnen zu erhalten. Dazu sollen Sie gemeinsam mit Frau/Herrn Berg, einer Kollegin/einem Kollegen, einen Leitfaden für die Elterngespräche entwickeln. Mit diesem Leitfaden soll herausgearbeitet werden, welche Aspekte aus Sicht der Eltern die Leistung der einzelnen Schülerinnen und Schülern beeinflussen (z.B. Freizeitverhalten). Die Schule möchte auf diese Weise eine stärkere Einbindung der Eltern und die Nutzung ihres Wissens für die bessere Berücksichtigung der spezifischen Lebensumstände der Schüler und Schülerinnen erreichen. Die Eltern sollen auf Basis des Leitfadens, den Sie gemeinsam mit Ihrem Kollegen/Ihrer Kollegin erarbeiten, während des Elterngesprächs befragt und ihre Antworten dokumentiert werden. Die dokumentierten Erkenntnisse aus den Elterngesprächen sollen später dafür genutzt werden, um Maßnahmen zu einer besseren, individualisierten Förderung der Schülerinnen und Schüler zu ergreifen.
 
