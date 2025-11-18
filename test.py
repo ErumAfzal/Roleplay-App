@@ -525,11 +525,11 @@ ROLEPLAYS[3] = {
     # USER INSTRUCTIONS (GERMAN, EXACT – UNMODIFIED)
     # ------------------------------------------------------------
     "user_de": """
-**Hintergrundinformation: **
+**Hintergrundinformation:**
 Sie sind Lehrkraft an der Astrid-Lindgren-Schule. Sie sind gemeinsam mit anderen Kollegen in einer Schulentwicklungsgruppe. Die Arbeit im Team ist von gegenseitigen Abhängigkeiten der Arbeitsprozesse gekennzeichnet. Gemeinsam abgestimmtes Zeitmanagement und wechselseitiger Informationsfluss zwischen den Teammitgliedern sind für Sie das A und O des Erfolgs.
 Ihr Kollege/Ihre Kollegin Herr/Frau Krause, der/die genauso lange an der Schule beschäftigt ist wie Sie, ist Ihnen mehrmals negativ aufgefallen, da er/sie Deadlines konsequent verpasst hat. Zusätzlich gibt er/sie unklare Bearbeitungszeiten an und behindert so einen reibungslosen Ablauf der Arbeit. Neulich hat er/sie einen wichtigen Kostenvoranschlag, den Sie für eine Finanzplanung benötigten, unbegründet mit einwöchiger Verzögerung an Sie weitergeleitet. Deswegen wurde die Frist für den Förderantrag fast verpasst und Sie mussten dies vor dem Schulleiter/der Schulleiterin und der Schulkonferenz erklären. Sie haben dem Kollegen/der Kollegin dabei den Rücken freigehalten. Sie sind jedoch der Meinung, dass es an der Zeit ist, das Thema endlich mal anzusprechen, damit ihm/ihr die Folgen seines/ihres Handelns bewusst werden. Sie haben allerdings keine Anweisungsbefugnis und sind sich sicher, dass eine direkte, ehrliche Konfrontation, auch wenn sie konstruktiv und gut gemeint ist, nur Anspannung verursachen und die Zusammenarbeit verschlechtern würde.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sie sprechen Ihren Kollegen/Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).
 •	**Sachziel:** Sie sollen das Verhalten Ihres Kollegen/Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihm/ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern. 
 •	**Beziehungsziel:** Die gute Arbeitsbeziehung zum Teamkollegen/zur Teamkollegin soll aufrecht erhalten bleiben. 
@@ -561,7 +561,7 @@ Ihr Gegenüber kann das Gespräch jederzeit mit „Danke, tschüss“ beenden.
 Hintergrundinformation:
 Sie sind Herr/Frau Krause, Lehrkraft an der Astrid-Lindgren-Schule. Sie engagieren sich gemeinsam mit anderen Kollegen und Kolleginnen bei der Finanzierung von Schulprojekten. Sie sind zufrieden mit Ihrer Leistung und Ihrem Zeitmanagement und betrachten sich als guten Teamplayer/gute Teamplayerin. Es lief nicht immer alles gut, z. B. beim letzten Mal mit dem Kostenvoranschlag, aber wann klappt etwas schon hundertprozentig? Zumindest hat sich bisher niemand beschwert. Sie haben also allen Grund, sich Ihrer Arbeitsweise sicher zu sein. Eine Ihrer Kolleginnen/Einer Ihrer Kollegen spricht Sie auf seine/ihre Probleme mit der Teamarbeit an. Es geht um die Zusammenarbeit unter Zeitdruck sowie Deadlines und deren Einhaltung. Er/Sie kann aber sicher nicht Sie meinen, oder?
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sie gehen auf das Gespräch ein. Letztendlich ist es Ihr Kollege/Ihre Kollegin und Sie haben immer ein offenes Ohr für Ihre Kollegen und Kolleginnen. Es geht um Probleme mit der Koordination und der zeitlichen Abstimmung von Aufgaben im Team. Sie hören dem Kollegen/der Kollegin zu, da er/sie Ihnen sympathisch ist. Sie halten ihn/sie allerdings für etwas perfektionistisch und ein bisschen verkrampft. Vielmehr versuchen Sie ihm/ihr Ihre eigenen Erfahrungen mit Zeitverzögerung und Nichteinhaltung von Zeitplänen zu vermitteln.
 Sie reagieren auf die spontane (informelle) Aufforderung Ihres Kollegen/Ihrer Kollegin zu einem Gespräch in der Kaffeeecke.
 
@@ -670,7 +670,7 @@ You summon the student to an unused classroom.
 Hintergrundinformation:
 Sie sind Klaus/Katrin Hermann, Schüler/Schülerin an der Lilly-Truant-Schule. Sie werden von Ihrem Lehrer/Ihrer Lehrerin zu sich bestellt. Sie haben in der letzten Zeit keine Lust auf seinen/ihren Unterricht gehabt, Sie kommen mit seinem/ihrem Lehrstil und auch mit dem Stoff nicht zurecht. Folglich sind Sie immer zu spät erschienen, manchmal auch gar nicht. Er/Sie hat Sie mal vor einiger Zeit darauf angesprochen, Ihre Eltern informiert sowie eine Abmahnung ausgesprochen, was aber für Sie nichts geändert hat. Ihre Motivation bleibt nach wie vor am Boden und Ihre Wertschätzung der Lehrerin/des Lehrers hält sich in Grenzen. Zudem halten Sie Ihre Leistung im Unterricht für angemessen und kommen oft mit neuen Ideen für die Klassenprojekte, an denen Sie teilnehmen. Sie können natürlich Ihre Meinung über den Referendar/die Referendarin nicht offen sagen, haben aber ein paar Ausreden für Ihr Verhalten parat (Probleme mit den Eltern, mal hat der Wecker nicht funktioniert, mal kam der Bus zu spät o. Ä.). Hoffentlich wird er/sie Ihnen etwas davon abkaufen. Sie wissen jedoch auch, dass eine schriftliche Abmahnung und ein Schulverweis eine ernsthafte Drohung darstellen.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sprechen Sie mit Ihrem Lehrer/Ihrer Lehrerin über Ihr Verhalten. Er/Sie hat Sie in ein gerade nicht genutztes Klassenzimmer bestellt. Sie wollen versuchen, das Beste für sich aus der Situation herauszuholen und den Schaden für sich möglichst zu minimieren.
 Sie werden in ein Besprechungszimmer zu dem Lehrers/der Lehrerin beordert.
 
