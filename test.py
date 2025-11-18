@@ -371,8 +371,8 @@ Trotz Ihres Verständnisses für den Schüler/die Schülerin haben für Sie die 
 **Ihre Aufgabe:**
 Sie besprechen mit dem Schüler/der Schülerin seine/ihre bevorstehende Entscheidung. Das Gespräch findet zu einem festgesetzten Beratungstermin in einem leerstehenden Klassenzimmer statt.
 
-** •Sachziel:** Versuchen Sie den Schüler/die Schülerin dazu zu bringen, die Theater-AG zu wählen.
-** •Beziehungsziel:** Als Lehrer legen Sie Wert darauf, dass der Schüler/die Schülerin Sie als fürsorglichen Lehrer/in wahrnimmt.
+• **Sachziel:** Versuchen Sie den Schüler/die Schülerin dazu zu bringen, die Theater-AG zu wählen.
+• **Beziehungsziel:** Als Lehrer legen Sie Wert darauf, dass der Schüler/die Schülerin Sie als fürsorglichen Lehrer/in wahrnimmt.
 
 """,
         "partner_de": """
