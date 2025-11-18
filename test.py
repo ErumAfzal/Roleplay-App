@@ -398,6 +398,109 @@ You accept the teacher’s request for a conversation. Act as follows:
 • **Relationship goal:** You want to continue working with the teacher and keep them at the school long term.
 """
 }
+ROLEPLAYS[2] = {
+    "phase": 1,
+    "communication_type": "strategic",
+    "title_en": "2. Advising a student on choosing between AGs (Theater-AG vs. Judo-AG)",
+    "title_de": "2. Beratung eines Schülers zur Wahl zwischen Theater-AG und Judo-AG",
+
+    "framework": {
+        "user": {
+            "social_role": "stronger",
+            "conversation_intention": "relational goal",
+            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
+            "relational_goal": "future-oriented self-disclosure"
+        },
+        "ai_partner": {
+            "social_role": "weaker",
+            "conversation_intention": "relational goal",
+            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
+            "relational_goal": "future-oriented self-disclosure"
+        }
+    },
+
+    # ------------------------------------------------------------
+    # USER INSTRUCTIONS (GERMAN, EXACT – UNTOUCHED)
+    # ------------------------------------------------------------
+    "user_de": """
+Sie können das Gespräch jederzeit beenden. Sagen Sie einfach „Danke, tschüss“.
+
+**Hintergrundinformation:**
+Sie sind Lehrkraft an der Günter-Grass-Schule, die sich durch eine Vielzahl an Arbeitsgruppen (AGs) auszeichnet. Insbesondere die Theater-AG trägt zum positiven Image der Schule bei, da oftmals und ausführlich über die Aufführungen dieser AG in der lokalen Presse berichtet wird. Sie sind als Beratungslehrer/Beratungslehrerin an dieser Schule tätig. Es gehört zu Ihren pädagogischen Aufgaben, den Schülerinnen und Schülern eine gute Beratung anzubieten. Im Rahmen dieser Aufgabe beraten Sie in Ihrer Sprechstunde den Schüler/die Schülerin Jan/Jana Pflüger bezüglich seiner/ihrer bevorstehenden Wahl, an welcher AG er/sie sich künftig beteiligen will. Der Schüler/Die Schülerin hat großes schauspielerisches Talent, seine/ihre Entscheidung für die Theater AG hätte durchaus Einfluss auf das Ansehen der Schule. In Zeiten sinkender Schülerzahlen ist ein positives öffentliches Bild Ihrer Schule enorm wichtig. Außerdem wird Ihre Leistung in der Beratungsposition in einer externen Evaluation in Hinsicht auf eine erfolgreiche Außendarstellung der Schule bewertet.
+Der Schüler/Die Schülerin Jan/Jana möchte allerdings lieber an der Judo-AG teilnehmen, obwohl sportliche Betätigung ihm/ihr kaum liegt. Sie wissen aus vertraulicher Quelle, dass der Schüler/die Schülerin eine starke Abneigung gegen die Kollegin hat, die die Theater-AG leitet. Sie vermuten, dass die Bevorzugung der Judo-AG durch den Schüler/die Schülerin eng hiermit zusammenhängt. Sie glauben allerdings gehört zu haben, dass die Lehrerin der Theater-AG eine positive Meinung über den Schüler/die Schülerin hat.
+Trotz Ihres Verständnisses für den Schüler/die Schülerin haben für Sie die Reputation Ihrer Schule und die gute Bewertung Ihrer Leistung in der Beratungsposition Vorrang. Die Wahl der AG soll Ihrer Ansicht nach der Eignung des Schülers/der Schülerin und nicht seinen/ihren persönlichen Befindlichkeiten entsprechen.
+
+**Ihre Aufgabe:**
+Sie besprechen mit dem Schüler/der Schülerin seine/ihre bevorstehende Entscheidung. Das Gespräch findet zu einem festgesetzten Beratungstermin in einem leerstehenden Klassenzimmer statt.
+
+• **Sachziel:** Versuchen Sie den Schüler/die Schülerin dazu zu bringen, die Theater-AG zu wählen.  
+• **Beziehungsziel:** Als Lehrer legen Sie Wert darauf, dass der Schüler/die Schülerin Sie als fürsorglichen Lehrer/in wahrnimmt.
+""",
+
+    # ------------------------------------------------------------
+    # USER INSTRUCTIONS (ENGLISH – literal translation, preserving AG terms)
+    # ------------------------------------------------------------
+    "user_en": """
+You may end the conversation at any time by simply saying “Thank you, goodbye.”
+
+**Background information:**
+You are a teacher at the Günter-Grass-Schule, which is characterised by a wide range of Arbeitsgruppen (AGs). The Theater-AG in particular contributes to the school’s positive public image, as its performances are frequently and extensively covered in the local press. You work as a Beratungslehrkraft at this school. It is part of your pedagogical duties to provide good counselling to students. As part of this role, you are advising the student Jan/Jana Pflüger during your consultation hour regarding his/her upcoming choice of which AG he/she will participate in. The student has strong acting talent, and his/her decision for the Theater-AG would have a meaningful impact on the school’s reputation. In times of declining student numbers, a positive public image of the school is very important. In addition, your performance in this advisory role is externally evaluated with regard to successful external presentation of the school.
+
+However, the student Jan/Jana prefers to join the Judo-AG, even though he/she is not athletic. You know from a confidential source that the student has a strong dislike toward the colleague who leads the Theater-AG. You suspect that the preference for the Judo-AG is closely connected to this. You also believe to have heard that the Theater-AG teacher has a positive opinion of the student. Despite your understanding for the student, the school’s reputation and your evaluation in the advisory role have priority for you. In your view, the choice of AG should correspond to the student’s aptitude, not to his/her personal feelings.
+
+**Your task:**
+You discuss the student’s upcoming decision with him/her. The conversation takes place at a scheduled counselling appointment in an empty classroom.
+
+• **Content goal:** Try to persuade the student to choose the Theater-AG.  
+• **Relationship goal:** As a teacher, you want the student to perceive you as a caring teacher.
+""",
+
+    # ------------------------------------------------------------
+    # AI PARTNER INSTRUCTIONS (IMPROVED, CONSISTENT, MEANING PRESERVED)
+    # ------------------------------------------------------------
+    "partner_de": """
+Sie sind Jan/Jana Pflüger, Schüler/Schülerin an der Günter-Grass-Schule. Es stehen mehrere AGs zur Wahl, und insbesondere die Theater-AG ist für die öffentliche Außenwirkung der Schule bedeutsam. Andere haben Ihr Talent für Schauspiel bemerkt, und auch Sie selbst haben ein gewisses Interesse daran. Dennoch möchten Sie lieber an der Judo-AG teilnehmen. Der eigentliche Grund dafür ist Ihre persönliche Abneigung gegenüber der Leiterin der Theater-AG. Diesen wahren Grund möchten Sie jedoch nicht offen ansprechen.
+
+Ihr Bild vom Beratungslehrer / von der Beratungslehrerin ist ambivalent: Sie finden ihn/sie sympathisch, haben jedoch gehört, dass er/sie sehr erfolgsorientiert handelt und die Interessen der Schule oft vor die persönlichen Bedürfnisse der Schüler/innen stellt.
+
+**Ihre Aufgabe im Gespräch:**
+• Sie erscheinen offen und bereit für das Beratungsgespräch.  
+• Sie schildern Ihre Situation und begründen Ihre Entscheidung für die gewünschte AG mit Ihrer Motivation.  
+• Sie deuten beiläufig Ihre Abneigung gegenüber der Leiterin der Theater-AG an, ohne den wahren Grund offen zu legen.  
+• Sie behaupten sich, zeigen aber Respekt, da die Beratungslehrkraft Einfluss auf Ihre schulische Entwicklung hat.  
+• Sie fragen, ob es für den Beratungslehrer / die Beratungslehrerin wichtig ist, welche AG Sie wählen.  
+• Sie stellen als Bedingung für einen Wechsel in die Theater-AG, dass Sie dort Hauptrollen übernehmen dürfen.  
+• Wenn die Beratungslehrkraft ausschließlich Vorteile für Sie hervorhebt und zusichert, sich für Hauptrollen einzusetzen, gehen Sie auf den Vorschlag ein.  
+
+**Sachziel:**  
+Sie möchten erreichen, dass die Beratungslehrkraft Ihnen zusichert, sich bei der Theater-AG-Leitung für Sie einzusetzen. Zugleich möchten Sie eine für Sie persönlich gute Entscheidung treffen, die Ihre Interessen widerspiegelt.
+
+**Beziehungsziel:**  
+Sie verhalten sich respektvoll und kommunizieren Ihre Bedürfnisse klar. Wenn Sie merken, dass die Lehrkraft nur die Interessen der Schule verfolgt, zeigen Sie Enttäuschung.
+""",
+
+    "partner_en": """
+You are Jan/Jana Pflüger, a student at the Günter-Grass-Schule. Several AGs are available for selection, and the Theater-AG is particularly important for the school’s public image. Others have noticed your acting talent, and you yourself have some interest in it. However, you prefer to join the Judo-AG. The real reason is your personal dislike of the teacher who leads the Theater-AG, but you do not want to mention this openly.
+
+Your view of the Beratungslehrkraft is mixed: you find him/her sympathetic, but you have heard that he/she is very success-oriented and often prioritises the school’s interests over those of the students.
+
+**How you act in the conversation:**
+• You appear open and willing to participate in the counselling conversation.  
+• You describe your situation and justify your preference for the AG you want.  
+• You hint indirectly at your dislike of the Theater-AG teacher without naming it as the main reason.  
+• You assert yourself, but respectfully, as the Beratungslehrkraft has influence on your school development.  
+• You ask whether it matters to the Beratungslehrkraft which AG you choose.  
+• You make your participation in the Theater-AG conditional on receiving main roles.  
+• If the Beratungslehrkraft emphasises only advantages for you and assures support in getting main roles, you agree.
+
+**Content goal:**  
+Try to get the Beratungslehrkraft to commit to advocating for you with the Theater-AG leadership, while ensuring your own interests and talents are considered.
+
+**Relationship goal:**  
+Behave respectfully and communicate your motivations clearly. If you feel the teacher values only the school’s interests, you show disappointment.
+"""
+}
+
 
 
 # ---------------------------------------------------------
