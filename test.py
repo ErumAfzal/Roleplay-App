@@ -331,7 +331,7 @@ You work as a teacher at the Friedrich-Ebert-School. You would like to further e
 At the school where you work, however, self-directed learning of students is hardly practiced. Your school leadership does not think highly of this approach. Furthermore, the school management (legally) has the right to deny approval for the training if it does not see any connection to your duties or any benefit for the school. You have decided to approach your principal Mrs. Horn/Mr. Horn to “place” the topic of training. You see the topic as a challenge for the school at present because the educational policy also calls for greater student participation so that students learn to show more social engagement and take on responsibility, as well as be prepared for lifelong learning. You wish to see the school move in this direction and want to be qualified in order to potentially take on functional (leadership) roles in this area. If your current school does not develop in this direction, you would possibly consider transferring.
 
 **Your task:**
-You have asked Mr./Mrs. Horn, your school leadership, for a conversation in order to address your concern.
+You have asked Mr./Mrs. Horn, your school leadership, for a conversation to address your concern.
 
 • **Content goal:** You want to participate in the training.
 • **Relationship goal:** You want to collaborate with your supervisor on this topic.
@@ -421,7 +421,7 @@ ROLEPLAYS[2] = {
     # ------------------------------------------------------------
     # USER INSTRUCTIONS (GERMAN, EXACT – UNTOUCHED)
     # ------------------------------------------------------------
-    "user_de": """
+    "user_de":COMMON_USER_HEADER_DE + """
 Sie können das Gespräch jederzeit beenden. Sagen Sie einfach „Danke, tschüss“.
 
 **Hintergrundinformation:**
@@ -523,15 +523,15 @@ ROLEPLAYS[3] = {
     # ------------------------------------------------------------
     # USER INSTRUCTIONS (GERMAN, EXACT – UNMODIFIED)
     # ------------------------------------------------------------
-    "user_de": """
+    "user_de":COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:**
 Sie sind Lehrkraft an der Astrid-Lindgren-Schule. Sie sind gemeinsam mit anderen Kollegen in einer Schulentwicklungsgruppe. Die Arbeit im Team ist von gegenseitigen Abhängigkeiten der Arbeitsprozesse gekennzeichnet. Gemeinsam abgestimmtes Zeitmanagement und wechselseitiger Informationsfluss zwischen den Teammitgliedern sind für Sie das A und O des Erfolgs.
 Ihr Kollege/Ihre Kollegin Herr/Frau Krause, der/die genauso lange an der Schule beschäftigt ist wie Sie, ist Ihnen mehrmals negativ aufgefallen, da er/sie Deadlines konsequent verpasst hat. Zusätzlich gibt er/sie unklare Bearbeitungszeiten an und behindert so einen reibungslosen Ablauf der Arbeit. Neulich hat er/sie einen wichtigen Kostenvoranschlag, den Sie für eine Finanzplanung benötigten, unbegründet mit einwöchiger Verzögerung an Sie weitergeleitet. Deswegen wurde die Frist für den Förderantrag fast verpasst und Sie mussten dies vor dem Schulleiter/der Schulleiterin und der Schulkonferenz erklären. Sie haben dem Kollegen/der Kollegin dabei den Rücken freigehalten. Sie sind jedoch der Meinung, dass es an der Zeit ist, das Thema endlich mal anzusprechen, damit ihm/ihr die Folgen seines/ihres Handelns bewusst werden. Sie haben allerdings keine Anweisungsbefugnis und sind sich sicher, dass eine direkte, ehrliche Konfrontation, auch wenn sie konstruktiv und gut gemeint ist, nur Anspannung verursachen und die Zusammenarbeit verschlechtern würde.
 
 **Ihre Aufgabe:**
 Sie sprechen Ihren Kollegen/Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).
-•	**Sachziel:** Sie sollen das Verhalten Ihres Kollegen/Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihm/ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern. 
-•	**Beziehungsziel:** Die gute Arbeitsbeziehung zum Teamkollegen/zur Teamkollegin soll aufrecht erhalten bleiben. 
+- **Sachziel:** Sie sollen das Verhalten Ihres Kollegen/Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihm/ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern. 
+- **Beziehungsziel:** Die gute Arbeitsbeziehung zum Teamkollegen/zur Teamkollegin soll aufrecht erhalten bleiben. 
 """,
 
     # ------------------------------------------------------------
