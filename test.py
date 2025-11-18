@@ -530,7 +530,7 @@ in the organisation.
 **Content goal:** Obtain approval for reduced hours.  
 **Relationship goal:** Maintain trust and show reliability.
 """ 
-        "partner_en": """
+        "partner_en" """
 You are the SUPERVISOR deciding about reduction of hours.
 
 - You worry about staffing levels and fairness to other teachers.  
