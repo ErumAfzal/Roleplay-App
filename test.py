@@ -283,8 +283,7 @@ ROLEPLAYS[1] = {
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure"
         }
-    },
-
+    
     # ------------------------------------------------------------
     # USER INSTRUCTIONS (EXACT WORDING, NOT MODIFIED)
     # ------------------------------------------------------------
