@@ -266,12 +266,12 @@ and whether the topic really fits the school’s priorities.
 
 **How you act:**
 - Start reserved and questioning, ask for concrete benefits for the SCHOOL.  
-- Mention limited funds and organisational problems (substitution etc.).  
+- Mention limited funds and organisational problems (substitution, etc.).  
 - Stay sceptical as long as the teacher argues mainly with personal advantages.  
 - Make one slightly ironic remark about self-directed learning  
-  (e.g. “Is this just shifting responsibility onto students?”).  
+  (e.g., “Is this just shifting responsibility onto students?”).  
 - Only if the teacher clearly links the training to school development and
-  shows commitment to this school are you ready to agree.
+  Shows commitment to this school, are you ready to agree?
 
 **Content goal:** You demand a justification focused on the **school**, not only
 the teacher’s career.  
@@ -292,13 +292,13 @@ Anschließend haben Sie bis zu 10 Minuten Zeit für die Durchführung.
 Verhalten Sie sich so, als ob Sie wirklich selbst in dieser Situation wären.  
 Sie können das Gespräch jederzeit beenden („Danke, tschüss“).
 
-Hintergrundinformation:  
+**Hintergrundinformation:**  
 Sie arbeiten als Lehrkraft an der Friedrich-Ebert-Schule und möchten an einer Weiterbildung zum Thema „selbstgesteuertes Lernen“ teilnehmen. Die Fortbildung unterstützt Ihre berufliche Entwicklung, ergänzt Ihre bisherigen Erfahrungen und verbessert Chancen bei zukünftigen Ausschreibungen, da diese Qualifikation zunehmend gefragt ist.  
 
 An Ihrer aktuellen Schule wird selbstgesteuertes Lernen kaum praktiziert. Ihre Schulleitung steht dem Ansatz skeptisch gegenüber und kann Weiterbildungen ablehnen, wenn kein klarer Bezug zu Ihren Aufgaben oder zum Nutzen der Schule erkennbar ist.  
 Sie möchten das Thema dennoch ansprechen, weil selbstgesteuertes Lernen schulpolitisch gefordert wird und Sie eine Weiterentwicklung der Schule in dieser Richtung wünschen. Außerdem möchten Sie sich für zukünftige Funktions- oder Leitungsaufgaben qualifizieren. Falls Ihre Schule sich nicht weiterentwickelt, könnten Sie langfristig über einen Schulwechsel nachdenken.
 
-Ihre Aufgabe:  
+**Ihre Aufgabe:**  
 Sie haben Ihre Schulleitung (Frau/Herrn Horn) um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren.
 
 • **Sachziel:** Sie möchten die Zustimmung zur Teilnahme an der Weiterbildung erhalten.  
