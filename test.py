@@ -815,6 +815,125 @@ Act as follows during the interaction:
 • Relationship goal: You value the colleague greatly and the continued cooperation with him/her is important to you, and you want to keep him/her long-term at the school. He/She is, after all, “your best horse in the stable”.
 """
 }
+ROLEPLAYS[6] = {
+    "phase": 1,
+    "communication_type": "understanding_oriented",
+    "title_en": "6. Parent–Teacher Meeting about Mathematics Grade and Secondary School Recommendation",
+    "title_de": "6. Elterngespräch über Mathematiknote und Gymnasialempfehlung",
+
+    "framework": {
+        "user": {
+            "social_role": "equal",
+            "conversation_intention": "content goal",
+            "content_goal": "adherence to quantity, quality, relevance, and clarity",
+            "relational_goal": "authentic self-disclosure"
+        },
+        "ai_partner": {
+            "social_role": "equal",
+            "conversation_intention": "content goal",
+            "content_goal": "adherence to quantity, quality, relevance, and clarity",
+            "relational_goal": "authentic self-disclosure"
+        }
+    },
+
+    # ------------------------------------------------------------
+    # USER INSTRUCTIONS (GERMAN – EXACT, UNCHANGED)
+    # ------------------------------------------------------------
+    "user_de": """
+Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben ca. 5 Min. Zeit, um sich auf das Gespräch vorzubereiten.
+Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
+Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie SELBST in einer solchen Situation wären.
+
+Hintergrundinformation:
+Sie sind Lehrkraft in der Johann-Julius-Hecker-Schule. Jan ist einer Ihrer Schüler in der 4. Klasse. Herr/Frau Dr. Jäger, der Vater/die Mutter von Jan und Ingenieur/in, hat Sie um einen Gesprächstermin gebeten. Es geht um die Benotung des Jungen im Fach Mathematik. Sie haben die Leistung des Schülers auf Grund von schriftlichen Tests und seines Verhaltens in der Schulklasse mit einer 4 bewertet. Dadurch ist eine Empfehlung für den Wechsel des Schülers aufs Gymnasium nicht möglich. Sie halten Ihre Benotung für gerecht, auch wenn der Schüler Ihnen sympathisch ist und Sie seine Motivation und sein Bestreben anerkennen. Sie sind überzeugt,  dass es besser ist, Schüler und Schülerinnen realistisch zu bewerten. Sie wissen, dass die Schulleitung in solchen Angelegenheiten hinter Ihnen steht. Sie gehen in das Elterngespräch, um Ihre Entscheidung zu begrün- den.
+Ihre Aufgabe:
+Sie treffen sich mit dem Elternteil, um Ihre Entscheidung zu begründen und die Ansichten des Elternteils zum Thema zu erfahren. Für Sie ist die Gerechtigkeit der Benotung vorrangig.
+
+Das auf Wunsch von Herrn/Frau Jäger anberaumte Treffen findet in einem freien Klassenzimmer statt.
+
+•	Sachziel: Erklären Sie dem Elternteil die Gründe für Ihre Entscheidung bezüglich der Bewertung.
+•	Beziehungsziel: Bleiben Sie offen für die Argumente von Herrn/Frau Jäger, der Schüler Jan ist Ihnen sehr sympathisch.
+""",
+
+    # ------------------------------------------------------------
+    # USER INSTRUCTIONS (ENGLISH – VERY LITERAL TRANSLATION)
+    # ------------------------------------------------------------
+    "user_en": """
+Please use the information provided below to guide your conversation. You have about 5 minutes to prepare for the conversation.
+You then have up to 10 minutes for conducting the conversation.
+Please behave in the current conversation as if YOU yourself were in such a situation.
+
+Background information:
+You are a teacher at the Johann-Julius-Hecker-School. Jan is one of your pupils in the 4th grade. Mr/Ms Dr. Jäger, the father/mother of Jan and an engineer, has asked you for an appointment. It concerns the grading of the boy in the subject mathematics. You have evaluated the pupil’s performance based on written tests and his behaviour in the school class with a 4. Because of this, a recommendation for the pupil to move to the Gymnasium is not possible. You consider your grading to be fair, even if the pupil is likeable to you and you acknowledge his motivation and his effort. You are convinced that it is better to evaluate pupils realistically. You know that the school management supports you in such matters. You go into the parent meeting to justify your decision.
+Your task:
+You meet with the parent to justify your decision and to learn the parent’s views on the topic. For you, the fairness of the grading is the priority.
+
+The meeting, scheduled at the request of Mr/Ms Jäger, takes place in a free classroom.
+
+• Content goal: Explain to the parent the reasons for your decision regarding the evaluation.
+• Relationship goal: Remain open to the arguments of Mr/Ms Jäger; the pupil Jan is very likeable to you.
+""",
+
+    # ------------------------------------------------------------
+    # PARTNER INSTRUCTIONS (GERMAN – EXACT, UNCHANGED)
+    # ------------------------------------------------------------
+    "partner_de": """
+Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben 5 Minuten Zeit, um sich auf das Gespräch vorzubereiten.
+Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
+
+Ihr Gegenüber kann das Gespräch jederzeit mit „Danke, tschüss“ beenden.
+
+Hintergrundinformation:
+Sie sind Frau/Herr Dr. Jäger, Ingenieur/in und Elternteil von Jan, Schüler in einer 4. Klasse der Johann-Julius- Hecker-Schule. Sie möchten, dass Ihr Sohn aufs Gymnasium kommt, als Akademiker/Akademikerin ist für Sie eine gymnasiale Ausbildung und ein Studium für Ihren Sohn selbstverständlich. Jan hat nun in Mathe eine 4 bekommen, was für Sie nicht zu verstehen ist. Sie machen die Hausaufgaben mit ihm und er ist dabei sehr motiviert und löst die Aufgaben trotz kleiner Fehler relativ gut. Sie können nicht nachvollziehen, wie solch eine große Abweichung zwischen der Bewertung und Ihrer Einschätzung Ihres Sohnes zustande kommt. Nun wird dieses Ergebnis eine Empfehlung für den Gymnasialübergang unmöglich machen. Der Lehrer/Die Lehrerin Ihres Kindes stand schon in der Vergangenheit im Mittelpunkt Ihrer Kritik. Sie haben den Verdacht, dass die Bewertung Ihres Sohnes im Zusammenhang mit dieser Kritik an der Lehrperson steht. Sie suchen deshalb das Gespräch mit der Lehrkraft, um deren Entscheidung in Frage zu stellen und evtl. zu ändern.
+
+Ihre Aufgabe:
+Sie treten ins Gespräch mit der Lehrkraft über die Note Ihres Sohns ein. Sie wollen versuchen, Ihre Ansicht darzulegen, die Bewertung streitig zu machen und evtl. ein Zugeständnis seitens der Lehrkraft bezüglich einer möglichen Nachprüfung der Situation einzuholen.
+Sie haben nach einem Termin mit der Lehrkraft gefragt.
+
+Handeln Sie während der Interaktion wie folgt:
+•	Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
+•	Nehmen Sie zunächst eine abwehrende Haltung gegenüber der Gesprächspartnerin/dem Gesprächspartner ein.
+•	Fordern Sie Argumente für die Meinung bzw. Position des Gesprächspartners/der Gesprächspartnerin.
+•	Zeigen Sie sich überrascht angesichts möglicher Äußerungen der Lehrkraft in Bezug auf das Verhalten Ihres Sohnes in der Klasse.
+•	Kontern Sie die Position der Gesprächspartnerin/des Gesprächspartners mit Argumenten, die mit der Zukunftsperspektive Ihres Kinds zusammenhängen.
+•	Starten Sie ungefähr in der Mitte des Gesprächs einen Gegenangriff, indem Sie Ihrer Ansicht nach vorhandene persönliche Beweggründe der Lehrkraft gegen Sie als Grund für die Bewertung andeuten und drohen Sie mit (rechtlichen) Konsequenzen.
+•	Hinterfragen Sie die Autorität Ihres Gesprächspartners, indem Sie verkünden, mit der Schulleitung über das Thema sprechen zu wollen.
+•	Äußern Sie Einsicht, wenn Ihr Gesprächspartner/Ihre Gesprächspartnerin bis zum Ende der Interaktion und unter allen Umständen zuvorkommend und transparent seine/ihre Meinung vermittelt.
+
+Sachziel: Sie stellen die Bewertung des Sohnes in Frage um ggf. eine Nachprüfung der Situation zu erreichen. Gleichzeitig soll ein Verständnis (Sie wollen es verstehen) für die Bewertung und die zugrundliegenden Kriterien sowie den Prozess, der zu der Bewertung geführt hat, hergestellt werden. Sie als Elternteil wollen Klarheit über die Bewertung Ihres Sohnes erlangen, um sicherzustellen, dass die Bewertung fair und gerechtfertigt ist. Dies soll dazu beitragen, eine konstruktive Lösung zu finden und mögliche Missverständnisse oder Unstimmigkeiten zu klären.
+
+Beziehungsziel: Trotz Ihrer abwehrenden Haltung gegenüber der Lehrkraft wollen Sie eine respektvolle und konstruktive Kommunikation mit dieser aufrechterhalten. Dies beinhaltet das Fordern von Argumenten und das Zeigen von Überraschung angesichts möglicher Vorwürfe gegenüber dem Verhalten Ihres Sohnes, während gleichzeitig eine konstruktive Lösung angestrebt wird.
+
+Übergeordnetes Ziel: Sie wollen die schulische Laufbahn ihres Sohnes unterstützen und sicherstellen, dass er die bestmöglichen Bildungschancen erhält. Dies beinhaltet die Gewährleistung einer fairen Bewertung und die Bemühung um eine Empfehlung für den Gymnasialübergang.
+""",
+
+    # ------------------------------------------------------------
+    # PARTNER INSTRUCTIONS (ENGLISH – VERY LITERAL TRANSLATION)
+    # ------------------------------------------------------------
+    "partner_en": """
+Please use the information provided below to guide your conversation. You have 5 minutes to prepare for the conversation.
+You then have up to 10 minutes to conduct the conversation.
+
+Your counterpart may end the conversation at any time by saying “Thank you, goodbye.”
+
+Background information:
+You are Ms/Mr Dr. Jäger, an engineer and parent of Jan, a pupil in the 4th grade of the Johann-Julius-Hecker-School. You want your son to go to the Gymnasium; as an academic, a Gymnasium education and a university degree are self-evident for your son. Jan has now received a 4 in maths, which is not understandable for you. You do the homework with him and he is very motivated and solves the tasks relatively well despite small mistakes. You cannot understand how such a large deviation between the evaluation and your assessment of your son has arisen. Now this result will make a recommendation for the transition to the Gymnasium impossible. The teacher of your child has already been the focus of your criticism in the past. You suspect that the evaluation of your son is connected to this criticism of the teacher. You therefore seek a conversation with the teacher in order to question and possibly change his/her decision.
+
+Your task:
+You enter into a conversation with the teacher about your son’s grade. You want to try to present your view, dispute the evaluation, and possibly obtain a concession from the teacher regarding a possible re-examination of the situation.
+You have asked for an appointment with the teacher.
+
+Act as follows during the interaction:
+• You create a supportive environment and behave in such a way that your counterpart can show his/her best behaviour.
+• Initially, take a defensive attitude towards the conversation partner.
+• Demand arguments for the opinion or position of the conversation partner.
+• Show yourself surprised at possible statements of the teacher regarding your son’s behaviour in the class.
+• Counter the position of the conversation partner with arguments related to your child’s future perspective.
+• Start a counterattack about the middle of the conversation by implying that personal motives of the teacher against you exist as a reason for the evaluation and threaten with (legal) consequences.
+• Question the authority of your conversation partner by announcing that you want to speak to the school management about the topic.
+• Express insight if your conversation partner, until the end of the interaction and under all circumstances, conveys his/her opinion courteously and transparently.
+
+Content goal: You question the evaluation of your son to possibly achieve a re-examination of the situation. At the same time, an understanding (you want to understand
 
 
 
