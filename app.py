@@ -256,7 +256,7 @@ the school and worries about costs and lesson cancellations.
 **Content goal:** Convince your supervisor to approve your participation.  
 **Relationship goal:** Maintain a constructive, professional relationship and
 show long-term commitment to the school.
-""" + FRAMEWORK_STRATEGIC_EN,
+""" ,
         "partner_en": """
 You are the **PRINCIPAL (Mr/Ms Horn)** at Friedrich-Ebert School.
 
@@ -301,7 +301,7 @@ die Schule und sorgt sich um Kosten und Stundenausfall.
 **Sachziel:** Überzeugen Sie Ihre/n Vorgesetzte/n, die Teilnahme zu genehmigen.  
 **Beziehungsziel:** Zeigen Sie Ihre Verbundenheit mit der Schule und erhalten
 Sie eine konstruktive Zusammenarbeit.
-""" + FRAMEWORK_STRATEGIC_DE,
+""" ,
         "partner_de": """
 Sie sind die **SCHULLEITUNG (Herr/Frau Horn)** der Friedrich-Ebert-Schule.
 
@@ -351,7 +351,7 @@ wants to join the judo AG, mainly because they dislike the theatre teacher.
 **Content goal:** Persuade the student to choose the theatre group.  
 **Relationship goal:** Be perceived as a supportive advisor, not only as a
 representative of school interests.
-""" + FRAMEWORK_STRATEGIC_EN,
+""" ,
         "partner_en": """
 You are the **STUDENT (Jan/Jana Pflüger)**.
 
@@ -386,7 +386,7 @@ wegen einer Abneigung gegen die Theater-Lehrkraft lieber in die Judo-AG.
 **Sachziel:** Den/die Schüler/in für die Theater-AG gewinnen.  
 **Beziehungsziel:** Vertrauen und Unterstützung vermitteln – nicht nur die
 Schulinteressen vertreten.
-""" + FRAMEWORK_STRATEGIC_DE,
+""" ,
         "partner_de": """
 Sie sind der/die **SCHÜLER/IN Jan/Jana Pflüger**.
 
@@ -423,9 +423,9 @@ work and stress, but you want to preserve the working relationship.
 • Prevent the colleague from emotionally shutting down.  
 • Aim for insight and behavioural change.
 
-**Content goal:** Make consequences clear and agree concrete next steps.  
+**Content goal:** Make consequences clear and agree on concrete next steps.  
 **Relationship goal:** Maintain cooperation and avoid escalation.
-""" + FRAMEWORK_STRATEGIC_EN,
+""" ,
         "partner_en": """
 You are the COLLEAGUE who often misses deadlines.
 
@@ -448,7 +448,7 @@ Abgabetermine nicht einhält. Das führt zu Mehrarbeit und Stress.
 
 **Sachziel:** Bewusstsein schaffen und konkrete nächste Schritte vereinbaren.  
 **Beziehungsziel:** Zusammenarbeit erhalten, Eskalation vermeiden.
-""" + FRAMEWORK_STRATEGIC_DE,
+""" ,
         "partner_de": """
 Sie sind die KOLLEGIN/der KOLLEGE, die/der Termine häufig nicht einhält.
 
@@ -477,7 +477,7 @@ A colleague regularly arrives late to meetings or shared lessons.
 
 **Content goal:** Obtain commitment to punctuality.  
 **Relationship goal:** Remain respectful and cooperative.
-""" + FRAMEWORK_STRATEGIC_EN,
+""" ,
         "partner_en": """
 You are the COLLEAGUE who often comes late.
 
@@ -498,7 +498,7 @@ gemeinsamem Unterricht.
 
 **Sachziel:** Zusage zur Pünktlichkeit erreichen.  
 **Beziehungsziel:** Respektvolle Zusammenarbeit erhalten.
-""" + FRAMEWORK_STRATEGIC_DE,
+""" ,
         "partner_de": """
 Sie sind die KOLLEGIN/der KOLLEGE, die/der häufig zu spät kommt.
 
@@ -529,7 +529,7 @@ in the organisation.
 
 **Content goal:** Obtain approval for reduced hours.  
 **Relationship goal:** Maintain trust and show reliability.
-""" + FRAMEWORK_STRATEGIC_EN,
+""" ,
         "partner_en": """
 You are the SUPERVISOR deciding about reduction of hours.
 
@@ -557,7 +557,7 @@ Sie möchten dennoch weiterhin aktiv bleiben.
 
 **Sachziel:** Genehmigung der Stundenreduzierung.  
 **Beziehungsziel:** Vertrauen der Schulleitung bewahren.
-""" + FRAMEWORK_STRATEGIC_DE,
+""" ,
         "partner_de": """
 Sie sind die SCHULLEITUNG und sollen über eine Stundenreduzierung entscheiden.
 
@@ -592,7 +592,7 @@ treated unfairly.
 
 **Content goal:** Clarify the reasons and criteria.  
 **Relationship goal:** Maintain respect and avoid defensiveness.
-""" + FRAMEWORK_UNDERSTANDING_EN,
+""",
         "partner_en": """
 You are the PERSON who received the poor evaluation.
 
@@ -617,7 +617,7 @@ betroffene Person fühlt sich ungerecht behandelt.
 
 **Sachziel:** Gründe und Kriterien klären.  
 **Beziehungsziel:** Respektvolle Beziehung bewahren.
-""" + FRAMEWORK_UNDERSTANDING_DE,
+""" ,
         "partner_de": """
 Sie sind die PERSON mit der schlechten Bewertung.
 
@@ -651,7 +651,7 @@ you of taking sides.
 
 **Content goal:** Make your neutral role and reasoning transparent.  
 **Relationship goal:** Preserve trust and show empathy.
-""" + FRAMEWORK_UNDERSTANDING_EN,
+""" ,
         "partner_en": """
 You are one party in the conflict and feel the other person should support you.
 
@@ -677,7 +677,7 @@ Partei zu ergreifen.
 
 **Sachziel:** Ihre neutrale Rolle transparent machen.  
 **Beziehungsziel:** Vertrauen und Beziehung erhalten.
-""" + FRAMEWORK_UNDERSTANDING_DE,
+""" ,
         "partner_de": """
 Sie sind eine KONFLIKTPARTEI und erwarten Unterstützung.
 
@@ -711,7 +711,7 @@ conflict). You are not the decision-maker.
 
 **Content goal:** Support structured thinking and evaluation of options.  
 **Relationship goal:** Strengthen the person’s autonomy.
-""" + FRAMEWORK_UNDERSTANDING_EN,
+""" ,
         "partner_en": """
 You are the PERSON seeking advice.
 
@@ -734,7 +734,7 @@ Schullaufbahn, Berufswahl, Konflikt).
 
 **Sachziel:** Strukturierung und Abwägung der Optionen.  
 **Beziehungsziel:** Autonomie der Person stärken.
-""" + FRAMEWORK_UNDERSTANDING_DE,
+""" ,
         "partner_de": """
 Sie sind die PERSON, die Rat sucht.
 
@@ -769,7 +769,7 @@ too strongly on teacher personality.
 **Content goal:** Present your perspective and suggestions on the feedback
 criteria.  
 **Relationship goal:** Maintain cooperation with the principal.
-""" + FRAMEWORK_UNDERSTANDING_EN,
+""" ,
         "partner_en": """
 You are the PRINCIPAL (Mr/Ms Ziegler).
 
@@ -799,7 +799,7 @@ fokussieren.
 
 **Sachziel:** Ihre Sicht und Vorschläge zu den Feedbackkriterien darstellen.  
 **Beziehungsziel:** Kooperation mit der Schulleitung sichern.
-""" + FRAMEWORK_UNDERSTANDING_DE,
+""" ,
         "partner_de": """
 Sie sind die SCHULLEITUNG (Herr/Frau Ziegler).
 
@@ -835,7 +835,7 @@ feedback talks, documentation of student information).
 
 **Content goal:** Develop a meaningful set of guidelines together.  
 **Relationship goal:** Strengthen cooperation and mutual respect.
-""" + FRAMEWORK_UNDERSTANDING_EN,
+""" ,
         "partner_en": """
 You are the COLLEAGUE developing the guideline together.
 
@@ -861,7 +861,7 @@ Schülerinformationen).
 
 **Sachziel:** Einen sinnvollen Leitfaden gemeinsam entwickeln.  
 **Beziehungsziel:** Kooperation und Respekt stärken.
-""" + FRAMEWORK_UNDERSTANDING_DE,
+""" ,
         "partner_de": """
 Sie sind die KOLLEGIN/der KOLLEGE in der Leitfaden-Gruppe.
 
