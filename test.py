@@ -253,7 +253,6 @@ def build_system_prompt(roleplay, language):
 
     return system_prompt
 
-
 # ---------------------------------------------------------
 #  COMMON USER HEADERS (EN / DE)
 # ---------------------------------------------------------
@@ -426,14 +425,14 @@ Sie können das Gespräch jederzeit beenden. Sagen Sie einfach „Danke, tschüs
 
 **Hintergrundinformation:**
 Sie sind Lehrkraft an der Günter-Grass-Schule, die sich durch eine Vielzahl an Arbeitsgruppen (AGs) auszeichnet. Insbesondere die Theater-AG trägt zum positiven Image der Schule bei, da oftmals und ausführlich über die Aufführungen dieser AG in der lokalen Presse berichtet wird. Sie sind als Beratungslehrer/Beratungslehrerin an dieser Schule tätig. Es gehört zu Ihren pädagogischen Aufgaben, den Schülerinnen und Schülern eine gute Beratung anzubieten. Im Rahmen dieser Aufgabe beraten Sie in Ihrer Sprechstunde den Schüler/die Schülerin Jan/Jana Pflüger bezüglich seiner/ihrer bevorstehenden Wahl, an welcher AG er/sie sich künftig beteiligen will. Der Schüler/Die Schülerin hat großes schauspielerisches Talent, seine/ihre Entscheidung für die Theater AG hätte durchaus Einfluss auf das Ansehen der Schule. In Zeiten sinkender Schülerzahlen ist ein positives öffentliches Bild Ihrer Schule enorm wichtig. Außerdem wird Ihre Leistung in der Beratungsposition in einer externen Evaluation in Hinsicht auf eine erfolgreiche Außendarstellung der Schule bewertet.
-Der Schüler/Die Schülerin Jan/Jana möchte allerdings lieber an der Judo-AG teilnehmen, obwohl sportliche Betätigung ihm/ihr kaum liegt. Sie wissen aus vertraulicher Quelle, dass der Schüler/die Schülerin eine starke Abneigung gegen die Kollegin hat, die die Theater-AG leitet. Sie vermuten, dass die Bevorzugung der Judo-AG durch den Schüler/die Schülerin eng hiermit zusammenhängt. Sie glauben allerdings gehört zu haben, dass die Lehrerin der Theater-AG eine positive Meinung über den Schüler/die Schülerin hat.
+Der Schüler/Die Schülerin J möchte allerdings lieber an der Judo-AG teilnehmen, obwohl sportliche Betätigung ihm/ihr kaum liegt. Sie wissen aus vertraulicher Quelle, dass der Schüler/die Schülerin eine starke Abneigung gegen die Kollegin hat, die die Theater-AG leitet. Sie vermuten, dass die Bevorzugung der Judo-AG durch den Schüler/die Schülerin eng hiermit zusammenhängt. Sie glauben allerdings gehört zu haben, dass die Lehrerin der Theater-AG eine positive Meinung über den Schüler/die Schülerin hat.
 Trotz Ihres Verständnisses für den Schüler/die Schülerin haben für Sie die Reputation Ihrer Schule und die gute Bewertung Ihrer Leistung in der Beratungsposition Vorrang. Die Wahl der AG soll Ihrer Ansicht nach der Eignung des Schülers/der Schülerin und nicht seinen/ihren persönlichen Befindlichkeiten entsprechen.
 
 **Ihre Aufgabe:**
 Sie besprechen mit dem Schüler/der Schülerin seine/ihre bevorstehende Entscheidung. Das Gespräch findet zu einem festgesetzten Beratungstermin in einem leerstehenden Klassenzimmer statt.
 
-• **Sachziel:** Versuchen Sie den Schüler/die Schülerin dazu zu bringen, die Theater-AG zu wählen.  
-• **Beziehungsziel:** Als Lehrer legen Sie Wert darauf, dass der Schüler/die Schülerin Sie als fürsorglichen Lehrer/in wahrnimmt.
+-  **Sachziel:** Versuchen Sie den Schüler/die Schülerin dazu zu bringen, die Theater-AG zu wählen.  
+- **Beziehungsziel:** Als Lehrer legen Sie Wert darauf, dass der Schüler/die Schülerin Sie als fürsorglichen Lehrer/in wahrnimmt.
 """,
 
     # ------------------------------------------------------------
@@ -443,11 +442,11 @@ Sie besprechen mit dem Schüler/der Schülerin seine/ihre bevorstehende Entschei
 You may end the conversation at any time by simply saying “Thank you, goodbye.”
 
 **Background information:**
-You are a teacher at the Günter-Grass-Schule, which is characterised by a wide range of Arbeitsgruppen (AGs). The Theater-AG in particular contributes to the school’s positive public image, as its performances are frequently and extensively covered in the local press. You work as a Beratungslehrkraft at this school. It is part of your pedagogical duties to provide good counselling to students. As part of this role, you are advising the student Jan/Jana Pflüger during your consultation hour regarding his/her upcoming choice of which AG he/she will participate in. The student has strong acting talent, and his/her decision for the Theater-AG would have a meaningful impact on the school’s reputation. In times of declining student numbers, a positive public image of the school is very important. In addition, your performance in this advisory role is externally evaluated with regard to successful external presentation of the school.
+You are a teacher at the Günter-Grass-Schule, which is characterised by a wide range of Arbeitsgruppen (AGs). The Theater-AG in particular contributes to the school’s positive public image, as its performances are frequently and extensively covered in the local press. You work as a Beratungslehrkraft at this school. It is part of your pedagogical duties to provide good counselling to students. As part of this role, you are advising the student J.Pflüger during your consultation hour regarding his/her upcoming choice of which AG he/she will participate in. The student has strong acting talent, and his/her decision for the Theater-AG would have a meaningful impact on the school’s reputation. In times of declining student numbers, a positive public image of the school is very important. In addition, your performance in this advisory role is externally evaluated with regard to successful external presentation of the school.
 
 However, the student J. prefers to join the Judo-AG, even though he/she is not athletic. You know from a confidential source that the student has a strong dislike toward the colleague who leads the Theater-AG. You suspect that the preference for the Judo-AG is closely connected to this. You also believe to have heard that the Theater-AG teacher has a positive opinion of the student. Despite your understanding for the student, the school’s reputation and your evaluation in the advisory role have priority for you. In your view, the choice of AG should correspond to the student’s aptitude, not to his/her personal feelings.
 
-****Your task:****
+**Your task:**
 You discuss the student’s upcoming decision with him/her. The conversation takes place at a scheduled counselling appointment in an empty classroom.
 
 • **Content goal:** Try to persuade the student to choose the Theater-AG.  
@@ -479,7 +478,7 @@ Sie verhalten sich respektvoll und kommunizieren Ihre Bedürfnisse klar. Wenn Si
 """,
 
     "partner_en": """
-You are Jan/Jana Pflüger, a student at the Günter-Grass-Schule. Several AGs are available for selection, and the Theater-AG is particularly important for the school’s public image. Others have noticed your acting talent, and you yourself have some interest in it. However, you prefer to join the Judo-AG. The real reason is your personal dislike of the teacher who leads the Theater-AG, but you do not want to mention this openly.
+You are J.Pflüger, a student at the Günter-Grass-Schule. Several AGs are available for selection, and the Theater-AG is particularly important for the school’s public image. Others have noticed your acting talent, and you yourself have some interest in it. However, you prefer to join the Judo-AG. The real reason is your personal dislike of the teacher who leads the Theater-AG, but you do not want to mention this openly.
 
 Your view of the Beratungslehrkraft is mixed: you find him/her sympathetic, but you have heard that he/she is very success-oriented and often prioritises the school’s interests over those of the students.
 
@@ -743,7 +742,7 @@ ROLEPLAYS[5] = {
 **Hintergrundinformation:**
 Sie sind Lehrkraft in Vollzeit. Sie arbeiten seit über drei Jahren an Ihrer Schule. Sie wissen aus vielen Gesprä- chen, dass Sie von Ihren Schülerinnen und Schülern und deren Eltern geschätzt werden und darüber hinaus  auch im Kollegium sehr beliebt sind. Die Schulleitung ist mit Ihnen sehr zufrieden, gerade auch, weil es an der Schule viele Krankmeldungen gibt und daher einige Unruhe herrscht.
 Ihnen macht Ihre Arbeit großen Spaß. Sie möchten jedoch aus persönlichen Gründen Ihre Arbeitszeit auf 50% reduzieren. Sie haben gemerkt, dass Sie mehr Freizeit für sich haben möchten, um Ihren Hobbys nachzugehen.
-Sie müssen jedoch Ihren Wunsch gegenüber Frau/Herrn Weiß, Ihrer Schulleiterin/Ihrem Schulleiter, äußern und begründen. Er/Sie ist für ein strategisches und intransparentes Verhalten bekannt. Sie wissen, dass er/sie Ihren Wunsch in Abrede stellen wird.
+Sie müssen jedoch Ihren Wunsch gegenüber A.Weiß, Ihrer Schulleiterin/Ihrem Schulleiter, äußern und begründen. Er/Sie ist für ein strategisches und intransparentes Verhalten bekannt. Sie wissen, dass er/sie Ihren Wunsch in Abrede stellen wird.
 
 **Ihre Aufgabe:**
 Sie treffen sich mit Ihrer Schulleitung, um Ihren Wunsch nach Arbeitszeitreduzierung zu besprechen. Das Treffen findet auf Ihren Wunsch statt.
@@ -758,9 +757,9 @@ Sie treffen sich mit Ihrer Schulleitung, um Ihren Wunsch nach Arbeitszeitreduzie
 **Background information:**
 You are a full-time teacher. You have been working at your school for over three years. You know from many conversations that you are appreciated by your pupils and their parents, and in addition also very well liked in the teaching staff. The school management is very satisfied with you, especially because there are many sick notes at the school and therefore some unrest.
 You enjoy your work very much. However, for personal reasons you would like to reduce your working time to 50%. You have noticed that you want to have more free time for yourself in order to pursue your hobbies.
-However, you must express and justify your request to Ms/Mr Weiß, your school principal. He/She is known for strategic and non-transparent behaviour. You know that he/she will challenge or deny your request.
+However, you must express and justify your request to A.Weiß, your school principal. He/She is known for strategic and non-transparent behaviour. You know that he/she will challenge or deny your request.
 
-****Your task:****
+**Your task:**
 You meet with your school management to discuss your wish to reduce your working hours. The meeting takes place at your request.
 - **Content goal:** You want to reduce your working time to 50%.
 - **Relationship goal:** You want to continue working at the school and together with your school management.
@@ -862,10 +861,10 @@ You are a teacher at the Johann-Julius-Hecker-School. Jan is one of your pupils 
 **Your task:**
 You meet with the parent to justify your decision and to learn the parent’s views on the topic. For you, the fairness of the grading is the priority.
 
-The meeting, scheduled at the request of Mr/Ms Jäger, takes place in a free classroom.
+The meeting, scheduled at the request of A.Jäger, takes place in a free classroom.
 
 - **Content goal:** Explain to the parent the reasons for your decision regarding the evaluation.
-- **Relationship goal:** Remain open to the arguments of Mr/Ms Jäger; the pupil Jan is very likeable to you.
+- **Relationship goal:** Remain open to the arguments of A.Jäger; the pupil Jan is very likeable to you.
 """,
 
     # ------------------------------------------------------------
@@ -1071,7 +1070,7 @@ ROLEPLAYS[8] = {
 
 
 **Hintergrundinformation:**
-Sie sind Lehrkraft an der Theodor-Heuss-Schule und zuständig für die Berufswahlvorbereitung der Schülerinnen und Schüler. Ihre Aufgabe besteht darin, die Sie aufsuchenden Personen in deren Sinne zu beraten. In diesem Rahmen kommt Jonas/Julia Meyer zu Ihnen, ein Schüler/eine Schülerin der Abschlussklasse. Es geht um ihre/seine Zukunftsperspektiven. Der Schüler/Die Schülerin möchte sich unmittelbar nach dem Schulabschluss weiterqualifizieren und schließt deswegen eine Auszeit nach dem Schulabschluss aus. Er/Sie sucht Sie in der Beratungsstunde auf, um mit Ihnen über seine/ihre Möglichkeiten zu sprechen.
+Sie sind Lehrkraft an der Theodor-Heuss-Schule und zuständig für die Berufswahlvorbereitung der Schülerinnen und Schüler. Ihre Aufgabe besteht darin, die Sie aufsuchenden Personen in deren Sinne zu beraten. In diesem Rahmen kommt J.Meyer zu Ihnen, ein Schüler/eine Schülerin der Abschlussklasse. Es geht um ihre/seine Zukunftsperspektiven. Der Schüler/Die Schülerin möchte sich unmittelbar nach dem Schulabschluss weiterqualifizieren und schließt deswegen eine Auszeit nach dem Schulabschluss aus. Er/Sie sucht Sie in der Beratungsstunde auf, um mit Ihnen über seine/ihre Möglichkeiten zu sprechen.
 
 **Ihre Aufgabe:**
 Führen Sie das Gespräch mit der Schülerin, dem Schüler. Der Termin findet auf Wunsch des Gesprächspartners/der Gesprächspartnerin hin statt.
@@ -1088,7 +1087,7 @@ You then have up to 10 minutes for conducting the conversation.
 Please behave in the current conversation as if YOU yourself were in such a situation.
 
 **Background information:**
-You are a teacher at the Theodor-Heuss School and responsible for preparing students for career choices. Your task is to advise the people who come to you in their best interest. In this context, Jonas/Julia Meyer, a student in the graduating class, comes to you. It is about his/her future prospects. The student wants to further qualify immediately after graduation and therefore rules out taking a break after completing school. He/She seeks you out during the counseling hour to speak with you about his/her possibilities.
+You are a teacher at the Theodor-Heuss School and responsible for preparing students for career choices. Your task is to advise the people who come to you in their best interest. In this context, J.Meyer, a student in the graduating class, comes to you. It is about his/her future prospects. The student wants to further qualify immediately after graduation and therefore rules out taking a break after completing school. He/She seeks you out during the counseling hour to speak with you about his/her possibilities.
 
 **Your task:**
 Conduct the conversation with the student. The meeting takes place at the request of your conversation partner.
@@ -1185,7 +1184,7 @@ ROLEPLAYS[9] = {
 Sie sind Lehrkraft an der Alexander-von-Humboldt-Schule. Die Schulleitung hat sich für den zeitnahen Aufbau einer Feedbackkultur entschieden. Daher sollen Kolleginnen und Kollegen Ihren Unterricht besuchen und bewerten und auch die Meinungen der Schülerinnen und Schüler sollen eingeholt werden. Sie selbst haben immer die Meinung vertreten, dass Selbstevaluation und -reflexion der Lehrenden ausreichend sind. Zusätzlich holen Sie sich zu bestimmten, wichtigen Fragen die Meinung anderer Kollegen und Kolleginnen ein. So wird die Qualitätssicherung des Unterrichts gewährleistet. Außerdem haben Sie Zweifel an der Formulierung der Kriterien, da sich diese sehr auf die Person der Lehrenden und nicht auf den Unterrichtsbedingungen beziehen. Sie möchten stattdessen verstärkt eher solche Kriterien in die neue Maßnahme einfließen lassen, die sich auf die Unterrichtsbedingungen beziehen, z. B. Klassengröße, Arbeitsmittel, Zeitdruck usw.
 
 **Ihre Aufgabe:**
-Sie besprechen das Thema mit Ihrer Schulleitung, Herrn/Frau Ziegler. Sie sprechen ihn/sie spontan an.
+Sie besprechen das Thema mit Ihrer Schulleitung, A.Ziegler. Sie sprechen ihn/sie spontan an.
 
 - **Sachziel:** Sie möchten ihm/ihr Ihre Perspektive nahebringen. Kommunizieren Sie Ihren Wunsch nach einer Umformulierung bzw. Erweiterung der Kriterien für den Aufbau einer Feedbackkultur.
 - **Beziehungsziel:** Sie arbeiten gern mit Ihrem Schulleiter/Ihrer Schulleiterin zusammen.
@@ -1199,7 +1198,7 @@ Sie besprechen das Thema mit Ihrer Schulleitung, Herrn/Frau Ziegler. Sie spreche
 You are a teacher at the Alexander-von-Humboldt School. The school management has decided to establish a feedback culture in the near future. Therefore, colleagues are supposed to visit and evaluate your lessons, and the opinions of the students will also be collected. You have always maintained the opinion that self-evaluation and self-reflection by teachers are sufficient. In addition, for certain important questions, you obtain the opinions of other colleagues. This ensures quality assurance of teaching. You also have doubts about how the criteria are formulated, as they focus strongly on the person of the teacher and less on the teaching conditions. Instead, you would like criteria to be included that relate more to teaching conditions, such as class size, teaching materials, time pressure, etc.
 
 **Your task:**
-You discuss the topic with your school principal, Mr/Ms Ziegler. You approach him/her spontaneously.
+You discuss the topic with your school principal,  A.Ziegler. You approach him/her spontaneously.
 
 - **Content goal:** You want to convey your perspective. Communicate your wish for a rewording or extension of the criteria for establishing a feedback culture.
 - **Relationship goal:** You enjoy working with your school principal.
@@ -1286,11 +1285,11 @@ ROLEPLAYS[10] = {
     # ---------------------------------------------------------
     "user_de":COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:**
-Sie sind Lehrkraft an der Ekkehart-von-Jürgens-Schule. An Ihrer Schule sollen die Elterngespräche systematisiert werden, um von den Eltern leistungsrelevante Informationen zu den Schülern und Schülerinnen zu erhalten. Dazu sollen Sie gemeinsam mit Frau/Herrn Berg, einer Kollegin/einem Kollegen, einen Leitfaden für die Elterngespräche entwickeln. Mit diesem Leitfaden soll herausgearbeitet werden, welche Aspekte aus Sicht der Eltern die Leistung der einzelnen Schülerinnen und Schülern beeinflussen (z.B. Freizeitverhalten). Die Schule möchte auf diese Weise eine stärkere Einbindung der Eltern und die Nutzung ihres Wissens für die bessere Berücksichtigung der spezifischen Lebensumstände der Schüler und Schülerinnen erreichen. Die Eltern sollen auf Basis des Leitfadens, den Sie gemeinsam mit Ihrem Kollegen/Ihrer Kollegin erarbeiten, während des Elterngesprächs befragt und ihre Antworten dokumentiert werden. Die dokumentierten Erkenntnisse aus den Elterngesprächen sollen später dafür genutzt werden, um Maßnahmen zu einer besseren, individualisierten Förderung der Schülerinnen und Schüler zu ergreifen.
+Sie sind Lehrkraft an der Ekkehart-von-Jürgens-Schule. An Ihrer Schule sollen die Elterngespräche systematisiert werden, um von den Eltern leistungsrelevante Informationen zu den Schülern und Schülerinnen zu erhalten. Dazu sollen Sie gemeinsam mit J.Berg, einer Kollegin/einem Kollegen, einen Leitfaden für die Elterngespräche entwickeln. Mit diesem Leitfaden soll herausgearbeitet werden, welche Aspekte aus Sicht der Eltern die Leistung der einzelnen Schülerinnen und Schülern beeinflussen (z.B. Freizeitverhalten). Die Schule möchte auf diese Weise eine stärkere Einbindung der Eltern und die Nutzung ihres Wissens für die bessere Berücksichtigung der spezifischen Lebensumstände der Schüler und Schülerinnen erreichen. Die Eltern sollen auf Basis des Leitfadens, den Sie gemeinsam mit Ihrem Kollegen/Ihrer Kollegin erarbeiten, während des Elterngesprächs befragt und ihre Antworten dokumentiert werden. Die dokumentierten Erkenntnisse aus den Elterngesprächen sollen später dafür genutzt werden, um Maßnahmen zu einer besseren, individualisierten Förderung der Schülerinnen und Schüler zu ergreifen.
 
 **Ihre Aufgabe:**
 
-Sie treffen sich mit Ihrer Kollegin/Ihrem Kollegen Herrn/Frau Berg für einen ersten gemeinsamen Ideenaustausch. Sie sollen sich gemeinsam über mögliche relevanter Aspekte, die in den Leitfaden kommen, austauschen. Sie treffen sich zu einem ersten Termin, den Ihre Kollegin/Ihr Kollege vorgeschlagen hat.
+Sie treffen sich mit Ihrer Kollegin/Ihrem Kollegen J.Berg für einen ersten gemeinsamen Ideenaustausch. Sie sollen sich gemeinsam über mögliche relevanter Aspekte, die in den Leitfaden kommen, austauschen. Sie treffen sich zu einem ersten Termin, den Ihre Kollegin/Ihr Kollege vorgeschlagen hat.
 - **Sachziel:** Generieren Sie zusammen mit Ihrem Kollegen/Ihrer Kollegin erste mögliche Aspekte für den Leitfaden.
 - **Beziehungsziel:** Sie schätzen Ihren Kollegen/Ihre Kollegin und wollen das gute Verhältnis zu ihm/ihr aufrechterhalten
 """,
@@ -1300,11 +1299,12 @@ Sie treffen sich mit Ihrer Kollegin/Ihrem Kollegen Herrn/Frau Berg für einen er
     # ---------------------------------------------------------
     "user_en": """
 **Background information:**
-You are a teacher at the Ekkehart-von-Jürgens School. At your school, parent-teacher conversations are to be systematized in order to obtain performance-relevant information about the students from the parents. Together with Mr/Ms Berg, a colleague, you are to develop a guideline for the parent-teacher meetings. With this guideline, it should be worked out which aspects, from the parents' point of view, influence the performance of the individual students (e.g., leisure behavior). The school wants to achieve stronger involvement of parents and use their knowledge to better take into account the specific life circumstances of the students. Parents are to be interviewed during the meetings based on the guideline you and your colleague develop, and their responses are to be documented. The documented insights from the conversations will later be used to take measures to better individually support students.
+You are a teacher at the Ekkehart-von-Jürgens School. At your school, parent-teacher conversations are to be systematized in order to obtain performance-relevant information about the students from the parents.
+Together with J.Berg, a colleague, you are to develop a guideline for the parent-teacher meetings.
+With this guideline, it should be worked out which aspects, from the parents' point of view, influence the performance of the individual students (e.g., leisure behavior). The school wants to achieve stronger involvement of parents and use their knowledge to better take into account the specific life circumstances of the students. Parents are to be interviewed during the meetings based on the guideline you and your colleague develop, and their responses are to be documented. The documented insights from the conversations will later be used to take measures to better individually support students.
 
 ****Your task:****
-
-You meet with your colleague Mr/Ms Berg for an initial exchange of ideas. You are to jointly discuss possible relevant aspects that could be included in the guideline. You meet for a first appointment that your colleague suggested.
+You meet with your colleague A.Berg for an initial exchange of ideas. You are to jointly discuss possible relevant aspects that could be included in the guideline. You meet for a first appointment that your colleague suggested.
 - **Content goal:** Generate initial possible aspects for the guideline together with your colleague.
 - **Relationship goal:** You appreciate your colleague and want to maintain the good relationship.
 """,
