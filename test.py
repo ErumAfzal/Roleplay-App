@@ -316,7 +316,7 @@ Sie arbeiten als Lehrkraft an der Friedrich-Ebert-Schule. Sie möchten sich zum 
 In der Schule, an der Sie arbeiten, wird selbstgesteuertes Lernen der Schülerinnen und Schüler jedoch eher nicht praktiziert. Ihre Schulleitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Schulleitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Schule darin sieht. Sie haben sich dafür entschieden, Ihre Schulleiterin Frau Horn/Ihren Schulleiter Herrn Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen, sowie auf lebenslanges Lernen vorbereitet sind. Sie wünschen sich eine Weiterentwicklung der Schule in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Schule nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
 
 **Ihre Aufgabe:**
-Sie haben Herr/Frau Horn, Ihre Schulleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren.
+Sie haben J.Horn, Ihre Schulleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren.
 
 • **Sachziel:** Sie möchten an der Weiterbildung teilnehmen.\n
 • **Beziehungsziel:** Sie wollen mit Ihrem Vorgesetzten/Ihrer Vorgesetzen bei diesem Thema zusammenarbeiten.
