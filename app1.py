@@ -1,17 +1,105 @@
+import streamlit as st
+import json
+from datetime import datetime
+from openai import OpenAI
+
+# Optional Google Sheets logging
+try:
+    import gspread
+    from google.oauth2.service_account import Credentials
+    GSHEETS_AVAILABLE = True
+except ImportError:
+    GSHEETS_AVAILABLE = False
+
+
+# ---------------------------------------------------------
+#  OpenAI Setup
+# ---------------------------------------------------------
+
+def setup_openai_client():
+    """Create and return an OpenAI client."""
+    api_key = st.secrets.get("OPENAI_API_KEY", "")
+
+    if not api_key:
+        api_key = st.sidebar.text_input(
+            "🔑 OpenAI API key (local testing)",
+            type="password"
+        )
+
+    if not api_key:
+        st.sidebar.error("Please provide an OpenAI API key.")
+        return None
+
+    try:
+        return OpenAI(api_key=api_key)
+    except Exception as e:
+        st.sidebar.error(f"OpenAI client error: {e}")
+        return None
+
+
+# ---------------------------------------------------------
+#  Google Sheets Helpers
+# ---------------------------------------------------------
+
+def get_gsheets_client():
+    """Return an authenticated gspread client."""
+    if not GSHEETS_AVAILABLE:
+        st.error("gspread not installed.")
+        return None
+
+    if "gcp_service_account" not in st.secrets or "GSPREAD_SHEET_ID" not in st.secrets:
+        st.error("Missing Google Sheets credentials in secrets.")
+        return None
+
+    try:
+        creds = Credentials.from_service_account_info(
+            st.secrets["gcp_service_account"],
+            scopes=[
+                "https://www.googleapis.com/auth/spreadsheets",
+                "https://www.googleapis.com/auth/drive",
+            ],
+        )
+        return gspread.authorize(creds)
+
+    except Exception as e:
+        st.error(f"Failed to create Google Sheets client: {e}")
+        return None
+
+
+def ensure_worksheet(spreadsheet, sheet_name, rows=1000, cols=20):
+    """Return worksheet and create it if missing."""
+    try:
+        return spreadsheet.worksheet(sheet_name)
+    except Exception:
+        try:
+            return spreadsheet.add_worksheet(sheet_name, rows=rows, cols=cols)
+        except Exception as e:
+            st.error(f"Could not create worksheet '{sheet_name}': {e}")
+            return None
+
+
 def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
+    """Append a chat transcript + feedback to Google Sheets."""
     client = get_gsheets_client()
     if not client:
         return
 
-    sh = client.open_by_key(st.secrets["GSPREAD_SHEET_ID"])
+    try:
+        sh = client.open_by_key(st.secrets["GSPREAD_SHEET_ID"])
+    except Exception as e:
+        st.error(f"Could not open Google Sheet: {e}")
+        return
 
     ws_chat = ensure_worksheet(sh, "chats")
     ws_feedback = ensure_worksheet(sh, "feedback")
 
+    if not ws_chat or not ws_feedback:
+        return
+
     timestamp = datetime.utcnow().isoformat()
 
-    # Create human-readable transcript
-    transcript = messages_to_transcript(chat_messages)
+    # Must be JSON-serializable
+    safe_chat_json = json.dumps(chat_messages, ensure_ascii=False)
 
     chat_row = [
         timestamp,
@@ -22,7 +110,7 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
         meta.get("roleplay_title_en", ""),
         meta.get("roleplay_title_de", ""),
         meta.get("communication_type", ""),
-        transcript,
+        safe_chat_json,
     ]
 
     feedback_row = [
@@ -46,10 +134,12 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
         feedback.get("comment"),
     ]
 
-    ws_chat.append_row(chat_row)
-    ws_feedback.append_row(feedback_row)
-
-    st.success("Chat + feedback saved.")
+    try:
+        ws_chat.append_row(chat_row, value_input_option="RAW")
+        ws_feedback.append_row(feedback_row, value_input_option="RAW")
+        st.success("Chat and feedback saved successfully.")
+    except Exception as e:
+        st.error(f"Failed to append data to Sheets: {e}")
 
 # ---------------------------------------------------------
 #  ROLEPLAY DEFINITIONS
