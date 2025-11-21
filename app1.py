@@ -3,7 +3,7 @@ import json
 import os
 from datetime import datetime
 from openai import OpenAI
-import streamlit as st   # <-- FIXED
+
 
 st.write("DEBUG: Using sheet ID:", GSPREAD_SHEET_ID)
 
