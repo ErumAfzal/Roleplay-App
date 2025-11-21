@@ -1,10 +1,8 @@
 # roleplay_trainer.py
-
 import streamlit as st
 import json
 from datetime import datetime
 from openai import OpenAI
-
 # Optional: Google Sheets logging
 try:
     import gspread
@@ -12,11 +10,9 @@ try:
     GSHEETS_AVAILABLE = True
 except ImportError:
     GSHEETS_AVAILABLE = False
-
 # ---------------------------------------------------------
 #  OpenAI setup (2025 API)
 # ---------------------------------------------------------
-
 def setup_openai_client():
     """
     Create and return an OpenAI client.
@@ -357,8 +353,8 @@ Sie gehen auf die Bitte der Lehrkraft um ein Gespräch ein. Handeln Sie während
 • Nehmen Sie zunächst eine reservierte, fragende Haltung gegenüber dem Gesprächspartner/der Gesprächspartnerin ein. Fordern Sie mehr Informationen über die Verbindung des Themas der Weiterbildung mit der Schule und der Schulpraxis an Ihrer Schule.
 • Erwähnen Sie die begrenzt verfügbaren finanziellen Mittel für Weiterbildungen.
 • Bleiben Sie konsequent bei Ihrer skeptischen Einstellung, solange der Zusammenhang von Weiterbildung und Schule vage bleibt.
-• Bleiben Sie skeptisch wenn nur Äußerungen zu den eigenen persönlichen Vorteilen kommen und keine Vorteile für die Schule und die Schülerinnen und Schüler getroffen werden.
-• Äußern Sie sich ironisch zur Nützlichkeit des „selbstgesteuertes Lernen“: Wollen die Lehrerkräfte etwa aus Bequemlichkeit Verantwortung und Arbeit auf die Schülerinnen und Schüler abschieben?
+• Bleiben Sie skeptisch, wenn nur Äußerungen zu den eigenen persönlichen Vorteilen kommen und keine Vorteile für die Schule und die Schülerinnen und Schüler getroffen werden.
+• Äußern Sie sich ironisch zur Nützlichkeit des „selbstgesteuerten Lernens“: Wollen die Lehrerkräfte etwa aus Bequemlichkeit Verantwortung und Arbeit auf die Schülerinnen und Schüler abschieben?
 • Fragen Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, wie die Weiterbildung mit der künftigen Karrierelaufbahn der Lehrkraft zusammenhängt.
 • Falls Ihr Gesprächspartner/Ihre Gesprächspartnerin einen Zusammenhang mit den Zielen der Schule argumentativ verdeutlicht und er/sie die aktuelle Schulleitung für die treibende Kraft bei der Weiterentwicklung der Schule hält, stimmen Sie der Teilnahme an einer entsprechenden Weiterbildung zu.
 
@@ -378,10 +374,10 @@ Your counterpart may end the conversation at any time by saying “Thank you, by
 
 You are, principal of the Friedrich-Ebert-School. A teacher is requesting permission to participate in training on the topic of “self-directed learning”. In terms of content, this topic appears not very relevant to the current tasks and goals of your school. You are personally skeptical about the effectiveness of modern student-centered methods. Instead, you place great emphasis on strict adherence to the internal and external curriculum.
 You also fear that participation in the training may cause lesson cancellations and increased work due to substitute planning.
-You are therefore skeptical about the teacher’s considerations and want to know why he/she considers this particular topic important. You consider the teacher competent and would like to keep him/her at the school, but you would not be willing to support his/her private career ambitions with school funds. On the other hand, you are aware that self-directed learning will become an important challenge for schools in the future. Current educational policy demands more steps toward lifelong learning and the promotion of interdisciplinary competences for student self-management and activation (communication, coordination, teamwork, presentation skills, critical thinking, etc.). You have also noticed increasing dissatisfaction among students. You are therefore interested in what the teacher has to report.
+You are therefore skeptical about the teacher’s considerations and want to know why he/she considers this particular topic important. You consider the teacher competent and would like to keep him/her at the school, but you would not be willing to support his/her private career ambitions with school funds. On the other hand, you are aware that self-directed learning will become an important challenge for schools in the future. Current educational policy demands more steps toward lifelong learning and the promotion of interdisciplinary competencies for student self-management and activation (communication, coordination, teamwork, presentation skills, critical thinking, etc.). You have also noticed increasing dissatisfaction among students. You are therefore interested in what the teacher has to report.
 
 ****Your task:****
-It is important to you that the teacher presents a clear and explicit connection between the training and school development. The argumentation should concern the school as a whole, not personal career ambitions. Even if the teacher might have a hidden agenda to position themself better careerwise, in their argumentation they should emphasize the “collective” advantages for the school in order to receive your full attention.
+It is important to you that the teacher presents a clear and explicit connection between the training and school development. The argumentation should concern the school as a whole, not personal career ambitions. Even if the teacher might have a hidden agenda to position themself better careerwise, in their argumentation, they should emphasize the “collective” advantages for the school to receive your full attention.
 You accept the teacher’s request for a conversation. Act as follows:
 • Create a supportive environment and behave in a way that allows your counterpart to show their best behavior.
 • Initially adopt a reserved, questioning attitude. Request more information about how the training is linked to the school and current teaching practice.
@@ -420,7 +416,7 @@ ROLEPLAYS[2] = {
     # ------------------------------------------------------------
     # USER INSTRUCTIONS (GERMAN, EXACT – UNTOUCHED)
     # ------------------------------------------------------------
-    "user_de":COMMON_USER_HEADER_DE + """
+    "user_de": COMMON_USER_HEADER_DE + """
 Sie können das Gespräch jederzeit beenden. Sagen Sie einfach „Danke, tschüss“.
 
 **Hintergrundinformation:**
@@ -436,7 +432,7 @@ Sie besprechen mit dem Schüler/der Schülerin seine/ihre bevorstehende Entschei
 """,
 
     # ------------------------------------------------------------
-    # USER INSTRUCTIONS (ENGLISH – literal translation, preserving AG terms)
+    # USER INSTRUCTIONS (ENGLISH – literal translation)
     # ------------------------------------------------------------
     "user_en": """
 You may end the conversation at any time by simply saying “Thank you, goodbye.”
@@ -454,9 +450,15 @@ You discuss the student’s upcoming decision with him/her. The conversation tak
 """,
 
     # ------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (IMPROVED, CONSISTENT, MEANING PRESERVED)
+    # AI PARTNER INSTRUCTIONS (with added constraints)
     # ------------------------------------------------------------
     "partner_de": """
+WICHTIG: 
+• Verwenden Sie IMMER „Sie“ gegenüber der Beratungslehrkraft – niemals „du“.  
+• Sie sprechen NICHT wie mit einem Mitschüler.  
+• Sie stellen KEINE Fragen, die andeuten, dass die Lehrkraft selbst eine AG wählt.  
+• Sie befinden sich in einem formellen Beratungsgespräch (kein lockerer Austausch).
+
 Sie sind Jan/Jana Pflüger, Schüler/Schülerin an der Günter-Grass-Schule. Es stehen mehrere AGs zur Wahl, und insbesondere die Theater-AG ist für die öffentliche Außenwirkung der Schule bedeutsam. Andere haben Ihr Talent für Schauspiel bemerkt, und auch Sie selbst haben ein gewisses Interesse daran. Dennoch möchten Sie lieber an der Judo-AG teilnehmen. Der eigentliche Grund dafür ist Ihre persönliche Abneigung gegenüber der Leiterin der Theater-AG. Diesen wahren Grund möchten Sie jedoch nicht offen ansprechen.
 
 Ihr Bild vom Beratungslehrer / von der Beratungslehrerin ist ambivalent: Sie finden ihn/sie sympathisch, haben jedoch gehört, dass er/sie sehr erfolgsorientiert handelt und die Interessen der Schule oft vor die persönlichen Bedürfnisse der Schüler/innen stellt.
@@ -478,6 +480,12 @@ Sie verhalten sich respektvoll und kommunizieren Ihre Bedürfnisse klar. Wenn Si
 """,
 
     "partner_en": """
+IMPORTANT:
+• Always address the teacher formally as “Sie” (not “du”).  
+• You do NOT speak to the teacher as if they were a classmate.  
+• Do NOT ask any questions implying the teacher chooses an AG themselves.  
+• This is a formal counselling meeting, not a peer conversation.
+
 You are J.Pflüger, ein Student an der Günter-Grass-Schule. Several AGs are available for selection, and the Theater-AG is particularly important for the school’s public image. Others have noticed your acting talent, and you yourself have some interest in it. However, you prefer to join the Judo-AG. The real reason is your personal dislike of the teacher who leads the Theater-AG, but you do not want to mention this openly.
 
 Your view of the Beratungslehrkraft is mixed: you find him/her sympathetic, but you have heard that he/she is very success-oriented and often prioritises the school’s interests over those of the students.
@@ -498,6 +506,7 @@ Try to get the Beratungslehrkraft to commit to advocating for you with the Theat
 Behave respectfully and communicate your motivations clearly. If you feel the teacher values only the school’s interests, you show disappointment.
 """
 }
+
 ROLEPLAYS[3] = {
     "phase": 1,
     "communication_type": "strategic",
@@ -700,7 +709,7 @@ Talk with your teacher about your behaviour. He/She has summoned you to an unuse
 
 Act as follows during the interaction:
 • You create a supportive environment and behave in such a way that your counterpart can show his/her best behaviour.
-• Claim not to understand what the problem is (e.g. “It can happen once in a while”).
+• Claim not to understand what the problem is (e.g., “It can happen once in a while”).
 • Try to interrupt your teacher with excuses to justify your behaviour.
 • Claim that you are mostly “nocturnal” when working and therefore cannot get out of bed so easily in the morning.
 • Emphasise that your performance and grades are still fine.
@@ -1300,7 +1309,7 @@ Sie treffen sich mit Ihrer Kollegin/Ihrem Kollegen J.Berg für einen ersten geme
     "user_en": """
 **Background information:**
 You are a teacher at the Ekkehart-von-Jürgens School. At your school, parent-teacher conversations are to be systematized in order to obtain performance-relevant information about the students from the parents.
-Together with J.Berg, a colleague, you are to develop a guideline for the parent-teacher meetings.
+Together with J. Berg, a colleague, you are to develop a guideline for parent-teacher meetings.
 With this guideline, it should be worked out which aspects, from the parents' point of view, influence the performance of the individual students (e.g., leisure behavior). The school wants to achieve stronger involvement of parents and use their knowledge to better take into account the specific life circumstances of the students. Parents are to be interviewed during the meetings based on the guideline you and your colleague develop, and their responses are to be documented. The documented insights from the conversations will later be used to take measures to better individually support students.
 
 ****Your task:****
@@ -1314,7 +1323,7 @@ You meet with your colleague A.Berg for an initial exchange of ideas. You are to
     # ---------------------------------------------------------
     "partner_de": """
 **Hintergrundinformation:**
-Sie sind Frau/Herr Berg, Lehrkraft an der der Ekkehart-von-Jürgens-Schule. Im Rahmen der von Ihrer Schule angestrebten Schulentwicklung sollen Sie gemeinsam mit einem Kollegen/einer Kollegin einen Leitfaden für Elterngespräche entwickeln. Mit diesem Leitfaden soll herausgearbeitet werden, welche Aspekte aus Sicht der Eltern die Leistung der einzelnen Schülerinnen und Schüler beeinflussen. Die Schule möchte auf diese Weise eine stärkere Einbindung der Eltern und die Nutzung ihres Wissens für die bessere Berücksichtigung der spezifischen Lebensumstände der Schüler und Schülerinnen erreichen. Die Eltern werden auf Basis des Leitfadens während des Elterngesprächs befragt, die Antworten sollen dokumentiert werden. Die ermittelten Erkenntnisse sollen für eine bessere individualisierte Förderung der Schülerinnen und Schüler genutzt werden.
+Sie sind J.Berg, Lehrkraft an der Ekkehart-von-Jürgens-Schule. Im Rahmen der von Ihrer Schule angestrebten Schulentwicklung sollen Sie gemeinsam mit einem Kollegen/einer Kollegin einen Leitfaden für Elterngespräche entwickeln. Mit diesem Leitfaden soll herausgearbeitet werden, welche Aspekte aus Sicht der Eltern die Leistung der einzelnen Schülerinnen und Schüler beeinflussen. Die Schule möchte auf diese Weise eine stärkere Einbindung der Eltern und die Nutzung ihres Wissens für die bessere Berücksichtigung der spezifischen Lebensumstände der Schüler und Schülerinnen erreichen. Die Eltern werden auf Basis des Leitfadens während des Elterngesprächs befragt, die Antworten sollen dokumentiert werden. Die ermittelten Erkenntnisse sollen für eine bessere individualisierte Förderung der Schülerinnen und Schüler genutzt werden.
 Sie treffen sich mit Ihrer Kollegin/Ihrem Kollegen. Sie sind mit der Aufgabe betraut worden, zusammen an der Erstellung des Leitfadens zu arbeiten. Es geht um einen ersten Ideenaustausch und darum, mögliche Aspekte für den Leitfaden zu generieren.
 
 **Ihre Aufgabe:**
