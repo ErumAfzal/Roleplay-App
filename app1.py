@@ -38,54 +38,89 @@ def setup_openai_client():
 
 
 # ---------------------------------------------------------
-#  Google Sheets Helpers
+#  Google Sheets Helpers (SERVICE ACCOUNT IS INLINE)
 # ---------------------------------------------------------
 
+import gspread
+from google.oauth2.service_account import Credentials
+
+# Google Sheet ID (NEW WORKING ONE)
+GSPREAD_SHEET_ID = "1GDh6gBL5PS0ybQxhCK-YCvbkWYOps1wxVcG7Ta5ZXdg"
+
+# Service Account JSON (INLINE — DO NOT SHARE PUBLICLY)
+SERVICE_ACCOUNT_INFO = {
+    "type": "service_account",
+    "project_id": "communcationaction",
+    "private_key_id": "1e2ebb54163aa126aabdf175e745cd7214b72af1",
+    "private_key": """-----BEGIN PRIVATE KEY-----
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCaCmKErPRRHyeV
+oDmr76D0UMNG5Lsok7NP+7bpOA0KeVO9rcRmY7q2puOjNu+ayRSzYA3E52ppVIA1
+rkPsg9/toN5szEn/9nrMn8HyPVChdUFB5OYvSmKysb2i9YYO98Al4mepmno4B40D
+ZDbykkkIyBR4HvWxd4Sj3wwU89jfVJS8/FB8d8CD59OCIhCgdDxtgVp62r6a8LhK
+wZflUgzOfMDY1BhjZSjuEZPxKMdGv9u9c9BTzK4wXBe8104etNVZ0t7DwXHyng+x
+G9aAOBqgTsqeNBAxvYyyX7FfCOaQTBwQpU8xqWnPD8H1oVj4ekJ6WBJHj1lKJJ61
+6mxmirFBAgMBAAECggEARFJB0v3RGR/b00HvAmL0vRgLHKj7l+o2uE15GaS6KACb
+E0B8oTsvh66qvWvyxvDTxSFfygsoB9KqUOTbjI4LJl7Y+GF9mtEsMxDSmUn3tr0G
+dh77t1LjRsWNyjbiwEXDjCoId1GkTrCOq0fqFRmr2gDAD20P5SgRBQu7VJm5AYhW
+i0HOn/vQkmRnppUpZaLfh4mXR8kWrtoly8KKhJPfW2mxajusqMEe8OEeZsAgDRpt
+TgglbcQ5rXk57/Xqff79JIzAKarigmhzk/nLf/mb/2AxLwDmlxbhLa2n2RDNhZUv
+6Y1EhREyzNgtnwnm6w/os5fKFQVWrlHJMBGeR1GJzwKBgQDI8mtKcmucFb2ZH4Ns
+0abUC0FQzpl8ezOz7Uo7E+CN+j9mAXB3/e4n4BIW3GN9BrxWLa/JzNHzurdZtQ6h
+gJEN5XfG+z73wvjU9jxi2+GNSeVsAZ0Le4g5Kn9U5UGMd5Y/cqfQ30jocczGFjLb
+EAHqazbM2KSEjWN1a7uqQY3txwKBgQDEPiXKH0BDHMZDShASKHKEZB//y/vNLfn7
+mTTHTtgRV1vwYKa3Kc2dnkZx4BGeT8q2YS97KikAVC1st6LjTTzvcnjYhKw0Jkrq
+0ctfLSIaC0o1pxCxH6/INgC2vfLakQbNqR3K9UZ8Z9EwFEvC7xcTgTVPadK3JgWD
+Va+4zhyItwKBgGWJMLN2a298AMiNhuAGc5CzezZ0nlOrAS4KWbbOTWoQJ9bIJWdM
+NPmLHDjW9aJoM+Qrw6ZpSzEniJvYg+MRTrpB16sAqwmQSCF7pnmhdy/oRfe0PQFf
+Uy7njV19Vgi/KHk42xkMqg9h6UGyV9IfHYiw0gjh8wdTVg0v+ayG4UtjAoGAFY21
+3NM93aElbXKO/U+P9FaC5TdkOo7YK/gRweo49P6hTG9xICDpQmyF1DAF/1tIKmvW
+KTLiOfUE4DHzI//xt2LdPvqjZz7lb5EHQzbTzgR7bBUjUjDmv5iez3NhXvwawS/X
+49i4myVT5nH0OD7GTBAe6M/4osD8TgZ1PFj27VUCgYBZOtqgcgq+1hPusuKL5GuS
+xD56B12TqA0aLuTR6cUTrrO8csAFlhtNiqi0NeXC+b8PcG8csLIL7pZjKpBWsXAO
+9ziAlcOOhesrXtFrWTTjBh9I5AwAQqIsMzzP7u/cQxsiPJXtxVEuvqFYTam2Dzuc
+62Zk4LcThSIjaIMzOIE0GQ==
+-----END PRIVATE KEY-----""",
+    "client_email": "chatlog@communcationaction.iam.gserviceaccount.com",
+    "client_id": "109874841970763953852",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/chatlog%40communcationaction.iam.gserviceaccount.com"
+}
+
 def get_gsheets_client():
-    """Return an authenticated gspread client."""
-    if not GSHEETS_AVAILABLE:
-        st.error("gspread not installed.")
-        return None
-
-    if "gcp_service_account" not in st.secrets or "GSPREAD_SHEET_ID" not in st.secrets:
-        st.error("Missing Google Sheets credentials in secrets.")
-        return None
-
     try:
         creds = Credentials.from_service_account_info(
-            st.secrets["gcp_service_account"],
+            SERVICE_ACCOUNT_INFO,
             scopes=[
                 "https://www.googleapis.com/auth/spreadsheets",
                 "https://www.googleapis.com/auth/drive",
             ],
         )
         return gspread.authorize(creds)
-
     except Exception as e:
-        st.error(f"Failed to create Google Sheets client: {e}")
+        st.error(f"Failed to set up Google Sheets client: {e}")
         return None
 
 
-def ensure_worksheet(spreadsheet, sheet_name, rows=1000, cols=20):
-    """Return worksheet and create it if missing."""
+def ensure_worksheet(sh, name):
     try:
-        return spreadsheet.worksheet(sheet_name)
-    except Exception:
+        return sh.worksheet(name)
+    except:
         try:
-            return spreadsheet.add_worksheet(sheet_name, rows=rows, cols=cols)
+            return sh.add_worksheet(name, rows=1000, cols=20)
         except Exception as e:
-            st.error(f"Could not create worksheet '{sheet_name}': {e}")
+            st.error(f"Error creating worksheet '{name}': {e}")
             return None
 
 
 def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
-    """Append a chat transcript + feedback to Google Sheets."""
     client = get_gsheets_client()
     if not client:
         return
 
     try:
-        sh = client.open_by_key(st.secrets["GSPREAD_SHEET_ID"])
+        sh = client.open_by_key(GSPREAD_SHEET_ID)
     except Exception as e:
         st.error(f"Could not open Google Sheet: {e}")
         return
@@ -93,15 +128,10 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
     ws_chat = ensure_worksheet(sh, "chats")
     ws_feedback = ensure_worksheet(sh, "feedback")
 
-    if not ws_chat or not ws_feedback:
-        return
-
     timestamp = datetime.utcnow().isoformat()
+    chat_json = json.dumps(chat_messages, ensure_ascii=False)
 
-    # Must be JSON-serializable
-    safe_chat_json = json.dumps(chat_messages, ensure_ascii=False)
-
-    chat_row = [
+    ws_chat.append_row([
         timestamp,
         meta.get("student_id", ""),
         meta.get("language", ""),
@@ -110,10 +140,10 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
         meta.get("roleplay_title_en", ""),
         meta.get("roleplay_title_de", ""),
         meta.get("communication_type", ""),
-        safe_chat_json,
-    ]
+        chat_json,
+    ])
 
-    feedback_row = [
+    ws_feedback.append_row([
         timestamp,
         meta.get("student_id", ""),
         meta.get("language", ""),
@@ -132,14 +162,9 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
         feedback.get("Q11"),
         feedback.get("Q12"),
         feedback.get("comment"),
-    ]
+    ])
 
-    try:
-        ws_chat.append_row(chat_row, value_input_option="RAW")
-        ws_feedback.append_row(feedback_row, value_input_option="RAW")
-        st.success("Chat and feedback saved successfully.")
-    except Exception as e:
-        st.error(f"Failed to append data to Sheets: {e}")
+    st.success("Chat and feedback saved successfully!")
 
 # ---------------------------------------------------------
 #  ROLEPLAY DEFINITIONS
