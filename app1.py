@@ -1,19 +1,16 @@
 import streamlit as st
 import json
+import os
 from datetime import datetime
 from openai import OpenAI
 
-# Optional Google Sheets logging
-try:
-    import gspread
-    from google.oauth2.service_account import Credentials
-    GSHEETS_AVAILABLE = True
-except ImportError:
-    GSHEETS_AVAILABLE = False
-
+# ---------------------------------------------------------
+#  Streamlit page config
+# ---------------------------------------------------------
+st.set_page_config(page_title="Role-Play Communication Trainer", layout="wide")
 
 # ---------------------------------------------------------
-#  OpenAI Setup
+#  OpenAI Setup (keeps API key in st.secrets)
 # ---------------------------------------------------------
 
 def setup_openai_client():
@@ -38,138 +35,59 @@ def setup_openai_client():
 
 
 # ---------------------------------------------------------
-#  Google Sheets Helpers (SERVICE ACCOUNT IS INLINE)
+#  Local logging helpers (NO Google Sheets)
 # ---------------------------------------------------------
 
-import gspread
-from google.oauth2.service_account import Credentials
-
-# Google Sheet ID (NEW WORKING ONE)
-GSPREAD_SHEET_ID = "1GDh6gBL5PS0ybQxhCK-YCvbkWYOps1wxVcG7Ta5ZXdg"
-
-# Service Account JSON (INLINE — DO NOT SHARE PUBLICLY)
-SERVICE_ACCOUNT_INFO = {
-    "type": "service_account",
-    "project_id": "communcationaction",
-    "private_key_id": "1e2ebb54163aa126aabdf175e745cd7214b72af1",
-    "private_key": """-----BEGIN PRIVATE KEY-----
-MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCaCmKErPRRHyeV
-oDmr76D0UMNG5Lsok7NP+7bpOA0KeVO9rcRmY7q2puOjNu+ayRSzYA3E52ppVIA1
-rkPsg9/toN5szEn/9nrMn8HyPVChdUFB5OYvSmKysb2i9YYO98Al4mepmno4B40D
-ZDbykkkIyBR4HvWxd4Sj3wwU89jfVJS8/FB8d8CD59OCIhCgdDxtgVp62r6a8LhK
-wZflUgzOfMDY1BhjZSjuEZPxKMdGv9u9c9BTzK4wXBe8104etNVZ0t7DwXHyng+x
-G9aAOBqgTsqeNBAxvYyyX7FfCOaQTBwQpU8xqWnPD8H1oVj4ekJ6WBJHj1lKJJ61
-6mxmirFBAgMBAAECggEARFJB0v3RGR/b00HvAmL0vRgLHKj7l+o2uE15GaS6KACb
-E0B8oTsvh66qvWvyxvDTxSFfygsoB9KqUOTbjI4LJl7Y+GF9mtEsMxDSmUn3tr0G
-dh77t1LjRsWNyjbiwEXDjCoId1GkTrCOq0fqFRmr2gDAD20P5SgRBQu7VJm5AYhW
-i0HOn/vQkmRnppUpZaLfh4mXR8kWrtoly8KKhJPfW2mxajusqMEe8OEeZsAgDRpt
-TgglbcQ5rXk57/Xqff79JIzAKarigmhzk/nLf/mb/2AxLwDmlxbhLa2n2RDNhZUv
-6Y1EhREyzNgtnwnm6w/os5fKFQVWrlHJMBGeR1GJzwKBgQDI8mtKcmucFb2ZH4Ns
-0abUC0FQzpl8ezOz7Uo7E+CN+j9mAXB3/e4n4BIW3GN9BrxWLa/JzNHzurdZtQ6h
-gJEN5XfG+z73wvjU9jxi2+GNSeVsAZ0Le4g5Kn9U5UGMd5Y/cqfQ30jocczGFjLb
-EAHqazbM2KSEjWN1a7uqQY3txwKBgQDEPiXKH0BDHMZDShASKHKEZB//y/vNLfn7
-mTTHTtgRV1vwYKa3Kc2dnkZx4BGeT8q2YS97KikAVC1st6LjTTzvcnjYhKw0Jkrq
-0ctfLSIaC0o1pxCxH6/INgC2vfLakQbNqR3K9UZ8Z9EwFEvC7xcTgTVPadK3JgWD
-Va+4zhyItwKBgGWJMLN2a298AMiNhuAGc5CzezZ0nlOrAS4KWbbOTWoQJ9bIJWdM
-NPmLHDjW9aJoM+Qrw6ZpSzEniJvYg+MRTrpB16sAqwmQSCF7pnmhdy/oRfe0PQFf
-Uy7njV19Vgi/KHk42xkMqg9h6UGyV9IfHYiw0gjh8wdTVg0v+ayG4UtjAoGAFY21
-3NM93aElbXKO/U+P9FaC5TdkOo7YK/gRweo49P6hTG9xICDpQmyF1DAF/1tIKmvW
-KTLiOfUE4DHzI//xt2LdPvqjZz7lb5EHQzbTzgR7bBUjUjDmv5iez3NhXvwawS/X
-49i4myVT5nH0OD7GTBAe6M/4osD8TgZ1PFj27VUCgYBZOtqgcgq+1hPusuKL5GuS
-xD56B12TqA0aLuTR6cUTrrO8csAFlhtNiqi0NeXC+b8PcG8csLIL7pZjKpBWsXAO
-9ziAlcOOhesrXtFrWTTjBh9I5AwAQqIsMzzP7u/cQxsiPJXtxVEuvqFYTam2Dzuc
-62Zk4LcThSIjaIMzOIE0GQ==
------END PRIVATE KEY-----""",
-    "client_email": "chatlog@communcationaction.iam.gserviceaccount.com",
-    "client_id": "109874841970763953852",
-    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-    "token_uri": "https://oauth2.googleapis.com/token",
-    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/chatlog%40communcationaction.iam.gserviceaccount.com"
-}
-
-def get_gsheets_client():
-    try:
-        creds = Credentials.from_service_account_info(
-            SERVICE_ACCOUNT_INFO,
-            scopes=[
-                "https://www.googleapis.com/auth/spreadsheets",
-                "https://www.googleapis.com/auth/drive",
-            ],
-        )
-        return gspread.authorize(creds)
-    except Exception as e:
-        st.error(f"Failed to set up Google Sheets client: {e}")
-        return None
+LOG_FILE = "chatlogs.jsonl"  # one JSON object per line
 
 
-def ensure_worksheet(sh, name):
-    try:
-        return sh.worksheet(name)
-    except:
-        try:
-            return sh.add_worksheet(name, rows=1000, cols=20)
-        except Exception as e:
-            st.error(f"Error creating worksheet '{name}': {e}")
-            return None
+def messages_to_transcript(messages, language: str) -> str:
+    """
+    Turn [{role, content}, ...] into a readable transcript.
+    Skip system messages.
+    """
+    lines = []
+    for msg in messages:
+        role = msg.get("role")
+        content = msg.get("content", "")
+        if role == "user":
+            label = "You" if language == "English" else "Sie"
+            lines.append(f"{label}: {content}")
+        elif role == "assistant":
+            label = "AI Partner" if language == "English" else "Gesprächspartner:in (KI)"
+            lines.append(f"{label}: {content}")
+        # ignore "system"
+    return "\n".join(lines)
 
 
-def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
-    client = get_gsheets_client()
-    if not client:
-        return
-
-    try:
-        sh = client.open_by_key(GSPREAD_SHEET_ID)
-    except Exception as e:
-        st.error(f"Could not open Google Sheet: {e}")
-        return
-
-    ws_chat = ensure_worksheet(sh, "chats")
-    ws_feedback = ensure_worksheet(sh, "feedback")
-
+def append_chat_and_feedback(meta: dict, chat_messages: list, feedback: dict):
+    """
+    Append a single record (meta + chat + feedback) to a local log file.
+    File format: JSON Lines (one JSON object per line).
+    """
     timestamp = datetime.utcnow().isoformat()
-    chat_json = json.dumps(chat_messages, ensure_ascii=False)
+    language = meta.get("language", "English")
 
-    ws_chat.append_row([
-        timestamp,
-        meta.get("student_id", ""),
-        meta.get("language", ""),
-        meta.get("batch_step", ""),
-        meta.get("roleplay_id", ""),
-        meta.get("roleplay_title_en", ""),
-        meta.get("roleplay_title_de", ""),
-        meta.get("communication_type", ""),
-        chat_json,
-    ])
+    record = {
+        "timestamp": timestamp,
+        "meta": meta,
+        "feedback": feedback,
+        "messages": chat_messages,
+        "transcript": messages_to_transcript(chat_messages, language),
+    }
 
-    ws_feedback.append_row([
-        timestamp,
-        meta.get("student_id", ""),
-        meta.get("language", ""),
-        meta.get("batch_step", ""),
-        meta.get("roleplay_id", ""),
-        feedback.get("Q1"),
-        feedback.get("Q2"),
-        feedback.get("Q3"),
-        feedback.get("Q4"),
-        feedback.get("Q5"),
-        feedback.get("Q6"),
-        feedback.get("Q7"),
-        feedback.get("Q8"),
-        feedback.get("Q9"),
-        feedback.get("Q10"),
-        feedback.get("Q11"),
-        feedback.get("Q12"),
-        feedback.get("comment"),
-    ])
+    try:
+        with open(LOG_FILE, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+        st.success("Chat and feedback saved locally.")
+    except Exception as e:
+        st.error(f"Failed to save chat and feedback locally: {e}")
 
-    st.success("Chat and feedback saved successfully!")
 
 # ---------------------------------------------------------
 #  ROLEPLAY DEFINITIONS
-#  1–5:(Batch 1)
-#  6–10:(Batch 2)
+#  1–5: Batch 1
+#  6–10: Batch 2
 # ---------------------------------------------------------
 
 COMMON_USER_HEADER_EN = """
@@ -246,7 +164,7 @@ Kontext und soziale Rolle:
 """
 
 ROLEPLAYS = {
-    # ---------- 1: Strategic, supervisor/training ----------
+    # ---------- 1 ----------
     1: {
         "phase": 1,
         "communication_type": "strategic",
@@ -269,7 +187,7 @@ the school and worries about costs and lesson cancellations.
 **Content goal:** Convince your supervisor to approve your participation.  
 **Relationship goal:** Maintain a constructive, professional relationship and
 show long-term commitment to the school.
-""" ,
+""",
         "partner_en": """
 You are the **PRINCIPAL (Mr/Ms Horn)** at Friedrich-Ebert School.
 
@@ -306,9 +224,7 @@ Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würd
     Sie wünschen sich eine Weiterentwicklung der Schule in diese Richtung und möchten dafür qualifiziert sein, um ggf.Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. 
     Sollte sich Ihre derzeitige Schule nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
 
-    
-
-""" ,
+""",
         "partner_de": """
 Sie sind die **SCHULLEITUNG (Herr/Frau Horn)** der Friedrich-Ebert-Schule.
 
@@ -335,7 +251,7 @@ Beenden Sie das Gespräch nur, wenn die Lehrkraft „Danke, tschüss“ schreibt
 """,
     },
 
-    # ---------- 2: Strategic, AG choice ----------
+    # ---------- 2 ----------
     2: {
         "phase": 1,
         "communication_type": "strategic",
@@ -358,7 +274,7 @@ wants to join the judo AG, mainly because they dislike the theatre teacher.
 **Content goal:** Persuade the student to choose the theatre group.  
 **Relationship goal:** Be perceived as a supportive advisor, not only as a
 representative of school interests.
-""" ,
+""",
         "partner_en": """
 You are the **STUDENT (Jan/Jana Pflüger)**.
 
@@ -393,7 +309,7 @@ wegen einer Abneigung gegen die Theater-Lehrkraft lieber in die Judo-AG.
 **Sachziel:** Den/die Schüler/in für die Theater-AG gewinnen.  
 **Beziehungsziel:** Vertrauen und Unterstützung vermitteln – nicht nur die
 Schulinteressen vertreten.
-""" ,
+""",
         "partner_de": """
 Sie sind der/die **SCHÜLER/IN Jan/Jana Pflüger**.
 
@@ -432,7 +348,7 @@ work and stress, but you want to preserve the working relationship.
 
 **Content goal:** Make consequences clear and agree concrete next steps.  
 **Relationship goal:** Maintain cooperation and avoid escalation.
-""" ,
+""",
         "partner_en": """
 You are the COLLEAGUE who often misses deadlines.
 
@@ -455,7 +371,7 @@ Abgabetermine nicht einhält. Das führt zu Mehrarbeit und Stress.
 
 **Sachziel:** Bewusstsein schaffen und konkrete nächste Schritte vereinbaren.  
 **Beziehungsziel:** Zusammenarbeit erhalten, Eskalation vermeiden.
-""" ,
+""",
         "partner_de": """
 Sie sind die KOLLEGIN/der KOLLEGE, die/der Termine häufig nicht einhält.
 
@@ -505,7 +421,7 @@ gemeinsamem Unterricht.
 
 **Sachziel:** Zusage zur Pünktlichkeit erreichen.  
 **Beziehungsziel:** Respektvolle Zusammenarbeit erhalten.
-""" ,
+""",
         "partner_de": """
 Sie sind die KOLLEGIN/der KOLLEGE, die/der häufig zu spät kommt.
 
@@ -536,7 +452,7 @@ in the organisation.
 
 **Content goal:** Obtain approval for reduced hours.  
 **Relationship goal:** Maintain trust and show reliability.
-""" ,
+""",
         "partner_en": """
 You are the SUPERVISOR deciding about reduction of hours.
 
@@ -564,7 +480,7 @@ Sie möchten dennoch weiterhin aktiv bleiben.
 
 **Sachziel:** Genehmigung der Stundenreduzierung.  
 **Beziehungsziel:** Vertrauen der Schulleitung bewahren.
-""" ,
+""",
         "partner_de": """
 Sie sind die SCHULLEITUNG und sollen über eine Stundenreduzierung entscheiden.
 
@@ -582,7 +498,7 @@ Kommunikationstyp: Strategisch, stärkere Rolle.
 """,
     },
 
-    # ---------- 6: Understanding ----------
+    # ---------- 6 ----------
     6: {
         "phase": 2,
         "communication_type": "understanding",
@@ -599,7 +515,7 @@ treated unfairly.
 
 **Content goal:** Clarify the reasons and criteria.  
 **Relationship goal:** Maintain respect and avoid defensiveness.
-""" ,
+""",
         "partner_en": """
 You are the PERSON who received the poor evaluation.
 
@@ -624,7 +540,7 @@ betroffene Person fühlt sich ungerecht behandelt.
 
 **Sachziel:** Gründe und Kriterien klären.  
 **Beziehungsziel:** Respektvolle Beziehung bewahren.
-""" ,
+""",
         "partner_de": """
 Sie sind die PERSON mit der schlechten Bewertung.
 
@@ -658,7 +574,7 @@ you of taking sides.
 
 **Content goal:** Make your neutral role and reasoning transparent.  
 **Relationship goal:** Preserve trust and show empathy.
-""" ,
+""",
         "partner_en": """
 You are one party in the conflict and feel the other person should support you.
 
@@ -684,7 +600,7 @@ Partei zu ergreifen.
 
 **Sachziel:** Ihre neutrale Rolle transparent machen.  
 **Beziehungsziel:** Vertrauen und Beziehung erhalten.
-""" ,
+""",
         "partner_de": """
 Sie sind eine KONFLIKTPARTEI und erwarten Unterstützung.
 
@@ -718,7 +634,7 @@ conflict). You are not the decision-maker.
 
 **Content goal:** Support structured thinking and evaluation of options.  
 **Relationship goal:** Strengthen the person’s autonomy.
-""" ,
+""",
         "partner_en": """
 You are the PERSON seeking advice.
 
@@ -741,7 +657,7 @@ Schullaufbahn, Berufswahl, Konflikt).
 
 **Sachziel:** Strukturierung und Abwägung der Optionen.  
 **Beziehungsziel:** Autonomie der Person stärken.
-""" ,
+""",
         "partner_de": """
 Sie sind die PERSON, die Rat sucht.
 
@@ -776,7 +692,7 @@ too strongly on teacher personality.
 **Content goal:** Present your perspective and suggestions on the feedback
 criteria.  
 **Relationship goal:** Maintain cooperation with the principal.
-""" ,
+""",
         "partner_en": """
 You are the PRINCIPAL (Mr/Ms Ziegler).
 
@@ -806,7 +722,7 @@ fokussieren.
 
 **Sachziel:** Ihre Sicht und Vorschläge zu den Feedbackkriterien darstellen.  
 **Beziehungsziel:** Kooperation mit der Schulleitung sichern.
-""" ,
+""",
         "partner_de": """
 Sie sind die SCHULLEITUNG (Herr/Frau Ziegler).
 
@@ -842,7 +758,7 @@ feedback talks, documentation of student information).
 
 **Content goal:** Develop a meaningful set of guidelines together.  
 **Relationship goal:** Strengthen cooperation and mutual respect.
-""" ,
+""",
         "partner_en": """
 You are the COLLEAGUE developing the guideline together.
 
@@ -868,7 +784,7 @@ Schülerinformationen).
 
 **Sachziel:** Einen sinnvollen Leitfaden gemeinsam entwickeln.  
 **Beziehungsziel:** Kooperation und Respekt stärken.
-""" ,
+""",
         "partner_de": """
 Sie sind die KOLLEGIN/der KOLLEGE in der Leitfaden-Gruppe.
 
@@ -888,8 +804,6 @@ Kommunikationstyp: Verstehensorientiert, gleichberechtigte Rollen.
 # ---------------------------------------------------------
 #  Streamlit UI & Flow Logic
 # ---------------------------------------------------------
-
-st.set_page_config(page_title="Role-Play Communication Trainer", layout="wide")
 
 st.title("Role-Play Communication Trainer")
 
@@ -1131,7 +1045,7 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
             "comment": comment,
         }
 
-        append_chat_and_feedback_to_sheets(
+        append_chat_and_feedback(
             st.session_state.meta,
             st.session_state.messages,
             feedback_data,
