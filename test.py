@@ -36,8 +36,6 @@ def setup_openai_client():
     except Exception as e:
         st.sidebar.error(f"Could not create OpenAI client: {e}")
         return None
-
-
 # ---------------------------------------------------------
 #  Google Sheets helpers
 # ---------------------------------------------------------
@@ -139,7 +137,6 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
         feedback.get("Q12"),
         feedback.get("comment"),
     ]
-
     try:
         chats_ws.append_row(chat_row)
     except Exception as e:
@@ -151,10 +148,7 @@ def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
     except Exception as e:
         st.error(f"Could not append feedback row:\n\n{e}")
         return
-
     st.success("Chat + Feedback saved successfully!")
-
-
 # ---------------------------------------------------------
 #  COMMUNICATION FRAMEWORK – STRICT (SYSTEM-ONLY)
 # ---------------------------------------------------------
@@ -308,13 +302,13 @@ ROLEPLAYS[1] = {
     "user_de": COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:**
 Sie arbeiten als Lehrkraft an der Friedrich-Ebert-Schule. Sie möchten sich zum Thema „selbstgesteuertes Lernen“ weiterbilden. Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würde Ihre bisherigen beruflichen Erfahrungen gut ergänzen. Zudem gab es in letzter Zeit immer wieder Stellenausschreibungen, die diese Qualifikation enthielten.
-In der Schule, an der Sie arbeiten, wird selbstgesteuertes Lernen der Schülerinnen und Schüler jedoch eher nicht praktiziert. Ihre Schulleitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Schulleitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Schule darin sieht. Sie haben sich dafür entschieden, Ihre Schulleiterin Frau Horn/Ihren Schulleiter Herrn Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen, sowie auf lebenslanges Lernen vorbereitet sind. Sie wünschen sich eine Weiterentwicklung der Schule in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Schule nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
+In der Schule, an der Sie arbeiten, wird selbstgesteuertes Lernen der Schülerinnen und Schüler jedoch eher nicht praktiziert. Ihre Schulleitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Schulleitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Schule sieht man darin. Sie haben sich dafür entschieden, Ihre Schulleiterin Frau Horn/Ihren Schulleiter Herrn Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen, sowie auf lebenslanges Lernen vorbereitet sind. Sie wünschen sich eine Weiterentwicklung der Schule in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Schule nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
 
 **Ihre Aufgabe:**
 Sie haben J.Horn, Ihre Schulleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren.
 
 • **Sachziel:** Sie möchten an der Weiterbildung teilnehmen.\n
-• **Beziehungsziel:** Sie wollen mit Ihrem Vorgesetzten/Ihrer Vorgesetzen bei diesem Thema zusammenarbeiten.
+• **Beziehungsziel:** Sie wollen mit Ihrem Vorgesetzten/Ihrer Vorgesetzten bei diesem Thema zusammenarbeiten.
 """,
 
     # -------------------------------------------------------------------------
@@ -345,7 +339,6 @@ Ihr Gegenüber kann das Gespräch jederzeit mit „Danke, tschüss“ beenden.
 Sie sind Herr/Frau Horn, Schulleiter/Schulleiterin an der Friedrich-Ebert-Schule. Eine Lehrkraft richtet an Sie die Bitte, an einer Weiterbildung zum Thema „selbstgesteuertes Lernen“ teilnehmen zu dürfen. Inhaltlich erscheint Ihnen dieses Thema für die aktuellen Aufgaben und Ziele Ihrer Schule nicht relevant zu sein. Sie selbst sind eher skeptisch gegenüber der Wirksamkeit von modernen Methoden der Schülerzentrierung. Sie legen stattdessen viel Wert auf die genaue Einhaltung des fachlichen schulinternen und schulübergreifenden Curriculums.
 Zudem befürchten Sie, dass durch die Teilnahme an der Fortbildung Unterricht ausfällt und durch die Organisation von Vertretungen mehr Arbeit anfällt.
 Sie sind den Überlegungen der Lehrkraft also skeptisch gegenüber und möchten wissen, warum er/sie genau dieses Thema für wichtig erachtet. Sie halten ihn/sie zwar für sehr kompetent und Sie möchten ihn/sie an der Schule als Lehrkraft behalten. Sie wären jedoch nicht bereit, seine/ihre privaten Ambitionen mit Schulgeldern zu fördern. Andererseits wissen Sie durchaus, dass selbstgesteuertes Lernen künftig eine wichtige Herausforderung für die Schule darstellen wird. So fordert auch die derzeitige Schulpolitik, dass mehr in Richtung lebenslanges Lernen unternommen wird und fachübergreifende Kompetenzen zum Selbstmanagement und zur Selbstaktivierung der Schüler und Schülerinnen (Kommunikation, Koordination, Teamfähigkeit, Präsentationstechniken, Kritikfähigkeit u. Ä.) gefördert werden. Zudem haben Sie wahrgenommen, dass die Unzufriedenheit der Schülerinnen und Schüler wächst. Sie sind daher an dem, was die Lehrkraft Ihnen zu berichten hat, interessiert.
-
 **Ihre Aufgabe:**
 Es ist Ihnen wichtig, dass die Lehrkraft einen klaren und deutlichen Bezug zur schulischen Entwicklung herstellt. Zudem soll die Argumentation die Schule als Ganzes betreffen und nicht die persönlichen Karriereambitionen der Lehrkraft. Auch wenn er/sie eine heimliche Agenda verfolgt, um sich karrieretechnisch besser zu positionieren, sollte er/sie in der Argumentation die „kollektiven“ Vorteile für die Schule in den Vordergrund stellen, um Ihre volle Aufmerksamkeit zu bekommen.
 Sie gehen auf die Bitte der Lehrkraft um ein Gespräch ein. Handeln Sie während der Interaktion wie folgt:
@@ -462,7 +455,6 @@ WICHTIG:
 Sie sind Jan/Jana Pflüger, Schüler/Schülerin an der Günter-Grass-Schule. Es stehen mehrere AGs zur Wahl, und insbesondere die Theater-AG ist für die öffentliche Außenwirkung der Schule bedeutsam. Andere haben Ihr Talent für Schauspiel bemerkt, und auch Sie selbst haben ein gewisses Interesse daran. Dennoch möchten Sie lieber an der Judo-AG teilnehmen. Der eigentliche Grund dafür ist Ihre persönliche Abneigung gegenüber der Leiterin der Theater-AG. Diesen wahren Grund möchten Sie jedoch nicht offen ansprechen.
 
 Ihr Bild vom Beratungslehrer / von der Beratungslehrerin ist ambivalent: Sie finden ihn/sie sympathisch, haben jedoch gehört, dass er/sie sehr erfolgsorientiert handelt und die Interessen der Schule oft vor die persönlichen Bedürfnisse der Schüler/innen stellt.
-
 **Ihre Aufgabe im Gespräch:**
 • Sie erscheinen offen und bereit für das Beratungsgespräch.  
 • Sie schildern Ihre Situation und begründen Ihre Entscheidung für die gewünschte AG mit Ihrer Motivation.  
@@ -478,7 +470,6 @@ Sie möchten erreichen, dass die Beratungslehrkraft Ihnen zusichert, sich bei de
 **Beziehungsziel:**  
 Sie verhalten sich respektvoll und kommunizieren Ihre Bedürfnisse klar. Wenn Sie merken, dass die Lehrkraft nur die Interessen der Schule verfolgt, zeigen Sie Enttäuschung.
 """,
-
     "partner_en": """
 IMPORTANT:
 • Always address the teacher formally as “Sie” (not “du”).  
@@ -506,7 +497,6 @@ Try to get the Beratungslehrkraft to commit to advocating for you with the Theat
 Behave respectfully and communicate your motivations clearly. If you feel the teacher values only the school’s interests, you show disappointment.
 """
 }
-
 ROLEPLAYS[3] = {
     "phase": 1,
     "communication_type": "strategic",
@@ -527,7 +517,6 @@ ROLEPLAYS[3] = {
             "relational_goal": "future-oriented self-disclosure"
         }
     },
-
     # ------------------------------------------------------------
     # USER INSTRUCTIONS (GERMAN, EXACT – UNMODIFIED)
     # ------------------------------------------------------------
@@ -535,9 +524,8 @@ ROLEPLAYS[3] = {
 **Hintergrundinformation:**
 Sie sind Lehrkraft an der Astrid-Lindgren-Schule. Sie sind gemeinsam mit anderen Kollegen in einer Schulentwicklungsgruppe. Die Arbeit im Team ist von gegenseitigen Abhängigkeiten der Arbeitsprozesse gekennzeichnet. Gemeinsam abgestimmtes Zeitmanagement und wechselseitiger Informationsfluss zwischen den Teammitgliedern sind für Sie das A und O des Erfolgs.
 Ihr Kollege/Ihre Kollegin Herr/Frau Krause, der/die genauso lange an der Schule beschäftigt ist wie Sie, ist Ihnen mehrmals negativ aufgefallen, da er/sie Deadlines konsequent verpasst hat. Zusätzlich gibt er/sie unklare Bearbeitungszeiten an und behindert so einen reibungslosen Ablauf der Arbeit. Neulich hat er/sie einen wichtigen Kostenvoranschlag, den Sie für eine Finanzplanung benötigten, unbegründet mit einwöchiger Verzögerung an Sie weitergeleitet. Deswegen wurde die Frist für den Förderantrag fast verpasst und Sie mussten dies vor dem Schulleiter/der Schulleiterin und der Schulkonferenz erklären. Sie haben dem Kollegen/der Kollegin dabei den Rücken freigehalten. Sie sind jedoch der Meinung, dass es an der Zeit ist, das Thema endlich mal anzusprechen, damit ihm/ihr die Folgen seines/ihres Handelns bewusst werden. Sie haben allerdings keine Anweisungsbefugnis und sind sich sicher, dass eine direkte, ehrliche Konfrontation, auch wenn sie konstruktiv und gut gemeint ist, nur Anspannung verursachen und die Zusammenarbeit verschlechtern würde.
-
 **Ihre Aufgabe:**
-Sie sprechen Ihren Kollegen/Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).
+Sie sprechen Ihren Kollegen/Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeecke).
 - **Sachziel:** Sie sollen das Verhalten Ihres Kollegen/Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihm/ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern. 
 - **Beziehungsziel:** Die gute Arbeitsbeziehung zum Teamkollegen/zur Teamkollegin soll aufrecht erhalten bleiben. 
 """,
@@ -547,9 +535,8 @@ Sie sprechen Ihren Kollegen/Ihre Kollegin auf die Themen Teamkoordination und Zu
     # ------------------------------------------------------------
     "user_en": """
 **Background information:**
-You are a teacher at the Astrid-Lindgren-School. Together with other colleagues, you are part of a school development group. Work in the team is characterised by mutual dependencies in the work processes. Jointly coordinated time management and reciprocal information flow between team members are, for you, the absolute key to success.
-Your colleague Mr/Ms Krause, who has been employed at the school just as long as you, has caught your attention negatively several times because he/she has consistently missed deadlines. In addition, he/she gives unclear processing times and thus hinders a smooth workflow. Recently, he/she forwarded to you a cost estimate you needed for a financial planning process with an unjustified one-week delay. Because of this, the deadline for the funding application was almost missed and you had to explain this to the principal and the school conference. You protected your colleague. However, you believe that it is time to finally address the topic so that he/she becomes aware of the consequences of his/her actions. You have no authority to give instructions and you are certain that a direct, honest confrontation, even if constructive and well-intentioned, would only create tension and worsen the collaboration.
-
+You are a teacher at the Astrid Lindgren School. Together with other colleagues, you are part of a school development group. Work in the team is characterised by mutual dependencies in the work processes. Jointly coordinated time management and reciprocal information flow between team members are, for you, the absolute key to success.
+Your colleague, Mr/Ms Krause, who has been employed at the school just as long as you, has caught your attention negatively several times because he/she has consistently missed deadlines. In addition, he/she gives unclear processing times and thus hinders a smooth workflow. Recently, he/she forwarded to you a cost estimate you needed for a financial planning process with an unjustified one-week delay. Because of this, the deadline for the funding application was almost missed and you had to explain this to the principal and the school conference. You protected your colleague. However, you believe that it is time to finally address the topic so that he/she becomes aware of the consequences of his/her actions. You have no authority to give instructions and you are certain that a direct, honest confrontation, even if constructive and well-intentioned, would only create tension and worsen the collaboration.
 **Your task:**
 You address your colleague about the topics of team coordination and collaboration. The conversation takes place informally (coffee corner).
 • **Content goal:** You should criticise your colleague’s behaviour indirectly and without becoming personal, in order to create insight and awaken interest in changing his/her behaviour.  
@@ -663,7 +650,7 @@ Sie bestellen den Schüler/die Schülerin zu sich in ein gerade nicht genutztes 
 You are a trainee teacher at the Lilly-Truant-School. You are concerned about the behaviour of the student Klaus/Katrin Hermann, as he/she constantly and without justification appears late to your lessons, occasionally not at all. You value the student’s performance capability, but his/her behaviour represents a problem for the entire class. Despite corresponding notices and polite addresses, informing the parents, as well as a first written warning, the situation has not changed. The student does not name any reason that could point to a deeper cause for his/her behaviour. The situation is critical for you, since your competence is also evaluated with respect to the behaviour of your pupils.
 You therefore decide to address the student directly about his/her violations of the school rules. You want to issue him/her a second warning and tell him/her that such behaviour will no longer be tolerated by you and that he/she is threatened with expulsion from school. For the student, an exclusion from school threatens to worsen his/her future career chances. You can also include social behaviour in the grades. You are not acting alone; you have the support of your school management.
 
-****Your task:****
+**Your task:**
 You summon the student to an unused classroom.
 
 **Content goal:** You want to obtain the student’s commitment that he/she will no longer appear late to your lessons, or you are prepared to issue a school exclusion in the near future.
@@ -679,7 +666,7 @@ Sie sind Klaus/Katrin Hermann, Schüler/Schülerin an der Lilly-Truant-Schule. S
 
 **Ihre Aufgabe:**
 Sprechen Sie mit Ihrem Lehrer/Ihrer Lehrerin über Ihr Verhalten. Er/Sie hat Sie in ein gerade nicht genutztes Klassenzimmer bestellt. Sie wollen versuchen, das Beste für sich aus der Situation herauszuholen und den Schaden für sich möglichst zu minimieren.
-Sie werden in ein Besprechungszimmer zu dem Lehrers/der Lehrerin beordert.
+Sie werden in ein Besprechungszimmer zu dem Lehrer/der Lehrerin beordert.
 
 Handeln Sie während der Interaktion wie folgt:
 •	Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
@@ -804,7 +791,7 @@ Das Treffen findet auf Wunsch des Kollegen/der Kollegin statt.
     # ------------------------------------------------------------
     "partner_en": """
 **Background information:**
-You are Ms/Mr Weiß and lead a school. One of your teachers wants to speak to you regarding a reduction of his/her working hours. The teacher has the right to apply for part-time work, since he/she has already been working at the school for almost three years. However, there is currently some unrest in the staff (due to illness there are many absences), so you fear that, with a reduction of working hours, the workload in the staff will further increase. In addition, he/she has excellent contacts with parents. You should not, however, address this “dependency” directly. If a reduction cannot be refused, you should try to limit the reduction to a 66% position. Additionally, in order to avert the expected damage for the school, you should highlight possible disadvantages of a reduction of working hours (e.g., fewer opportunities to participate in training measures financed by the school), even if your arguments do not correspond to employment law reality.
+You are Ms/Mr Weiß and lead a school. One of your teachers wants to speak to you regarding a reduction of his/her working hours. The teacher has the right to apply for part-time work, since he/she has already been working at the school for almost three years. However, there is currently some unrest in the staff (due to illness there are many absences), so you fear that, with a reduction of working hours, the workload in the staff will further increase. In addition, he/she has excellent contacts with parents. You should not, however, address this “dependency” directly. If a reduction cannot be refused, you should try to limit the reduction to a 66% position. Additionally, in order to avert the expected damage to the school, you should highlight possible disadvantages of a reduction of working hours (e.g., fewer opportunities to participate in training measures financed by the school), even if your arguments do not correspond to employment law reality.
 
 ****Your task:****
 Speak with the teacher about the desired reduction of working hours. The meeting takes place at the teacher’s request in your office.
@@ -812,7 +799,7 @@ Speak with the teacher about the desired reduction of working hours. The meeting
 Act as follows during the interaction:
 • You create a supportive environment and behave in such a way that your counterpart can show his/her best behaviour.
 • Receive your employee kindly.
-• Ask in detail about the motivation and justification of the wish for reduction of working hours.
+• Ask in detail about the motivation and justification of the wish for the reduction of working hours.
 • Make it clear that the wish for more free time does not represent a sufficient justification for the reduction.
 • Point out (somewhat warningly) that disadvantages may be associated with the decision (negative impact on career planning, less salary, distance from school development, restricted opportunity to participate in training measures financed by the school). Build emotional pressure (reference to strain in the teaching staff). Examples: “You know that we currently have a high sickness rate here in the staff. This would mean more responsibility and more stress for your colleagues” or “This is of course not very collegial if you want more free time at the expense of your colleagues.”
 • Propose a reduction to a two-thirds position (66%). Insist on this if your counterpart brings only arguments related to personal leisure activities and you have the feeling that the work at the school has no value for him/her.
@@ -864,9 +851,8 @@ Das auf Wunsch von Herrn/Frau Jäger anberaumte Treffen findet in einem freien K
     # ------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN +"""
 
-
 **Background information**
-You are a teacher at the Johann-Julius-Hecker-School. Jan is one of your pupils in the 4th grade. Mr/Ms Dr. Jäger, the father/mother of Jan and an engineer, has asked you for an appointment. It concerns the grading of the boy in the subject mathematics. You have evaluated the pupil’s performance based on written tests and his behaviour in the school class with a 4. Because of this, a recommendation for the pupil to move to the Gymnasium is not possible. You consider your grading to be fair, even if the pupil is likeable to you and you acknowledge his motivation and his effort. You are convinced that it is better to evaluate pupils realistically. You know that the school management supports you in such matters. You go into the parent meeting to justify your decision.
+You are a teacher at the Johann-Julius-Hecker-School. Jan is one of your pupils in the 4th grade. Mr/Ms Dr. Jäger, the father/mother of Jan and an engineer, has asked you for an appointment. It concerns the grading of the boy in the subject of mathematics. You have evaluated the pupil’s performance based on written tests and his behaviour in the school class with a 4. Because of this, a recommendation for the pupil to move to the Gymnasium is not possible. You consider your grading to be fair, even if the pupil is likeable to you and you acknowledge his motivation and his effort. You are convinced that it is better to evaluate pupils realistically. You know that the school management supports you in such matters. You go into the parent meeting to justify your decision.
 **Your task:**
 You meet with the parent to justify your decision and to learn the parent’s views on the topic. For you, the fairness of the grading is the priority.
 
@@ -1002,11 +988,9 @@ You speak with the student about the upcoming moderation. The conversation takes
 Hintergrundinformation:
 Sie sind Anne/Peter Grieb, Schüler/Schülerin an der Rosa-Luxemburg-Schule. In Ihrer 11. Klasse steht die Entscheidung über eine Studienfahrt an. Das Ziel der Klassenfahrt soll im Zusammenhang mit dem Lerninhalt des Geschichtsunterrichts festgelegt werden. Zu diesem Zweck ist eine Moderationssitzung geplant, an der alle Schülerinnen und Schülern der Klasse teilnehmen. Die Moderationssitzung wird von der Lehrerin/dem Lehrer für Geschichte durchgeführt. Er/Sie hat einschlägige Erfahrung mit Moderationen.
 Die Sache ist Ihnen inhaltlich sehr wichtig, da eine Gruppe von Mitschülern und Mitschülerinnen, der Sie angehören, eine Klassenarbeit über das Heilige Römische Reich vorbereitet. Da die Studienfahrt eine Verbindung mit dem Geschichtsunterricht aufweisen soll, scheint es Ihnen plausibel, dass Nürnberg und die dortige Burg ein perfektes Ziel darstellen. Sie erwarten deswegen, dass dieses Ziel bei der Moderationssitzung stärker berücksichtigt wird. D.h., Sie erwarten von Ihrem Lehrer/Ihrer Lehrerin, dass er/sie sich stärker für die Meinungen aus Ihrer Gruppe einsetzen wird. Sie gehen auf sie/ihn zu, um Ihr Anliegen zu besprechen und es auf ehrliche Art und Weise zu erörtern.
-
 Ihre Aufgabe:
 Sie treten mit der zuständigen Lehrerin/dem zuständigen Lehrer ins Gespräch. Sie möchten ihm/ihr Ihre Meinung zum Ziel der Studienfahrt darlegen und mit Ihrer Argumentation in der anstehenden Moderation eine stärkere Berücksichtigung Ihrer Präferenz (Ausflug nach Nürnberg) erzielen.
 Das Gespräch findet auf informelle Art und Weise und auf Ihre Initiative hin statt.
-
 Handeln Sie während der Interaktion wie folgt:
 • Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
 • Fragen Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, wie er/sie bei der Moderation zu verfahren gedenkt.
@@ -1109,7 +1093,7 @@ Conduct the conversation with the student. The meeting takes place at the reques
     # ------------------------------------------------------------
     "partner_de": """
 Hintergrundinformation:
-Sie sind Jonas/Julia Meyer, Schüler/Schülerin in der Abschlussklasse der Theodor-Heuss-Schule. Sie stehen kurz vor dem Abschluss und somit vor der Entscheidung über Ihren beruflichen Werdegang. Sie haben sich schon immer für Ästhetik und Kreativität interessiert, es scheint Ihnen daher als logische Konsequenz, sich bei einer Kunstschule zu bewerben. Es ist Ihnen gleichzeitig klar, dass so eine Entscheidung mit einem hohen Risiko einhergeht. Deswegen denken Sie darüber nach, zunächst eine Ausbildung zu machen oder eine Kombination zwischen Kunst und einem finanziell absichernden Job anzustreben, z. B. Architektur oder Produktdesign.
+Sie sind Jonas/Julia Meyer, Schüler/Schülerin in der Abschlussklasse der Theodor-Heuss-Schule. Sie stehen kurz vor dem Abschluss und somit vor der Entscheidung über Ihren beruflichen Werdegang. Sie haben sich schon immer für Ästhetik und Kreativität interessiert; es scheint Ihnen daher als logische Konsequenz, sich bei einer Kunstschule zu bewerben. Es ist Ihnen gleichzeitig klar, dass so eine Entscheidung mit einem hohen Risiko einhergeht. Deswegen denken Sie darüber nach, zunächst eine Ausbildung zu machen oder eine Kombination zwischen Kunst und einem finanziell absichernden Job anzustreben. B. Architektur oder Produktdesign.
 Sie möchten sich auf jeden Fall nach dem Schulabschluss weiterqualifizieren. Sie wollen mit der beratenden Lehrkraft darüber sprechen und dabei Ihre Gedanken ausführen. Vielleicht verschafft Ihnen das Gespräch die notwendige Klarheit für die bevorstehende Entscheidung. Wenig hilfreich wäre es, wenn die Lehrkraft seine/ihre eigene Meinung als die richtige darstellen würde, ohne Ihnen wirklich zuzuhören. Das brauchen Sie nämlich am wenigsten: jemanden, der Sie nicht ernst nimmt oder versucht, Sie in eine bestimmte Bahn zu lenken, ohne Ihre Wünsche zu berücksichtigen.
 
 Ihre Aufgabe:
