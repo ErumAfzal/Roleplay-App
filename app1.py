@@ -3,6 +3,29 @@ import json
 import os
 from datetime import datetime
 from openai import OpenAI
+import streamlit as st   # <-- FIXED
+
+st.write("DEBUG: Using sheet ID:", GSPREAD_SHEET_ID)
+
+try:
+    from google.oauth2.service_account import Credentials
+    import gspread
+
+    creds = Credentials.from_service_account_info(
+        SERVICE_ACCOUNT_INFO,
+        scopes=[
+            "https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive",
+        ],
+    )
+    client = gspread.authorize(creds)
+    sh = client.open_by_key
+
+
+
+
+
+
 
 # ---------------------------------------------------------
 #  Streamlit page config
