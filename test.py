@@ -478,7 +478,7 @@ Sie verhalten sich respektvoll und kommunizieren Ihre Bedürfnisse klar. Wenn Si
 """,
 
     "partner_en": """
-You are J.Pflüger, a student at the Günter-Grass-Schule. Several AGs are available for selection, and the Theater-AG is particularly important for the school’s public image. Others have noticed your acting talent, and you yourself have some interest in it. However, you prefer to join the Judo-AG. The real reason is your personal dislike of the teacher who leads the Theater-AG, but you do not want to mention this openly.
+You are J.Pflüger, ein Student an der Günter-Grass-Schule. Several AGs are available for selection, and the Theater-AG is particularly important for the school’s public image. Others have noticed your acting talent, and you yourself have some interest in it. However, you prefer to join the Judo-AG. The real reason is your personal dislike of the teacher who leads the Theater-AG, but you do not want to mention this openly.
 
 Your view of the Beratungslehrkraft is mixed: you find him/her sympathetic, but you have heard that he/she is very success-oriented and often prioritises the school’s interests over those of the students.
 
@@ -486,7 +486,7 @@ Your view of the Beratungslehrkraft is mixed: you find him/her sympathetic, but 
 • You appear open and willing to participate in the counselling conversation.  
 • You describe your situation and justify your preference for the AG you want.  
 • You hint indirectly at your dislike of the Theater-AG teacher without naming it as the main reason.  
-• You assert yourself, but respectfully, as the Beratungslehrkraft has influence on your school development.  
+• You assert yourself, but respectfully, as the Beratungslehrkraft influences your school development.  
 • You ask whether it matters to the Beratungslehrkraft which AG you choose.  
 • You make your participation in the Theater-AG conditional on receiving main roles.  
 • If the Beratungslehrkraft emphasises only advantages for you and assures support in getting main roles, you agree.
@@ -1559,8 +1559,8 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         q3 = st.radio("The chatbot was welcoming during initial setup", [1, 2, 3, 4, 5], horizontal=True)
         q4 = st.radio("The chatbot seemed very unfriendly", [1, 2, 3, 4, 5], horizontal=True)
 
-        q5 = st.radio("The chatbot explained its scope and purpose well", [1, 2, 3, 4, 5], horizontal=True)
-        q6 = st.radio("The chatbot gave no indication as to its purpose", [1, 2, 3, 4, 5], horizontal=True)
+        q5 = st.radio("The chatbot behaved and communicated appropriately within the context of the role-playing game.", [1, 2, 3, 4, 5], horizontal=True)
+        q6 = st.radio("The chatbot did not behave according to its role.", [1, 2, 3, 4, 5], horizontal=True)
 
         q7 = st.radio("The chatbot was easy to navigate", [1, 2, 3, 4, 5], horizontal=True)
         q8 = st.radio("It would be easy to get confused when using the chatbot", [1, 2, 3, 4, 5], horizontal=True)
@@ -1578,8 +1578,8 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         q3 = st.radio("Der Chatbot war beim ersten Setup einladend", [1, 2, 3, 4, 5], horizontal=True)
         q4 = st.radio("Der Chatbot wirkte sehr unfreundlich", [1, 2, 3, 4, 5], horizontal=True)
 
-        q5 = st.radio("Der Chatbot erklärte seinen Zweck und Umfang gut", [1, 2, 3, 4, 5], horizontal=True)
-        q6 = st.radio("Der Chatbot gab keinen Hinweis auf seinen Zweck", [1, 2, 3, 4, 5], horizontal=True)
+        q5 = st.radio("Der Chatbot hat sich sinnvoll im Rahmen des Rollenspiels verhalten und kommuniziert.", [1, 2, 3, 4, 5], horizontal=True)
+        q6 = st.radio("Der Chatbot hat sich nicht entsprechend seiner Rolle verhalten.", [1, 2, 3, 4, 5], horizontal=True)
 
         q7 = st.radio("Der Chatbot war leicht zu navigieren", [1, 2, 3, 4, 5], horizontal=True)
         q8 = st.radio("Die Nutzung des Chatbots wäre leicht verwirrend", [1, 2, 3, 4, 5], horizontal=True)
