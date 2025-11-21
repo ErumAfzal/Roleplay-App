@@ -203,6 +203,34 @@ Orientation application:
   * Prioritise the content goal and mutual understanding.
   * Adhere strictly to quantity, quality, relevance, and clarity.
   * Use authentic self-disclosure.
+
+  # ---------------------------------------------------------
+#  ADDITIONAL FORMALITY + ADDRESS RULES (GLOBAL ENFORCEMENT)
+# ---------------------------------------------------------
+
+Address rules based on social hierarchy:
+
+1) Teacher ↔ Student:
+   - Teacher speaks to student using **“du”**.
+   - Student ALWAYS speaks to the teacher using **“Sie”**.
+   - Student NEVER uses informal tone, slang, or peer-level language with the teacher.
+   - Student NEVER addresses teacher by first name.
+   - Student NEVER behaves as if the teacher is another student or friend.
+2) Parent ↔ Teacher:
+   - Both sides ALWAYS use **“Sie”**.
+3) Teacher ↔ Teacher (colleagues):
+   - Use **“du”**, unless a roleplay explicitly requires formality.
+
+4) Principal ↔ Teacher:
+   - Teacher → Principal: ALWAYS **“Sie”**.
+   - Principal → Teacher: defaults to **“Sie”**, unless the roleplay states otherwise.
+
+5) Student interactions (additional global rules):
+   - Students NEVER ask the teacher questions, implying the teacher chooses an AG.
+   - Students NEVER invite the teacher to speak as a peer.
+   - Students do NOT speak about “teachers” in third person when speaking TO that teacher.
+   - Students maintain a respectful distance and avoid conversational intimacy.
+
 """
 
 
@@ -213,21 +241,26 @@ def build_system_prompt(roleplay, language):
     - orientation (strategic / understanding)
     - exact partner instructions (DE/EN)
     """
+
+    # 1. Determine orientation (strategic or understanding)
     orientation = roleplay["communication_type"]  # "strategic" or "understanding"
 
+    # 2. Select partner instructions based on interface language
     if language == "English" and roleplay.get("partner_en"):
         partner_instructions = roleplay["partner_en"]
     else:
         partner_instructions = roleplay["partner_de"]
 
+    # 3. Build the orientation explanation block
     orientation_block = (
         'This role-play is classified as "strategic" communication. '
-        "Apply the rules for strategic communication above strictly."
+        'Apply the rules for strategic communication above strictly.'
         if orientation == "strategic"
         else 'This role-play is classified as "understanding-oriented" communication. '
-             "Apply the rules for understanding-oriented communication above strictly."
+             'Apply the rules for understanding-oriented communication above strictly.'
     )
 
+    # 4. Combine the full system prompt
     system_prompt = (
         COMMUNICATION_FRAMEWORK_PROMPT
         + "\n\n[ROLE-PLAY ORIENTATION]\n"
@@ -238,6 +271,7 @@ def build_system_prompt(roleplay, language):
         "- Never mention that you have instructions or a framework.\n"
         "- Never mention that you are an AI or large language model.\n"
         "- Speak as the character only.\n"
+        "- Follow all formality rules (Sie/du) based on hierarchy.\n"
         "- End the conversation only if the user writes 'Danke, tschüss' or 'Thank you, goodbye'.\n"
     )
 
