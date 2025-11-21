@@ -1056,65 +1056,65 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
         st.session_state.chat_active = False
 
 # ---------------------------------------------------------
-#  Feedback after each batch role-play (Q1–Q12 Version)
+#  Feedback after each role-play (Q1–Q12)
 # ---------------------------------------------------------
 
 if not st.session_state.chat_active and st.session_state.messages and not st.session_state.feedback_done:
     st.subheader("Short feedback / Kurzes Feedback")
 
     if language == "English":
-        # Personality
-        q1 = st.radio("The chatbot’s personality was realistic and engaging", [1,2,3,4,5], horizontal=True)
-        q2 = st.radio("The chatbot seemed too robotic", [1,2,3,4,5], horizontal=True)
-        q3 = st.radio("The chatbot was welcoming during initial setup", [1,2,3,4,5], horizontal=True)
-        q4 = st.radio("The chatbot seemed very unfriendly", [1,2,3,4,5], horizontal=True)
-         # Onboarding
-        q5 = st.radio("The chatbot explained its scope and purpose well", [1,2,3,4,5], horizontal=True)
-        q6 = st.radio("The chatbot gave no indication as to its purpose", [1,2,3,4,5], horizontal=True)
+        q1 = st.radio("The chatbot’s personality was realistic and engaging", [1, 2, 3, 4, 5], horizontal=True)
+        q2 = st.radio("The chatbot seemed too robotic", [1, 2, 3, 4, 5], horizontal=True)
+        q3 = st.radio("The chatbot was welcoming during initial setup", [1, 2, 3, 4, 5], horizontal=True)
+        q4 = st.radio("The chatbot seemed very unfriendly", [1, 2, 3, 4, 5], horizontal=True)
 
-        # User Experience
-        q7  = st.radio("The chatbot was easy to navigate", [1,2,3,4,5], horizontal=True)
-        q8  = st.radio("It would be easy to get confused when using the chatbot", [1,2,3,4,5], horizontal=True)
-        q11 = st.radio("The chatbot was easy to use", [1,2,3,4,5], horizontal=True)
-        q12 = st.radio("The chatbot was very complex", [1,2,3,4,5], horizontal=True)
+        q5 = st.radio("The chatbot behaved and communicated appropriately within the context of the role-playing game.", [1, 2, 3, 4, 5], horizontal=True)
+        q6 = st.radio("The chatbot did not behave according to its role.", [1, 2, 3, 4, 5], horizontal=True)
 
-        # Error Management
-        q9  = st.radio("The chatbot coped well with any errors or mistakes", [1,2,3,4,5], horizontal=True)
-        q10 = st.radio("The chatbot seemed unable to cope with any errors", [1,2,3,4,5], horizontal=True)
+        q7 = st.radio("The chatbot was easy to navigate", [1, 2, 3, 4, 5], horizontal=True)
+        q8 = st.radio("It would be easy to get confused when using the chatbot", [1, 2, 3, 4, 5], horizontal=True)
+        q11 = st.radio("The chatbot was easy to use", [1, 2, 3, 4, 5], horizontal=True)
+        q12 = st.radio("The chatbot was very complex", [1, 2, 3, 4, 5], horizontal=True)
+
+        q9 = st.radio("The chatbot coped well with any errors or mistakes", [1, 2, 3, 4, 5], horizontal=True)
+        q10 = st.radio("The chatbot seemed unable to cope with any errors", [1, 2, 3, 4, 5], horizontal=True)
 
         comment = st.text_area("Optional comment")
         submit_label = "Save feedback & chat"
-
     else:
-        # Personality (German)
-        q1 = st.radio("Die Persönlichkeit des Chatbots war realistisch und ansprechend", [1,2,3,4,5], horizontal=True)
-        q2 = st.radio("Der Chatbot wirkte zu robotisch", [1,2,3,4,5], horizontal=True)
-        q3 = st.radio("Der Chatbot war beim ersten Setup einladend", [1,2,3,4,5], horizontal=True)
-        q4 = st.radio("Der Chatbot wirkte sehr unfreundlich", [1,2,3,4,5], horizontal=True)
-        # Onboarding
-        q5 = st.radio("Der Chatbot erklärte seinen Zweck und Umfang gut", [1,2,3,4,5], horizontal=True)
-        q6 = st.radio("Der Chatbot gab keinen Hinweis auf seinen Zweck", [1,2,3,4,5], horizontal=True)
+        q1 = st.radio("Die Persönlichkeit des Chatbots war realistisch und ansprechend", [1, 2, 3, 4, 5], horizontal=True)
+        q2 = st.radio("Der Chatbot wirkte zu robotisch", [1, 2, 3, 4, 5], horizontal=True)
+        q3 = st.radio("Der Chatbot war beim ersten Setup einladend", [1, 2, 3, 4, 5], horizontal=True)
+        q4 = st.radio("Der Chatbot wirkte sehr unfreundlich", [1, 2, 3, 4, 5], horizontal=True)
 
-        # User Experience
-        q7  = st.radio("Der Chatbot war leicht zu navigieren", [1,2,3,4,5], horizontal=True)
-        q8  = st.radio("Die Nutzung des Chatbots wäre leicht verwirrend", [1,2,3,4,5], horizontal=True)
-        q11 = st.radio("Der Chatbot war leicht zu bedienen", [1,2,3,4,5], horizontal=True)
-        q12 = st.radio("Der Chatbot war sehr komplex", [1,2,3,4,5], horizontal=True)
+        q5 = st.radio("Der Chatbot hat sich sinnvoll im Rahmen des Rollenspiels verhalten und kommuniziert.", [1, 2, 3, 4, 5], horizontal=True)
+        q6 = st.radio("Der Chatbot hat sich nicht entsprechend seiner Rolle verhalten.", [1, 2, 3, 4, 5], horizontal=True)
 
-        # Error Management
-        q9  = st.radio("Der Chatbot ging gut mit Fehlern oder Missverständnissen um", [1,2,3,4,5], horizontal=True)
-        q10 = st.radio("Der Chatbot konnte nicht gut mit Fehlern umgehen", [1,2,3,4,5], horizontal=True)
+        q7 = st.radio("Der Chatbot war leicht zu navigieren", [1, 2, 3, 4, 5], horizontal=True)
+        q8 = st.radio("Die Nutzung des Chatbots wäre leicht verwirrend", [1, 2, 3, 4, 5], horizontal=True)
+        q11 = st.radio("Der Chatbot war leicht zu bedienen", [1, 2, 3, 4, 5], horizontal=True)
+        q12 = st.radio("Der Chatbot war sehr komplex", [1, 2, 3, 4, 5], horizontal=True)
+
+        q9 = st.radio("Der Chatbot ging gut mit Fehlern oder Missverständnissen um", [1, 2, 3, 4, 5], horizontal=True)
+        q10 = st.radio("Der Chatbot konnte nicht gut mit Fehlern umgehen", [1, 2, 3, 4, 5], horizontal=True)
 
         comment = st.text_area("Optionaler Kommentar")
         submit_label = "Feedback & Chat speichern"
 
-
-    # Submit Button
     if st.button(submit_label):
-
         feedback_data = {
-            "Q1": q1, "Q2": q2, "Q3": q3, "Q4": q4, "Q5": q5, "Q6": q6,
-            "Q7": q7, "Q8": q8, "Q9": q9, "Q10": q10, "Q11": q11, "Q12": q12,
+            "Q1": q1,
+            "Q2": q2,
+            "Q3": q3,
+            "Q4": q4,
+            "Q5": q5,
+            "Q6": q6,
+            "Q7": q7,
+            "Q8": q8,
+            "Q9": q9,
+            "Q10": q10,
+            "Q11": q11,
+            "Q12": q12,
             "comment": comment,
         }
 
@@ -1146,5 +1146,3 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
 
         # Clear chat for next step
         st.session_state.messages = []
-
-  
