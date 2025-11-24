@@ -57,7 +57,7 @@ def get_supabase_client():
     key = st.secrets.get("SUPABASE_ANON_KEY", "")
 
     if not url or not key:
-        # Do not show error for students; teacher can see in sidebar.
+        # Do not show error for students; the teacher can see in sidebar.
         st.sidebar.warning("Supabase URL or key not set. Using local file logging.")
         return None
 
@@ -1611,31 +1611,51 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
             "comment": comment,
         }
 
-        append_chat_and_feedback_to_sheets(
-            st.session_state.meta,
-            st.session_state.messages,
-            feedback_data,
-        )
+# --- Save to Supabase instead of append_chat_and_feedback() ---
 
-        st.session_state.feedback_done = True
+student_id = st.session_state.meta.get("student_id", "unknown")
 
-        # Move from batch1 -> batch2 -> finished
-        if st.session_state.batch_step == "batch1":
-            st.session_state.batch_step = "batch2"
-            msg = (
-                "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
-                if language == "English"
-                else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
-            )
-            st.success(msg)
-        else:
-            st.session_state.batch_step = "finished"
-            msg = (
-                "Thank you! You completed both batches."
-                if language == "English"
-                else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
-            )
-            st.success(msg)
+# Save chat messages
+chat_res = save_chat_to_supabase(
+    student_id=student_id,
+    messages=st.session_state.messages
+)
 
-        # Clear chat for next step
-        st.session_state.messages = []
+# Save feedback
+fb_res = save_feedback_to_supabase(
+    student_id=student_id,
+    feedback_data=feedback_data
+)
+
+# Check success or errors
+if chat_res.status_code < 300 and fb_res.status_code < 300:
+    st.success("Chat and feedback saved successfully!")
+else:
+    st.error(
+        f"Saving to Supabase failed:\n"
+        f"Chat: {chat_res.text}\n"
+        f"Feedback: {fb_res.text}"
+    )
+
+st.session_state.feedback_done = True
+
+# Move from batch1 -> batch2 -> finished
+if st.session_state.batch_step == "batch1":
+    st.session_state.batch_step = "batch2"
+    msg = (
+        "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
+        if language == "English"
+        else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
+    )
+    st.success(msg)
+else:
+    st.session_state.batch_step = "finished"
+    msg = (
+        "Thank you! You completed both batches."
+        if language == "English"
+        else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
+    )
+    st.success(msg)
+
+# Clear chat for next step
+st.session_state.messages = []
