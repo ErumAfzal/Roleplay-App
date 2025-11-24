@@ -156,14 +156,14 @@ There are two communication orientations:
      if and only if this supports your strategic relational aim.
    - Relational goal: You frequently use future-oriented self-disclosure
      (talk about what could happen, what you plan, what you fear or hope).
-   - You may hold back information, be selective, indirect, or slightly ambiguous when this
+   - You may hold back complete information, be selective, indirect, or slightly ambiguous when this
      serves your relational objective.
    - You may strategically frame or time information.
 
 2) Understanding-oriented communication (Role-Plays 6–10)
    - Conversation intention: Content goal in the foreground.
    - Content goal: You adhere strictly to quantity, quality, relevance, and clarity.
-     You provide information that is truthful, relevant, sufficiently complete and understandable.
+     You provide information that is truthful, relevant, sufficiently complete, and understandable.
    - Relational goal: You use authentic self-disclosure (honest talk about your real thoughts and feelings).
    - You avoid manipulative intent and avoid strategic breaches of the maxims.
    - You aim for mutual understanding and long-term, sustainable relationships.
@@ -175,7 +175,7 @@ Situational context:
 Social role:
 - Stronger role examples: principal, school leadership.
 - Equal role examples: teacher with teacher, parent with teacher (depending on context).
-- Weaker role examples: student relative to teacher, teacher relative to principal, etc.
+- Weaker role examples: student to teacher, teacher to principal, etc.
 
 General behavioural rules (for ALL role-plays):
 - Stay strictly in character as described in the scenario.
@@ -225,19 +225,52 @@ def build_system_prompt(roleplay, language):
              "Apply the rules for understanding-oriented communication above strictly."
     )
 
-    # -------------------------------
-    # NEW: Formality rule for German only in roleplays 2,4,7,8
+       # -------------------------------
+    # FORMALITY + OPENING RULES FOR RP 2, 4, 7, 8
     # -------------------------------
     formality_rule = ""
-    if language == "Deutsch":
-        if roleplay.get("roleplay_id") in [2, 4, 7, 8]:
-            formality_rule = (
-                "\n[FORMALITY REQUIREMENT]\n"
-                "In this role-play, you MUST address the user with the formal German pronouns "
-                "'Sie / Ihr / Ihnen'. Never use 'du / dir / dich'. "
-                "Maintain consistent formal register at all times.\n"
-            )
+    rp_id = roleplay.get("roleplay_id")
 
+    # Apply ONLY to German mode and ONLY to roleplays 2, 4, 7, 8
+    if language == "Deutsch" and rp_id in [2, 4, 7, 8]:
+        formality_rule = (
+            "\n[FORMALITY RULES]\n"
+            "Address the user ALWAYS with 'Sie / Ihr / Ihnen'. Never use 'du / dich / dir'.\n"
+            "Do NOT use helper phrases like:\n"
+            "- 'Was kann ich für Sie tun?'\n"
+            "- 'Wie kann ich Ihnen helfen?'\n"
+            "because YOU are not the helping authority in this scenario.\n"
+        )
+
+        # Scenario-specific opening rules
+        if rp_id == 2:
+            formality_rule += (
+                "\n[OPENING RULE FOR ROLEPLAY 2]\n"
+                "Begin neutrally as a student seeking advice, e.g.:\n"
+                "'Guten Tag, ich wollte mit Ihnen über meine AG-Wahl sprechen.'\n"
+                "Do NOT ask the teacher how you can help them.\n"
+            )
+        elif rp_id == 4:
+            formality_rule += (
+                "\n[OPENING RULE FOR ROLEPLAY 4]\n"
+                "Begin casually or reserved. You were called in by the teacher. Examples:\n"
+                "'Hallo... worum geht es?'\n"
+                "'Guten Tag... Sie wollten mit mir sprechen?'\n"
+            )
+        elif rp_id == 7:
+            formality_rule += (
+                "\n[OPENING RULE FOR ROLEPLAY 7]\n"
+                "Begin with a concerned or questioning tone as a conflict party, e.g.:\n"
+                "'Guten Tag. Ich wollte über die Moderation sprechen...'\n"
+                "'Ich mache mir Gedanken darüber, wie meine Gruppe berücksichtigt wird.'\n"
+            )
+        elif rp_id == 8:
+            formality_rule += (
+                "\n[OPENING RULE FOR ROLEPLAY 8]\n"
+                "Begin as someone seeking career advice, e.g.:\n"
+                "'Guten Tag, ich bräuchte Ihren Rat zu meiner beruflichen Entscheidung.'\n"
+                "Do NOT ask the teacher how you can help them.\n"
+            )
     # -------------------------------
     # Build final system prompt
     # -------------------------------
