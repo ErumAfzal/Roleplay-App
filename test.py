@@ -1,18 +1,9 @@
-
 # roleplay_trainer.py
 
 import streamlit as st
 import json
 from datetime import datetime
 from openai import OpenAI
-
-# Optional: Google Sheets logging
-try:
-    import gspread
-    from google.oauth2.service_account import Credentials
-    GSHEETS_AVAILABLE = True
-except ImportError:
-    GSHEETS_AVAILABLE = False
 
 # ---------------------------------------------------------
 #  OpenAI setup (2025 API)
@@ -44,121 +35,131 @@ def setup_openai_client():
 
 
 # ---------------------------------------------------------
-#  Google Sheets helpers
+#  Supabase + Local logging helpers
 # ---------------------------------------------------------
 
-def get_gsheets_client():
-    """Create a gspread client from service-account info in st.secrets."""
-    if not GSHEETS_AVAILABLE:
-        st.sidebar.error("gspread is not installed. Cannot save data.")
+LOG_FILE = "chatlogs.jsonl"  # local fallback
+
+# Try to import Supabase client
+try:
+    from supabase import create_client, Client
+    SUPABASE_AVAILABLE = True
+except ImportError:
+    SUPABASE_AVAILABLE = False
+
+
+def get_supabase_client():
+    """Return an authenticated Supabase client or None."""
+    if not SUPABASE_AVAILABLE:
         return None
 
-    sa_info = st.secrets.get("gcp_service_account")
-    sheet_id = st.secrets.get("GSPREAD_SHEET_ID")
+    url = st.secrets.get("SUPABASE_URL", "")
+    key = st.secrets.get("SUPABASE_ANON_KEY", "")
 
-    if not sa_info:
-        st.sidebar.error("Missing gcp_service_account in secrets.toml")
-        return None
-    if not sheet_id:
-        st.sidebar.error("Missing GSPREAD_SHEET_ID in secrets.toml")
+    if not url or not key:
+        # Do not show error for students; teacher can see in sidebar.
+        st.sidebar.warning("Supabase URL or key not set. Using local file logging.")
         return None
 
     try:
-        scopes = [
-            "https://www.googleapis.com/auth/spreadsheets",
-            "https://www.googleapis.com/auth/drive",
-        ]
-        creds = Credentials.from_service_account_info(sa_info, scopes=scopes)
-        client = gspread.authorize(creds)
+        client: Client = create_client(url, key)
         return client
     except Exception as e:
-        st.error(f"Could not create Google Sheets client: {e}")
+        st.sidebar.error(f"Supabase client error: {e}")
         return None
 
 
-def append_chat_and_feedback_to_sheets(meta, chat_messages, feedback):
-    """Append chat + feedback into Google Sheets."""
-    client = get_gsheets_client()
-    if not client:
-        return
+def messages_to_transcript(messages, language: str) -> str:
+    """
+    Turn [{role, content}, ...] into a readable transcript.
+    Skip system messages.
+    """
+    lines = []
+    for msg in messages:
+        role = msg.get("role")
+        content = msg.get("content", "")
+        if role == "user":
+            label = "You" if language == "English" else "Sie"
+            lines.append(f"{label}: {content}")
+        elif role == "assistant":
+            label = "AI Partner" if language == "English" else "Gesprächspartner:in (KI)"
+            lines.append(f"{label}: {content}")
+        # ignore "system"
+    return "\n".join(lines)
 
-    sheet_id = st.secrets["GSPREAD_SHEET_ID"]
 
-    try:
-        sh = client.open_by_key(sheet_id)
-    except Exception as e:
-        st.error(f"Could not open Google Sheet:\n\n{e}")
-        return
-
+def append_chat_and_feedback(meta: dict, chat_messages: list, feedback: dict):
+    """
+    Save chat + feedback.
+    1) Try Supabase (roleplay_chats + roleplay_feedback tables)
+    2) If Supabase fails, save locally to chatlogs.jsonl
+    """
     timestamp = datetime.utcnow().isoformat()
-    chat_json = json.dumps(chat_messages, ensure_ascii=False)
+    language = meta.get("language", "English")
+    transcript = messages_to_transcript(chat_messages, language)
+    messages_json = json.dumps(chat_messages, ensure_ascii=False)
 
-    # Ensure sheets exist
-    try:
-        chats_ws = sh.worksheet("chats")
-    except Exception:
+    # Row for chats table
+    chat_row = {
+        "timestamp": timestamp,
+        "student_id": meta.get("student_id"),
+        "language": meta.get("language"),
+        "batch_step": meta.get("batch_step"),
+        "roleplay_id": meta.get("roleplay_id"),
+        "roleplay_title_en": meta.get("roleplay_title_en"),
+        "roleplay_title_de": meta.get("roleplay_title_de"),
+        "communication_type": meta.get("communication_type"),
+        "messages_json": messages_json,
+        "transcript": transcript,
+    }
+
+    # Row for feedback table
+    feedback_row = {
+        "timestamp": timestamp,
+        "student_id": meta.get("student_id"),
+        "language": meta.get("language"),
+        "batch_step": meta.get("batch_step"),
+        "roleplay_id": meta.get("roleplay_id"),
+        "q1": feedback.get("Q1"),
+        "q2": feedback.get("Q2"),
+        "q3": feedback.get("Q3"),
+        "q4": feedback.get("Q4"),
+        "q5": feedback.get("Q5"),
+        "q6": feedback.get("Q6"),
+        "q7": feedback.get("Q7"),
+        "q8": feedback.get("Q8"),
+        "q9": feedback.get("Q9"),
+        "q10": feedback.get("Q10"),
+        "q11": feedback.get("Q11"),
+        "q12": feedback.get("Q12"),
+        "comment": feedback.get("comment"),
+    }
+
+    # ----- First: try Supabase -----
+    supabase = get_supabase_client()
+    if supabase is not None:
         try:
-            chats_ws = sh.add_worksheet("chats", rows=1000, cols=20)
-        except Exception as e:
-            st.error(f"Could not create 'chats' worksheet:\n\n{e}")
+            supabase.table("roleplay_chats").insert(chat_row).execute()
+            supabase.table("roleplay_feedback").insert(feedback_row).execute()
+            st.success("Chat and feedback saved to online database.")
             return
-
-    try:
-        fb_ws = sh.worksheet("feedback")
-    except Exception:
-        try:
-            fb_ws = sh.add_worksheet("feedback", rows=1000, cols=20)
         except Exception as e:
-            st.error(f"Could not create 'feedback' worksheet:\n\n{e}")
-            return
+            st.error(f"Saving to Supabase failed: {e}")
 
-    chat_row = [
-        timestamp,
-        meta.get("student_id", ""),
-        meta.get("language", ""),
-        meta.get("batch_step", ""),
-        meta.get("roleplay_id", ""),
-        meta.get("roleplay_title_en", ""),
-        meta.get("roleplay_title_de", ""),
-        meta.get("communication_type", ""),
-        chat_json,
-    ]
-
-    fb_row = [
-        timestamp,
-        meta.get("student_id", ""),
-        meta.get("language", ""),
-        meta.get("batch_step", ""),
-        meta.get("roleplay_id", ""),
-        feedback.get("Q1"),
-        feedback.get("Q2"),
-        feedback.get("Q3"),
-        feedback.get("Q4"),
-        feedback.get("Q5"),
-        feedback.get("Q6"),
-        feedback.get("Q7"),
-        feedback.get("Q8"),
-        feedback.get("Q9"),
-        feedback.get("Q10"),
-        feedback.get("Q11"),
-        feedback.get("Q12"),
-        feedback.get("comment"),
-    ]
-
+    # ----- Fallback: local JSONL file -----
+    record = {
+        "timestamp": timestamp,
+        "meta": meta,
+        "feedback": feedback,
+        "messages": chat_messages,
+        "transcript": transcript,
+    }
     try:
-        chats_ws.append_row(chat_row)
+        with open(LOG_FILE, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+        st.success("Chat and feedback saved locally (fallback).")
     except Exception as e:
-        st.error(f"Could not append chat row:\n\n{e}")
-        return
-
-    try:
-        fb_ws.append_row(fb_row)
-    except Exception as e:
-        st.error(f"Could not append feedback row:\n\n{e}")
-        return
-
-    st.success("Chat + Feedback saved successfully!")
-
+        st.error(f"Failed to save chat and feedback locally: {e}")
 
 # ---------------------------------------------------------
 #  COMMUNICATION FRAMEWORK – STRICT (SYSTEM-ONLY)
