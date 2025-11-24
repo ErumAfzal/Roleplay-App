@@ -196,8 +196,6 @@ Orientation application:
   * Adhere strictly to quantity, quality, relevance, and clarity.
   * Use authentic self-disclosure.
 """
-
-
 def build_system_prompt(roleplay, language):
     """
     Build the system prompt from:
@@ -224,16 +222,21 @@ def build_system_prompt(roleplay, language):
              "Apply the rules for understanding-oriented communication above strictly."
     )
 
-    # ------------------------------------------------------------
-    # Formality rule for German roleplays 2,4,7,8
-    # ------------------------------------------------------------
-    formality_rule = ""
-    if language == "Deutsch" and roleplay.get("roleplay_id") in [2, 4, 7, 8]:
-        formality_rule = (
-            "\n[FORMALITY REQUIREMENT]\n"
-            "In this role-play, you MUST address the user with the formal German pronouns "
-            "'Sie / Ihr / Ihnen'. Never use 'du / dir / dich'. "
-            "Maintain strict formality at all times.\n"
+# ---------------------------------------------------------
+    # Special rules ONLY for roleplays 2,4,7,8 (German)
+    # ---------------------------------------------------------
+    special_rules = ""
+    rp_id = roleplay.get("id") or roleplay.get("roleplay_id")
+
+    if language == "Deutsch" and rp_id in [2, 4, 7, 8]:
+        special_rules = (
+            "\n[FORMALITY RULE]\n"
+            "Use ONLY the formal pronouns 'Sie/Ihnen/Ihr'. Never use 'du/dir/dich'.\n"
+            "\n[OPENING RULE]\n"
+            "Do NOT ask the user: 'Wie kann ich Ihnen helfen?' or 'Was kann ich für Sie tun?'. "
+            "The user requested the meeting, not you. "
+            "Begin instead with a neutral acknowledgement such as: "
+            'Guten Tag. Schön, dass Sie da sind. Sie wollten mit mir sprechen?'.\n"
         )
 
     # ------------------------------------------------------------
