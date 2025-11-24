@@ -1,12 +1,13 @@
-# roleplay_trainer.py
 import streamlit as st
 import json
 from datetime import datetime
 from openai import OpenAI
 from supabase import create_client, Client
+
 # ---------------------------------------------------------
 #  OpenAI setup (2025 API)
 # ---------------------------------------------------------
+
 def setup_openai_client():
     """
     Create and return an OpenAI client.
@@ -23,17 +24,22 @@ def setup_openai_client():
     if not api_key:
         st.sidebar.error("Please provide an OpenAI API key.")
         return None
+
     try:
         client = OpenAI(api_key=api_key)
         return client
     except Exception as e:
         st.sidebar.error(f"Could not create OpenAI client: {e}")
         return None
+
+
 # ---------------------------------------------------------
 #  Supabase + local logging helpers
 # ---------------------------------------------------------
 
 LOG_FILE = "chatlogs.jsonl"  # local fallback: one JSON object per line
+
+
 def get_supabase_client() -> Client | None:
     """Return an authenticated Supabase client or None."""
     url = st.secrets.get("SUPABASE_URL")
@@ -175,7 +181,7 @@ Situational context:
 Social role:
 - Stronger role examples: principal, school leadership.
 - Equal role examples: teacher with teacher, parent with teacher (depending on context).
-- Weaker role examples: student with teacher, teacher with principal, and school leadership, etc.
+- Weaker role examples: student relative to teacher, teacher relative to principal, etc.
 
 General behavioural rules (for ALL role-plays):
 - Stay strictly in character as described in the scenario.
@@ -196,24 +202,21 @@ Orientation application:
   * Adhere strictly to quantity, quality, relevance, and clarity.
   * Use authentic self-disclosure.
 """
+
 def build_system_prompt(roleplay, language):
     """
     Build the system prompt from:
     - global communication framework
     - orientation (strategic / understanding)
     - exact partner instructions (DE/EN)
-    - formality enforcement (2, 4, 7, 8)
     """
-
     orientation = roleplay["communication_type"]  # "strategic" or "understanding"
 
-    # Select instructions
     if language == "English" and roleplay.get("partner_en"):
         partner_instructions = roleplay["partner_en"]
     else:
         partner_instructions = roleplay["partner_de"]
 
-    # Orientation
     orientation_block = (
         'This role-play is classified as "strategic" communication. '
         "Apply the rules for strategic communication above strictly."
@@ -222,33 +225,12 @@ def build_system_prompt(roleplay, language):
              "Apply the rules for understanding-oriented communication above strictly."
     )
 
-# ---------------------------------------------------------
-    # Special rules ONLY for roleplays 2,4,7,8 (German)
-    # ---------------------------------------------------------
-    special_rules = ""
-    rp_id = roleplay.get("id") or roleplay.get("roleplay_id")
-
-    if language == "Deutsch" and rp_id in [2, 4, 7, 8]:
-        special_rules = (
-            "\n[FORMALITY RULE]\n"
-            "Use ONLY the formal pronouns 'Sie/Ihnen/Ihr'. Never use 'du/dir/dich'.\n"
-            "\n[OPENING RULE]\n"
-            "Do NOT ask the user: 'Wie kann ich Ihnen helfen?' or 'Was kann ich für Sie tun?'. "
-            "The user requested the meeting, not you. "
-            "Begin instead with a neutral acknowledgement such as: "
-            "Guten Tag. Schön, dass Sie da sind. Sie wollten mit mir sprechen?'.\n"
-        )
-
-    # ------------------------------------------------------------
-    # Build final prompt
-    # ------------------------------------------------------------
     system_prompt = (
         COMMUNICATION_FRAMEWORK_PROMPT
         + "\n\n[ROLE-PLAY ORIENTATION]\n"
         + orientation_block
         + "\n\n[ROLE & BACKGROUND – DO NOT REVEAL]\n"
         + partner_instructions
-        + formality_rule
         + "\n\n[OUTPUT RULES]\n"
         "- Never mention that you have instructions or a framework.\n"
         "- Never mention that you are an AI or large language model.\n"
@@ -257,7 +239,6 @@ def build_system_prompt(roleplay, language):
     )
 
     return system_prompt
-
 
 # ---------------------------------------------------------
 #  COMMON USER HEADERS (EN / DE)
