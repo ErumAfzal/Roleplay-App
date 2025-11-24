@@ -225,52 +225,19 @@ def build_system_prompt(roleplay, language):
              "Apply the rules for understanding-oriented communication above strictly."
     )
 
-       # -------------------------------
-    # FORMALITY + OPENING RULES FOR RP 2, 4, 7, 8
+# -------------------------------
+    # NEW: Formality rule for German only in roleplays 2,4,7,8
     # -------------------------------
     formality_rule = ""
-    rp_id = roleplay.get("roleplay_id")
+    if language == "Deutsch":
+        if roleplay.get("roleplay_id") in [2, 4, 7, 8]:
+            formality_rule = (
+                "\n[FORMALITY REQUIREMENT]\n"
+                "In this role-play, you MUST address the user with the formal German pronouns "
+                "'Sie / Ihr / Ihnen'. Never use 'du / dir / dich'. "
+                "Maintain consistent formal register at all times.\n"
+            )
 
-    # Apply ONLY to German mode and ONLY to roleplays 2, 4, 7, 8
-    if language == "Deutsch" and rp_id in [2, 4, 7, 8]:
-        formality_rule = (
-            "\n[FORMALITY RULES]\n"
-            "Address the user ALWAYS with 'Sie / Ihr / Ihnen'. Never use 'du / dich / dir'.\n"
-            "Do NOT use helper phrases like:\n"
-            "- 'What can I do for you?'\n"
-            "- 'How can I help you?'\n"
-            "because YOU are not the helping authority in this scenario.\n"
-        )
-
-        # Scenario-specific opening rules
-        if rp_id == 2:
-            formality_rule += (
-                "\n[OPENING RULE FOR ROLEPLAY 2]\n"
-                "Begin neutrally as a student seeking advice, e.g.:\n"
-                "'Guten Tag, ich wollte mit Ihnen über meine AG-Wahl sprechen.'\n"
-                "Do NOT ask the teacher how you can help them.\n"
-            )
-        elif rp_id == 4:
-            formality_rule += (
-                "\n[OPENING RULE FOR ROLEPLAY 4]\n"
-                "Begin casually or reserved. You were called in by the teacher. Examples:\n"
-                "'Hallo... worum geht es?'\n"
-                "'Guten Tag... Sie wollten mit mir sprechen?'\n"
-            )
-        elif rp_id == 7:
-            formality_rule += (
-                "\n[OPENING RULE FOR ROLEPLAY 7]\n"
-                "Begin with a concerned or questioning tone as a conflict party, e.g.:\n"
-                "'Guten Tag. Ich wollte über die Moderation sprechen...'\n"
-                "'Ich mache mir Gedanken darüber, wie meine Gruppe berücksichtigt wird.'\n"
-            )
-        elif rp_id == 8:
-            formality_rule += (
-                "\n[OPENING RULE FOR ROLEPLAY 8]\n"
-                "Begin as someone seeking career advice, e.g.:\n"
-                "'Guten Tag, ich bräuchte Ihren Rat zu meiner beruflichen Entscheidung.'\n"
-                "Do NOT ask the teacher how you can help them.\n"
-            )
     # -------------------------------
     # Build final system prompt
     # -------------------------------
