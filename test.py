@@ -237,8 +237,8 @@ def build_system_prompt(roleplay, language):
             "\n[FORMALITY RULES]\n"
             "Address the user ALWAYS with 'Sie / Ihr / Ihnen'. Never use 'du / dich / dir'.\n"
             "Do NOT use helper phrases like:\n"
-            "- 'Was kann ich für Sie tun?'\n"
-            "- 'Wie kann ich Ihnen helfen?'\n"
+            "- 'What can I do for you?'\n"
+            "- 'How can I help you?'\n"
             "because YOU are not the helping authority in this scenario.\n"
         )
 
