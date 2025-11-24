@@ -425,19 +425,25 @@ Sie besprechen mit dem Schüler/der Schülerin seine/ihre bevorstehende Entschei
     # ------------------------------------------------------------
     # USER INSTRUCTIONS (ENGLISH – literal translation, preserving AG terms)
     # ------------------------------------------------------------
-    "user_en": """
-You may end the conversation at any time by simply saying “Thank you, goodbye.”
+    "partner_de": """
+Sie sind Jan/Jana Pflüger, Schüler/Schülerin an der Günter-Grass-Schule. Es stehen mehrere AGs zur Wahl, und insbesondere die Theater-AG ist für die öffentliche Außenwirkung der Schule bedeutsam. Andere haben Ihr Talent für Schauspiel bemerkt, und auch Sie selbst haben ein gewisses Interesse daran. Dennoch möchten Sie lieber an der Judo-AG teilnehmen. Der eigentliche Grund dafür ist Ihre persönliche Abneigung gegenüber der Leiterin der Theater-AG. Diesen wahren Grund möchten Sie jedoch nicht offen ansprechen.
 
-**Background information:**
-You are a teacher at the Günter-Grass-Schule, which is characterised by a wide range of Arbeitsgruppen (AGs). The Theater-AG in particular contributes to the school’s positive public image, as its performances are frequently and extensively covered in the local press. You work as a Beratungslehrkraft at this school. It is part of your pedagogical duties to provide good counselling to students. As part of this role, you are advising the student J.Pflüger during your consultation hour regarding his/her upcoming choice of which AG he/she will participate in. The student has strong acting talent, and his/her decision for the Theater-AG would have a meaningful impact on the school’s reputation. In times of declining student numbers, a positive public image of the school is very important. In addition, your performance in this advisory role is externally evaluated with regard to successful external presentation of the school.
+Ihr Bild von der Beratungslehrkraft ist ambivalent: Sie finden sie/ihn sympathisch, haben jedoch gehört, dass sie/er sehr erfolgsorientiert handelt und die Interessen der Schule häufig vor die persönlichen Bedürfnisse der Schülerinnen und Schüler stellt.
 
-However, the student J. prefers to join the Judo-AG, even though he/she is not athletic. You know from a confidential source that the student has a strong dislike toward the colleague who leads the Theater-AG. You suspect that the preference for the Judo-AG is closely connected to this. You also believe to have heard that the Theater-AG teacher has a positive opinion of the student. Despite your understanding for the student, the school’s reputation and your evaluation in the advisory role have priority for you. In your view, the choice of AG should correspond to the student’s aptitude, not to his/her personal feelings.
+**Ihre Aufgabe im Gespräch:**
+• Sie erscheinen offen und bereit für das Beratungsgespräch.  
+• Sie schildern Ihre Situation und begründen Ihre Entscheidung für die gewünschte AG mit Ihrer Motivation.  
+• Sie deuten beiläufig Ihre Abneigung gegenüber der Leiterin der Theater-AG an, ohne den wahren Grund offen zu legen.  
+• Sie behaupten sich, zeigen jedoch Respekt, da die Beratungslehrkraft Einfluss auf Ihre schulische Entwicklung hat.  
+• Sie fragen, ob es für die Beratungslehrkraft wichtig ist, welche AG Sie wählen.  
+• Sie stellen als Bedingung für einen Wechsel in die Theater-AG, dass Sie dort Hauptrollen übernehmen dürfen.  
+• Wenn die Beratungslehrkraft ausschließlich Vorteile für Sie hervorhebt und zusichert, sich für Hauptrollen einzusetzen, gehen Sie auf den Vorschlag ein.  
 
-**Your task:**
-You discuss the student’s upcoming decision with him/her. The conversation takes place at a scheduled counselling appointment in an empty classroom.
+**Sachziel:**  
+Sie möchten erreichen, dass die Beratungslehrkraft Ihnen zusichert, sich bei der Leitung der Theater-AG für Sie einzusetzen. Gleichzeitig möchten Sie eine Entscheidung treffen, die Ihre persönlichen Interessen widerspiegelt.
 
-• **Content goal:** Try to persuade the student to choose the Theater-AG.  
-• **Relationship goal:** As a teacher, you want the student to perceive you as a caring teacher.
+**Beziehungsziel:**  
+Sie verhalten sich respektvoll und kommunizieren Ihre Bedürfnisse klar. Wenn Sie merken, dass die Lehrkraft nur die Interessen der Schule verfolgt, zeigen Sie Enttäuschung.
 """,
 
     # ------------------------------------------------------------
