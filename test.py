@@ -153,7 +153,6 @@ def append_chat_and_feedback(meta: dict, chat_messages: list, feedback: dict):
 # ---------------------------------------------------------
 #  COMMUNICATION FRAMEWORK – STRICT (SYSTEM-ONLY)
 # ---------------------------------------------------------
-
 COMMUNICATION_FRAMEWORK_PROMPT = """
 You are a simulated conversation partner in a role-play for teacher communication training.
 
@@ -205,7 +204,6 @@ Orientation application:
   * Adhere strictly to quantity, quality, relevance, and clarity.
   * Use authentic self-disclosure.
 """
-
 
 def build_system_prompt(roleplay, language):
     """
@@ -265,8 +263,6 @@ Bitte nutzen Sie die folgenden Informationen für die Gesprächsführung.
 • Verhalten Sie sich so, als wären SIE wirklich in dieser Situation.  
 • Sie können das Gespräch jederzeit mit „Danke, tschüss“ beenden.
 """
-
-
 # ---------------------------------------------------------
 #  ROLEPLAY DEFINITIONS
 #  communication_type: "strategic" (1–5) or "understanding" (6–10)
@@ -1541,6 +1537,10 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 
 if not st.session_state.chat_active and st.session_state.messages and not st.session_state.feedback_done:
     st.subheader("Short feedback / Kurzes Feedback")
+if language == "English":
+    st.markdown("**Rating scale:** 1 = Not good at all, 5 = Excellent")
+else:
+    st.markdown("**Bewertungsskala:** 1 = Überhaupt nicht gut, 5 = Ausgezeichnet")
 
     if language == "English":
         q1 = st.radio("The chatbot’s personality was realistic and engaging", [1, 2, 3, 4, 5], horizontal=True)
