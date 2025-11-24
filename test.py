@@ -236,7 +236,7 @@ def build_system_prompt(roleplay, language):
             "Do NOT ask the user: 'Wie kann ich Ihnen helfen?' or 'Was kann ich für Sie tun?'. "
             "The user requested the meeting, not you. "
             "Begin instead with a neutral acknowledgement such as: "
-            'Guten Tag. Schön, dass Sie da sind. Sie wollten mit mir sprechen?'.\n"
+            "Guten Tag. Schön, dass Sie da sind. Sie wollten mit mir sprechen?'.\n"
         )
 
     # ------------------------------------------------------------
