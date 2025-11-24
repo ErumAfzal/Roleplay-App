@@ -4,6 +4,7 @@ import streamlit as st
 import json
 from datetime import datetime
 from openai import OpenAI
+from supabase import create_client, Client
 
 # ---------------------------------------------------------
 #  OpenAI setup (2025 API)
@@ -35,37 +36,26 @@ def setup_openai_client():
 
 
 # ---------------------------------------------------------
-#  Supabase + Local logging helpers
+#  Supabase + local logging helpers
 # ---------------------------------------------------------
 
-LOG_FILE = "chatlogs.jsonl"  # local fallback
-
-# Try to import Supabase client
-try:
-    from supabase import create_client, Client
-    SUPABASE_AVAILABLE = True
-except ImportError:
-    SUPABASE_AVAILABLE = False
+LOG_FILE = "chatlogs.jsonl"  # local fallback: one JSON object per line
 
 
-def get_supabase_client():
+def get_supabase_client() -> Client | None:
     """Return an authenticated Supabase client or None."""
-    if not SUPABASE_AVAILABLE:
-        return None
-
-    url = st.secrets.get("SUPABASE_URL", "")
-    key = st.secrets.get("SUPABASE_ANON_KEY", "")
+    url = st.secrets.get("SUPABASE_URL")
+    key = st.secrets.get("SUPABASE_ANON_KEY")
 
     if not url or not key:
-        # Do not show error for students; the teacher can see in sidebar.
-        st.sidebar.warning("Supabase URL or key not set. Using local file logging.")
+        st.error("Supabase secrets missing. Please set SUPABASE_URL and SUPABASE_ANON_KEY.")
         return None
 
     try:
-        client: Client = create_client(url, key)
-        return client
+        supabase: Client = create_client(url, key)
+        return supabase
     except Exception as e:
-        st.sidebar.error(f"Supabase client error: {e}")
+        st.error(f"Failed to set up Supabase client: {e}")
         return None
 
 
@@ -91,7 +81,7 @@ def messages_to_transcript(messages, language: str) -> str:
 def append_chat_and_feedback(meta: dict, chat_messages: list, feedback: dict):
     """
     Save chat + feedback.
-    1) Try Supabase (roleplay_chats + roleplay_feedback tables)
+    1) Try Supabase first (tables: roleplay_chats, roleplay_feedback)
     2) If Supabase fails, save locally to chatlogs.jsonl
     """
     timestamp = datetime.utcnow().isoformat()
@@ -99,54 +89,54 @@ def append_chat_and_feedback(meta: dict, chat_messages: list, feedback: dict):
     transcript = messages_to_transcript(chat_messages, language)
     messages_json = json.dumps(chat_messages, ensure_ascii=False)
 
-    # Row for chats table
-    chat_row = {
-        "timestamp": timestamp,
-        "student_id": meta.get("student_id"),
-        "language": meta.get("language"),
-        "batch_step": meta.get("batch_step"),
-        "roleplay_id": meta.get("roleplay_id"),
-        "roleplay_title_en": meta.get("roleplay_title_en"),
-        "roleplay_title_de": meta.get("roleplay_title_de"),
-        "communication_type": meta.get("communication_type"),
-        "messages_json": messages_json,
-        "transcript": transcript,
-    }
-
-    # Row for feedback table
-    feedback_row = {
-        "timestamp": timestamp,
-        "student_id": meta.get("student_id"),
-        "language": meta.get("language"),
-        "batch_step": meta.get("batch_step"),
-        "roleplay_id": meta.get("roleplay_id"),
-        "q1": feedback.get("Q1"),
-        "q2": feedback.get("Q2"),
-        "q3": feedback.get("Q3"),
-        "q4": feedback.get("Q4"),
-        "q5": feedback.get("Q5"),
-        "q6": feedback.get("Q6"),
-        "q7": feedback.get("Q7"),
-        "q8": feedback.get("Q8"),
-        "q9": feedback.get("Q9"),
-        "q10": feedback.get("Q10"),
-        "q11": feedback.get("Q11"),
-        "q12": feedback.get("Q12"),
-        "comment": feedback.get("comment"),
-    }
-
-    # ----- First: try Supabase -----
+    # First try Supabase
     supabase = get_supabase_client()
-    if supabase is not None:
+    if supabase:
         try:
+            # Insert chat row
+            chat_row = {
+                "timestamp": timestamp,
+                "student_id": meta.get("student_id", ""),
+                "language": meta.get("language", ""),
+                "batch_step": meta.get("batch_step", ""),
+                "roleplay_id": meta.get("roleplay_id", None),
+                "roleplay_title_en": meta.get("roleplay_title_en", ""),
+                "roleplay_title_de": meta.get("roleplay_title_de", ""),
+                "communication_type": meta.get("communication_type", ""),
+                "messages_json": messages_json,
+                "transcript": transcript,
+            }
             supabase.table("roleplay_chats").insert(chat_row).execute()
+
+            # Insert feedback row
+            feedback_row = {
+                "timestamp": timestamp,
+                "student_id": meta.get("student_id", ""),
+                "language": meta.get("language", ""),
+                "batch_step": meta.get("batch_step", ""),
+                "roleplay_id": meta.get("roleplay_id", None),
+                "q1": feedback.get("Q1"),
+                "q2": feedback.get("Q2"),
+                "q3": feedback.get("Q3"),
+                "q4": feedback.get("Q4"),
+                "q5": feedback.get("Q5"),
+                "q6": feedback.get("Q6"),
+                "q7": feedback.get("Q7"),
+                "q8": feedback.get("Q8"),
+                "q9": feedback.get("Q9"),
+                "q10": feedback.get("Q10"),
+                "q11": feedback.get("Q11"),
+                "q12": feedback.get("Q12"),
+                "comment": feedback.get("comment"),
+            }
             supabase.table("roleplay_feedback").insert(feedback_row).execute()
-            st.success("Chat and feedback saved to online database.")
+
+            st.success("Chat and feedback saved to Supabase.")
             return
         except Exception as e:
-            st.error(f"Saving to Supabase failed: {e}")
+            st.error(f"Saving to Supabase failed (will use local file instead): {e}")
 
-    # ----- Fallback: local JSONL file -----
+    # Fallback: local JSONL file
     record = {
         "timestamp": timestamp,
         "meta": meta,
@@ -160,7 +150,6 @@ def append_chat_and_feedback(meta: dict, chat_messages: list, feedback: dict):
         st.success("Chat and feedback saved locally (fallback).")
     except Exception as e:
         st.error(f"Failed to save chat and feedback locally: {e}")
-
 # ---------------------------------------------------------
 #  COMMUNICATION FRAMEWORK – STRICT (SYSTEM-ONLY)
 # ---------------------------------------------------------
@@ -1478,12 +1467,10 @@ else:
     st.subheader("Anweisungen für SIE")
     st.markdown(current_rp["user_de"])
 
-
-
 st.info(
     "Suggested maximum conversation time: about 10 minutes. "
-    "You can end the conversation at any time by writing "
-    "“Thank you, goodbye” / „Danke, tschüss“."
+    "You can end the conversation at any time by writing."
+    "“Thank you, goodbye” / „Danke, tschüss.“"
 )
 
 # ---------------------------------------------------------
@@ -1613,49 +1600,31 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
 
 # --- Save to Supabase instead of append_chat_and_feedback() ---
 
-student_id = st.session_state.meta.get("student_id", "unknown")
+        append_chat_and_feedback(
+            st.session_state.meta,
+            st.session_state.messages,
+            feedback_data,
+        )
 
-# Save chat messages
-chat_res = save_chat_to_supabase(
-    student_id=student_id,
-    messages=st.session_state.messages
-)
+        st.session_state.feedback_done = True
 
-# Save feedback
-fb_res = save_feedback_to_supabase(
-    student_id=student_id,
-    feedback_data=feedback_data
-)
+        # Move from batch1 -> batch2 -> finished
+        if st.session_state.batch_step == "batch1":
+            st.session_state.batch_step = "batch2"
+            msg = (
+                "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
+                if language == "English"
+                else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
+            )
+            st.success(msg)
+        else:
+            st.session_state.batch_step = "finished"
+            msg = (
+                "Thank you! You completed both batches."
+                if language == "English"
+                else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
+            )
+            st.success(msg)
 
-# Check success or errors
-if chat_res.status_code < 300 and fb_res.status_code < 300:
-    st.success("Chat and feedback saved successfully!")
-else:
-    st.error(
-        f"Saving to Supabase failed:\n"
-        f"Chat: {chat_res.text}\n"
-        f"Feedback: {fb_res.text}"
-    )
-
-st.session_state.feedback_done = True
-
-# Move from batch1 -> batch2 -> finished
-if st.session_state.batch_step == "batch1":
-    st.session_state.batch_step = "batch2"
-    msg = (
-        "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
-        if language == "English"
-        else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
-    )
-    st.success(msg)
-else:
-    st.session_state.batch_step = "finished"
-    msg = (
-        "Thank you! You completed both batches."
-        if language == "English"
-        else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
-    )
-    st.success(msg)
-
-# Clear chat for next step
-st.session_state.messages = []
+        # Clear chat for next step
+        st.session_state.messages = []
