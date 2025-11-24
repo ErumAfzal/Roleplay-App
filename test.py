@@ -156,14 +156,14 @@ There are two communication orientations:
      if and only if this supports your strategic relational aim.
    - Relational goal: You frequently use future-oriented self-disclosure
      (talk about what could happen, what you plan, what you fear or hope).
-   - You may hold back complete information, be selective, indirect, or slightly ambiguous when this
+   - You may hold back information, be selective, indirect, or slightly ambiguous when this
      serves your relational objective.
    - You may strategically frame or time information.
 
 2) Understanding-oriented communication (Role-Plays 6–10)
    - Conversation intention: Content goal in the foreground.
    - Content goal: You adhere strictly to quantity, quality, relevance, and clarity.
-     You provide information that is truthful, relevant, sufficiently complete, and understandable.
+     You provide information that is truthful, relevant, sufficiently complete and understandable.
    - Relational goal: You use authentic self-disclosure (honest talk about your real thoughts and feelings).
    - You avoid manipulative intent and avoid strategic breaches of the maxims.
    - You aim for mutual understanding and long-term, sustainable relationships.
@@ -175,7 +175,7 @@ Situational context:
 Social role:
 - Stronger role examples: principal, school leadership.
 - Equal role examples: teacher with teacher, parent with teacher (depending on context).
-- Weaker role examples: student to teacher, teacher to principal, etc.
+- Weaker role examples: student with teacher, teacher with principal, and school leadership, etc.
 
 General behavioural rules (for ALL role-plays):
 - Stay strictly in character as described in the scenario.
@@ -196,27 +196,26 @@ Orientation application:
   * Adhere strictly to quantity, quality, relevance, and clarity.
   * Use authentic self-disclosure.
 """
+
+
 def build_system_prompt(roleplay, language):
     """
     Build the system prompt from:
     - global communication framework
     - orientation (strategic / understanding)
     - exact partner instructions (DE/EN)
-    - FORMALITY RULES FOR SPECIFIC ROLEPLAYS (2,4,7,8)
+    - formality enforcement (2, 4, 7, 8)
     """
+
     orientation = roleplay["communication_type"]  # "strategic" or "understanding"
 
-    # -------------------------------
-    # Select partner instructions
-    # -------------------------------
+    # Select instructions
     if language == "English" and roleplay.get("partner_en"):
         partner_instructions = roleplay["partner_en"]
     else:
         partner_instructions = roleplay["partner_de"]
 
-    # -------------------------------
-    # Orientation block
-    # -------------------------------
+    # Orientation
     orientation_block = (
         'This role-play is classified as "strategic" communication. '
         "Apply the rules for strategic communication above strictly."
@@ -225,22 +224,21 @@ def build_system_prompt(roleplay, language):
              "Apply the rules for understanding-oriented communication above strictly."
     )
 
-# -------------------------------
-    # NEW: Formality rule for German only in roleplays 2,4,7,8
-    # -------------------------------
+    # ------------------------------------------------------------
+    # Formality rule for German roleplays 2,4,7,8
+    # ------------------------------------------------------------
     formality_rule = ""
-    if language == "Deutsch":
-        if roleplay.get("roleplay_id") in [2, 4, 7, 8]:
-            formality_rule = (
-                "\n[FORMALITY REQUIREMENT]\n"
-                "In this role-play, you MUST address the user with the formal German pronouns "
-                "'Sie / Ihr / Ihnen'. Never use 'du / dir / dich'. "
-                "Maintain consistent formal register at all times.\n"
-            )
+    if language == "Deutsch" and roleplay.get("roleplay_id") in [2, 4, 7, 8]:
+        formality_rule = (
+            "\n[FORMALITY REQUIREMENT]\n"
+            "In this role-play, you MUST address the user with the formal German pronouns "
+            "'Sie / Ihr / Ihnen'. Never use 'du / dir / dich'. "
+            "Maintain strict formality at all times.\n"
+        )
 
-    # -------------------------------
-    # Build final system prompt
-    # -------------------------------
+    # ------------------------------------------------------------
+    # Build final prompt
+    # ------------------------------------------------------------
     system_prompt = (
         COMMUNICATION_FRAMEWORK_PROMPT
         + "\n\n[ROLE-PLAY ORIENTATION]\n"
@@ -256,6 +254,7 @@ def build_system_prompt(roleplay, language):
     )
 
     return system_prompt
+
 
 # ---------------------------------------------------------
 #  COMMON USER HEADERS (EN / DE)
