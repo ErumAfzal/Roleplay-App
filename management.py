@@ -913,9 +913,9 @@ ROLEPLAYS[7] = {
 Sie sind pädagogische Fachkraft in einer Jugendwohneinrichtung und zuständig für eine Gruppe von 10 Jugendlichen. Einmal im Jahr planen Sie eine einwöchige Fahrt in eine Stadt in Deutschland. Sie wollen eine Moderationssitzung durchführen, um das Ziel der Fahrt festzulegen. An der Moderation werden alle Jugendlichen teilnehmen. Sie haben einschlägige Erfahrung mit Moderationssitzungen und wissen, dass diese die Gleichberechtigung aller Teilnehmenden voraussetzen. h. keine Stimme oder Gruppe ist für den Prozess der Lösungsfindung wichtiger als die andere. Es geht darum, dass die Jugendlichen, unterstützt von Ihnen als Moderator/Moderatorin, offen, selbstständig und demokratisch ihre Meinungen einbringen, um eine von allen Beteiligten – oder zumindest der großen Mehrheit – akzeptierte Entscheidung zu treffen. Alex aus der Gruppe hat Sie um ein Gespräch wegen der Moderation gebeten. Er/Sie vertritt eine Gruppe von Jugendlichen, die nach Nürnberg fahren möchten, da die Gruppe eine Serie über das „Heilige Römische Reich“ gesehen hat und daran sehr interessiert ist.
 
 **Ihre Aufgabe:** 
-Sie sprechen mit dem/der Jugendlichen über die anstehende Moderation. Das Gespräch findet auf informelle Art und Weise und auf Initiative Ihres Gesprächspartners/Ihrer Gesprächspartnerin hin statt.
+Sie sprechen mit dem/der Jugendlichen über die anstehende Moderation. Das Gespräch findet auf informelle Art und Weise und auf Initiative Ihres Gesprächspartners/Ihrer Gesprächspartnerin hin statt.\n
 
-• **Sachziel:** Erklären Sie dem/der Jugendlichen Ihre Rolle als Moderatorin/Moderator.
+• **Sachziel:** Erklären Sie dem/der Jugendlichen Ihre Rolle als Moderatorin/Moderator.\n
 • **Beziehungsziel:** Behandeln Sie den/die Jugendlichen mit Respekt. Die Situation hat keinen negativen Einfluss auf Ihr späteres Miteinander.
 """,
 
@@ -987,7 +987,7 @@ During the conversation, keep the following in mind:
 """
 }
 ROLEPLAYS[8] = {
-    "phase": 8,
+    "phase": 2,
     "communication_type": "understanding",
     "title_en": "8. Career counselling: supporting a young person in making a future-oriented decision",
     "title_de": "8. Berufsberatungsgespräch mit einer/einem Schulabgänger/in",
@@ -1091,7 +1091,7 @@ During the interaction, keep the following in mind:
 """
 }
 ROLEPLAYS[9] = {
-    "phase": 9,
+    "phase": 2,
     "communication_type": "understanding",
     "title_en": "9. Discussing criteria for establishing a feedback culture",
     "title_de": "9. Gespräch über Kriterien zur Einführung einer Feedbackkultur",
