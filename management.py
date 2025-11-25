@@ -1574,4 +1574,4 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
                 else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
             )
 
-            st.experimental_rerun()   # <-- SHOW FINISHED SCREEN IMMEDIATELY
+             st.rerun()   # <-- SHOW FINISHED SCREEN IMMEDIATELY
