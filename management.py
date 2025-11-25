@@ -1481,7 +1481,7 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 if not st.session_state.chat_active and st.session_state.messages and not st.session_state.feedback_done:
     st.subheader("Short feedback / Kurzes Feedback")
     if language == "English":
-        st.markdown("1 = **trifft nicht zu** und 5 = **trifft voll zu**")
+        st.markdown("1 = does not apply at all, and 5 = fully applies.")
     else:
         st.markdown("1 = **trifft nicht zu** und 5 = **trifft voll zu**")
 
