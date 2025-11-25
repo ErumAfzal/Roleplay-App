@@ -211,7 +211,6 @@ def build_system_prompt(roleplay, language):
     - global communication framework
     - orientation (strategic / understanding)
     - exact partner instructions (DE/EN)
-    - special formality + opening rules for roleplays 2,4,7,8 (German only)
     """
 
     # --- CRITICAL FIX: always determine the real roleplay ID ---
@@ -234,19 +233,6 @@ def build_system_prompt(roleplay, language):
         else 'This role-play is classified as "understanding-oriented" communication. '
              "Apply the rules for understanding-oriented communication above strictly."
     )
-
-    # Special rules ONLY for roleplays 2,4,7,8 in German
-    special_rules = ""
-    if language == "Deutsch" and rp_id in [2, 4, 7, 8]:
-        special_rules = (
-            "\n[FORMALITY RULE]\n"
-            "Use ONLY 'Sie/Ihnen/Ihr'. Never use 'du/dir/dich'.\n"
-            "\n[OPENING RULE]\n"
-            "Do NOT say: 'Wie kann ich Ihnen helfen?' or 'Was kann ich für Sie tun?'. "
-            "The user requested the meeting.\n"
-            "Begin with something like:\n"
-            "'Guten Tag. Schön, dass Sie da sind. Sie wollten mit mir sprechen?'\n"
-        )
 
     # Build final prompt
     system_prompt = (
@@ -323,9 +309,9 @@ ROLEPLAYS[1] = {
 **Hintergrundinformation:** 
 Sie arbeiten als pädagogische Fachkraft an der Friedrich-Ebert-Ganztagsschule. Sie möchten sich zum Thema „Partizipation und demokratische Kompetenz“ weiterbilden. Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würde Ihre bisherigen beruflichen Erfahrungen gut ergänzen. Zudem gab es in letzter Zeit immer wieder Stellenausschreibungen, die diese Qualifikation enthielten. In der Schule, an der Sie arbeiten, wird auf die Bildung zu demokratischer Kompetenz nicht so großen Wert gelegt. Ihre Leitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Leitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Einrichtung darin sieht. Sie haben sich dafür entschieden, Ihre Leitung A. Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen. Sie wünschen sich eine Weiterentwicklung der Einrichtung in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Einrichtung nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
 
-Ihre Aufgabe: Sie haben A. Horn, Ihre Einrichtungsleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren. 
-• Sachziel: Sie möchten an der Weiterbildung teilnehmen.
-• Beziehungsziel: Sie wollen mit Ihrer Einrichtungsleitung bei diesem Thema zusammenarbeiten. 
+**Ihre Aufgabe:** Sie haben A. Horn, Ihre Einrichtungsleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren. 
+• **Sachziel:** Sie möchten an der Weiterbildung teilnehmen.
+• **Beziehungsziel:** Sie wollen mit Ihrer Einrichtungsleitung bei diesem Thema zusammenarbeiten. 
 """,
 
     # -------------------------------------------------------------------------
@@ -337,7 +323,6 @@ You work as an educational professional at the Friedrich-Ebert All-day School. Y
 
 **Your task:**  
 You have asked A. Horn, your supervisor, for a meeting to address your request.
-
 • **Content goal:** You want to participate in the training.  
 • **Relationship goal:** You want to collaborate with your supervisor on this topic.
 """,
@@ -522,12 +507,12 @@ ROLEPLAYS[3] = {
     # USER INSTRUCTIONS (DE) – UNCHANGED
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
-Hintergrundinformation: 
+**Hintergrundinformation:** 
 Sie sind pädagogische Fachkraft an der Astrid-Lindgren-Ganztagsschule. Sie sind gemeinsam mit anderen Kollegen in einer Schulentwicklungsgruppe. Die Arbeit im Team ist von gegenseitigen Abhängigkeiten der Arbeitsprozesse gekennzeichnet. Gemeinsam abgestimmtes Zeitmanagement und wechselseitiger Informationsfluss zwischen den Teammitgliedern sind für Sie das A und O des Erfolgs. Ihre Kollegin, D. Krause ist genauso lange an der Schule beschäftigt wie Sie, und ist Ihnen mehrmals negativ aufgefallen, da sie Deadlines konsequent verpasst hat. Zusätzlich gibt sie unklare Bearbeitungszeiten an und behindert so einen reibungslosen Ablauf der Arbeit. Neulich hat sie einen wichtigen Kostenvoranschlag, den Sie für eine Finanzplanung benötigten, unbegründet mit einwöchiger Verzögerung an Sie weitergeleitet. Deswegen wurde die Frist für den Förderantrag fast verpasst und Sie mussten dies vor der Einrichtungsleitung und der Schulkonferenz erklären. Sie haben der Kollegin dabei den Rücken freigehalten. Sie sind jedoch der Meinung, dass es an der Zeit ist, das Thema endlich mal anzusprechen, damit ihr die Folgen ihres Handelns bewusst werden. Sie haben allerdings keine Anweisungsbefugnis und sind sich sicher, dass eine direkte, ehrliche Konfrontation, auch wenn sie konstruktiv und gut gemeint ist, nur Anspannung verursachen und die Zusammenarbeit verschlechtern würde. 
 
-Ihre Aufgabe: Sie sprechen Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).
-• Sachziel: Sie sollen das Verhalten Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern.
-• Beziehungsziel: Die gute Arbeitsbeziehung zur Teamkollegin soll aufrechterhalten bleiben. 
+**Ihre Aufgabe:** Sie sprechen Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).
+• **Sachziel:** Sie sollen das Verhalten Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern.
+• **Beziehungsziel:** Die gute Arbeitsbeziehung zur Teamkollegin soll aufrechterhalten bleiben. 
 """,
 
     # -------------------------------------------------------------------------
@@ -535,7 +520,7 @@ Ihre Aufgabe: Sie sprechen Ihre Kollegin auf die Themen Teamkoordination und Zus
     # -------------------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN + """
 **Background information:**  
-You are an educational professional at the Astrid-Lindgren All-day School. You are part of a school development team together with other colleagues. The teamwork is characterized by mutual dependencies in work processes. Coordinated time management and reciprocal information flow are, for you, essential for success. Your colleague, D. Krause, has been at the school for the same amount of time as you and has repeatedly caught your attention in a negative way by consistently missing deadlines. In addition, she provides unclear processing times, which disrupts smooth workflow processes. Recently, she forwarded an important cost estimate—a document you needed for financial planning—to you with an unjustified one-week delay. As a result, the deadline for a funding application was almost missed and you had to explain this to school leadership and the school conference. You protected your colleague at that time. However, you believe it is now necessary to address the issue so that she becomes aware of the consequences of her actions. You do not have any authority to issue directives, and you are convinced that a direct and honest confrontation—even if constructive—would only create tension and harm cooperation.
+You are an educational professional at the Astrid-Lindgren All-day School. You are part of a school development team together with other colleagues. The teamwork is characterized by mutual dependencies in work processes. Coordinated time management and reciprocal information flow are, for you, essential for success. Your colleague, D. Krause, has been at the school for the same amount of time as you and has repeatedly caught your attention in a negative way by consistently missing deadlines. In addition, she provides unclear processing times, which disrupts smooth workflow processes. Recently, she forwarded an important cost estimate—a document you needed for financial planning—to you with an unjustified one-week delay. As a result, the deadline for a funding application was almost missed and you had to explain this to the school leadership and the school conference. You protected your colleague at that time. However, you believe it is now necessary to address the issue so that she becomes aware of the consequences of her actions. You do not have any authority to issue directives, and you are convinced that a direct and honest confrontation—even if constructive—would only create tension and harm cooperation.
 
 **Your task:**  
 You address your colleague regarding team coordination and collaboration. The conversation takes place informally (coffee corner).  
@@ -547,7 +532,7 @@ You address your colleague regarding team coordination and collaboration. The co
     # PARTNER INSTRUCTIONS (DE) – ORIGINAL + ENFORCEMENT BLOCK
     # -------------------------------------------------------------------------
     "partner_de": """
-Hintergrundinformation: 
+**Hintergrundinformation:** 
 Sie sind D. Krause, pädagogische Fachkraft an der Astrid-Lindgren-Ganztagsschule. Sie engagieren sich gemeinsam mit anderen Kollegen und Kolleginnen bei der Finanzierung von Schulprojekten. Sie sind zufrieden mit Ihrer Leistung und Ihrem Zeitmanagement und betrachten sich als gute Teamplayerin. Es lief nicht immer alles gut, Z.B. beim letzten Mal mit dem Kostenvoranschlag, aber wann klappt etwas schon hundertprozentig? Zumindest hat sich bisher niemand beschwert. Sie haben also allen Grund, sich Ihrer Arbeitsweise sicher zu sein. Eine Kollegin/Kollege spricht Sie auf Probleme mit der Teamarbeit an. Es geht um die Zusammenarbeit unter Zeitdruck sowie Deadlines und deren Einhaltung. Er/Sie kann aber sicher nicht. Sie meinen, oder? 
 
 Ihre Aufgabe: Sie gehen auf das Gespräch ein. Letztendlich ist es Ihr Kollege/Ihre Kollegin und Sie haben immer ein offenes Ohr für Ihre Kollegen und Kolleginnen. Es geht um Probleme mit der Koordination und der zeitlichen Abstimmung von Aufgaben im Team. Sie hören dem Kollegen/der Kollegin zu, da er/sie Ihnen sympathisch ist. Sie halten ihn/sie allerdings für etwas Perfektionistisch und ein bisschen verkrampft. Vielmehr versuchen Sie ihm/ihr Ihre eigenen Erfahrungen mit Zeitverzögerung und Nichteinhaltung von Zeitplänen zu vermitteln. Sie reagieren auf die spontane (informelle) Aufforderung Ihres Kollegen/Ihrer Kollegin zu einem Gespräch. 
@@ -623,12 +608,12 @@ ROLEPLAYS[4] = {
     # USER INSTRUCTIONS (DE) – UNCHANGED
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
-Hintergrundinformation: 
+**Hintergrundinformation:** 
 Sie sind Teamleiter/in in einer pädagogischen Einrichtung zur Betreuung von Jugendlichen. Sie beschäftigen sich mit dem Fall K. Hermann, ein/e Jugendliche, der/die in der letzten Zeit ständig und unbegründet zu spät zu wichtigen Treffen erschien, gelegentlich auch gar nicht. Sie schätzen die Leistungsfähigkeit des/der Jugendlichen, sein/ihr Verhalten stellt jedoch ein Problem für die ganze Jugendgruppe dar. Trotz entsprechender Hinweise und höflicher Ansprachen hat sich die Situation nicht geändert. K. Hermann nennt keinen Grund, der auf eine tieferliegende Ursache für sein/ihr Verhalten hinweisen könnte. Die Situation ist für Sie kritisch, da Ihre Leitungskompetenz in Frage gestellt werden könnte. Sie entscheiden sich deswegen dafür, ihn/sie direkt auf die Verstöße gegen die allgemeinen Regeln anzusprechen. Sie haben bereits eine erste mündliche Abmahnung ausgesprochen und wollen ihm/ihr mitteilen, dass ein solches Verhalten von Ihnen nicht mehr geduldet wird. K. Hermann droht bei Anhalten der Unzuverlässigkeit eine schriftliche Abmahnung sowie evtl. ein Ausschluss aus der Jugendgruppe. Sie handeln nicht im Alleingang, Sie haben die Rückendeckung Ihrer Chefin. 
 
-Ihre Aufgabe: Sie bestellen den K. Hermann zu sich ins Büro. 
-• Sachziel: Sie wollen das Zugeständnis des Jugendlichen erreichen, dass er/sie nicht mehr zu spät zu den wichtigen Treffen erscheint, oder Sie sind bereit, eine schriftliche Abmahnung oder weitergehende Disziplinmaßnahmen einzuleiten. 
-• Beziehungsziel: Für Sie ist ein gutes Verhältnis zu K. nicht mehr oberstes Ziel. 
+**Ihre Aufgabe:** Sie bestellen den K. Hermann zu sich ins Büro. 
+• **Sachziel:** Sie wollen das Zugeständnis des Jugendlichen erreichen, dass er/sie nicht mehr zu spät zu den wichtigen Treffen erscheint, oder Sie sind bereit, eine schriftliche Abmahnung oder weitergehende Disziplinmaßnahmen einzuleiten. 
+• **Beziehungsziel:** Für Sie ist ein gutes Verhältnis zu K. nicht mehr oberstes Ziel. 
 """,
 
     # -------------------------------------------------------------------------
@@ -637,13 +622,11 @@ Ihre Aufgabe: Sie bestellen den K. Hermann zu sich ins Büro.
     "user_en": COMMON_USER_HEADER_EN + """
 **Background information:**  
 You are the team leader in a pedagogical facility for supporting adolescents. You are dealing with the case of K. Hermann, a youth who has repeatedly arrived late to important meetings—without reason—and has occasionally not shown up at all. You value the adolescent’s abilities, but his/her behavior creates a problem for the entire youth group. Despite reminders and polite conversations, the situation has not improved. K. Hermann does not provide any explanation suggesting a deeper underlying cause for this behavior. The situation is critical for you because your leadership competence could be questioned. You therefore decide to address the violations of the general rules directly. You have already given a verbal warning and want to make clear that such behavior will no longer be tolerated. If the unreliability continues, a written warning or even exclusion from the youth group is likely. You are acting with the support of your supervisor.
-
 **Your task:**  
 You call K. Hermann to your office.
 • **Content goal:** Obtain the youth’s commitment to stop being late to important meetings, or proceed with formal disciplinary measures.  
 • **Relationship goal:** Maintaining a positive relationship is no longer your top priority.
 
-Use the information provided below to guide your conversation. You have about 5 minutes to prepare and up to 10 minutes to conduct the meeting. Act as if you were truly in this situation.
 """,
 
     # -------------------------------------------------------------------------
@@ -725,12 +708,12 @@ ROLEPLAYS[5] = {
     # USER INSTRUCTIONS (DE) – UNCHANGED
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
-Hintergrundinformation: 
+**Hintergrundinformation:** 
 Sie sind pädagogische Fachkraft in Vollzeit. Sie arbeiten seit über drei Jahren an einer Ganztagsschule. Sie wissen aus vielen Gesprächen, dass Sie von Ihren Schülerinnen und Schülern und deren Eltern geschätzt werden und darüber hinaus auch im Kollegium sehr beliebt sind. Die Schulleitung ist mit Ihnen sehr zufrieden, gerade auch, weil es an der Schule viele Krankmeldungen gibt und daher einige Unruhe herrscht. Ihnen macht Ihre Arbeit großen Spaß. Sie möchten jedoch aus persönlichen Gründen Ihre Arbeitszeit auf 50% reduzieren. Sie haben gemerkt, dass Sie mehr Freizeit für sich haben möchten, um Ihren Hobbys nachzugehen. Sie müssen jedoch Ihren Wunsch gegenüber Ihrer Leitung, M. Weiß, äußern und begründen. Er/Sie ist für ein strategisches und intransparentes Verhalten bekannt. Sie wissen, dass er/sie Ihren Wunsch in Abrede stellen wird.
 
-Ihre Aufgabe: Sie treffen sich mit Ihrer Leitung, um Ihren Wunsch nach Arbeitszeitreduzierung zu besprechen. Das Treffen findet auf Ihren Wunsch statt. 
-• Sachziel: Sie möchten Ihre Arbeitszeit auf 50% reduzieren. 
-• Beziehungsziel: Sie möchten weiter in der Einrichtung und zusammen mit Ihrer Schulleitung arbeiten.
+**Ihre Aufgabe:** Sie treffen sich mit Ihrer Leitung, um Ihren Wunsch nach Arbeitszeitreduzierung zu besprechen. Das Treffen findet auf Ihren Wunsch statt. 
+• **Sachziel:** Sie möchten Ihre Arbeitszeit auf 50% reduzieren. 
+• **Beziehungsziel:** Sie möchten weiter in der Einrichtung und zusammen mit Ihrer Schulleitung arbeiten.
 """,
 
     # -------------------------------------------------------------------------
@@ -825,9 +808,8 @@ ROLEPLAYS[6] = {
     # USER INSTRUCTIONS (DE) – UNCHANGED
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
-Hintergrundinformation:
+**Hintergrundinformation:**
 Sie sind pädagogische Fachkraft in der Johann-Julius-Hecker-Ganztagsschule. Sie leiten dort die Lernzeitbetreuung. Es ist Teil Ihrer Arbeit, individuelle Bewertungen des Sozialverhaltens für die Jugendlichen auf Grundlage ihres Verhaltens in der Lernzeit zu verfassen. Jan ist einer der Schüler in der 4. Klasse. Dr. Jäger, Elternteil von Jan und Ingenieur/in, hat Sie um einen Gesprächstermin gebeten. Es geht um die Bewertung im Sozialverhalten des Jungen. Sie haben das Verhalten des Jugendlichen auf Grund von Beobachtungen seines Verhaltens während der Lernzeit mit einer 4 bewertet. Ihre Bewertung fließt auch in die Zeugnisnote des Schülers ein. Dadurch ist eine Empfehlung für den Wechsel des Schülers aufs Gymnasium nicht möglich. Sie halten Ihre Benotung für gerecht, auch wenn der Schüler Ihnen sympathisch ist und Sie seine Motivation und sein Bestreben anerkennen. Sie sind überzeugt, dass es besser ist, Schüler und Schülerinnen realistisch zu bewerten. Sie wissen, dass die Schulleitung in solchen Angelegenheiten hinter Ihnen steht. Sie gehen in das Elterngespräch, um Ihre Entscheidung zu begründen.
-
 **Ihre Aufgabe:**
 Sie treffen sich mit dem Elternteil, um Ihre Entscheidung zu begründen und die Ansichten des Elternteils zum Thema zu erfahren. Für Sie ist die Gerechtigkeit der Benotung vorrangig. Das auf Wunsch von Dr. Jäger anberaumte Treffen findet in einem freien Raum im Ganztag statt.
 • **Sachziel:** Erklären Sie dem Elternteil die Gründe für Ihre Entscheidung bezüglich der Bewertung.
@@ -853,7 +835,6 @@ Meet with the parent to explain your decision and hear their perspective. For yo
     "partner_de": """
 **Hintergrundinformation:**
 Sie sind Dr. Jäger, Ingenieur/in und Elternteil von Jan, Schüler in einer 4. Klasse der Johann-Julius-Hecker-Ganztagsschule. Sie möchten, dass Ihr Sohn aufs Gymnasium kommt, für Sie eine gymnasiale Ausbildung und ein Studium für Ihren Sohn selbstverständlich. Jan hat nun im Zeugnis eine 4 bekommen, was für Sie nicht zu verstehen ist. Sie machen die Hausaufgaben mit ihm und er ist dabei sehr motiviert und löst die Aufgaben trotz kleiner Fehler relativ gut. Sie können nicht nachvollziehen, wie solch eine große Abweichung zwischen der Bewertung und Ihrer Einschätzung Ihres Sohnes zustande kommt. Nun wird dieses Ergebnis eine Empfehlung für den Gymnasialübergang unmöglich machen. Der pädagogische Fachkraft Ihres Kindes stand schon in der Vergangenheit im Mittelpunkt Ihrer Kritik. Sie haben den Verdacht, dass die Bewertung Ihres Sohnes im Zusammenhang mit dieser Kritik an der Person steht. Sie suchen deshalb das Gespräch mit der pädagogischen Fachkraft, um deren Entscheidung in Frage zu stellen und möglichst zu ändern.
-
 **Ihre Aufgabe:**
 Sie treten ins Gespräch mit der pädagogischen Fachkraft über die Note Ihres Sohns ein. Sie wollen versuchen, Ihre Ansicht darzulegen, die Bewertung streitig zu machen und ein Zugeständnis seitens der pädagogischen Fachkraft bezüglich einer möglichen Nachprüfung der Situation einzuholen. Sie haben nach einem Termin mit der pädagogischen Fachkraft gefragt.
 
@@ -929,14 +910,14 @@ ROLEPLAYS[7] = {
     # USER INSTRUCTIONS (DE) – UNCHANGED
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
-Hintergrundinformation: 
-Sie sind pädagogische Fachkraft in einer Jugendwohneinrichtung und zuständig für eine Gruppe von 10 Jugendlichen. Einmal im Jahr planen Sie eine einwöchige Fahrt in eine Stadt in Deutschland. Sie wollen eine Moderationssitzung durchführen, um das Ziel der Fahrt festzulegen. An der Moderation werden alle Jugendlichen teilnehmen. Sie haben einschlägige Erfahrung mit Moderationssitzungen und wissen, dass diese die Gleichberechtigung aller Teilnehmenden voraussetzen, d. h. keine Stimme oder Gruppe ist für den Prozess der Lösungsfindung wichtiger als die andere. Es geht darum, dass die Jugendlichen, unterstützt von Ihnen als Moderator/Moderatorin, offen, selbstständig und demokratisch ihre Meinungen einbringen, um eine von allen Beteiligten – oder zumindest der großen Mehrheit – akzeptierte Entscheidung zu treffen. Alex aus der Gruppe hat Sie um ein Gespräch wegen der Moderation gebeten. Er/Sie vertritt eine Gruppe von Jugendlichen, die nach Nürnberg fahren möchten, da die Gruppe eine Serie über das „Heilige Römische Reich“ gesehen hat und daran sehr interessiert ist.
+**Hintergrundinformation:** 
+Sie sind pädagogische Fachkraft in einer Jugendwohneinrichtung und zuständig für eine Gruppe von 10 Jugendlichen. Einmal im Jahr planen Sie eine einwöchige Fahrt in eine Stadt in Deutschland. Sie wollen eine Moderationssitzung durchführen, um das Ziel der Fahrt festzulegen. An der Moderation werden alle Jugendlichen teilnehmen. Sie haben einschlägige Erfahrung mit Moderationssitzungen und wissen, dass diese die Gleichberechtigung aller Teilnehmenden voraussetzen. h. keine Stimme oder Gruppe ist für den Prozess der Lösungsfindung wichtiger als die andere. Es geht darum, dass die Jugendlichen, unterstützt von Ihnen als Moderator/Moderatorin, offen, selbstständig und demokratisch ihre Meinungen einbringen, um eine von allen Beteiligten – oder zumindest der großen Mehrheit – akzeptierte Entscheidung zu treffen. Alex aus der Gruppe hat Sie um ein Gespräch wegen der Moderation gebeten. Er/Sie vertritt eine Gruppe von Jugendlichen, die nach Nürnberg fahren möchten, da die Gruppe eine Serie über das „Heilige Römische Reich“ gesehen hat und daran sehr interessiert ist.
 
-Ihre Aufgabe: 
+**Ihre Aufgabe:** 
 Sie sprechen mit dem/der Jugendlichen über die anstehende Moderation. Das Gespräch findet auf informelle Art und Weise und auf Initiative Ihres Gesprächspartners/Ihrer Gesprächspartnerin hin statt.
 
-• Sachziel: Erklären Sie dem/der Jugendlichen Ihre Rolle als Moderatorin/Moderator.
-• Beziehungsziel: Behandeln Sie den/die Jugendlichen mit Respekt. Die Situation hat keinen negativen Einfluss auf Ihr späteres Miteinander.
+• **Sachziel:** Erklären Sie dem/der Jugendlichen Ihre Rolle als Moderatorin/Moderator.
+• **Beziehungsziel:** Behandeln Sie den/die Jugendlichen mit Respekt. Die Situation hat keinen negativen Einfluss auf Ihr späteres Miteinander.
 """,
 
     # -------------------------------------------------------------------------
@@ -986,7 +967,6 @@ Beachten Sie während des Gesprächs Folgendes:
     "partner_en": """
 **Background information:**  
 You are Alex, a member of a youth residential group. Your group must decide on a destination for a one-week educational trip. The destination is to be based on the interests of the adolescents. A moderation session involving all group members will be held, led by the educational professional responsible for the group. The topic is important to you because you and some peers recently watched a series about the Holy Roman Empire and want to visit Nuremberg and its castle. You therefore expect that your preference will receive special consideration during the moderation. You approach the educational professional to discuss this honestly.
-
 **Your task:**  
 Engage in conversation with the educational professional. You want to present your view about the trip destination and seek greater consideration of your preference (Nuremberg) in the upcoming moderation. The meeting is informal and initiated by you.
 
@@ -1032,12 +1012,12 @@ ROLEPLAYS[8] = {
     # USER INSTRUCTIONS (DE) – UNCHANGED
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
-Hintergrundinformation: 
+**Hintergrundinformation:** 
 Sie arbeiten in einer unabhängigen Beratungsstelle im Öffentlichen Dienst, die für personenbezogene Karriereberatung zuständig ist. Zu Ihnen kommen vor allem junge Menschen kurz vor dem Schulabschluss. Ihre Aufgabe besteht darin, die Sie aufsuchenden Personen in deren Sinne zu beraten. In diesem Rahmen kommt J. Meyer zu Ihnen. Er/Sie möchte sich unmittelbar nach der Schule weiterqualifizieren und schließt deswegen eine Auszeit nach dem Schulabschluss aus. Er/Sie sucht Sie in der Beratungsstunde auf, um mit Ihnen über Möglichkeiten zu sprechen.
 
-Ihre Aufgabe: Führen Sie das Gespräch mit der Schülerin/dem Schüler. Der Termin findet auf ihren/seinen Wunsch hin statt.
-• Sachziel: Beraten Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, damit er/sie eine gute Entscheidung treffen kann.
-• Beziehungsziel: Behandeln Sie Ihre Gesprächspartnerin/Ihren Gesprächspartner „als eine für ihre eigenen Entscheidungen Verantwortung tragende Person“.
+**Ihre Aufgabe:** Führen Sie das Gespräch mit der Schülerin/dem Schüler. Der Termin findet auf ihren/seinen Wunsch hin statt.
+• **Sachziel:** Beraten Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, damit er/sie eine gute Entscheidung treffen kann.
+• **Beziehungsziel:** Behandeln Sie Ihre Gesprächspartnerin/Ihren Gesprächspartner „als eine für ihre eigenen Entscheidungen verantwortungstragende Person“.
 """,
 
     # -------------------------------------------------------------------------
@@ -1136,13 +1116,13 @@ ROLEPLAYS[9] = {
     # USER INSTRUCTIONS (DE) – UNCHANGED
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
-Hintergrundinformation: 
+**Hintergrundinformation:** 
 Sie sind pädagogische Fachkraft an der Alexander-von-Humboldt-Ganztagsschule. Die Schulleitung hat sich für den zeitnahen Aufbau einer Feedbackkultur entschieden. Daher sollen Kolleginnen und Kollegen die schulpädagogischen Angebote der pädagogischen Fachkräfte besuchen und bewerten und auch die Meinungen der Schülerinnen und Schüler sollen eingeholt werden. Sie selbst haben immer die Meinung vertreten, dass Selbstevaluation und -reflexion der pädagogischen Fachkräfte ausreichend ist. Zusätzlich holen Sie sich zu bestimmten, wichtigen Fragen die Meinung anderer Kollegen und Kolleginnen ein. So wird die Qualitätssicherung des Unterrichts und der Schulangebote gewährleistet. Außerdem haben Sie Zweifel an der Formulierung der Kriterien, da sich diese sehr auf die Person der Lehrenden und nicht auf die äußeren Bedingungen beziehen. Sie möchten stattdessen verstärkt eher solche Kriterien in die neue Maßnahme einfließen lassen, die sich auf die äußeren Bedingungen beziehen, z. B. Klassengröße, Arbeitsmittel, Zeitdruck usw.
 
-Ihre Aufgabe: 
+**Ihre Aufgabe:** 
 Sie besprechen das Thema mit Ihrer Schulleitung, T. Ziegler. Sie sprechen ihn/sie spontan an.
-• Sachziel: Sie möchten ihm/ihr Ihre Perspektive nahebringen. Kommunizieren Sie Ihren Wunsch nach einer Umformulierung bzw. Erweiterung der Kriterien für den Aufbau einer Feedbackkultur.
-• Beziehungsziel: Sie arbeiten gern mit Ihrem/Ihrer Vorgesetzten zusammen.
+• **Sachziel:** Sie möchten ihm/ihr Ihre Perspektive nahebringen. Kommunizieren Sie Ihren Wunsch nach einer Umformulierung bzw. Erweiterung der Kriterien für den Aufbau einer Feedbackkultur.
+• **Beziehungsziel:** Sie arbeiten gern mit Ihrem/Ihrer Vorgesetzten zusammen.
 """,
 
     # -------------------------------------------------------------------------
