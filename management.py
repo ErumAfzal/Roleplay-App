@@ -498,118 +498,107 @@ During the conversation, keep the following in mind:
 """
 }
 ROLEPLAYS[3] = {
-    "phase": 1,
+    "phase":1,
     "communication_type": "strategic",
-    "title_en": "3. Addressing a colleague about deadlines and teamwork",
-    "title_de": "3. Kollegiale Ansprache zu Deadlines und Teamarbeit",
+    "title_en": "3. Addressing team coordination issues with a colleague",
+    "title_de": "3. Teamkoordination mit einer Kollegin ansprechen",
 
     "framework": {
         "user": {
             "social_role": "equal",
             "conversation_intention": "relational goal",
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
+            "relational_goal": "future-oriented self-disclosure",
         },
         "ai_partner": {
             "social_role": "equal",
             "conversation_intention": "relational goal",
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
-        }
+            "relational_goal": "future-oriented self-disclosure",
+        },
     },
 
-    # ------------------------------------------------------------
-    # USER INSTRUCTIONS (GERMAN, EXACT – UNMODIFIED)
-    # ------------------------------------------------------------
-    "user_de":COMMON_USER_HEADER_DE + """
-**Hintergrundinformation:**
-Sie sind Lehrkraft an der Astrid-Lindgren-Schule. Sie sind gemeinsam mit anderen Kollegen in einer Schulentwicklungsgruppe. Die Arbeit im Team ist von gegenseitigen Abhängigkeiten der Arbeitsprozesse gekennzeichnet. Gemeinsam abgestimmtes Zeitmanagement und wechselseitiger Informationsfluss zwischen den Teammitgliedern sind für Sie das A und O des Erfolgs.
-Ihr Kollege/Ihre Kollegin Herr/Frau Krause, der/die genauso lange an der Schule beschäftigt ist wie Sie, ist Ihnen mehrmals negativ aufgefallen, da er/sie Deadlines konsequent verpasst hat. Zusätzlich gibt er/sie unklare Bearbeitungszeiten an und behindert so einen reibungslosen Ablauf der Arbeit. Neulich hat er/sie einen wichtigen Kostenvoranschlag, den Sie für eine Finanzplanung benötigten, unbegründet mit einwöchiger Verzögerung an Sie weitergeleitet. Deswegen wurde die Frist für den Förderantrag fast verpasst und Sie mussten dies vor dem Schulleiter/der Schulleiterin und der Schulkonferenz erklären. Sie haben dem Kollegen/der Kollegin dabei den Rücken freigehalten. Sie sind jedoch der Meinung, dass es an der Zeit ist, das Thema endlich mal anzusprechen, damit ihm/ihr die Folgen seines/ihres Handelns bewusst werden. Sie haben allerdings keine Anweisungsbefugnis und sind sich sicher, dass eine direkte, ehrliche Konfrontation, auch wenn sie konstruktiv und gut gemeint ist, nur Anspannung verursachen und die Zusammenarbeit verschlechtern würde.
+    # -------------------------------------------------------------------------
+    # USER INSTRUCTIONS (DE) – UNCHANGED
+    # -------------------------------------------------------------------------
+    "user_de": COMMON_USER_HEADER_DE + """
+Hintergrundinformation: 
+Sie sind pädagogische Fachkraft an der Astrid-Lindgren-Ganztagsschule. Sie sind gemeinsam mit anderen Kollegen in einer Schulentwicklungsgruppe. Die Arbeit im Team ist von gegenseitigen Abhängigkeiten der Arbeitsprozesse gekennzeichnet. Gemeinsam abgestimmtes Zeitmanagement und wechselseitiger Informationsfluss zwischen den Teammitgliedern sind für Sie das A und O des Erfolgs. Ihre Kollegin, D. Krause ist genauso lange an der Schule beschäftigt wie Sie, und ist Ihnen mehrmals negativ aufgefallen, da sie Deadlines konsequent verpasst hat. Zusätzlich gibt sie unklare Bearbeitungszeiten an und behindert so einen reibungslosen Ablauf der Arbeit. Neulich hat sie einen wichtigen Kostenvoranschlag, den Sie für eine Finanzplanung benötigten, unbegründet mit einwöchiger Verzögerung an Sie weitergeleitet. Deswegen wurde die Frist für den Förderantrag fast verpasst und Sie mussten dies vor der Einrichtungsleitung und der Schulkonferenz erklären. Sie haben der Kollegin dabei den Rücken freigehalten. Sie sind jedoch der Meinung, dass es an der Zeit ist, das Thema endlich mal anzusprechen, damit ihr die Folgen ihres Handelns bewusst werden. Sie haben allerdings keine Anweisungsbefugnis und sind sich sicher, dass eine direkte, ehrliche Konfrontation, auch wenn sie konstruktiv und gut gemeint ist, nur Anspannung verursachen und die Zusammenarbeit verschlechtern würde. 
 
-**Ihre Aufgabe:**
-Sie sprechen Ihren Kollegen/Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).
-- **Sachziel:** Sie sollen das Verhalten Ihres Kollegen/Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihm/ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern. 
-- **Beziehungsziel:** Die gute Arbeitsbeziehung zum Teamkollegen/zur Teamkollegin soll aufrecht erhalten bleiben. 
+Ihre Aufgabe: Sie sprechen Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).
+• Sachziel: Sie sollen das Verhalten Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern.
+• Beziehungsziel: Die gute Arbeitsbeziehung zur Teamkollegin soll aufrecht erhalten bleiben. 
 """,
 
-    # ------------------------------------------------------------
-    # USER INSTRUCTIONS (ENGLISH – very literal translation)
-    # ------------------------------------------------------------
-    "user_en": """
-**Background information:**
-You are a teacher at the Astrid Lindgren School. Together with other colleagues, you are part of a school development group. Work in the team is characterised by mutual dependencies in the work processes. Jointly coordinated time management and reciprocal information flow between team members are, for you, the absolute key to success.
-Your colleague,
-\Mr/Ms Krause, who has been employed at the school just as long as you, has caught your attention negatively several times because he/she has consistently missed deadlines. In addition, he/she gives unclear processing times and thus hinders a smooth workflow. Recently, he/she forwarded to you a cost estimate you needed for a financial planning process with an unjustified one-week delay. Because of this, the deadline for the funding application was almost missed and you had to explain this to the principal and the school conference. You protected your colleague. However, you believe that it is time to finally address the topic so that he/she becomes aware of the consequences of his/her actions. You have no authority to give instructions and you are certain that a direct, honest confrontation, even if constructive and well-intentioned, would only create tension and worsen the collaboration.
+    # -------------------------------------------------------------------------
+    # USER INSTRUCTIONS (EN) – TRANSLATION
+    # -------------------------------------------------------------------------
+    "user_en": COMMON_USER_HEADER_EN + """
+**Background information:**  
+You are an educational professional at the Astrid-Lindgren All-day School. You are part of a school development team together with other colleagues. The teamwork is characterized by mutual dependencies in work processes. Coordinated time management and reciprocal information flow are, for you, essential for success. Your colleague, D. Krause, has been at the school for the same amount of time as you and has repeatedly caught your attention in a negative way by consistently missing deadlines. In addition, she provides unclear processing times, which disrupts smooth workflow processes. Recently, she forwarded an important cost estimate—a document you needed for financial planning—to you with an unjustified one-week delay. As a result, the deadline for a funding application was almost missed and you had to explain this to school leadership and the school conference. You protected your colleague at that time. However, you believe it is now necessary to address the issue so that she becomes aware of the consequences of her actions. You do not have any authority to issue directives, and you are convinced that a direct and honest confrontation—even if constructive—would only create tension and harm cooperation.
 
-**Your task:**
-You address your colleague about the topics of team coordination and collaboration. The conversation takes place informally (coffee corner).
-• **Content goal:** You should criticise your colleague’s behaviour indirectly and without becoming personal, in order to create insight and awaken interest in changing his/her behaviour.  
-• **Relationship goal:** The good working relationship with the colleague should be maintained.  
+**Your task:**  
+You address your colleague regarding team coordination and collaboration. The conversation takes place informally (coffee corner).  
+• **Content goal:** Indirectly and impersonally criticize your colleague’s behavior to foster awareness and motivate behavior change.  
+• **Relationship goal:** Maintain the positive working relationship with your teammate.
 """,
 
-    # ------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (GERMAN – EXACT)
-    # ------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    # PARTNER INSTRUCTIONS (DE) – ORIGINAL + ENFORCEMENT BLOCK
+    # -------------------------------------------------------------------------
     "partner_de": """
-Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben 5 Minuten Zeit, um sich auf das Gespräch vorzubereiten.
-Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
+Hintergrundinformation: 
+Sie sind D. Krause, pädagogische Fachkraft an der Astrid-Lindgren-Ganztagsschule. Sie engagieren sich gemeinsam mit anderen Kollegen und Kolleginnen bei der Finanzierung von Schulprojekten. Sie sind zufrieden mit Ihrer Leistung und Ihrem Zeitmanagement und betrachten sich als gute Teamplayerin. Es lief nicht immer alles gut, z. B. beim letzten Mal mit dem Kostenvoranschlag, aber wann klappt etwas schon hundertprozentig? Zumindest hat sich bisher niemand beschwert. Sie haben also allen Grund, sich Ihrer Arbeitsweise sicher zu sein. Eine Kollegin/Kollege spricht Sie auf Probleme mit der Teamarbeit an. Es geht um die Zusammenarbeit unter Zeitdruck sowie Deadlines und deren Einhaltung. Er/Sie kann aber sicher nicht Sie meinen, oder? 
 
-Ihr Gegenüber kann das Gespräch jederzeit mit „Danke, tschüss“ beenden.
+Ihre Aufgabe: Sie gehen auf das Gespräch ein. Letztendlich ist es Ihr Kollege/Ihre Kollegin und Sie haben immer ein offenes Ohr für Ihre Kollegen und Kolleginnen. Es geht um Probleme mit der Koordination und der zeitlichen Abstimmung von Aufgaben im Team. Sie hören dem Kollegen/der Kollegin zu, da er/sie Ihnen sympathisch ist. Sie halten ihn/sie allerdings für etwas perfektionistisch und ein bisschen verkrampft. Vielmehr versuchen Sie ihm/ihr Ihre eigenen Erfahrungen mit Zeitverzögerung und Nichteinhaltung von Zeitplänen zu vermitteln. Sie reagieren auf die spontane (informelle) Aufforderung Ihres Kollegen/Ihrer Kollegin zu einem Gespräch. 
 
-**Hintergrundinformation:**
-Sie sind Herr/Frau Krause, Lehrkraft an der Astrid-Lindgren-Schule. Sie engagieren sich gemeinsam mit anderen Kollegen und Kolleginnen bei der Finanzierung von Schulprojekten. Sie sind zufrieden mit Ihrer Leistung und Ihrem Zeitmanagement und betrachten sich als guten Teamplayer/gute Teamplayerin. Es lief nicht immer alles gut, z. B. beim letzten Mal mit dem Kostenvoranschlag, aber wann klappt etwas schon hundertprozentig? Zumindest hat sich bisher niemand beschwert. Sie haben also allen Grund, sich Ihrer Arbeitsweise sicher zu sein. Eine Ihrer Kolleginnen/Einer Ihrer Kollegen spricht Sie auf seine/ihre Probleme mit der Teamarbeit an. Es geht um die Zusammenarbeit unter Zeitdruck sowie Deadlines und deren Einhaltung. Er/Sie kann aber sicher nicht Sie meinen, oder?
+Handeln Sie während der Interaktion wie folgt: 
+• Nehmen Sie eine offene und willkommene Haltung gegenüber dem Gesprächspartner/der Gesprächspartnerin ein. 
+• Spricht Ihr Kollege/Ihre Kollegin Missstände bei den zeitlichen Arbeitsabläufen bezüglich der Aufbereitung von Förderanträgen und der Mittelfinanzierung an, stimmen Sie zu.
+• Beziehen Sie das Gespräch und die Andeutungen Ihres Kollegen/Ihrer Kollegin keinesfalls auf sich. 
+• Wenn es passt, fragen Sie, ob die Arbeit bei einer anstehenden Bewertung schlecht abschneiden könnte, ohne dies direkt auf sich zu beziehen. 
+• Nutzen Sie während der Interaktion folgende Standardaussagen: „Du solltest alles etwas lockerer sehen“, „Deadlines sind wie der dritte Gong im Theater, man kann immer noch reinkommen“, „Ich kenne solche Leute auch und habe selbst Probleme mit unzuverlässigem Verhalten“. 
+• Falls Ihr Gesprächspartner/Ihre Gesprächspartnerin Sie persönlich als Auslöser seines/ihres Unmuts erwähnt, zeigen Sie sich empört. 
+• Akzeptieren Sie die Sichtweise des Kollegen/der Kollegin und betonen Sie die Notwendigkeit, ernsthaft über das Thema zu sprechen. Zeigen Sie, dass Sie beim Thema Zuverlässigkeit vollkommen seiner/ihrer Meinung sind.
 
-**Ihre Aufgabe:**
-Sie gehen auf das Gespräch ein. Letztendlich ist es Ihr Kollege/Ihre Kollegin und Sie haben immer ein offenes Ohr für Ihre Kollegen und Kolleginnen. Es geht um Probleme mit der Koordination und der zeitlichen Abstimmung von Aufgaben im Team. Sie hören dem Kollegen/der Kollegin zu, da er/sie Ihnen sympathisch ist. Sie halten ihn/sie allerdings für etwas perfektionistisch und ein bisschen verkrampft. Vielmehr versuchen Sie ihm/ihr Ihre eigenen Erfahrungen mit Zeitverzögerung und Nichteinhaltung von Zeitplänen zu vermitteln.
-Sie reagieren auf die spontane (informelle) Aufforderung Ihres Kollegen/Ihrer Kollegin zu einem Gespräch in der Kaffeeecke.
-
-Handeln Sie während der Interaktion wie folgt:
-•	Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
-•	Nehmen Sie eine offene und willkommene Haltung gegenüber dem Gesprächspartner/der Gesprächspartnerin ein.
-•	Spricht Ihr Kollege/Ihre Kollegin Missstände bei den zeitlichen Arbeitsabläufen bezüglich der Aufbereitung von Förderanträgen und der Mittelfinanzierung an, stimmen Sie zu.
-•	Beziehen Sie das Gespräch und die Andeutungen Ihres Kollegen/Ihrer Kollegin keinesfalls auf sich.
-•	Wenn es passt, fragen Sie, ob die Arbeit bei einer anstehenden Bewertung schlecht abschneiden könnte, ohne dies direkt auf sich zu beziehen.
-•	Nutzen Sie während der Interaktion folgende Standardaussagen: „Du solltest alles etwas lockerer sehen“, „Deadlines sind wie der dritte Gong im Theater, man kann immer noch reinkommen“, „Ich kenne solche Leute auch und habe selbst Probleme mit unzuverlässigem Verhalten“.
-•	Falls Ihr Gesprächspartner/Ihre Gesprächspartnerin Sie persönlich als Auslöser seines/ihres Unmuts erwähnt, zeigen Sie sich empört.
-•	Akzeptieren Sie die Sichtweise des Kollegen/der Kollegin und betonen Sie die Notwendigkeit, ernsthaft über das Thema zu sprechen. Zeigen Sie, dass Sie beim Thema Zuverlässigkeit vollkommen seiner/ihrer Meinung sind.
-
-- **Sachziel:** Sie zeigen eine offene Haltung und akzeptieren die Sichtweise Ihres Kollegen/Ihrer Kollegin, wenn diese/dieser z.B. die Vorteile eine engen Zusammenarbeit betont. Gleichzeitig wollen Sie eine vertrauensvolle und respektvolle Atmosphäre schaffen. Sie wollen, dass Ihr Kollege/Ihre Kollegin Sie weiterhin als eine/einen gute/kompetenten und zuverlässige Kolleg*in wahrnimmt.
-- **Beziehungsziel:** Die gute Arbeitsbeziehung zum Teamkollegen/zur Teamkollegin soll aufrecht erhalten bleiben, aber nicht um jeden Preis. Sie sind offen für konstruktives Feedback und nehmen das Anliegen Ihres Kollegen/Ihrer Kollegin ernst ohne sich zunächst persönlich angegriffen zu fühlen. Wenn Ihre Kollegin/Ihr Kollege Sie jedoch persönlich angeht und Ihre Arbeitsweise mehrfach kritisiert oder Sie belehrt, z.B. dass Sie keine Deadlines einhalten, distanzieren Sie sich und zeigen dies deutlich (z.B. Empörung: „Deadlines sind dazu da, dass man sie verstreichen lassen kann. Ich bin jetzt schon lang genug dabei um das zu wissen und bisher hat es immer geklappt“ oder „Mach dich mal locker, ich war doch bisher immer zuverlässig und es hat doch alles geklappt, oder?“).
+[ZUSÄTZLICHER HINWEIS – ROLLEN- UND KOMMUNIKATIONSVERHALTEN]
+Beachten Sie während des Gesprächs Folgendes:
+• Sie befinden sich in einer gleichberechtigten Rolle unter Kolleginnen und Kollegen. Verhalten Sie sich entsprechend kollegial und auf Augenhöhe.  
+• Ihre Kommunikationsweise folgt den strategischen Prinzipien: Das Beziehungsziel hat Vorrang. Sie dürfen indirekt formulieren, Andeutungen machen oder Aussagen abschwächen, wenn dies der Beziehung dient oder Spannungen vermeidet.  
+• Nutzen Sie bei Bedarf zukünftige Selbstoffenbarungen, z. B. wie Sie Ihre eigene Zusammenarbeit künftig sehen oder welche Entwicklungsmöglichkeiten Sie erwarten.  
+• Sie dürfen Informationen selektiv geben, vorsichtig rahmen oder leicht ausweichend formulieren, sofern dies die kollegiale Beziehung schützt.  
+• Bleiben Sie konsequent in der Rolle einer Kollegin, die sich entspannt, locker und verständnisvoll präsentiert.
 """,
 
-    # ------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (ENGLISH – very literal translation)
-    # ------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    # PARTNER INSTRUCTIONS (EN) – ORIGINAL + ENFORCEMENT BLOCK
+    # -------------------------------------------------------------------------
     "partner_en": """
-Please use the information provided below to conduct the conversation. You have 5 minutes to prepare.
-You then have up to 10 minutes to conduct the conversation.
+**Background information:**  
+You are D. Krause, an educational professional at the Astrid-Lindgren All-day School. Together with other colleagues, you are involved in securing funding for school projects. You are satisfied with your performance and your time management, and you consider yourself a good team player. Things have not always run perfectly—for example, with the cost estimate last time—but nothing ever works 100%. At least no one has complained so far, so you feel justified in your working style. A colleague addresses you about problems in teamwork. It is about collaboration under time pressure, deadlines, and the adherence to schedules. Surely he/she cannot be referring to you… right?
 
-Your counterpart may end the conversation at any time by saying “Thank you, goodbye.”
+**Your task:**  
+You engage in the conversation. After all, it is your colleague, and you always have an open ear for colleagues. The topic concerns coordination and time alignment in team tasks. You listen because you find your colleague likable. However, you consider him/her somewhat perfectionistic and a bit uptight. You try to convey your own experiences with delays and schedule deviations. You respond to the colleague’s informal request for a conversation.
 
-**Background information:**
-You are Mr/Ms Krause, a teacher at the Astrid-Lindgren-School. Together with other colleagues, you are involved in the financing of school projects. You are satisfied with your performance and your time management and consider yourself a good team player. Not everything always worked perfectly, for example last time with the cost estimate, but when does something ever work one hundred percent? At least no one has complained so far. You therefore have every reason to be confident in your way of working. One of your colleagues is addressing problems with teamwork. It concerns collaboration under time pressure as well as deadlines and their adherence. But surely he/she cannot mean you, right?
+Act as follows during the interaction:
+• Adopt an open and welcoming attitude.  
+• If your colleague mentions problems regarding timelines in preparing funding applications or financial planning, agree.  
+• Do not relate the issue to yourself at any point.  
+• If it fits, ask whether the team's work might receive a poor evaluation, without referring to yourself directly.  
+• Use the following standard phrases during the interaction: “You should take things a bit more relaxed”, “Deadlines are like the third bell in a theater—you can still get in”, “I know such people too, and I also have trouble with unreliable behavior.”  
+• If your colleague directly names you as the cause of frustration, show indignation.  
+• Accept your colleague’s viewpoint and emphasize the need to discuss the topic seriously. Show that you completely agree about the importance of reliability.
 
-**Your task:**
-You can talk about it. After all, he/she is your colleague, and you always have an open ear for colleagues. It is about problems with coordination and scheduling of tasks in the team. You listen because you find him/her sympathetic. However, you consider him/her somewhat perfectionistic and a bit uptight. You rather try to convey your own experiences with time delays and non-adherence to schedules.
-You react to your colleague’s spontaneous (informal) request for a conversation in the coffee corner.
-
-Act as follows:
-• You create a supportive environment and behave in a way that allows your counterpart to show his/her best behaviour.
-• You take an open and welcoming attitude toward your colleague.
-• If your colleague mentions issues about time workflows regarding the preparation of funding applications and financial planning, you agree.
-• Do not relate the conversation or your colleague’s hints to yourself.
-• If it fits, ask whether the work could perform poorly in an upcoming evaluation, without relating it directly to yourself.
-• Use the following standard statements during the interaction: “You should take everything a bit more lightly”, “Deadlines are like the third gong in the theatre, you can still get in”, “I know such people too and have problems myself with unreliable behaviour.”
-• If your colleague mentions you personally as the cause of his/her dissatisfaction, show indignation.
-• Accept your colleague’s perspective and emphasise the need to talk about the topic seriously. Show that you fully agree with him/her on the topic of reliability.
-
-**Content goal:**  
-You show an open attitude and accept the perspective of your colleague when he/she emphasises, for example, the advantages of close collaboration. At the same time, you want to create a trusting and respectful atmosphere. You want your colleague to continue to perceive you as a good, competent and reliable colleague.
-
-**Relationship goal:**  
-The good working relationship should be maintained, but not at any price. You are open to constructive feedback and take your colleague’s concern seriously without initially feeling personally attacked. If he/she personally targets you and repeatedly criticises your way of working or lectures you, e.g. that you do not meet deadlines, you distance yourself and show this clearly (e.g. indignation: “Deadlines are there so that you can let them pass. I have been around long enough to know that, and it has always worked out so far”, or “Relax, I have always been reliable and everything has always worked, right?”).
+[ADDITIONAL NOTE – ROLE AND COMMUNICATION BEHAVIOR]
+During the conversation, keep the following in mind:
+• You are in an equal social role as a colleague. Maintain a collegial, balanced, and equal-footing style.  
+• Your communication follows strategic principles: relational goals take priority. You may speak indirectly, soften statements, or use hints when this protects the relationship or avoids tension.  
+• Use future-oriented self-disclosure where helpful (e.g., how you see future cooperation or your expectations for teamwork).  
+• You may selectively provide information, frame it gently, or express yourself in a relaxed, somewhat evasive manner when this fits your character and protects the relationship.  
+• Remain fully in character as a colleague who is relaxed, casual, and understanding.
 """
 }
+
 ROLEPLAYS[4] = {
     "phase": 1,
     "communication_type": "strategic",
