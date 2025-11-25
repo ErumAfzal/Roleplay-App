@@ -1031,7 +1031,7 @@ Content goal: You want to present your opinion about the destination of the stud
 
 Relationship goal: You want to conduct an open and respectful communication with the teacher in order to present your opinion about the study trip appropriately and to ask for understanding of your perspective. You want to be understood by your counterpart and seen as an engaged student. This includes actively listening to the opinion of your conversation partner and engaging with his/her arguments, even if they differ from your own.
 
-Overarching goal: You want to ensure that the teacher ensures an informed and transparent decision about the destination of the study trip, which meets both the academic requirements of the history lessons and the interests and preferences of the students. This includes ensuring a fairly conducted moderation process in which all opinions are heard and appropriately considered in order to reach a joint decision.
+Overarching goal: You want to ensure that the teacher makes an informed and transparent decision about the destination of the study trip, which meets both the academic requirements of the history lessons and the interests and preferences of the students. This includes ensuring a fairly conducted moderation process in which all opinions are heard and appropriately considered in order to reach a joint decision.
 """
 }
 
@@ -1544,9 +1544,9 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 if not st.session_state.chat_active and st.session_state.messages and not st.session_state.feedback_done:
     st.subheader("Short feedback / Kurzes Feedback")
     if language == "English":
-        st.markdown("**Rating scale:** 1 = Not good at all, 5 = Excellent")
+        st.markdown("1 = does not apply at all, and 5 = fully applies.")
     else:
-        st.markdown("**Bewertungsskala:** 1 = Überhaupt nicht gut, 5 = Ausgezeichnet")
+        st.markdown("1 = **trifft nicht zu** und 5 = **trifft voll zu**")
 
     if language == "English":
         q1 = st.radio("The chatbot’s personality was realistic and engaging", [1, 2, 3, 4, 5], horizontal=True)
