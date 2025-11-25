@@ -1562,7 +1562,7 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
                 else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
             )
         
-            st.experimental_rerun()   # <-- FORCE MOVE TO BLOCK 2
+            st.rerun()   # <-- FORCE MOVE TO BLOCK 2
         
         else:
             st.session_state.batch_step = "finished"
