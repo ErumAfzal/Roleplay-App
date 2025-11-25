@@ -558,7 +558,7 @@ Beachten Sie während des Gesprächs Folgendes:
     # -------------------------------------------------------------------------
     "partner_en": """
 **Background information:**  
-You are D. Krause, an educational professional at the Astrid-Lindgren All-day School. Together with other colleagues, you are involved in securing funding for school projects. You are satisfied with your performance and your time management, and you consider yourself a good team player. Things have not always run perfectly—for example, with the cost estimate last time—but nothing ever works 100%. At least no one has complained so far, so you feel justified in your working style. A colleague addresses you about problems in teamwork. It is about collaboration under time pressure, deadlines, and the adherence to schedules. Surely he/she cannot be referring to you… right?
+You are D. Krause, an educational professional at the Astrid-Lindgren All-day School. Together with other colleagues, you are involved in securing funding for school projects. You are satisfied with your performance and your time management, and you consider yourself a good team player. Things have not always run perfectly—for example, with the cost estimate last time—but nothing ever works 100%. At least no one has complained so far, so you feel justified in your working style. A colleague addresses you about problems in teamwork. It is about collaboration under time pressure, deadlines, and adherence to schedules. Surely he/she cannot be referring to you… right?
 
 **Your task:**  
 You engage in the conversation. After all, it is your colleague, and you always have an open ear for colleagues. The topic concerns coordination and time alignment in team tasks. You listen because you find your colleague likable. However, you consider him/her somewhat perfectionistic and a bit uptight. You try to convey your own experiences with delays and schedule deviations. You respond to the colleague’s informal request for a conversation.
@@ -673,7 +673,7 @@ Act during the interaction as follows:
 
 [ADDITIONAL NOTE – ROLE AND COMMUNICATION BEHAVIOR]
 During the conversation, keep the following in mind:
-• You are in the weaker social position relative to the pedagogical professional. Show this through insecurity, justification, and indirect argumentation.  
+• You are in a weaker social position relative to the pedagogical professional. Show this through insecurity, justification, and indirect argumentation.  
 • Your communication follows strategic principles: you may evade, use excuses, distort information, or be vague if it helps you avoid consequences.  
 • Use future-oriented self-disclosure (e.g., “I’ll try to improve”) to elicit leniency.  
 • You may use emotional appeals (asking for compassion, expressing distress) when it helps reduce pressure.  
@@ -809,7 +809,7 @@ ROLEPLAYS[6] = {
 **Hintergrundinformation:**
 Sie sind pädagogische Fachkraft in der Johann-Julius-Hecker-Ganztagsschule. Sie leiten dort die Lernzeitbetreuung. Es ist Teil Ihrer Arbeit, individuelle Bewertungen des Sozialverhaltens für die Jugendlichen auf Grundlage ihres Verhaltens in der Lernzeit zu verfassen. Jan ist einer der Schüler in der 4. Klasse. Dr. Jäger, Elternteil von Jan und Ingenieur/in, hat Sie um einen Gesprächstermin gebeten. Es geht um die Bewertung im Sozialverhalten des Jungen. Sie haben das Verhalten des Jugendlichen auf Grund von Beobachtungen seines Verhaltens während der Lernzeit mit einer 4 bewertet. Ihre Bewertung fließt auch in die Zeugnisnote des Schülers ein. Dadurch ist eine Empfehlung für den Wechsel des Schülers aufs Gymnasium nicht möglich. Sie halten Ihre Benotung für gerecht, auch wenn der Schüler Ihnen sympathisch ist und Sie seine Motivation und sein Bestreben anerkennen. Sie sind überzeugt, dass es besser ist, Schüler und Schülerinnen realistisch zu bewerten. Sie wissen, dass die Schulleitung in solchen Angelegenheiten hinter Ihnen steht. Sie gehen in das Elterngespräch, um Ihre Entscheidung zu begründen.\n
 **Ihre Aufgabe:**\n
-Sie treffen sich mit dem Elternteil, um Ihre Entscheidung zu begründen und die Ansichten des Elternteils zum Thema zu erfahren. Für Sie ist die Gerechtigkeit der Benotung vorrangig. Das auf Wunsch von Dr. Jäger anberaumte Treffen findet in einem freien Raum im Ganztag statt.
+Sie treffen sich mit dem Elternteil, um Ihre Entscheidung zu begründen und die Ansichten des Elternteils zum Thema zu erfahren. Für Sie ist die Gerechtigkeit der Benotung vorrangig. Das auf Wunsch von Dr. Jäger anberaumte Treffen findet in einem freien Raum im Ganztag statt.\n
 • **Sachziel:** Erklären Sie dem Elternteil die Gründe für Ihre Entscheidung bezüglich der Bewertung.\n
 • **Beziehungsziel:** Bleiben Sie offen für die Argumente von Dr. Jäger, der Schüler Jan ist Ihnen sehr sympathisch.\n
 """,
