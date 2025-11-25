@@ -1119,9 +1119,10 @@ ROLEPLAYS[9] = {
 Sie sind pädagogische Fachkraft an der Alexander-von-Humboldt-Ganztagsschule. Die Schulleitung hat sich für den zeitnahen Aufbau einer Feedbackkultur entschieden. Daher sollen Kolleginnen und Kollegen die schulpädagogischen Angebote der pädagogischen Fachkräfte besuchen und bewerten und auch die Meinungen der Schülerinnen und Schüler sollen eingeholt werden. Sie selbst haben immer die Meinung vertreten, dass Selbstevaluation und -reflexion der pädagogischen Fachkräfte ausreichend ist. Zusätzlich holen Sie sich zu bestimmten, wichtigen Fragen die Meinung anderer Kollegen und Kolleginnen ein. So wird die Qualitätssicherung des Unterrichts und der Schulangebote gewährleistet. Außerdem haben Sie Zweifel an der Formulierung der Kriterien, da sich diese sehr auf die Person der Lehrenden und nicht auf die äußeren Bedingungen beziehen. Sie möchten stattdessen verstärkt eher solche Kriterien in die neue Maßnahme einfließen lassen, die sich auf die äußeren Bedingungen beziehen, z. B. Klassengröße, Arbeitsmittel, Zeitdruck usw.
 
 **Ihre Aufgabe:** 
-Sie besprechen das Thema mit Ihrer Schulleitung, T. Ziegler. Sie sprechen ihn/sie spontan an.
-• **Sachziel:** Sie möchten ihm/ihr Ihre Perspektive nahebringen. Kommunizieren Sie Ihren Wunsch nach einer Umformulierung bzw. Erweiterung der Kriterien für den Aufbau einer Feedbackkultur.
-• **Beziehungsziel:** Sie arbeiten gern mit Ihrem/Ihrer Vorgesetzten zusammen.
+Sie besprechen das Thema mit Ihrer Schulleitung, T. Ziegler. Sie sprechen ihn/sie spontan an.\n
+
+• **Sachziel:** Sie möchten ihm/ihr Ihre Perspektive nahebringen. Kommunizieren Sie Ihren Wunsch nach einer Umformulierung bzw. Erweiterung der Kriterien für den Aufbau einer Feedbackkultur.\n
+• **Beziehungsziel:** Sie arbeiten gern mit Ihrem/Ihrer Vorgesetzten zusammen.\n
 """,
 
     # -------------------------------------------------------------------------
@@ -1220,9 +1221,9 @@ Sie sind Lehrkraft an der Ekkehart-von-Jürgens-Schule. An Ihrer Schule sollen d
 
 **Ihre Aufgabe:**
 
-Sie treffen sich mit Ihrer Kollegin/Ihrem Kollegen J.Berg für einen ersten gemeinsamen Ideenaustausch. Sie sollen sich gemeinsam über mögliche relevanter Aspekte, die in den Leitfaden kommen, austauschen. Sie treffen sich zu einem ersten Termin, den Ihre Kollegin/Ihr Kollege vorgeschlagen hat.
-- **Sachziel:** Generieren Sie zusammen mit Ihrem Kollegen/Ihrer Kollegin erste mögliche Aspekte für den Leitfaden.
-- **Beziehungsziel:** Sie schätzen Ihren Kollegen/Ihre Kollegin und wollen das gute Verhältnis zu ihm/ihr aufrechterhalten
+Sie treffen sich mit Ihrer Kollegin/Ihrem Kollegen J.Berg für einen ersten gemeinsamen Ideenaustausch. Sie sollen sich gemeinsam über mögliche relevante Aspekte, die in den Leitfaden kommen, austauschen. Sie treffen sich zu einem ersten Termin, den Ihre Kollegin/Ihr Kollege vorgeschlagen hat.\n
+- **Sachziel:** Generieren Sie zusammen mit Ihrem Kollegen/Ihrer Kollegin erste mögliche Aspekte für den Leitfaden.\n
+- **Beziehungsziel:** Sie schätzen Ihren Kollegen/Ihre Kollegin und wollen das gute Verhältnis zu ihm/ihr aufrechterhalten.\n
 """,
 
     # ---------------------------------------------------------
