@@ -321,14 +321,13 @@ ROLEPLAYS[1] = {
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:**
-Sie arbeiten als Lehrkraft an der Friedrich-Ebert-Schule. Sie möchten sich zum Thema „selbstgesteuertes Lernen“ weiterbilden. Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würde Ihre bisherigen beruflichen Erfahrungen gut ergänzen. Zudem gab es in letzter Zeit immer wieder Stellenausschreibungen, die diese Qualifikation enthielten.
-In der Schule, an der Sie arbeiten, wird selbstgesteuertes Lernen der Schülerinnen und Schüler jedoch eher nicht praktiziert. Ihre Schulleitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Schulleitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Schule darin sieht. Sie haben sich dafür entschieden, Ihre Schulleiterin Frau Horn/Ihren Schulleiter Herrn Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen, sowie auf lebenslanges Lernen vorbereitet sind. Sie wünschen sich eine Weiterentwicklung der Schule in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Schule nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
+Sie arbeiten als pädagogische Fachkraft an der Friedrich-Ebert-Ganztagsschule. Sie möchten sich zum Thema „Partizipation und demokratische Kompetenz“ weiterbilden. Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würde Ihre bisherigen beruflichen Erfahrungen gut ergänzen. Zudem gab es in letzter Zeit immer wieder Stellenausschreibungen, die diese Qualifikation enthielten. In der Schule, an der Sie arbeiten, wird auf die Bildung zu demokratischer Kompetenz nicht so großer Wert gelegt. Ihre Leitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Leitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Einrichtung darin sieht. Sie haben sich dafür entschieden, Ihre Leitung A. Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen. Sie wünschen sich eine Weiterentwicklung der Einrichtung in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Einrichtung nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
 
 **Ihre Aufgabe:**
-Sie haben J.Horn, Ihre Schulleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren.
+Sie haben A. Horn, Ihre Einrichtungsleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren.
 
 • **Sachziel:** Sie möchten an der Weiterbildung teilnehmen.\n
-• **Beziehungsziel:** Sie wollen mit Ihrem Vorgesetzten/Ihrer Vorgesetzen bei diesem Thema zusammenarbeiten.
+• **Beziehungsziel:** Sie wollen mit Ihrer Einrichtungsleitung bei diesem Thema zusammenarbeiten. 
 """,
 
     # -------------------------------------------------------------------------
@@ -390,7 +389,7 @@ You are, principal of the Friedrich-Ebert-School. A teacher is requesting permis
 You also fear that participation in the training may cause lesson cancellations and increased work due to substitute planning.
 You are therefore skeptical about the teacher’s considerations and want to know why he/she considers this particular topic important. You consider the teacher competent and would like to keep him/her at the school, but you would not be willing to support his/her private career ambitions with school funds. On the other hand, you are aware that self-directed learning will become an important challenge for schools in the future. Current educational policy demands more steps toward lifelong learning and the promotion of interdisciplinary competences for student self-management and activation (communication, coordination, teamwork, presentation skills, critical thinking, etc.). You have also noticed increasing dissatisfaction among students. You are therefore interested in what the teacher has to report.
 
-****Your task:****
+**Your task:**
 It is important to you that the teacher presents a clear and explicit connection between the training and school development. The argumentation should concern the school as a whole, not personal career ambitions. Even if the teacher might have a hidden agenda to position themself better careerwise, in their argumentation they should emphasize the “collective” advantages for the school in order to receive your full attention.
 You accept the teacher’s request for a conversation. Act as follows:
 • Create a supportive environment and behave in a way that allows your counterpart to show their best behavior.
@@ -431,7 +430,6 @@ ROLEPLAYS[2] = {
     # USER INSTRUCTIONS (GERMAN, EXACT – UNTOUCHED)
     # ------------------------------------------------------------
     "user_de":COMMON_USER_HEADER_DE + """
-Sie können das Gespräch jederzeit beenden. Sagen Sie einfach „Danke, tschüss“.
 
 **Hintergrundinformation:**
 Sie sind Lehrkraft an der Günter-Grass-Schule, die sich durch eine Vielzahl an Arbeitsgruppen (AGs) auszeichnet. Insbesondere die Theater-AG trägt zum positiven Image der Schule bei, da oftmals und ausführlich über die Aufführungen dieser AG in der lokalen Presse berichtet wird. Sie sind als Beratungslehrer/Beratungslehrerin an dieser Schule tätig. Es gehört zu Ihren pädagogischen Aufgaben, den Schülerinnen und Schülern eine gute Beratung anzubieten. Im Rahmen dieser Aufgabe beraten Sie in Ihrer Sprechstunde den Schüler/die Schülerin Jan/Jana Pflüger bezüglich seiner/ihrer bevorstehenden Wahl, an welcher AG er/sie sich künftig beteiligen will. Der Schüler/Die Schülerin hat großes schauspielerisches Talent, seine/ihre Entscheidung für die Theater AG hätte durchaus Einfluss auf das Ansehen der Schule. In Zeiten sinkender Schülerzahlen ist ein positives öffentliches Bild Ihrer Schule enorm wichtig. Außerdem wird Ihre Leistung in der Beratungsposition in einer externen Evaluation in Hinsicht auf eine erfolgreiche Außendarstellung der Schule bewertet.
@@ -554,8 +552,9 @@ Sie sprechen Ihren Kollegen/Ihre Kollegin auf die Themen Teamkoordination und Zu
     # ------------------------------------------------------------
     "user_en": """
 **Background information:**
-You are a teacher at the Astrid-Lindgren-School. Together with other colleagues, you are part of a school development group. Work in the team is characterised by mutual dependencies in the work processes. Jointly coordinated time management and reciprocal information flow between team members are, for you, the absolute key to success.
-Your colleague Mr/Ms Krause, who has been employed at the school just as long as you, has caught your attention negatively several times because he/she has consistently missed deadlines. In addition, he/she gives unclear processing times and thus hinders a smooth workflow. Recently, he/she forwarded to you a cost estimate you needed for a financial planning process with an unjustified one-week delay. Because of this, the deadline for the funding application was almost missed and you had to explain this to the principal and the school conference. You protected your colleague. However, you believe that it is time to finally address the topic so that he/she becomes aware of the consequences of his/her actions. You have no authority to give instructions and you are certain that a direct, honest confrontation, even if constructive and well-intentioned, would only create tension and worsen the collaboration.
+You are a teacher at the Astrid Lindgren School. Together with other colleagues, you are part of a school development group. Work in the team is characterised by mutual dependencies in the work processes. Jointly coordinated time management and reciprocal information flow between team members are, for you, the absolute key to success.
+Your colleague,
+\Mr/Ms Krause, who has been employed at the school just as long as you, has caught your attention negatively several times because he/she has consistently missed deadlines. In addition, he/she gives unclear processing times and thus hinders a smooth workflow. Recently, he/she forwarded to you a cost estimate you needed for a financial planning process with an unjustified one-week delay. Because of this, the deadline for the funding application was almost missed and you had to explain this to the principal and the school conference. You protected your colleague. However, you believe that it is time to finally address the topic so that he/she becomes aware of the consequences of his/her actions. You have no authority to give instructions and you are certain that a direct, honest confrontation, even if constructive and well-intentioned, would only create tension and worsen the collaboration.
 
 **Your task:**
 You address your colleague about the topics of team coordination and collaboration. The conversation takes place informally (coffee corner).
@@ -598,7 +597,7 @@ Handeln Sie während der Interaktion wie folgt:
     # ------------------------------------------------------------
     "partner_en": """
 Please use the information provided below to conduct the conversation. You have 5 minutes to prepare.
-You then have up to 10 minutes for conducting the conversation.
+You then have up to 10 minutes to conduct the conversation.
 
 Your counterpart may end the conversation at any time by saying “Thank you, goodbye.”
 
@@ -606,7 +605,7 @@ Your counterpart may end the conversation at any time by saying “Thank you, go
 You are Mr/Ms Krause, a teacher at the Astrid-Lindgren-School. Together with other colleagues, you are involved in the financing of school projects. You are satisfied with your performance and your time management and consider yourself a good team player. Not everything always worked perfectly, for example last time with the cost estimate, but when does something ever work one hundred percent? At least no one has complained so far. You therefore have every reason to be confident in your way of working. One of your colleagues is addressing problems with teamwork. It concerns collaboration under time pressure as well as deadlines and their adherence. But surely he/she cannot mean you, right?
 
 **Your task:**
-You engage in the conversation. After all, he/she is your colleague, and you always have an open ear for colleagues. It is about problems with coordination and scheduling of tasks in the team. You listen because you find him/her sympathetic. However, you consider him/her somewhat perfectionistic and a bit uptight. You rather try to convey your own experiences with time delays and non-adherence to schedules.
+You can talk about it. After all, he/she is your colleague, and you always have an open ear for colleagues. It is about problems with coordination and scheduling of tasks in the team. You listen because you find him/her sympathetic. However, you consider him/her somewhat perfectionistic and a bit uptight. You rather try to convey your own experiences with time delays and non-adherence to schedules.
 You react to your colleague’s spontaneous (informal) request for a conversation in the coffee corner.
 
 Act as follows:
