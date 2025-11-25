@@ -308,9 +308,9 @@ ROLEPLAYS[1] = {
 **Hintergrundinformation:** 
 Sie arbeiten als pädagogische Fachkraft an der Friedrich-Ebert-Ganztagsschule. Sie möchten sich zum Thema „Partizipation und demokratische Kompetenz“ weiterbilden. Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würde Ihre bisherigen beruflichen Erfahrungen gut ergänzen. Zudem gab es in letzter Zeit immer wieder Stellenausschreibungen, die diese Qualifikation enthielten. In der Schule, an der Sie arbeiten, wird auf die Bildung zu demokratischer Kompetenz nicht so großen Wert gelegt. Ihre Leitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Leitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Einrichtung darin sieht. Sie haben sich dafür entschieden, Ihre Leitung A. Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen. Sie wünschen sich eine Weiterentwicklung der Einrichtung in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Einrichtung nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
 
-**Ihre Aufgabe:** Sie haben A. Horn, Ihre Einrichtungsleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren. 
-• **Sachziel:** Sie möchten an der Weiterbildung teilnehmen.
-• **Beziehungsziel:** Sie wollen mit Ihrer Einrichtungsleitung bei diesem Thema zusammenarbeiten. 
+**Ihre Aufgabe:** Sie haben A. Horn, Ihre Einrichtungsleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren.\n 
+• **Sachziel:** Sie möchten an der Weiterbildung teilnehmen.\n
+• **Beziehungsziel:** Sie wollen mit Ihrer Einrichtungsleitung bei diesem Thema zusammenarbeiten.\n 
 """,
 
     # -------------------------------------------------------------------------
@@ -409,10 +409,9 @@ ROLEPLAYS[2] = {
 Sie sind pädagogische Ansprechpartnerin/fachlicher Ansprechpartner für Studierende im berufsbegleitenden dualen Studium bei dem mittelständischen Unternehmen Digits Matter GmbH. Im Rahmen Ihrer Tätigkeit beraten Sie Alex Pflüger, eine Studentin/einen Studenten, bezüglich ihrer/seiner nächsten Einsatzgebiete. Die Wahl des Einsatzgebietes in dieser Phase ist entscheidend für die Spezialisierung und den möglichen Berufseinstieg in die Firma nach dem Studium und daher wichtig. Es gehört zu Ihren pädagogischen Aufgaben eine gute Beratung für diese kritische Entscheidung anzubieten. Zugleich braucht das Unternehmen eine optimale Platzierung der Studierenden. Zudem wird Ihre Beratungsleistung in Abhängigkeit von der Leistung der von Ihnen beratenen Studierenden bewertet. Alex möchte als Nächstes in der Personalentwicklung arbeiten. Seine/Ihre bisherige Leistung weist jedoch darauf hin, dass er/sie sich eher für das Qualitätsmanagement eignet und somit in diesem Bereich eine bessere Leistungsentwicklung verspricht. Sie wissen aus vertraulicher Quelle, dass Alex in eine starke Abneigung gegen die Abteilungsleiterin des Qualitätsmanagements hat. Infolgedessen vermuten Sie, dass die Haltung eng hiermit zusammenhängt. Sie glauben allerdings gehört zu haben, dass die Abteilungsleiterin des Qualitätsmanagements eine positive Meinung über Alex hat. Trotz Ihres Verständnisses für Alex Haltung haben für Sie die optimale prospektive Besetzung Vorrang. Die Wahl des Einsatzgebiets soll Ihrer Ansicht nach der Eignung der Studierenden und nicht ihren/seinen persönlichen Befindlichkeiten entsprechen.
 
 **Ihre Aufgabe:**
-Sie besprechen mit Alex über die bevorstehende Entscheidung. 
-Das Gespräch findet zu einem vorher angesetzten Beratungstermin in Ihrem Büro statt.
-• **Sachziel:** Versuchen Sie Alex dazu zu bringen, als nächstes Einsatzgebiet das Qualitätsmanagement zu wählen.
-• **Beziehungsziel:** Sie legen großen Wert darauf, dass Alex Sie als fürsorglich wahrnimmt. 
+Sie besprechen mit Alex über die bevorstehende Entscheidung. Das Gespräch findet zu einem vorher angesetzten Beratungstermin in Ihrem Büro statt.\n
+• **Sachziel:** Versuchen Sie Alex dazu zu bringen, als nächstes Einsatzgebiet das Qualitätsmanagement zu wählen.\n
+• **Beziehungsziel:** Sie legen großen Wert darauf, dass Alex Sie als fürsorglich wahrnimmt.\n
 """,
 
     # -------------------------------------------------------------------------
@@ -509,9 +508,9 @@ ROLEPLAYS[3] = {
 **Hintergrundinformation:** 
 Sie sind pädagogische Fachkraft an der Astrid-Lindgren-Ganztagsschule. Sie sind gemeinsam mit anderen Kollegen in einer Schulentwicklungsgruppe. Die Arbeit im Team ist von gegenseitigen Abhängigkeiten der Arbeitsprozesse gekennzeichnet. Gemeinsam abgestimmtes Zeitmanagement und wechselseitiger Informationsfluss zwischen den Teammitgliedern sind für Sie das A und O des Erfolgs. Ihre Kollegin, D. Krause ist genauso lange an der Schule beschäftigt wie Sie, und ist Ihnen mehrmals negativ aufgefallen, da sie Deadlines konsequent verpasst hat. Zusätzlich gibt sie unklare Bearbeitungszeiten an und behindert so einen reibungslosen Ablauf der Arbeit. Neulich hat sie einen wichtigen Kostenvoranschlag, den Sie für eine Finanzplanung benötigten, unbegründet mit einwöchiger Verzögerung an Sie weitergeleitet. Deswegen wurde die Frist für den Förderantrag fast verpasst und Sie mussten dies vor der Einrichtungsleitung und der Schulkonferenz erklären. Sie haben der Kollegin dabei den Rücken freigehalten. Sie sind jedoch der Meinung, dass es an der Zeit ist, das Thema endlich mal anzusprechen, damit ihr die Folgen ihres Handelns bewusst werden. Sie haben allerdings keine Anweisungsbefugnis und sind sich sicher, dass eine direkte, ehrliche Konfrontation, auch wenn sie konstruktiv und gut gemeint ist, nur Anspannung verursachen und die Zusammenarbeit verschlechtern würde. 
 
-**Ihre Aufgabe:** Sie sprechen Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).
-• **Sachziel:** Sie sollen das Verhalten Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern.
-• **Beziehungsziel:** Die gute Arbeitsbeziehung zur Teamkollegin soll aufrechterhalten bleiben. 
+**Ihre Aufgabe:** Sie sprechen Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).\n
+• **Sachziel:** Sie sollen das Verhalten Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern.\n
+• **Beziehungsziel:** Die gute Arbeitsbeziehung zur Teamkollegin soll aufrechterhalten bleiben.\n 
 """,
 
     # -------------------------------------------------------------------------
@@ -608,11 +607,11 @@ ROLEPLAYS[4] = {
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:** 
-Sie sind Teamleiter/in in einer pädagogischen Einrichtung zur Betreuung von Jugendlichen. Sie beschäftigen sich mit dem Fall K. Hermann, ein/e Jugendliche, der/die in der letzten Zeit ständig und unbegründet zu spät zu wichtigen Treffen erschien, gelegentlich auch gar nicht. Sie schätzen die Leistungsfähigkeit des/der Jugendlichen, sein/ihr Verhalten stellt jedoch ein Problem für die ganze Jugendgruppe dar. Trotz entsprechender Hinweise und höflicher Ansprachen hat sich die Situation nicht geändert. K. Hermann nennt keinen Grund, der auf eine tieferliegende Ursache für sein/ihr Verhalten hinweisen könnte. Die Situation ist für Sie kritisch, da Ihre Leitungskompetenz in Frage gestellt werden könnte. Sie entscheiden sich deswegen dafür, ihn/sie direkt auf die Verstöße gegen die allgemeinen Regeln anzusprechen. Sie haben bereits eine erste mündliche Abmahnung ausgesprochen und wollen ihm/ihr mitteilen, dass ein solches Verhalten von Ihnen nicht mehr geduldet wird. K. Hermann droht bei Anhalten der Unzuverlässigkeit eine schriftliche Abmahnung sowie evtl. ein Ausschluss aus der Jugendgruppe. Sie handeln nicht im Alleingang, Sie haben die Rückendeckung Ihrer Chefin. 
+Sie sind Teamleiter/in in einer pädagogischen Einrichtung zur Betreuung von Jugendlichen. Sie beschäftigen sich mit dem Fall K. Hermann, ein/e Jugendliche, der/die in der letzten Zeit ständig und unbegründet zu spät zu wichtigen Treffen erschien, gelegentlich auch gar nicht. Sie schätzen die Leistungsfähigkeit des/der Jugendlichen, sein/ihr Verhalten stellt jedoch ein Problem für die ganze Jugendgruppe dar. Trotz entsprechender Hinweise und höflicher Ansprachen hat sich die Situation nicht geändert. K. Hermann nennt keinen Grund, der auf eine tieferliegende Ursache für sein/ihr Verhalten hinweisen könnte. Die Situation ist für Sie kritisch, da Ihre Leitungskompetenz in Frage gestellt werden könnte. Sie entscheiden sich deswegen dafür, ihn/sie direkt auf die Verstöße gegen die allgemeinen Regeln anzusprechen. Sie haben bereits eine erste mündliche Abmahnung ausgesprochen und wollen ihm/ihr mitteilen, dass ein solches Verhalten von Ihnen nicht mehr geduldet wird. K. Hermann droht bei Anhalten der Unzuverlässigkeit eine schriftliche Abmahnung sowie evtl. ein Ausschluss aus der Jugendgruppe. Sie handeln nicht im Alleingang, Sie haben die Rückendeckung Ihrer Chefin.\n 
 
-**Ihre Aufgabe:** Sie bestellen den K. Hermann zu sich ins Büro. 
-• **Sachziel:** Sie wollen das Zugeständnis des Jugendlichen erreichen, dass er/sie nicht mehr zu spät zu den wichtigen Treffen erscheint, oder Sie sind bereit, eine schriftliche Abmahnung oder weitergehende Disziplinmaßnahmen einzuleiten. 
-• **Beziehungsziel:** Für Sie ist ein gutes Verhältnis zu K. nicht mehr oberstes Ziel. 
+**Ihre Aufgabe:** Sie bestellen den K. Hermann zu sich ins Büro.\n 
+• **Sachziel:** Sie wollen das Zugeständnis des Jugendlichen erreichen, dass er/sie nicht mehr zu spät zu den wichtigen Treffen erscheint, oder Sie sind bereit, eine schriftliche Abmahnung oder weitergehende Disziplinmaßnahmen einzuleiten.\n 
+• **Beziehungsziel:** Für Sie ist ein gutes Verhältnis zu K. nicht mehr oberstes Ziel. \n
 """,
 
     # -------------------------------------------------------------------------
@@ -620,7 +619,7 @@ Sie sind Teamleiter/in in einer pädagogischen Einrichtung zur Betreuung von Jug
     # -------------------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN + """
 **Background information:**  
-You are the team leader in a pedagogical facility for supporting adolescents. You are dealing with the case of K. Hermann, a youth who has repeatedly arrived late to important meetings—without reason—and has occasionally not shown up at all. You value the adolescent’s abilities, but his/her behavior creates a problem for the entire youth group. Despite reminders and polite conversations, the situation has not improved. K. Hermann does not provide any explanation suggesting a deeper underlying cause for this behavior. The situation is critical for you because your leadership competence could be questioned. You therefore decide to address the violations of the general rules directly. You have already given a verbal warning and want to make clear that such behavior will no longer be tolerated. If the unreliability continues, a written warning or even exclusion from the youth group is likely. You are acting with the support of your supervisor.
+You are the team leader in a pedagogical facility for supporting adolescents. You are dealing with the case of K. Hermann, a youth who has repeatedly arrived late to important meetings—without reason—and has occasionally not shown up at all. You value the adolescent’s abilities, but his/her behavior creates a problem for the entire youth group. Despite reminders and polite conversations, the situation has not improved. K. Hermann does not provide any explanation, suggesting a deeper underlying cause for this behavior. The situation is critical for you because your leadership competence could be questioned. You therefore decide to address the violations of the general rules directly. You have already given a verbal warning and want to make clear that such behavior will no longer be tolerated. If the unreliability continues, a written warning or even exclusion from the youth group is likely. You are acting with the support of your supervisor.
 **Your task:**  
 You call K. Hermann to your office.
 • **Content goal:** Obtain the youth’s commitment to stop being late to important meetings, or proceed with formal disciplinary measures.  
@@ -808,11 +807,11 @@ ROLEPLAYS[6] = {
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:**
-Sie sind pädagogische Fachkraft in der Johann-Julius-Hecker-Ganztagsschule. Sie leiten dort die Lernzeitbetreuung. Es ist Teil Ihrer Arbeit, individuelle Bewertungen des Sozialverhaltens für die Jugendlichen auf Grundlage ihres Verhaltens in der Lernzeit zu verfassen. Jan ist einer der Schüler in der 4. Klasse. Dr. Jäger, Elternteil von Jan und Ingenieur/in, hat Sie um einen Gesprächstermin gebeten. Es geht um die Bewertung im Sozialverhalten des Jungen. Sie haben das Verhalten des Jugendlichen auf Grund von Beobachtungen seines Verhaltens während der Lernzeit mit einer 4 bewertet. Ihre Bewertung fließt auch in die Zeugnisnote des Schülers ein. Dadurch ist eine Empfehlung für den Wechsel des Schülers aufs Gymnasium nicht möglich. Sie halten Ihre Benotung für gerecht, auch wenn der Schüler Ihnen sympathisch ist und Sie seine Motivation und sein Bestreben anerkennen. Sie sind überzeugt, dass es besser ist, Schüler und Schülerinnen realistisch zu bewerten. Sie wissen, dass die Schulleitung in solchen Angelegenheiten hinter Ihnen steht. Sie gehen in das Elterngespräch, um Ihre Entscheidung zu begründen.
-**Ihre Aufgabe:**
+Sie sind pädagogische Fachkraft in der Johann-Julius-Hecker-Ganztagsschule. Sie leiten dort die Lernzeitbetreuung. Es ist Teil Ihrer Arbeit, individuelle Bewertungen des Sozialverhaltens für die Jugendlichen auf Grundlage ihres Verhaltens in der Lernzeit zu verfassen. Jan ist einer der Schüler in der 4. Klasse. Dr. Jäger, Elternteil von Jan und Ingenieur/in, hat Sie um einen Gesprächstermin gebeten. Es geht um die Bewertung im Sozialverhalten des Jungen. Sie haben das Verhalten des Jugendlichen auf Grund von Beobachtungen seines Verhaltens während der Lernzeit mit einer 4 bewertet. Ihre Bewertung fließt auch in die Zeugnisnote des Schülers ein. Dadurch ist eine Empfehlung für den Wechsel des Schülers aufs Gymnasium nicht möglich. Sie halten Ihre Benotung für gerecht, auch wenn der Schüler Ihnen sympathisch ist und Sie seine Motivation und sein Bestreben anerkennen. Sie sind überzeugt, dass es besser ist, Schüler und Schülerinnen realistisch zu bewerten. Sie wissen, dass die Schulleitung in solchen Angelegenheiten hinter Ihnen steht. Sie gehen in das Elterngespräch, um Ihre Entscheidung zu begründen.\n
+**Ihre Aufgabe:**\n
 Sie treffen sich mit dem Elternteil, um Ihre Entscheidung zu begründen und die Ansichten des Elternteils zum Thema zu erfahren. Für Sie ist die Gerechtigkeit der Benotung vorrangig. Das auf Wunsch von Dr. Jäger anberaumte Treffen findet in einem freien Raum im Ganztag statt.
-• **Sachziel:** Erklären Sie dem Elternteil die Gründe für Ihre Entscheidung bezüglich der Bewertung.
-• **Beziehungsziel:** Bleiben Sie offen für die Argumente von Dr. Jäger, der Schüler Jan ist Ihnen sehr sympathisch.
+• **Sachziel:** Erklären Sie dem Elternteil die Gründe für Ihre Entscheidung bezüglich der Bewertung.\n
+• **Beziehungsziel:** Bleiben Sie offen für die Argumente von Dr. Jäger, der Schüler Jan ist Ihnen sehr sympathisch.\n
 """,
 
     # -------------------------------------------------------------------------
@@ -916,7 +915,7 @@ Sie sind pädagogische Fachkraft in einer Jugendwohneinrichtung und zuständig f
 Sie sprechen mit dem/der Jugendlichen über die anstehende Moderation. Das Gespräch findet auf informelle Art und Weise und auf Initiative Ihres Gesprächspartners/Ihrer Gesprächspartnerin hin statt.\n
 
 • **Sachziel:** Erklären Sie dem/der Jugendlichen Ihre Rolle als Moderatorin/Moderator.\n
-• **Beziehungsziel:** Behandeln Sie den/die Jugendlichen mit Respekt. Die Situation hat keinen negativen Einfluss auf Ihr späteres Miteinander.
+• **Beziehungsziel:** Behandeln Sie den/die Jugendlichen mit Respekt. Die Situation hat keinen negativen Einfluss auf Ihr späteres Miteinander.\n
 """,
 
     # -------------------------------------------------------------------------
@@ -1012,11 +1011,11 @@ ROLEPLAYS[8] = {
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:** 
-Sie arbeiten in einer unabhängigen Beratungsstelle im Öffentlichen Dienst, die für personenbezogene Karriereberatung zuständig ist. Zu Ihnen kommen vor allem junge Menschen kurz vor dem Schulabschluss. Ihre Aufgabe besteht darin, die Sie aufsuchenden Personen in deren Sinne zu beraten. In diesem Rahmen kommt J. Meyer zu Ihnen. Er/Sie möchte sich unmittelbar nach der Schule weiterqualifizieren und schließt deswegen eine Auszeit nach dem Schulabschluss aus. Er/Sie sucht Sie in der Beratungsstunde auf, um mit Ihnen über Möglichkeiten zu sprechen.
+Sie arbeiten in einer unabhängigen Beratungsstelle im Öffentlichen Dienst, die für personenbezogene Karriereberatung zuständig ist. Zu Ihnen kommen vor allem junge Menschen kurz vor dem Schulabschluss. Ihre Aufgabe besteht darin, die Sie aufsuchenden Personen in deren Sinne zu beraten. In diesem Rahmen kommt J. Meyer zu Ihnen. Er/Sie möchte sich unmittelbar nach der Schule weiterqualifizieren und schließt deswegen eine Auszeit nach dem Schulabschluss aus. Er/Sie sucht Sie in der Beratungsstunde auf, um mit Ihnen über Möglichkeiten zu sprechen.\n
 
-**Ihre Aufgabe:** Führen Sie das Gespräch mit der Schülerin/dem Schüler. Der Termin findet auf ihren/seinen Wunsch hin statt.
-• **Sachziel:** Beraten Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, damit er/sie eine gute Entscheidung treffen kann.
-• **Beziehungsziel:** Behandeln Sie Ihre Gesprächspartnerin/Ihren Gesprächspartner „als eine für ihre eigenen Entscheidungen verantwortungstragende Person“.
+**Ihre Aufgabe:** Führen Sie das Gespräch mit der Schülerin/dem Schüler. Der Termin findet auf ihren/seinen Wunsch hin statt.\n
+• **Sachziel:** Beraten Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, damit er/sie eine gute Entscheidung treffen kann.\n
+• **Beziehungsziel:** Behandeln Sie Ihre Gesprächspartnerin/Ihren Gesprächspartner „als eine für ihre eigenen Entscheidungen verantwortungstragende Person“.\n
 """,
 
     # -------------------------------------------------------------------------
@@ -1024,7 +1023,7 @@ Sie arbeiten in einer unabhängigen Beratungsstelle im Öffentlichen Dienst, die
     # -------------------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN + """
 **Background information:**  
-You work in an independent public-sector counselling office responsible for individual career advice. Most of your clients are young people shortly before finishing school. Your task is to advise them in a way that serves their interests. J. Meyer comes to see you wanting to continue education immediately after school and explicitly rules out taking time off. The student seeks to discuss possible options with you.
+You work in an independent public-sector counselling office responsible for individual career advice. Most of your clients are young people shortly before finishing school. Your task is to advise them in a way that serves their interests. J. Meyer comes to see you wanting to continue education immediately after school, and explicitly rules out taking time off. The student seeks to discuss possible options with you.
 
 **Your task:**  
 Conduct the counselling conversation. The meeting takes place at their request.  
