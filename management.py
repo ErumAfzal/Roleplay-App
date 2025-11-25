@@ -1554,20 +1554,24 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         # Move from batch1 -> batch2 -> finished
         if st.session_state.batch_step == "batch1":
             st.session_state.batch_step = "batch2"
-            msg = (
+            st.session_state.messages = []
+
+            st.success(
                 "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
                 if language == "English"
                 else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
             )
-            st.success(msg)
+        
+            st.experimental_rerun()   # <-- FORCE MOVE TO BLOCK 2
+        
         else:
             st.session_state.batch_step = "finished"
-            msg = (
+            st.session_state.messages = []
+        
+            st.success(
                 "Thank you! You completed both batches."
                 if language == "English"
                 else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
             )
-            st.success(msg)
 
-        # Clear chat for next step
-        st.session_state.messages = []
+            st.experimental_rerun()   # <-- SHOW FINISHED SCREEN IMMEDIATELY
