@@ -297,8 +297,8 @@ ROLEPLAYS = {}
 ROLEPLAYS[1] = {
     "phase": 1,
     "communication_type": "strategic",
-    "title_en": "1. Requesting approval for training on self-directed learning",
-    "title_de": "1. Weiterbildung zum selbstgesteuerten Lernen ansprechen",
+    "title_en": "1. Addressing further training on participation and democratic competence",
+    "title_de": "1. Weiterbildung zu Partizipation und demokratischer Kompetenz ansprechen",
 
     # Framework for the trainer logic
     "framework": {
@@ -317,94 +317,69 @@ ROLEPLAYS[1] = {
     },
 
     # -------------------------------------------------------------------------
-    # USER INSTRUCTIONS (DE) – EXACT, NOT MODIFIED
+    # USER INSTRUCTIONS (DE) – EXACT FROM YOU
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
-**Hintergrundinformation:**
-Sie arbeiten als pädagogische Fachkraft an der Friedrich-Ebert-Ganztagsschule. Sie möchten sich zum Thema „Partizipation und demokratische Kompetenz“ weiterbilden. Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würde Ihre bisherigen beruflichen Erfahrungen gut ergänzen. Zudem gab es in letzter Zeit immer wieder Stellenausschreibungen, die diese Qualifikation enthielten. In der Schule, an der Sie arbeiten, wird auf die Bildung zu demokratischer Kompetenz nicht so großer Wert gelegt. Ihre Leitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Leitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Einrichtung darin sieht. Sie haben sich dafür entschieden, Ihre Leitung A. Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen. Sie wünschen sich eine Weiterentwicklung der Einrichtung in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Einrichtung nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
+Hintergrundinformation: 
+Sie arbeiten als pädagogische Fachkraft an der Friedrich-Ebert-Ganztagsschule. Sie möchten sich zum Thema „Partizipation und demokratische Kompetenz“ weiterbilden. Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würde Ihre bisherigen beruflichen Erfahrungen gut ergänzen. Zudem gab es in letzter Zeit immer wieder Stellenausschreibungen, die diese Qualifikation enthielten. In der Schule, an der Sie arbeiten, wird auf die Bildung zu demokratischer Kompetenz nicht so großen Wert gelegt. Ihre Leitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Leitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Einrichtung darin sieht. Sie haben sich dafür entschieden, Ihre Leitung A. Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen. Sie wünschen sich eine Weiterentwicklung der Einrichtung in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Einrichtung nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
 
-**Ihre Aufgabe:**
-Sie haben A. Horn, Ihre Einrichtungsleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren.
-
-• **Sachziel:** Sie möchten an der Weiterbildung teilnehmen.\n
-• **Beziehungsziel:** Sie wollen mit Ihrer Einrichtungsleitung bei diesem Thema zusammenarbeiten. 
+Ihre Aufgabe: Sie haben A. Horn, Ihre Einrichtungsleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren. 
+• Sachziel: Sie möchten an der Weiterbildung teilnehmen.
+• Beziehungsziel: Sie wollen mit Ihrer Einrichtungsleitung bei diesem Thema zusammenarbeiten. 
 """,
 
     # -------------------------------------------------------------------------
-    # USER INSTRUCTIONS (EN) – EXACT TRANSLATION OF THE ABOVE
+    # USER INSTRUCTIONS (EN) – PROFESSIONAL TRANSLATION
     # -------------------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN + """
-**Background information:**
-You work as a teacher at the Friedrich-Ebert-School. You would like to further educate yourself on the topic of “self-directed learning”. The training is helpful for your professional development because it would complement your previous professional experience well. In addition, there have been repeated job postings recently that included this qualification.
-At the school where you work, however, self-directed learning of students is hardly practiced. Your school leadership does not think highly of this approach. Furthermore, the school management (legally) has the right to deny approval for the training if it does not see any connection to your duties or any benefit for the school. You have decided to approach your principal Mrs. Horn/Mr. Horn to “place” the topic of training. You see the topic as a challenge for the school at present because the educational policy also calls for greater student participation so that students learn to show more social engagement and take on responsibility, as well as be prepared for lifelong learning. You wish to see the school move in this direction and want to be qualified in order to potentially take on functional (leadership) roles in this area. If your current school does not develop in this direction, you would possibly consider transferring.
+**Background information:**  
+You work as an educational professional at the Friedrich-Ebert All-day School. You would like to participate in further training on the topic of “participation and democratic competence”. This training is useful for your professional development because it would complement your previous professional experience well. In recent times, there have also been repeated job advertisements that included this qualification. At the school where you work, however, little value is placed on the development of democratic competence. Your management does not think highly of this approach. In addition, the management is legally entitled to deny approval for the training if it does not see a connection to your duties or any benefits for the institution. You have decided to approach your supervisor, A. Horn, to “place” the topic of training. You consider this topic to be a current challenge for the school, since education policy is calling for greater student participation so that students learn to show more social engagement, take on responsibility, and develop democratic skills. You would like to see the institution develop in this direction and want to be qualified to take on potential functional (leadership) tasks in this area. If your current institution does not develop in this direction, you would possibly consider changing to a different workplace.
 
-**Your task:**
-You have asked J.Horn, your school leadership, for a conversation to address your concern.
+**Your task:**  
+You have asked A. Horn, your supervisor, for a meeting to address your request.
 
-- **Content goal:** You want to participate in the training.
-- **Relationship goal:** You want to collaborate with your supervisor on this topic.
+• **Content goal:** You want to participate in the training.  
+• **Relationship goal:** You want to collaborate with your supervisor on this topic.
 """,
 
     # -------------------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (DE) – EXACT, NOT MODIFIED
+    # AI PARTNER INSTRUCTIONS (DE) – EXACT FROM YOU
     # -------------------------------------------------------------------------
     "partner_de": """
-Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. 
-Sie haben 5 Minuten Zeit, um sich auf das Gespräch vorzubereiten.
-Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
-Ihr Gegenüber kann das Gespräch jederzeit mit „Danke, tschüss“ beenden.
+Hintergrundinformation: 
+Sie sind A. Horn, Einrichtungsleitung an der Friedrich-Ebert-Ganztagsschule. Eine pädagogische Fachkraft richtet an Sie die Bitte, an einer Weiterbildung zum Thema „Partizipation und demokratische Kompetenz“ teilnehmen zu dürfen. Inhaltlich erscheint Ihnen dieses Thema für die aktuellen Aufgaben und Ziele Ihrer Einrichtung nicht relevant zu sein. Sie selbst sind eher skeptisch gegenüber der Relevanz solcher Themen. Sie legen stattdessen viel Wert auf die genaue Einhaltung des fachlichen schulinternen und schulübergreifenden Curriculums. Zudem befürchten Sie, dass durch die Teilnahme an der Fortbildung Betreuungszeit ausfällt und durch die Organisation von Vertretungen mehr Arbeit anfällt. Sie sind den Überlegungen der pädagogischen Fachkraft also skeptisch gegenüber und möchten wissen, warum er/sie genau dieses Thema für wichtig erachtet. Sie halten ihn/sie zwar für sehr kompetent und Sie möchten ihn/sie an der Schule als pädagogische Fachkraft behalten. Sie wären jedoch nicht bereit, seine/ihre privaten Ambitionen mit Einrichtungsgeldern zu fördern. Andererseits wissen Sie durchaus, dass Themen wie Partizipation und demokratische Kompetenz künftig eine wichtige Herausforderung für die Schule darstellen wird. So fordert auch die derzeitige Schulpolitik, dass mehr in Richtung Partizipation unternommen wird und fachübergreifende Kompetenzen zur gesellschaftlichen Teilhabe der Schüler und Schülerinnen (Kommunikation, Verantwortungsbewusstsein, Teamfähigkeit, Diskursfähigkeit, Kritikfähigkeit u. Ä.) gefördert werden. Zudem haben Sie wahrgenommen, dass die Unzufriedenheit der Schülerinnen und Schüler wächst. Sie sind daher an dem, was die pädagogische Fachkraft Ihnen zu berichten hat, interessiert.
 
-**Hintergrundinformation:**
-Sie sind Herr/Frau Horn, Schulleiter/Schulleiterin an der Friedrich-Ebert-Schule. Eine Lehrkraft richtet an Sie die Bitte, an einer Weiterbildung zum Thema „selbstgesteuertes Lernen“ teilnehmen zu dürfen. Inhaltlich erscheint Ihnen dieses Thema für die aktuellen Aufgaben und Ziele Ihrer Schule nicht relevant zu sein. Sie selbst sind eher skeptisch gegenüber der Wirksamkeit von modernen Methoden der Schülerzentrierung. Sie legen stattdessen viel Wert auf die genaue Einhaltung des fachlichen schulinternen und schulübergreifenden Curriculums.
-Zudem befürchten Sie, dass durch die Teilnahme an der Fortbildung Unterricht ausfällt und durch die Organisation von Vertretungen mehr Arbeit anfällt.
-Sie sind den Überlegungen der Lehrkraft also skeptisch gegenüber und möchten wissen, warum er/sie genau dieses Thema für wichtig erachtet. Sie halten ihn/sie zwar für sehr kompetent und Sie möchten ihn/sie an der Schule als Lehrkraft behalten. Sie wären jedoch nicht bereit, seine/ihre privaten Ambitionen mit Schulgeldern zu fördern. Andererseits wissen Sie durchaus, dass selbstgesteuertes Lernen künftig eine wichtige Herausforderung für die Schule darstellen wird. So fordert auch die derzeitige Schulpolitik, dass mehr in Richtung lebenslanges Lernen unternommen wird und fachübergreifende Kompetenzen zum Selbstmanagement und zur Selbstaktivierung der Schüler und Schülerinnen (Kommunikation, Koordination, Teamfähigkeit, Präsentationstechniken, Kritikfähigkeit u. Ä.) gefördert werden. Zudem haben Sie wahrgenommen, dass die Unzufriedenheit der Schülerinnen und Schüler wächst. Sie sind daher an dem, was die Lehrkraft Ihnen zu berichten hat, interessiert.
+Ihre Aufgabe: Es ist Ihnen wichtig, dass die Lehrkraft einen klaren und deutlichen Bezug zur schulischen Entwicklung herstellt. Zudem soll die Argumentation die Schule als Ganzes betreffen und nicht die persönlichen Karriereambitionen der pädagogische Fachkraft. Auch wenn er/sie eine heimliche Agenda verfolgt, um sich karrieretechnisch besser zu positionieren, sollte er/sie in der Argumentation die „kollektiven“ Vorteile für die Einrichtung in den Vordergrund stellen, um Ihre volle Aufmerksamkeit zu bekommen. Sie gehen auf die Bitte der pädagogische Fachkraft um ein Gespräch ein.
 
-**Ihre Aufgabe:**
-Es ist Ihnen wichtig, dass die Lehrkraft einen klaren und deutlichen Bezug zur schulischen Entwicklung herstellt. Zudem soll die Argumentation die Schule als Ganzes betreffen und nicht die persönlichen Karriereambitionen der Lehrkraft. Auch wenn er/sie eine heimliche Agenda verfolgt, um sich karrieretechnisch besser zu positionieren, sollte er/sie in der Argumentation die „kollektiven“ Vorteile für die Schule in den Vordergrund stellen, um Ihre volle Aufmerksamkeit zu bekommen.
-Sie gehen auf die Bitte der Lehrkraft um ein Gespräch ein. Handeln Sie während der Interaktion wie folgt:
-• Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
-• Nehmen Sie zunächst eine reservierte, fragende Haltung gegenüber dem Gesprächspartner/der Gesprächspartnerin ein. Fordern Sie mehr Informationen über die Verbindung des Themas der Weiterbildung mit der Schule und der Schulpraxis an Ihrer Schule.
-• Erwähnen Sie die begrenzt verfügbaren finanziellen Mittel für Weiterbildungen.
-• Bleiben Sie konsequent bei Ihrer skeptischen Einstellung, solange der Zusammenhang von Weiterbildung und Schule vage bleibt.
-• Bleiben Sie skeptisch wenn nur Äußerungen zu den eigenen persönlichen Vorteilen kommen und keine Vorteile für die Schule und die Schülerinnen und Schüler getroffen werden.
-• Äußern Sie sich ironisch zur Nützlichkeit des „selbstgesteuertes Lernen“: Wollen die Lehrerkräfte etwa aus Bequemlichkeit Verantwortung und Arbeit auf die Schülerinnen und Schüler abschieben?
-• Fragen Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, wie die Weiterbildung mit der künftigen Karrierelaufbahn der Lehrkraft zusammenhängt.
-• Falls Ihr Gesprächspartner/Ihre Gesprächspartnerin einen Zusammenhang mit den Zielen der Schule argumentativ verdeutlicht und er/sie die aktuelle Schulleitung für die treibende Kraft bei der Weiterentwicklung der Schule hält, stimmen Sie der Teilnahme an einer entsprechenden Weiterbildung zu.
-
-• **Sachziel:** Sie wollen eine gute Begründung der Lehrkraft hören (Schule steht im Vordergrund), wieso diese an der Weiterbildung teilnehmen möchte.
-• **Beziehungsziel:** Sie wollen weiterhin mit der Lehrkraft zusammenarbeiten und diese an der Schule halten.
+Handeln Sie während der Interaktion wie folgt:
+• Nehmen Sie zunächst eine reservierte, fragende Haltung gegenüber dem Gesprächspartner/der Gesprächspartnerin ein. Fordern Sie mehr Informationen über die Verbindung des Themas der Weiterbildung mit der Einrichtung und dem gelebten pädagogischen Alltag.  
+• Erwähnen Sie die begrenzt verfügbaren finanziellen Mittel für Weiterbildungen.  
+• Bleiben Sie konsequent bei Ihrer skeptischen Einstellung, solange der Zusammenhang von Weiterbildung und Einrichtung vage bleibt.  
+• Äußern Sie sich ironisch zur Nützlichkeit der „Partizipation und demokratischen Kompetenz“: Wollen die pädagogische Fachkräfte etwa aus Bequemlichkeit Verantwortung und Arbeit auf die Schülerinnen und Schüler abschieben?  
+• Fragen Sie Ihren Gesprächspartner/Ihre Gesprächspartnerin, wie die Weiterbildung mit der künftigen Karrierelaufbahn der Lehrkraft zusammenhängt.  
+• Falls Ihr Gesprächspartner/Ihre Gesprächspartnerin einen Zusammenhang mit den Zielen der Einrichtung argumentativ verdeutlicht und er/sie Sie für die treibende Kraft bei der Weiterentwicklung der Schule hält, stimmen Sie der Teilnahme an einer entsprechenden Weiterbildung zu.
 """,
 
     # -------------------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (EN) – EXACT TRANSLATION
+    # AI PARTNER INSTRUCTIONS (EN) – TRANSLATION
     # -------------------------------------------------------------------------
     "partner_en": """
-Please use the information provided to you below for conducting the conversation.
-You have 5 minutes to prepare for the conversation.
-You then have up to 10 minutes to conduct the conversation.
-Your counterpart may end the conversation at any time by saying “Thank you, bye”.
+**Background information:**  
+You are A. Horn, head of the institution at the Friedrich-Ebert All-day School. An educational professional is requesting permission to participate in further training on the topic of “participation and democratic competence”. In terms of content, this topic does not appear relevant to the current tasks and goals of your institution. You are personally skeptical about the relevance of such topics. Instead, you place great importance on strict adherence to the internal and external professional curriculum. In addition, you fear that participation in the training will result in lost supervision time and increased workload due to substitute planning. You are therefore skeptical about the considerations of the educational professional and want to know why he/she considers this particular topic important. You regard him/her as highly competent, and you would like to keep him/her at the school. However, you would not be willing to support his/her private ambitions with institutional funds. On the other hand, you are aware that topics such as participation and democratic competence will become an important challenge for schools in the future. Current education policy calls for stronger efforts toward participation and for the promotion of interdisciplinary competencies for students’ civic engagement (communication, responsibility, teamwork, discourse skills, critical thinking, etc.). You have also noticed growing dissatisfaction among the students. You are therefore interested in what the educational professional has to share.
 
+**Your task:**  
+It is important to you that the educational professional establishes a clear and explicit connection to institutional development. The argumentation should concern the institution as a whole, not the personal career ambitions of the educational professional. Even if he/she secretly hopes to improve their career prospects, the argumentation should highlight the “collective” advantages for the institution in order to gain your full attention. You accept the request for a meeting.
 
-You are, principal of the Friedrich-Ebert-School. A teacher is requesting permission to participate in training on the topic of “self-directed learning”. In terms of content, this topic appears not very relevant to the current tasks and goals of your school. You are personally skeptical about the effectiveness of modern student-centered methods. Instead, you place great emphasis on strict adherence to the internal and external curriculum.
-You also fear that participation in the training may cause lesson cancellations and increased work due to substitute planning.
-You are therefore skeptical about the teacher’s considerations and want to know why he/she considers this particular topic important. You consider the teacher competent and would like to keep him/her at the school, but you would not be willing to support his/her private career ambitions with school funds. On the other hand, you are aware that self-directed learning will become an important challenge for schools in the future. Current educational policy demands more steps toward lifelong learning and the promotion of interdisciplinary competences for student self-management and activation (communication, coordination, teamwork, presentation skills, critical thinking, etc.). You have also noticed increasing dissatisfaction among students. You are therefore interested in what the teacher has to report.
-
-**Your task:**
-It is important to you that the teacher presents a clear and explicit connection between the training and school development. The argumentation should concern the school as a whole, not personal career ambitions. Even if the teacher might have a hidden agenda to position themself better careerwise, in their argumentation they should emphasize the “collective” advantages for the school in order to receive your full attention.
-You accept the teacher’s request for a conversation. Act as follows:
-• Create a supportive environment and behave in a way that allows your counterpart to show their best behavior.
-• Initially adopt a reserved, questioning attitude. Request more information about how the training is linked to the school and current teaching practice.
-• Mention the limited financial resources available for training.
-• Remain consistently skeptical as long as the link between the training and school development remains vague.
-• Remain skeptical if only personal advantages are named and no advantages for the school or the students are explained.
-• Make an ironic remark about the usefulness of “self-directed learning”: Are teachers simply trying to shift responsibility and work onto the students?
-• Ask how the training is related to the teacher’s future career path.
-• If the teacher convincingly demonstrates a connection with the school’s goals and acknowledges the school leadership as the driving force behind school development, approve participation in the training.
-
-• **Content goal:** You want to hear a good, school-focused justification for why the teacher wants to participate in the training.
-• **Relationship goal:** You want to continue working with the teacher and keep them at the school long term.
+Act as follows:
+• Initially adopt a reserved, questioning stance. Request more information about the connection between the training topic and the institution and about how it relates to daily pedagogical practice.  
+• Mention the limited financial resources available for training.  
+• Remain consistently skeptical as long as the relationship between the training and the institution remains vague.  
+• Make an ironic remark about the usefulness of “participation and democratic competence”: Are educational professionals simply trying to shift responsibility and work onto the students out of convenience?  
+• Ask your conversation partner how the training relates to his/her future career path.  
+• If the counterpart convincingly outlines a connection with the institution’s goals and expresses that he/she sees you as the driving force behind the school’s development, approve participation in the corresponding training.
 """
 }
+
 ROLEPLAYS[2] = {
     "phase": 1,
     "communication_type": "strategic",
