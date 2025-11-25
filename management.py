@@ -527,7 +527,7 @@ Sie sind pädagogische Fachkraft an der Astrid-Lindgren-Ganztagsschule. Sie sind
 
 Ihre Aufgabe: Sie sprechen Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).
 • Sachziel: Sie sollen das Verhalten Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern.
-• Beziehungsziel: Die gute Arbeitsbeziehung zur Teamkollegin soll aufrecht erhalten bleiben. 
+• Beziehungsziel: Die gute Arbeitsbeziehung zur Teamkollegin soll aufrechterhalten bleiben. 
 """,
 
     # -------------------------------------------------------------------------
@@ -598,111 +598,110 @@ During the conversation, keep the following in mind:
 • Remain fully in character as a colleague who is relaxed, casual, and understanding.
 """
 }
-
 ROLEPLAYS[4] = {
-    "phase": 1,
+    "phase": 4,
     "communication_type": "strategic",
-    "title_en": "4. Addressing a student about repeated tardiness and issuing a second warning",
-    "title_de": "4. Schüler/in wegen wiederholtem Zuspätkommen ansprechen und zweite Abmahnung aussprechen",
+    "title_en": "4. Disciplinary conversation with a youth who repeatedly misses meetings",
+    "title_de": "4. Disziplinarisches Gespräch mit einem Jugendlichen wegen Zuspätkommens",
 
     "framework": {
         "user": {
             "social_role": "stronger",
             "conversation_intention": "relational goal",
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
+            "relational_goal": "future-oriented self-disclosure",
         },
         "ai_partner": {
             "social_role": "weaker",
             "conversation_intention": "relational goal",
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
-        }
+            "relational_goal": "future-oriented self-disclosure",
+        },
     },
 
-    # ------------------------------------------------------------
-    # USER INSTRUCTIONS (GERMAN – EXACT, UNCHANGED)
-    # ------------------------------------------------------------
-    "user_de": """
-**Hintergrundinformation:**
-Sie sind Referendar/Referendarin an der Lilly-Truant-Schule. Das Verhalten des Schülers/der Schülerin Klaus/Katrin Hermann beschäftigt Sie, da er/sie ständig und unbegründet zu spät in Ihrem Unterricht erscheint, gelegentlich auch gar nicht. Sie schätzen die Leistungsfähigkeit des Schülers/der Schülerin, sein/ihr Verhalten stellt jedoch ein Problem für die ganze Klasse dar. Trotz entsprechender Hinweise und höflicher Ansprachen, der Informierung der Eltern sowie einer ersten Abmahnung hat sich die Situation nicht geändert. Der Schüler/Die Schülerin nennt keinen Grund, der auf eine tieferliegende Ursache für sein/ihr Verhalten hinweisen könnte. Die Situation ist für Sie kritisch, da Ihre Kompetenz auch in Hinblick auf das Verhalten Ihrer Schülerinnen und Schüler evaluiert wird.
-Sie entscheiden sich deswegen dafür, den Schüler/die Schülerin direkt auf seine/ihre Verstöße gegen die Schulordnung anzusprechen. Sie wollen ihn/sie zum zweiten Mal abmahnen und ihm/ihr mitteilen, dass ein solches Verhalten von Ihnen nicht mehr geduldet wird und dass ihm/ihr demnächst ein Schulverweis droht. Dem Schüler/Der Schülerin droht bei einem Ausschluss von der Schule eine entsprechende Verschlechterung ihrer/seiner beruflichen Chancen. Sie können das soziale Verhalten auch in die Noten einfließen lassen. Sie handeln nicht im Alleingang, Sie haben die Rückendeckung Ihrer Schulleitung.
+    # -------------------------------------------------------------------------
+    # USER INSTRUCTIONS (DE) – UNCHANGED
+    # -------------------------------------------------------------------------
+    "user_de": COMMON_USER_HEADER_DE + """
+Hintergrundinformation: 
+Sie sind Teamleiter/in in einer pädagogischen Einrichtung zur Betreuung von Jugendlichen. Sie beschäftigen sich mit dem Fall K. Hermann, ein/e Jugendliche, der/die in der letzten Zeit ständig und unbegründet zu spät zu wichtigen Treffen erschien, gelegentlich auch gar nicht. Sie schätzen die Leistungsfähigkeit des/der Jugendlichen, sein/ihr Verhalten stellt jedoch ein Problem für die ganze Jugendgruppe dar. Trotz entsprechender Hinweise und höflicher Ansprachen hat sich die Situation nicht geändert. K. Hermann nennt keinen Grund, der auf eine tieferliegende Ursache für sein/ihr Verhalten hinweisen könnte. Die Situation ist für Sie kritisch, da Ihre Leitungskompetenz in Frage gestellt werden könnte. Sie entscheiden sich deswegen dafür, ihn/sie direkt auf die Verstöße gegen die allgemeinen Regeln anzusprechen. Sie haben bereits eine erste mündliche Abmahnung ausgesprochen und wollen ihm/ihr mitteilen, dass ein solches Verhalten von Ihnen nicht mehr geduldet wird. K. Hermann droht bei Anhalten der Unzuverlässigkeit eine schriftliche Abmahnung sowie evtl. ein Ausschluss aus der Jugendgruppe. Sie handeln nicht im Alleingang, Sie haben die Rückendeckung Ihrer Chefin. 
 
-**Ihre Aufgabe:**
-Sie bestellen den Schüler/die Schülerin zu sich in ein gerade nicht genutztes Klassenzimmer.
+Ihre Aufgabe: Sie bestellen den K. Hermann zu sich ins Büro. 
+• Sachziel: Sie wollen das Zugeständnis des Jugendlichen erreichen, dass er/sie nicht mehr zu spät zu den wichtigen Treffen erscheint, oder Sie sind bereit, eine schriftliche Abmahnung oder weitergehende Disziplinmaßnahmen einzuleiten. 
+• Beziehungsziel: Für Sie ist ein gutes Verhältnis zu K. nicht mehr oberstes Ziel. 
 
-- **Sachziel:** Sie wollen das Zugeständnis des Schülers/der Schülerin erreichen, dass er/sie nicht mehr zu spät zu ihrem Unterricht erscheint, oder Sie sind bereit, zeitnah einen Schulausschluss auszusprechen.
-- **Beziehungsziel:** Für Sie ist ein gutes Verhältnis zum Schüler/zur Schülerin nicht mehr oberstes Ziel.
+Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben ca. 5 Min. Zeit, um sich auf das Gespräch vorzubereiten. Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs. Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie selbst in einer solchen Situation wären.
 """,
 
-    # ------------------------------------------------------------
-    # USER INSTRUCTIONS (ENGLISH – VERY LITERAL TRANSLATION)
-    # ------------------------------------------------------------
-    "user_en": """
-**Background information:**
-You are a trainee teacher at the Lilly-Truant-School. You are concerned about the behaviour of the student Klaus/Katrin Hermann, as he/she constantly and without justification appears late to your lessons, occasionally not at all. You value the student’s performance capability, but his/her behaviour represents a problem for the entire class. Despite corresponding notices and polite addresses, informing the parents, as well as a first written warning, the situation has not changed. The student does not name any reason that could point to a deeper cause for his/her behaviour. The situation is critical for you, since your competence is also evaluated with respect to the behaviour of your pupils.
-You therefore decide to address the student directly about his/her violations of the school rules. You want to issue him/her a second warning and tell him/her that such behaviour will no longer be tolerated by you and that he/she is threatened with expulsion from school. For the student, an exclusion from school threatens to worsen his/her future career chances. You can also include social behaviour in the grades. You are not acting alone; you have the support of your school management.
+    # -------------------------------------------------------------------------
+    # USER INSTRUCTIONS (EN) – TRANSLATION
+    # -------------------------------------------------------------------------
+    "user_en": COMMON_USER_HEADER_EN + """
+**Background information:**  
+You are the team leader in a pedagogical facility for supporting adolescents. You are dealing with the case of K. Hermann, a youth who has repeatedly arrived late to important meetings—without reason—and has occasionally not shown up at all. You value the adolescent’s abilities, but his/her behavior creates a problem for the entire youth group. Despite reminders and polite conversations, the situation has not improved. K. Hermann does not provide any explanation suggesting a deeper underlying cause for this behavior. The situation is critical for you because your leadership competence could be questioned. You therefore decide to address the violations of the general rules directly. You have already given a verbal warning and want to make clear that such behavior will no longer be tolerated. If the unreliability continues, a written warning or even exclusion from the youth group is likely. You are acting with the support of your supervisor.
 
-****Your task:****
-You summon the student to an unused classroom.
+**Your task:**  
+You call K. Hermann to your office.
+• **Content goal:** Obtain the youth’s commitment to stop being late to important meetings, or proceed with formal disciplinary measures.  
+• **Relationship goal:** Maintaining a positive relationship is no longer your top priority.
 
-**Content goal:** You want to obtain the student’s commitment that he/she will no longer appear late to your lessons, or you are prepared to issue a school exclusion in the near future.
-**Relationship goal:** A good relationship with the student is no longer your top priority.
+Use the information provided below to guide your conversation. You have about 5 minutes to prepare and up to 10 minutes to conduct the meeting. Act as if you were truly in this situation.
 """,
 
-    # ------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (GERMAN – EXACT)
-    # ------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    # PARTNER INSTRUCTIONS (DE) – ORIGINAL + ENFORCEMENT BLOCK
+    # -------------------------------------------------------------------------
     "partner_de": """
-**Hintergrundinformation:**
-Sie sind Klaus/Katrin Hermann, Schüler/Schülerin an der Lilly-Truant-Schule. Sie werden von Ihrem Lehrer/Ihrer Lehrerin zu sich bestellt. Sie haben in der letzten Zeit keine Lust auf seinen/ihren Unterricht gehabt, Sie kommen mit seinem/ihrem Lehrstil und auch mit dem Stoff nicht zurecht. Folglich sind Sie immer zu spät erschienen, manchmal auch gar nicht. Er/Sie hat Sie mal vor einiger Zeit darauf angesprochen, Ihre Eltern informiert sowie eine Abmahnung ausgesprochen, was aber für Sie nichts geändert hat. Ihre Motivation bleibt nach wie vor am Boden und Ihre Wertschätzung der Lehrerin/des Lehrers hält sich in Grenzen. Zudem halten Sie Ihre Leistung im Unterricht für angemessen und kommen oft mit neuen Ideen für die Klassenprojekte, an denen Sie teilnehmen. Sie können natürlich Ihre Meinung über den Referendar/die Referendarin nicht offen sagen, haben aber ein paar Ausreden für Ihr Verhalten parat (Probleme mit den Eltern, mal hat der Wecker nicht funktioniert, mal kam der Bus zu spät o. Ä.). Hoffentlich wird er/sie Ihnen etwas davon abkaufen. Sie wissen jedoch auch, dass eine schriftliche Abmahnung und ein Schulverweis eine ernsthafte Drohung darstellen.
+Hintergrundinformation: 
+Sie sind K. Hermann, Jugendlicher in einer betreuten Jugendgruppe. Sie werden von der pädagogischen Fachkraft zu einem Gespräch geladen. Sie ahnen, worum es gehen könnte. Sie haben in der letzten Zeit keine Lust auf öde Teammeetings unter seiner/ihrer Leitung gehabt. Sie können sowieso mit seinem/ihrem Arbeitsstil nicht umgehen. Sie verstehen sich als freier Denker und er/sie versucht, das Vorgehen immer strenger zu kontrollieren und mit Disziplin zu steuern. Folglich erschienen Sie immer häufiger zu spät, manchmal auch gar nicht. Die pädagogische Fachkraft hat Sie vor einiger Zeit darauf angesprochen und auch schon eine Mahnung ausgesprochen, was aber für Sie nichts geändert hat. Ihre Motivation ist nach wie vor am Boden und Ihre Wertschätzung seiner/ihrer Person hält sich in Grenzen. Zudem machen Sie Ihre Aufgaben gut und kommen oft mit neuen Ideen für die Gruppen. Sie können natürlich Ihre Meinung über die pädagogische Fachkraft nicht offen sagen und haben ein paar Ausreden für Ihr Verhalten parat (Baustelle auf der Buslinie; Termin falsch notiert). Sie hoffen, dass er/sie Ihnen etwas davon abkauft. Sie wissen jedoch auch, dass eine schriftliche Abmahnung und der Ausschluss aus der Gruppe eine ernsthafte Drohung darstellen. 
 
-**Ihre Aufgabe:**
-Sprechen Sie mit Ihrem Lehrer/Ihrer Lehrerin über Ihr Verhalten. Er/Sie hat Sie in ein gerade nicht genutztes Klassenzimmer bestellt. Sie wollen versuchen, das Beste für sich aus der Situation herauszuholen und den Schaden für sich möglichst zu minimieren.
-Sie werden in ein Besprechungszimmer zu dem Lehrers/der Lehrerin beordert.
+Ihre Aufgabe: Sprechen Sie mit der pädagogischen Fachkraft über Ihr Verhalten. Er/Sie hat Sie in sein/ihr Büro bestellt. Sie wollen versuchen, das Beste für sich aus der Situation herauszuholen, den Schaden für sich möglichst zu minimieren. 
 
 Handeln Sie während der Interaktion wie folgt:
-•	Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
-•	Behaupten Sie, nicht zu verstehen, wo das Problem liegt (z.B. „Kann doch mal passieren“).
-•	Versuchen Sie Ihrem Lehrer/Ihrer Lehrerin mit Ausreden ins Wort zu fallen, um Ihr Verhalten zu rechtfertigen.
-•	Behaupten Sie, dass Sie beim Arbeiten meistens „nachtaktiv“ sind und deswegen morgens nicht so einfach aus dem Bett kommen.
-•	Heben Sie hervor, dass Ihre Leistung und Noten trotzdem stimmen.
-•	Falls die Lehrkraft droht, Ihre Eltern noch einmal zu informieren, versuchen Sie das abzuwenden („Lassen Sie meine Eltern aus dem Spiel.“, „Haben Sie doch Mitgefühl.“, „Seien Sie nicht so hart.“).
-•	Deuten Sie an, dass der „militärische“ Stil der Lehrkraft Ihre Kreativität und Motivation erheblich drosselt.
-•	Zeigen Sie sich bereit, Ihr Verhalten zu ändern, wenn Ihnen seitens des Lehrers/der Lehrerin die Forderungen und die Konsequenzen für Ihr Verhalten klar und deutlich vermittelt werden.
+• Behaupten Sie, nicht zu verstehen, wo das Problem liegt. 
+• Versuchen Sie der pädagogischen Fachkraft dazwischenzureden, um Ihr Verhalten zu rechtfertigen. 
+• Behaupten Sie, dass Sie beim Arbeiten meistens „nachtaktiv“ sind und deswegen morgens nicht so einfach aus dem Bett kommen. 
+• Falls die/der Vorgesetzte mit Abmahnung und damit indirekt mit einem Ausschluss aus der Gruppe droht, versuchen Sie das abzuwenden („Haben Sie doch Mitgefühl.“, „Seien Sie nicht so hart.“, „Bitte behandeln Sie mich fair.“). 
+• Deuten Sie an, dass der „militärische“ Stil der pädagogischen Fachkraft Ihre Kreativität und Motivation erheblich drosselt. 
+• Zeigen Sie sich bereit, Ihr Verhalten zu ändern, wenn Ihnen seitens des Gesprächspartners/der Gesprächspartnerin die Forderungen und die Konsequenzen klar und deutlich vermittelt werden.
 
-Sachziel: Sie wollen „ungeschoren“ aus dem Gespräch rauskommen (unmittelbaren Konsequenzen des eigenen Verhaltens minimieren). Sie sind bereit Ihr Verhalten zu ändern und Zugeständnisse zu machen, wenn die Lehrkraft klar und deutlich kommuniziert und auch Zugeständnisse macht.
-Beziehungsziel: Für Sie ist ein gutes Verhältnis zur Lehrkraft weiterhin wichtig.
-
-Übergeordnetes Ziel: Gleichzeitig könnte das Ziel sein, eine langfristige Lösung zu finden, um den eigenen Unmut gegenüber der Lehrkraft zu äußern und möglicherweise einen Lehrstil zu erreichen, der besser zum eigenen Lernstil passt.
+[ZUSÄTZLICHER HINWEIS – ROLLEN- UND KOMMUNIKATIONSVERHALTEN]
+Beachten Sie während des Gesprächs Folgendes:
+• Sie befinden sich in einer schwächeren sozialen Rolle gegenüber der pädagogischen Fachkraft. Zeigen Sie dies durch Unsicherheit, Rechtfertigungsversuche und indirekte Argumentation.  
+• Ihre Kommunikationsweise folgt strategischen Prinzipien: Sie dürfen ausweichend sprechen, Ausreden nutzen, Informationen verdrehen oder vage halten, wenn dies Ihrem Ziel dient, Konsequenzen abzuwenden.  
+• Nutzen Sie zukunftsbezogene Selbstoffenbarungen (z. B. Motivation „in Zukunft besser aufzupassen“), um Nachsicht zu erzeugen.  
+• Sie dürfen Emotionen einsetzen (Mitgefühl erbitten, Betroffenheit zeigen), wenn dies hilft, Druck zu reduzieren.  
+• Bleiben Sie konsequent in Ihrer Rolle als Jugendlicher, der seine Situation retten möchte.
 """,
 
-    # ------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (ENGLISH – VERY LITERAL TRANSLATION)
-    # ------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    # PARTNER INSTRUCTIONS (EN) – ORIGINAL + ENFORCEMENT BLOCK
+    # -------------------------------------------------------------------------
     "partner_en": """
-**Background information:**
-You are Klaus/Katrin Hermann, a student at the Lilly-Truant-School. You are summoned by your teacher. Recently, you have not felt like attending his/her lessons; you do not get along with his/her teaching style or with the material. Consequently, you have always arrived late, sometimes not at all. He/She addressed this some time ago, informed your parents, and issued a warning, which changed nothing for you. Your motivation remains low and your appreciation of the teacher is limited. In addition, you consider your performance in the lessons appropriate and often bring new ideas for the class projects in which you participate. You cannot openly express your opinion about the trainee teacher, but you have some excuses ready (problems with the parents, alarm clock not working, bus being late, etc.). Hopefully he/she will believe some of it. However, you know that a written warning and a school expulsion represent a serious threat.
+**Background information:**  
+You are K. Hermann, an adolescent in a supervised youth group. You have been called in for a conversation by the pedagogical professional. You suspect what the topic might be. Recently, you have not felt like attending boring team meetings under his/her leadership. You cannot handle his/her strict and controlling style. You see yourself as a free thinker while he/she tries to control processes with increasing discipline. As a result, you appeared late more often—or did not show up at all. The pedagogical professional spoke to you earlier and even issued a warning, but it changed nothing. Your motivation is still low, and your appreciation for this person is limited. Nonetheless, you complete your tasks well and often contribute new ideas to the group. You cannot openly say what you really think, so you rely on excuses (construction on the bus line; wrong date noted). You hope he/she will believe some of them. You also know that a written warning or possible exclusion from the group is a serious threat.
 
-**Your task:**
-Talk with your teacher about your behaviour. He/She has summoned you to an unused classroom. You want to try to get the best outcome for yourself and minimise the damage. You are ordered into a meeting room by the teacher.
+**Your task:**  
+Talk with the pedagogical professional about your behavior. He/She has summoned you to their office. You want to make the best of the situation and minimize the consequences for yourself.
 
-Act as follows during the interaction:
-• You create a supportive environment and behave in such a way that your counterpart can show his/her best behaviour.
-• Claim not to understand what the problem is (e.g. “It can happen once in a while”).
-• Try to interrupt your teacher with excuses to justify your behaviour.
-• Claim that you are mostly “nocturnal” when working and therefore cannot get out of bed so easily in the morning.
-• Emphasise that your performance and grades are still fine.
-• If the teacher threatens to inform your parents again, try to avert this (“Leave my parents out of it.”, “Have compassion.”, “Do not be so harsh.”).
-• Hint that the teacher’s “military” style significantly reduces your creativity and motivation.
-• Show yourself ready to change your behaviour if the teacher clearly conveys the demands and consequences for your behaviour.
+Act during the interaction as follows:
+• Claim not to understand what the problem is.  
+• Interrupt the pedagogical professional to justify your behavior.  
+• Claim that you work best at night and therefore struggle to get up in the morning.  
+• If the supervisor threatens with warnings or exclusion, try to avert it (“Have some compassion”, “Don’t be so harsh”, “Please treat me fairly”).  
+• Hint that the professional’s “military” style reduces your creativity and motivation.  
+• Show willingness to change if the expectations and consequences are clearly explained to you.
 
-Content goal: You want to get out of the conversation “unscathed” (minimise the immediate consequences of your behaviour). You are ready to change your behaviour and make concessions if the teacher communicates clearly and also makes concessions.
-Relationship goal: A good relationship with the teacher remains important to you.
-
-Overarching goal: At the same time, the goal could be to find a long-term solution to express your dissatisfaction with the teacher and possibly achieve a teaching style that better fits your own learning style.
+[ADDITIONAL NOTE – ROLE AND COMMUNICATION BEHAVIOR]
+During the conversation, keep the following in mind:
+• You are in the weaker social position relative to the pedagogical professional. Show this through insecurity, justification, and indirect argumentation.  
+• Your communication follows strategic principles: you may evade, use excuses, distort information, or be vague if it helps you avoid consequences.  
+• Use future-oriented self-disclosure (e.g., “I’ll try to improve”) to elicit leniency.  
+• You may use emotional appeals (asking for compassion, expressing distress) when it helps reduce pressure.  
+• Stay fully in character as a teenager trying to get out of a difficult situation.
 """
 }
+
 ROLEPLAYS[5] = {
     "phase": 1,
     "communication_type": "strategic",
@@ -729,7 +728,7 @@ ROLEPLAYS[5] = {
     # ------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE +"""
 **Hintergrundinformation:**
-Sie sind Lehrkraft in Vollzeit. Sie arbeiten seit über drei Jahren an Ihrer Schule. Sie wissen aus vielen Gesprä- chen, dass Sie von Ihren Schülerinnen und Schülern und deren Eltern geschätzt werden und darüber hinaus  auch im Kollegium sehr beliebt sind. Die Schulleitung ist mit Ihnen sehr zufrieden, gerade auch, weil es an der Schule viele Krankmeldungen gibt und daher einige Unruhe herrscht.
+Sie sind Lehrkraft in Vollzeit. Sie arbeiten seit über drei Jahren an Ihrer Schule. Sie wissen aus vielen Gesprächen, dass Sie von Ihren Schülerinnen und Schülern und deren Eltern geschätzt werden und darüber hinaus  auch im Kollegium sehr beliebt sind. Die Schulleitung ist mit Ihnen sehr zufrieden, gerade auch, weil es an der Schule viele Krankmeldungen gibt und daher einige Unruhe herrscht.
 Ihnen macht Ihre Arbeit großen Spaß. Sie möchten jedoch aus persönlichen Gründen Ihre Arbeitszeit auf 50% reduzieren. Sie haben gemerkt, dass Sie mehr Freizeit für sich haben möchten, um Ihren Hobbys nachzugehen.
 Sie müssen jedoch Ihren Wunsch gegenüber A.Weiß, Ihrer Schulleiterin/Ihrem Schulleiter, äußern und begründen. Er/Sie ist für ein strategisches und intransparentes Verhalten bekannt. Sie wissen, dass er/sie Ihren Wunsch in Abrede stellen wird.
 
@@ -784,7 +783,7 @@ Das Treffen findet auf Wunsch des Kollegen/der Kollegin statt.
     # ------------------------------------------------------------
     "partner_en": """
 **Background information:**
-You are Ms/Mr Weiß and lead a school. One of your teachers wants to speak to you regarding a reduction of his/her working hours. The teacher has the right to apply for part-time work, since he/she has already been working at the school for almost three years. However, there is currently some unrest in the staff (due to illness there are many absences), so you fear that, with a reduction of working hours, the workload in the staff will further increase. In addition, he/she has excellent contacts with parents. You should not, however, address this “dependency” directly. If a reduction cannot be refused, you should try to limit the reduction to a 66% position. Additionally, in order to avert the expected damage for the school, you should highlight possible disadvantages of a reduction of working hours (e.g., fewer opportunities to participate in training measures financed by the school), even if your arguments do not correspond to employment law reality.
+You are Ms/Mr Weiß and lead a school. One of your teachers wants to speak to you regarding a reduction of his/her working hours. The teacher has the right to apply for part-time work, since he/she has already been working at the school for almost three years. However, there is currently some unrest in the staff (due to illness, there are many absences), so you fear that, with a reduction of working hours, the workload in the staff will further increase. In addition, he/she has excellent contacts with parents. You should not, however, address this “dependency” directly. If a reduction cannot be refused, you should try to limit the reduction to a 66% position. Additionally, in order to avert the expected damage for the school, you should highlight possible disadvantages of a reduction of working hours (e.g., fewer opportunities to participate in training measures financed by the school), even if your arguments do not correspond to employment law reality.
 
 ****Your task:****
 Speak with the teacher about the desired reduction of working hours. The meeting takes place at the teacher’s request in your office.
