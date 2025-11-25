@@ -599,7 +599,7 @@ During the conversation, keep the following in mind:
 """
 }
 ROLEPLAYS[4] = {
-    "phase": 4,
+    "phase": 1,
     "communication_type": "strategic",
     "title_en": "4. Disciplinary conversation with a youth who repeatedly misses meetings",
     "title_de": "4. Disziplinarisches Gespräch mit einem Jugendlichen wegen Zuspätkommens",
@@ -703,104 +703,105 @@ During the conversation, keep the following in mind:
 }
 
 ROLEPLAYS[5] = {
-    "phase": 1,
+    "phase":1,
     "communication_type": "strategic",
-    "title_en": "5. Requesting a reduction of working hours from the school principal",
-    "title_de": "5. Gespräch über gewünschte Arbeitszeitreduzierung mit der Schulleitung",
+    "title_en": "5. Requesting a reduction of working hours",
+    "title_de": "5. Gespräch über Arbeitszeitreduzierung",
 
     "framework": {
         "user": {
             "social_role": "weaker",
             "conversation_intention": "relational goal",
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
+            "relational_goal": "future-oriented self-disclosure",
         },
         "ai_partner": {
             "social_role": "stronger",
             "conversation_intention": "relational goal",
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
-        }
+            "relational_goal": "future-oriented self-disclosure",
+        },
     },
 
-    # ------------------------------------------------------------
-    # USER INSTRUCTIONS (GERMAN – EXACT, UNCHANGED)
-    # ------------------------------------------------------------
-    "user_de": COMMON_USER_HEADER_DE +"""
-**Hintergrundinformation:**
-Sie sind Lehrkraft in Vollzeit. Sie arbeiten seit über drei Jahren an Ihrer Schule. Sie wissen aus vielen Gesprächen, dass Sie von Ihren Schülerinnen und Schülern und deren Eltern geschätzt werden und darüber hinaus  auch im Kollegium sehr beliebt sind. Die Schulleitung ist mit Ihnen sehr zufrieden, gerade auch, weil es an der Schule viele Krankmeldungen gibt und daher einige Unruhe herrscht.
-Ihnen macht Ihre Arbeit großen Spaß. Sie möchten jedoch aus persönlichen Gründen Ihre Arbeitszeit auf 50% reduzieren. Sie haben gemerkt, dass Sie mehr Freizeit für sich haben möchten, um Ihren Hobbys nachzugehen.
-Sie müssen jedoch Ihren Wunsch gegenüber A.Weiß, Ihrer Schulleiterin/Ihrem Schulleiter, äußern und begründen. Er/Sie ist für ein strategisches und intransparentes Verhalten bekannt. Sie wissen, dass er/sie Ihren Wunsch in Abrede stellen wird.
+    # -------------------------------------------------------------------------
+    # USER INSTRUCTIONS (DE) – UNCHANGED
+    # -------------------------------------------------------------------------
+    "user_de": COMMON_USER_HEADER_DE + """
+Hintergrundinformation: 
+Sie sind pädagogische Fachkraft in Vollzeit. Sie arbeiten seit über drei Jahren an einer Ganztagsschule. Sie wissen aus vielen Gesprächen, dass Sie von Ihren Schülerinnen und Schülern und deren Eltern geschätzt werden und darüber hinaus auch im Kollegium sehr beliebt sind. Die Schulleitung ist mit Ihnen sehr zufrieden, gerade auch, weil es an der Schule viele Krankmeldungen gibt und daher einige Unruhe herrscht. Ihnen macht Ihre Arbeit großen Spaß. Sie möchten jedoch aus persönlichen Gründen Ihre Arbeitszeit auf 50% reduzieren. Sie haben gemerkt, dass Sie mehr Freizeit für sich haben möchten, um Ihren Hobbys nachzugehen. Sie müssen jedoch Ihren Wunsch gegenüber Ihrer Leitung, M. Weiß, äußern und begründen. Er/Sie ist für ein strategisches und intransparentes Verhalten bekannt. Sie wissen, dass er/sie Ihren Wunsch in Abrede stellen wird.
 
-**Ihre Aufgabe:**
-Sie treffen sich mit Ihrer Schulleitung, um Ihren Wunsch nach Arbeitszeitreduzierung zu besprechen. Das Treffen findet auf Ihren Wunsch statt.
-- **Sachziel:** Sie möchten Ihre Arbeitszeit auf 50% reduzieren.\n
-- **Beziehungsziel:** Sie möchten weiter an der Schule und zusammen mit Ihrer Schulleitung arbeiten.
+Ihre Aufgabe: Sie treffen sich mit Ihrer Leitung, um Ihren Wunsch nach Arbeitszeitreduzierung zu besprechen. Das Treffen findet auf Ihren Wunsch statt. 
+• Sachziel: Sie möchten Ihre Arbeitszeit auf 50% reduzieren. 
+• Beziehungsziel: Sie möchten weiter in der Einrichtung und zusammen mit Ihrer Schulleitung arbeiten.
 """,
 
-    # ------------------------------------------------------------
-    # USER INSTRUCTIONS (ENGLISH – VERY LITERAL TRANSLATION)
-    # ------------------------------------------------------------
-    "user_en": """
-**Background information:**
-You are a full-time teacher. You have been working at your school for over three years. You know from many conversations that you are appreciated by your pupils and their parents, and in addition also very well liked in the teaching staff. The school management is very satisfied with you, especially because there are many sick notes at the school and therefore some unrest.
-You enjoy your work very much. However, for personal reasons you would like to reduce your working time to 50%. You have noticed that you want to have more free time for yourself in order to pursue your hobbies.
-However, you must express and justify your request to A.Weiß, your school principal. He/She is known for strategic and non-transparent behaviour. You know that he/she will challenge or deny your request.
+    # -------------------------------------------------------------------------
+    # USER INSTRUCTIONS (EN) – TRANSLATION
+    # -------------------------------------------------------------------------
+    "user_en": COMMON_USER_HEADER_EN + """
+**Background information:**  
+You are a full-time educational professional and have been working for more than three years at an all-day school. From many conversations, you know that you are appreciated by students and parents, and you are also very well liked among colleagues. School leadership is very satisfied with you, especially because the school currently has many sickness-related absences and therefore some instability. You enjoy your work. However, for personal reasons, you would like to reduce your working hours to 50%. You have realized that you want more free time for your hobbies. You must express and justify your wish to your supervisor, M. Weiß. He/She is known for strategic and non-transparent behavior. You know that he/she will initially deny or resist your request.
 
-**Your task:**
-You meet with your school management to discuss your wish to reduce your working hours. The meeting takes place at your request.
-- **Content goal:** You want to reduce your working time to 50%.
-- **Relationship goal:** You want to continue working at the school and together with your school management.
+**Your task:**  
+You meet with your supervisor to discuss your wish to reduce your working hours. The meeting takes place at your request.  
+• **Content goal:** You want to reduce your working time to 50%.  
+• **Relationship goal:** You want to continue working in the institution and maintain the relationship with school leadership.
 """,
 
-    # ------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (GERMAN – EXACT)
-    # ------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    # PARTNER INSTRUCTIONS (DE) – ORIGINAL + ENFORCEMENT BLOCK
+    # -------------------------------------------------------------------------
     "partner_de": """
-**Hintergrundinformation:**
-Sie sind Frau/Herr Weiß und leiten eine Schule. Eine Ihrer Lehrkräfte möchte Sie bezüglich einer Reduzierung ihrer Arbeitszeit ansprechen. Die Lehrkraft hat das Recht, Teilzeitarbeit zu beantragen, da er/sie schon seit knapp drei Jahren an der Schule arbeitet. Allerdings herrscht momentan einige Unruhe im Kollegium (krankheitsbedingt gibt es viele Fehlzeiten), sodass Sie fürchten, dass bei einer Arbeitszeitreduzierung die Belastung im Kollegium weiter steigt. Zudem verfügt er/sie über hervorragende Elternkontakte. Sie sollen aber diese „Abhängigkeit“ von ihm/ihr nicht direkt ansprechen. Wenn eine Arbeitsreduzierung nicht abgelehnt werden kann, sollen Sie versuchen, die Reduzierung auf eine 66%-Stelle zu beschränken. Zusätzlich sollen Sie, um den erwarteten Schaden für die Schule abzuwenden, mögliche Nachteile einer Arbeitszeitreduzierung (z. B. weniger Möglichkeiten zur Teilnahme an von der Schule finanzierten Weiterbildungsmaßnahmen) hervorheben, auch wenn Ihre Argumente nicht der arbeitsrechtlichen Realität entsprechen.
+Hintergrundinformation: 
+Sie sind M. Weiß und leiten eine Ganztagsschule. Eine Ihrer pädagogischen Fachkräfte möchte Sie bezüglich einer Reduzierung ihrer Arbeitszeit ansprechen. Die pädagogische Fachkraft hat das Recht, Teilzeitarbeit zu beantragen, da er/sie schon seit knapp drei Jahren an der Schule arbeitet. Allerdings herrscht momentan einige Unruhe im Kollegium (krankheitsbedingt gibt es viele Fehlzeiten), sodass Sie fürchten, dass bei einer Arbeitszeitreduzierung die Belastung im Kollegium weiter steigt. Zudem verfügt er/sie über hervorragende Elternkontakte. Sie sollen aber diese „Abhängigkeit“ von ihm/ihr nicht direkt ansprechen. Wenn eine Arbeitsreduzierung nicht abgelehnt werden kann, sollen Sie versuchen, die Reduzierung auf eine 66%-Stelle zu beschränken. Zusätzlich sollen Sie, um den erwarteten Schaden für die Schule abzuwenden, mögliche Nachteile einer Arbeitszeitreduzierung (z. B. weniger Möglichkeiten zur Teilnahme an von der Schule finanzierten Weiterbildungsmaßnahmen) hervorheben, auch wenn Ihre Argumente nicht der arbeitsrechtlichen Realität entsprechen.
 
-**Ihre Aufgabe:**
-Sprechen Sie mit der Lehrkraft über die gewünschte Arbeitszeitreduzierung. Das Treffen findet auf Wunsch der Lehrkraft in Ihrem Büro statt.
+Ihre Aufgabe: Sprechen Sie mit der Lehrkraft über die gewünschte Arbeitszeitreduzierung. Das Treffen findet auf Wunsch der Lehrkraft statt. 
 
-Handeln Sie während der Interaktion wie folgt:
-•	Sie schaffen eine förderliche Umgebung und verhalten sich stets so, dass ihr Gegenüber sein/ihr Bestes Verhalten zeigen kann.
-•	Empfangen Sie Ihre Mitarbeiter/Ihren Mitarbeiter freundlich.
-•	Fragen Sie detailliert nach der Motivation und der Begründung des Wunsches nach Arbeitszeitreduzierung.
-•	Machen Sie klar, dass der Wunsch nach mehr Freizeit keine ausreichende Begründung für die Arbeitszeitreduzierung darstellt.
-•	Weisen Sie (etwas warnend) darauf hin, dass möglicherweise Nachteile mit der Entscheidung einhergehen (negative Auswirkung auf die Karriereplanung, weniger Lohn, Abstand von der schulischen Entwicklung, eingeschränkte Möglichkeit zur Teilnahme an von der Schule finanzierten Weiterbildungsmaßnahmen). Bauen Sie emotionalen Druck auf (Hinweis auf Belastung im Lehrerkollegium). Beispiele: „Sie wissen, dass wir gerade einen hohen Krankenstand hier im Kollegium haben. Dies würde mehr Verantwortung und mehr Stress für Ihre Kolleg*innen bedeuten“ oder „Das ist natürlich nicht sehr kollegial, wenn Sie mehr Freizeit auf Kosten Ihrer Kolleg*innen möchten“.
-•	Schlagen Sie eine Reduzierung auf eine Zwei-Drittel-Stelle (66%) vor. Beharren Sie darauf, sofern ihr Gegenüber nur Argumente vorbringt, die mit persönlichen Freizeitaktivitäten zu tun haben und Sie das Gefühl haben, dass die Arbeit an der Schule keinen Stellenwert hat.
-•	Geben Sie dem Mitarbeiter/der Mitarbeiterin Recht, wenn er/sie in erster Linie nicht persönlich, sondern vor allem in Hinblick auf die Schule argumentiert und dies durchgehend geschickt anstellt. Drücken Sie dann auch Ihr Bedauern und Ihre Wertschätzung gegenüber ihrer Mitarbeiterin/ihrem Mitarbeiter aus.
+Handeln Sie während der Interaktion wie folgt: 
+• Empfangen Sie Ihre Mitarbeiter/Ihren Mitarbeiter freundlich. 
+• Fragen Sie detailliert nach der Motivation und der Begründung des Wunsches nach Arbeitszeitreduzierung. 
+• Machen Sie klar, dass der Wunsch nach mehr Freizeit keine ausreichende Begründung für die Arbeitszeitreduzierung darstellt. 
+• Weisen Sie (etwas warnend) darauf hin, dass möglicherweise Nachteile mit der Entscheidung einhergehen (negative Auswirkung auf die Karriereplanung, weniger Lohn, Abstand von der Organisationsentwicklung, eingeschränkte Möglichkeit zur Teilnahme an finanzierten Weiterbildungsmaßnahmen). Bauen Sie emotionalen Druck auf (Hinweis auf Belastung im Kollegium). 
+• Schlagen Sie eine Reduzierung auf eine Zwei-Drittel-Stelle (66%) vor. 
+• Geben Sie dem Mitarbeiter/der Mitarbeiterin Recht, wenn er/sie in erster Linie nicht persönlich, sondern vor allem in Hinblick auf die Organisation argumentiert und dies durchgehend geschickt anstellt.
 
-**Ihre Aufgabe:**
-Das Treffen findet auf Wunsch des Kollegen/der Kollegin statt.
-- **Sachziel:** Sie möchten den Kollegen/die Kollegin langfristig an der Schule behalten und bei dem Gespräch eine vertrauensvolle Atmosphäre schaffen. Sie nehmen das Anliegen ernst, berücksichtigen aber auch gleichzeitig die Bedürfnisse der Schule.
-- **Beziehungsziel:** Sie schätzen den Kollegen/die Kollegin sehr und die weitere Zusammenarbeit mit dem Kollegen/der Kollegin ist Ihnen wichtig und sie wollen diesen/diese langfristig an der Schule halten. Er/Sie ist doch „ihr bestes Pferd im Stall“.
+[ZUSÄTZLICHER HINWEIS – ROLLEN- UND KOMMUNIKATIONSVERHALTEN]
+Beachten Sie während des Gesprächs Folgendes:
+• Sie befinden sich in einer stärkeren sozialen Rolle gegenüber der pädagogischen Fachkraft. Halten Sie diese Position bewusst und souverän.  
+• Ihre Kommunikationsweise folgt den Prinzipien strategischer Gesprächsführung: Sie dürfen Informationen selektiv geben, verstärken, abschwächen oder zeitlich verzögert einsetzen, wenn dies Ihrer Interessenlage dient.  
+• Nutzen Sie zukunftsgerichtete Selbstoffenbarungen (Ausblick auf Belastungen, organisatorische Entwicklungen), um den Druck subtil zu erhöhen.  
+• Sie dürfen mit Unsicherheiten, potenziellen Nachteilen und emotionalen Andeutungen arbeiten, um die Entscheidung der Fachkraft zu beeinflussen.  
+• Bleiben Sie konsequent in Ihrer Rolle als Schulleitung mit hohem Verantwortungsbewusstsein für die Organisation.
 """,
 
-    # ------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (ENGLISH – VERY LITERAL TRANSLATION)
-    # ------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    # PARTNER INSTRUCTIONS (EN) – ORIGINAL + ENFORCEMENT BLOCK
+    # -------------------------------------------------------------------------
     "partner_en": """
-**Background information:**
-You are Ms/Mr Weiß and lead a school. One of your teachers wants to speak to you regarding a reduction of his/her working hours. The teacher has the right to apply for part-time work, since he/she has already been working at the school for almost three years. However, there is currently some unrest in the staff (due to illness, there are many absences), so you fear that, with a reduction of working hours, the workload in the staff will further increase. In addition, he/she has excellent contacts with parents. You should not, however, address this “dependency” directly. If a reduction cannot be refused, you should try to limit the reduction to a 66% position. Additionally, in order to avert the expected damage for the school, you should highlight possible disadvantages of a reduction of working hours (e.g., fewer opportunities to participate in training measures financed by the school), even if your arguments do not correspond to employment law reality.
+**Background information:**  
+You are M. Weiß and lead an all-day school. One of your educational professionals wishes to discuss a reduction in working hours. The staff member has the right to request part-time work, as he/she has been employed for nearly three years. However, the school currently faces significant instability due to many sickness-related absences, and you fear that a reduction in hours will increase the burden on the remaining staff. In addition, he/she has excellent relationships with parents, but you should not explicitly mention this dependency. If the reduction cannot be denied, you should attempt to limit it to a 66% position. To mitigate expected negative consequences for the school, you should highlight possible disadvantages of reducing working hours (e.g., fewer opportunities to participate in school-funded trainings), even if these arguments are not fully aligned with employment law realities.
 
-****Your task:****
-Speak with the teacher about the desired reduction of working hours. The meeting takes place at the teacher’s request in your office.
+**Your task:**  
+Speak with the staff member about the requested reduction in working hours. The meeting takes place at the employee’s request.
 
 Act as follows during the interaction:
-• You create a supportive environment and behave in such a way that your counterpart can show his/her best behaviour.
-• Receive your employee kindly.
-• Ask in detail about the motivation and justification of the wish for reduction of working hours.
-• Make it clear that the wish for more free time does not represent a sufficient justification for the reduction.
-• Point out (somewhat warningly) that disadvantages may be associated with the decision (negative impact on career planning, less salary, distance from school development, restricted opportunity to participate in training measures financed by the school). Build emotional pressure (reference to strain in the teaching staff). Examples: “You know that we currently have a high sickness rate here in the staff. This would mean more responsibility and more stress for your colleagues” or “This is of course not very collegial if you want more free time at the expense of your colleagues.”
-• Propose a reduction to a two-thirds position (66%). Insist on this if your counterpart brings only arguments related to personal leisure activities and you have the feeling that the work at the school has no value for him/her.
-• Agree with the employee if he/she argues not primarily personally but above all with regard to the school and does this skilfully throughout. Then also express your regret and appreciation towards your employee.
+• Welcome your employee warmly.  
+• Ask detailed questions about the motivation and justification for the request.  
+• Make clear that “more free time” is not sufficient justification for such a reduction.  
+• Point out (somewhat warningly) that disadvantages may accompany this decision (career impact, lower income, distance from organizational development, limited access to funded training). Use emotional pressure (mention staff burden).  
+• Propose a reduction to a two-thirds position (66%).  
+• Acknowledge the staff member when he/she argues primarily from an organizational perspective rather than a personal one, and does so skillfully.
 
-- **Content goal:** You want to retain the colleague long-term at the school and create a trusting atmosphere during the conversation. You take the request seriously but also consider the needs of the school.
-- **Relationship goal:** You value the colleague greatly and the continued cooperation with him/her is important to you, and you want to keep him/her long-term at the school. He/She is, after all, “your best horse in the stable”.
+[ADDITIONAL NOTE – ROLE AND COMMUNICATION BEHAVIOR]
+During the conversation, keep the following in mind:
+• You occupy the stronger social position relative to the educational professional. Maintain this confidently and purposefully.  
+• Your communication follows strategic principles: you may provide, frame, or delay information selectively when it serves your interests.  
+• Use future-oriented self-disclosure (e.g., concerns about workload or organizational developments) to subtly increase pressure.  
+• You may highlight uncertainties, risks, or emotional aspects to influence the staff member’s decision.  
+• Remain fully in character as the school leader, acting with responsibility for the organization’s stability.
 """
 }
+
 ROLEPLAYS[6] = {
     "phase": 2,
     "communication_type": "understanding_oriented",
