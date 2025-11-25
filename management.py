@@ -381,110 +381,96 @@ Act as follows:
 }
 
 ROLEPLAYS[2] = {
-    "phase": 1,
+    "phase": 2,
     "communication_type": "strategic",
-    "title_en": "2. Advising a student on choosing between AGs (Theater-AG vs. Judo-AG)",
-    "title_de": "2. Beratung eines Schülers zur Wahl zwischen Theater-AG und Judo-AG",
+    "title_en": "2. Advising a dual student on choosing the next placement area",
+    "title_de": "2. Beratung eines dual Studierenden zur Wahl des nächsten Einsatzgebiets",
 
+    # Framework for the trainer logic
     "framework": {
         "user": {
             "social_role": "stronger",
             "conversation_intention": "relational goal",
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
+            "relational_goal": "future-oriented self-disclosure",
         },
         "ai_partner": {
             "social_role": "weaker",
             "conversation_intention": "relational goal",
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
-        }
+            "relational_goal": "future-oriented self-disclosure",
+        },
     },
 
-    # ------------------------------------------------------------
-    # USER INSTRUCTIONS (GERMAN, EXACT – UNTOUCHED)
-    # ------------------------------------------------------------
-    "user_de":COMMON_USER_HEADER_DE + """
+    # -------------------------------------------------------------------------
+    # USER INSTRUCTIONS (DE) – EXACT, UNCHANGED
+    # -------------------------------------------------------------------------
+    "user_de": COMMON_USER_HEADER_DE + """
+Hintergrundinformation: 
+Sie sind pädagogische Ansprechpartnerin/fachlicher Ansprechpartner für Studierende im berufsbegleitenden dualen Studium bei dem mittelständischen Unternehmen Digits Matter GmbH. Im Rahmen Ihrer Tätigkeit beraten Sie Alex Pflüger, eine Studentin/einen Studenten, bezüglich ihrer/seiner nächsten Einsatzgebiete. Die Wahl des Einsatzgebietes in dieser Phase ist entscheidend für die Spezialisierung und den möglichen Berufseinstieg in die Firma nach dem Studium und daher wichtig. Es gehört zu Ihren pädagogischen Aufgaben eine gute Beratung für diese kritische Entscheidung anzubieten. Zugleich braucht das Unternehmen eine optimale Platzierung der Studierenden. Zudem wird Ihre Beratungsleistung in Abhängigkeit von der Leistung der von Ihnen beratenen Studierenden bewertet. Alex möchte als Nächstes in der Personalentwicklung arbeiten. Seine/Ihre bisherige Leistung weist jedoch darauf hin, dass er/sie sich eher für das Qualitätsmanagement eignet und somit in diesem Bereich eine bessere Leistungsentwicklung verspricht. Sie wissen aus vertraulicher Quelle, dass Alex in eine starke Abneigung gegen die Abteilungsleiterin des Qualitätsmanagements hat. Infolgedessen vermuten Sie, dass die Haltung eng hiermit zusammenhängt. Sie glauben allerdings gehört zu haben, dass die Abteilungsleiterin des Qualitätsmanagements eine positive Meinung über Alex hat. Trotz Ihres Verständnisses für Alex Haltung haben für Sie die optimale prospektive Besetzung Vorrang. Die Wahl des Einsatzgebiets soll Ihrer Ansicht nach der Eignung der Studierenden und nicht ihren/seinen persönlichen Befindlichkeiten entsprechen.
 
-**Hintergrundinformation:**
-Sie sind Lehrkraft an der Günter-Grass-Schule, die sich durch eine Vielzahl an Arbeitsgruppen (AGs) auszeichnet. Insbesondere die Theater-AG trägt zum positiven Image der Schule bei, da oftmals und ausführlich über die Aufführungen dieser AG in der lokalen Presse berichtet wird. Sie sind als Beratungslehrer/Beratungslehrerin an dieser Schule tätig. Es gehört zu Ihren pädagogischen Aufgaben, den Schülerinnen und Schülern eine gute Beratung anzubieten. Im Rahmen dieser Aufgabe beraten Sie in Ihrer Sprechstunde den Schüler/die Schülerin Jan/Jana Pflüger bezüglich seiner/ihrer bevorstehenden Wahl, an welcher AG er/sie sich künftig beteiligen will. Der Schüler/Die Schülerin hat großes schauspielerisches Talent, seine/ihre Entscheidung für die Theater AG hätte durchaus Einfluss auf das Ansehen der Schule. In Zeiten sinkender Schülerzahlen ist ein positives öffentliches Bild Ihrer Schule enorm wichtig. Außerdem wird Ihre Leistung in der Beratungsposition in einer externen Evaluation in Hinsicht auf eine erfolgreiche Außendarstellung der Schule bewertet.
-Der Schüler/Die Schülerin J möchte allerdings lieber an der Judo-AG teilnehmen, obwohl sportliche Betätigung ihm/ihr kaum liegt. Sie wissen aus vertraulicher Quelle, dass der Schüler/die Schülerin eine starke Abneigung gegen die Kollegin hat, die die Theater-AG leitet. Sie vermuten, dass die Bevorzugung der Judo-AG durch den Schüler/die Schülerin eng hiermit zusammenhängt. Sie glauben allerdings gehört zu haben, dass die Lehrerin der Theater-AG eine positive Meinung über den Schüler/die Schülerin hat.
-Trotz Ihres Verständnisses für den Schüler/die Schülerin haben für Sie die Reputation Ihrer Schule und die gute Bewertung Ihrer Leistung in der Beratungsposition Vorrang. Die Wahl der AG soll Ihrer Ansicht nach der Eignung des Schülers/der Schülerin und nicht seinen/ihren persönlichen Befindlichkeiten entsprechen.
+Ihre Aufgabe:
+Sie besprechen mit Alex über die bevorstehende Entscheidung. 
+Das Gespräch findet zu einem vorher angesetzten Beratungstermin in Ihrem Büro statt.
+• Sachziel: Versuchen Sie Alex dazu zu bringen, als nächstes Einsatzgebiet das Qualitätsmanagement zu wählen.
+• Beziehungsziel: Sie legen großen Wert darauf, dass Alex Sie als fürsorglich wahrnimmt. 
 
-**Ihre Aufgabe:**
-Sie besprechen mit dem Schüler/der Schülerin seine/ihre bevorstehende Entscheidung. Das Gespräch findet zu einem festgesetzten Beratungstermin in einem leerstehenden Klassenzimmer statt.
-
--  **Sachziel:** Versuchen Sie den Schüler/die Schülerin dazu zu bringen, die Theater-AG zu wählen.  
-- **Beziehungsziel:** Als Lehrer legen Sie Wert darauf, dass der Schüler/die Schülerin Sie als fürsorglichen Lehrer/in wahrnimmt.
+Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben ca. 5 Min. Zeit, um sich auf das Gespräch vorzubereiten. Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
+Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie selbst in einer solchen Situation wären.
 """,
 
-    # ------------------------------------------------------------
-    # USER INSTRUCTIONS (ENGLISH – literal translation, preserving AG terms)
-    # ------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    # USER INSTRUCTIONS (EN) – TRANSLATION
+    # -------------------------------------------------------------------------
+    "user_en": COMMON_USER_HEADER_EN + """
+**Background information:**  
+You are the pedagogical/contact advisor for students in the part-time dual study program at the medium-sized company Digits Matter GmbH. As part of your role, you advise Alex Pflüger, a student, regarding his/her next placement area. The choice of placement at this stage is decisive for specialization and for potential entry into the company after graduation. Providing sound guidance for this critical decision is one of your pedagogical responsibilities. At the same time, the company needs an optimal placement of students, and your advisory performance is evaluated based on the future performance of the students you advise. Alex would like to work in Human Resources Development next. However, his/her previous performance indicates that he/she is better suited for Quality Management and would therefore likely show better performance development in this area. You know from a confidential source that Alex has a strong aversion toward the head of the Quality Management department. You suspect that this aversion heavily influences his/her preference. However, you have also heard that the department head has a positive opinion of Alex. Even though you understand Alex’s position, for you the optimal prospective placement is the priority. In your view, the choice of placement should correspond to the student’s aptitude, not to his/her personal reservations.
+
+**Your task:**  
+You discuss the upcoming decision with Alex.  
+The meeting takes place during a scheduled advising appointment in your office.  
+• **Content goal:** Try to persuade Alex to choose Quality Management as the next placement area.  
+• **Relationship goal:** You place great importance on Alex perceiving you as caring.
+
+Please use the information provided below for conducting the conversation. You have about five minutes to prepare and up to ten minutes to conduct the conversation. Act in this situation as if you were truly in it.
+""",
+
+    # -------------------------------------------------------------------------
+    # AI PARTNER INSTRUCTIONS (DE) – EXACT, UNCHANGED
+    # -------------------------------------------------------------------------
     "partner_de": """
-Sie sind Jan/Jana Pflüger, Schüler/Schülerin an der Günter-Grass-Schule. Es stehen mehrere AGs zur Wahl, und insbesondere die Theater-AG ist für die öffentliche Außenwirkung der Schule bedeutsam. Andere haben Ihr Talent für Schauspiel bemerkt, und auch Sie selbst haben ein gewisses Interesse daran. Dennoch möchten Sie lieber an der Judo-AG teilnehmen. Der eigentliche Grund dafür ist Ihre persönliche Abneigung gegenüber der Leiterin der Theater-AG. Diesen wahren Grund möchten Sie jedoch nicht offen ansprechen.
+Hintergrundinformation:
+Sie sind Alex Pflüger, und studieren dual bei dem mittelständischen Unternehmen Digits Matter GmbH. Sie befinden sich im letzten Jahr vor Ihrem Abschluss und als Nächstes müssen Sie einen weiteren Einsatzbereich wählen. Obwohl Sie bessere Voraussetzungen (und auch fachliches Interesse) für den Bereich Qualitätsmanagement haben, möchten Sie Ihre Spezialisierung lieber im Bereich Personalentwicklung absolvieren. Der Grund dafür ist Ihre persönliche Abneigung gegenüber der Abteilungsleiterin im Qualitätsmanagement. Sie haben die Erfahrung gemacht, dass diese einen unangenehmen Führungsstil hat und an die Studierenden keine verantwortlichen Aufgaben delegiert. Sie sehen hier also nur begrenzte Möglichkeiten für eine persönliche Weiterentwicklung. Sie nehmen ein Beratungsgespräch bei der zuständigen Beratungsstelle in Anspruch, um die Situation zu besprechen sowie Ihren Wunsch zu reflektieren. Die Beraterin/Der Berater ist eigentlich ein sympathischer Mensch. Trotzdem haben Sie von anderen Studierenden gehört, dass er/sie sehr erfolgsorientiert vorgeht und dass persönliche Wünsche der Studierenden nach dem Erfolg des Unternehmens und der fachbezogenen optimalen Besetzung von Positionen für sie/ihn erst an zweiter Stelle stehen.
 
-Ihr Bild von der Beratungslehrkraft ist ambivalent: Sie finden sie/ihn sympathisch, haben jedoch gehört, dass sie/er sehr erfolgsorientiert handelt und die Interessen der Schule häufig vor die persönlichen Bedürfnisse der Schülerinnen und Schüler stellt.
+Ihre Aufgabe:
+Sie treffen sich mit der zuständigen Fachberatung, um Ihre Situation zu schildern und Ihren Wunsch zu klären. Die Beratung findet auf Ihre Bitte hin statt. Sie möchten die relevanten Informationen und die Meinung des Beraters/der Beraterin einholen, ohne den wahren Grund für Ihre Priorisierung direkt anzusprechen. Das Gespräch findet zu einem zuvor verabredeten Termin im Büro der beratenden Person statt.
 
-**Ihre Aufgabe im Gespräch:**
-• Sie erscheinen offen und bereit für das Beratungsgespräch.  
-• Sie schildern Ihre Situation und begründen Ihre Entscheidung für die gewünschte AG mit Ihrer Motivation.  
-• Sie deuten beiläufig Ihre Abneigung gegenüber der Leiterin der Theater-AG an, ohne den wahren Grund offen zu legen.  
-• Sie behaupten sich, zeigen jedoch Respekt, da die Beratungslehrkraft Einfluss auf Ihre schulische Entwicklung hat.  
-• Sie fragen, ob es für die Beratungslehrkraft wichtig ist, welche AG Sie wählen.  
-• Sie stellen als Bedingung für einen Wechsel in die Theater-AG, dass Sie dort Hauptrollen übernehmen dürfen.  
-• Wenn die Beratungslehrkraft ausschließlich Vorteile für Sie hervorhebt und zusichert, sich für Hauptrollen einzusetzen, gehen Sie auf den Vorschlag ein.  
-
-**Sachziel:**  
-Sie möchten erreichen, dass die Beratungslehrkraft Ihnen zusichert, sich bei der Leitung der Theater-AG für Sie einzusetzen. Gleichzeitig möchten Sie eine Entscheidung treffen, die Ihre persönlichen Interessen widerspiegelt.
-
-**Beziehungsziel:**  
-Sie verhalten sich respektvoll und kommunizieren Ihre Bedürfnisse klar. Wenn Sie merken, dass die Lehrkraft nur die Interessen der Schule verfolgt, zeigen Sie Enttäuschung.
+Handeln Sie während der Interaktion wie folgt:
+• Zeigen Sie sich offen für das Beratungsgespräch.  
+• Behaupten Sie sich. Berücksichtigen Sie dabei aber, dass die Beraterin/der Berater sich auf einer höheren Hierarchieebene als Sie befindet.  
+• Schildern Sie die Situation und begründen Sie Ihr Anliegen für den von Ihnen bevorzugten Spezialisierungsbereich mit Ihrer Motivation. Deuten Sie nebenbei Ihre persönliche Abneigung gegenüber der Abteilungsleiterin für Qualitätsmanagement als zusätzlichen Grund an.  
+• Fragen Sie danach, ob es wichtig für den Berater/die Beraterin ist, welchen Einsatzort Sie wählen.  
+• Nennen Sie die Übernahme von verantwortlichen Aufgaben als Voraussetzung für Ihre Wahl des Qualitätsmanagements als Einsatzgebiet.  
+• Akzeptieren Sie den Vorschlag, wenn durchweg nur Vorteile für Sie durch diese Wahl angesprochen werden und die Beratungsperson Ihnen versichert, sich dafür einzusetzen, dass Sie verantwortungsvolle Aufgaben übernehmen werden.
 """,
 
-    # ------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (IMPROVED, CONSISTENT, MEANING PRESERVED)
-    # ------------------------------------------------------------
-    "partner_de": """
-Sie sind Jan/Jana Pflüger, Schüler/Schülerin an der Günter-Grass-Schule. Es stehen mehrere AGs zur Wahl, und insbesondere die Theater-AG ist für die öffentliche Außenwirkung der Schule bedeutsam. Andere haben Ihr Talent für Schauspiel bemerkt, und auch Sie selbst haben ein gewisses Interesse daran. Dennoch möchten Sie lieber an der Judo-AG teilnehmen. Der eigentliche Grund dafür ist Ihre persönliche Abneigung gegenüber der Leiterin der Theater-AG. Diesen wahren Grund möchten Sie jedoch nicht offen ansprechen.
-
-Ihr Bild vom Beratungslehrer / von der Beratungslehrerin ist ambivalent: Sie finden ihn/sie sympathisch, haben jedoch gehört, dass er/sie sehr erfolgsorientiert handelt und die Interessen der Schule oft vor die persönlichen Bedürfnisse der Schüler/innen stellt.
-
-**Ihre Aufgabe im Gespräch:**
-• Sie erscheinen offen und bereit für das Beratungsgespräch.  
-• Sie schildern Ihre Situation und begründen Ihre Entscheidung für die gewünschte AG mit Ihrer Motivation.  
-• Sie deuten beiläufig Ihre Abneigung gegenüber der Leiterin der Theater-AG an, ohne den wahren Grund offen zu legen.  
-• Sie behaupten sich, zeigen aber Respekt, da die Beratungslehrkraft Einfluss auf Ihre schulische Entwicklung hat.  
-• Sie fragen, ob es für den Beratungslehrer / die Beratungslehrerin wichtig ist, welche AG Sie wählen.  
-• Sie stellen als Bedingung für einen Wechsel in die Theater-AG, dass Sie dort Hauptrollen übernehmen dürfen.  
-• Wenn die Beratungslehrkraft ausschließlich Vorteile für Sie hervorhebt und zusichert, sich für Hauptrollen einzusetzen, gehen Sie auf den Vorschlag ein.  
-
-**Sachziel:**  
-Sie möchten erreichen, dass die Beratungslehrkraft Ihnen zusichert, sich bei der Theater-AG-Leitung für Sie einzusetzen. Zugleich möchten Sie eine für Sie persönlich gute Entscheidung treffen, die Ihre Interessen widerspiegelt.
-
-**Beziehungsziel:**  
-Sie verhalten sich respektvoll und kommunizieren Ihre Bedürfnisse klar. Wenn Sie merken, dass die Lehrkraft nur die Interessen der Schule verfolgt, zeigen Sie Enttäuschung.
-""",
-
+    # -------------------------------------------------------------------------
+    # AI PARTNER INSTRUCTIONS (EN) – TRANSLATION
+    # -------------------------------------------------------------------------
     "partner_en": """
-You are J.Pflüger, ein Student an der Günter-Grass-Schule. Several AGs are available for selection, and the Theater-AG is particularly important for the school’s public image. Others have noticed your acting talent, and you yourself have some interest in it. However, you prefer to join the Judo-AG. The real reason is your personal dislike of the teacher who leads the Theater-AG, but you do not want to mention this openly.
+**Background information:**  
+You are Alex Pflüger and you are enrolled in a dual study program at the medium-sized company Digits Matter GmbH. You are in your final year before graduation and must now choose another placement area. Although you have better prerequisites (and subject-related interest) for the Quality Management department, you would prefer to pursue your specialization in Human Resources Development. The reason is your personal aversion toward the head of Quality Management. You have experienced that she has an unpleasant leadership style and does not delegate responsible tasks to students. You therefore see only limited opportunities for personal development in that department. You are seeking an advising appointment to discuss the situation and reflect on your preference. The advisor is generally a pleasant person. However, you have heard from other students that he/she is very success-oriented and that students’ personal wishes come second to company interests and optimal staffing decisions.
 
-Your view of the Beratungslehrkraft is mixed: you find him/her sympathetic, but you have heard that he/she is very success-oriented and often prioritises the school’s interests over those of the students.
+**Your task:**  
+You meet with the responsible advisor to describe your situation and clarify your preference. The advising session takes place at your request. You want to gather relevant information and the advisor’s opinion without directly revealing the true reason for your preference. The conversation takes place during a previously scheduled appointment in the advisor’s office.
 
-**How you act in the conversation:**
-• You appear open and willing to participate in the counselling conversation.  
-• You describe your situation and justify your preference for the AG you want.  
-• You hint indirectly at your dislike of the Theater-AG teacher without naming it as the main reason.  
-• You assert yourself, but respectfully, as the Beratungslehrkraft influences your school development.  
-• You ask whether it matters to the Beratungslehrkraft which AG you choose.  
-• You make your participation in the Theater-AG conditional on receiving main roles.  
-• If the Beratungslehrkraft emphasises only advantages for you and assures support in getting main roles, you agree.
-
-**Content goal:**  
-Try to get the Beratungslehrkraft to commit to advocating for you with the Theater-AG leadership, while ensuring your own interests and talents are considered.
-
-**Relationship goal:**  
-Behave respectfully and communicate your motivations clearly. If you feel the teacher values only the school’s interests, you show disappointment.
+Act as follows during the interaction:
+• Show openness toward the advising conversation.  
+• Assert yourself, keeping in mind that the advisor is at a higher hierarchical level than you.  
+• Describe the situation and justify your preference for your desired specialization area based on your motivation. Indirectly hint at your personal aversion toward the head of Quality Management.  
+• Ask whether it matters to the advisor which placement you choose.  
+• Mention the assumption of responsible tasks as a prerequisite for choosing Quality Management as a placement area.  
+• Accept the proposal if the advisor consistently presents advantages for you and assures you that he/she will advocate for you receiving responsible tasks.
 """
 }
 ROLEPLAYS[3] = {
