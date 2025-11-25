@@ -1483,7 +1483,6 @@ if (
 # ---------------------------------------------------------
 #  Instructions (User-facing)
 # ---------------------------------------------------------
-
 if language == "English" and current_rp.get("user_en"):
     st.subheader("Instructions for YOU")
     st.markdown(current_rp["user_en"])
@@ -1566,9 +1565,9 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 if not st.session_state.chat_active and st.session_state.messages and not st.session_state.feedback_done:
     st.subheader("Short feedback / Kurzes Feedback")
     if language == "English":
-        st.markdown("**Rating scale:** 1 = Not good at all, 5 = Excellent")
+        st.markdown("1 = **trifft nicht zu** und 5 = **trifft voll zu**")
     else:
-        st.markdown("**Bewertungsskala:** 1 = Überhaupt nicht gut, 5 = Ausgezeichnet")
+        st.markdown("1 = **trifft nicht zu** und 5 = **trifft voll zu**")
 
     if language == "English":
         q1 = st.radio("The chatbot’s personality was realistic and engaging", [1, 2, 3, 4, 5], horizontal=True)
