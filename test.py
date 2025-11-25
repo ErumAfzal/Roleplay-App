@@ -956,13 +956,13 @@ ROLEPLAYS[7] = {
 
     "framework": {
         "user": {
-            "social_role": "equal",
+            "social_role": "Strong",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "equal",
+            "social_role": "Weak",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
@@ -1034,7 +1034,7 @@ Beziehungsziel: Sie wollen eine offene und respektvolle Kommunikation mit der Le
     # ------------------------------------------------------------
     "partner_en": """
 Background information:
-You are Anne/Peter Grieb, a student at the Rosa-Luxemburg School. In your 11th grade class, the decision about a study trip is pending. The destination of the class trip is to be determined in connection with the learning content of the history lessons. For this purpose, a moderation session is planned in which all students of the class will participate. The moderation session will be conducted by the history teacher. He/She has relevant experience with moderations.
+You are Anne/Peter Grieb, a student at the Rosa-Luxemburg School. In your 11th-grade class, the decision about a study trip is pending. The destination of the class trip is to be determined in connection with the learning content of the history lessons. For this purpose, a moderation session is planned in which all students of the class will participate. The moderation session will be conducted by the history teacher. He/She has relevant experience with moderations.
 The matter is very important to you, because a group of classmates to which you belong is preparing a class assignment on the Holy Roman Empire. Since the study trip should have a connection to the history lessons, it seems plausible to you that Nuremberg and the castle there represent a perfect destination. You therefore expect that this destination will be given greater consideration in the moderation session. That is, you expect your teacher to advocate more strongly for the opinions of your group. You approach him/her to discuss your concern and to explore it in an honest manner.
 
 **Your task:**
@@ -1065,13 +1065,13 @@ ROLEPLAYS[8] = {
 
     "framework": {
         "user": {
-            "social_role": "equal",
+            "social_role": "Strong",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "equal",
+            "social_role": "Weak",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
