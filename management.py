@@ -396,7 +396,7 @@ During the conversation, keep the following in mind:
 }
 
 ROLEPLAYS[2] = {
-    "phase": 2,
+    "phase": 1,
     "communication_type": "strategic",
     "title_en": "2. Advising a dual student on choosing the next placement area.",
     "title_de": "2. Beratung eines dual Studierenden zur Wahl des nächsten Einsatzgebiets",
@@ -421,17 +421,14 @@ ROLEPLAYS[2] = {
     # USER INSTRUCTIONS (DE) – EXACT, UNCHANGED
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
-Hintergrundinformation: 
+**Hintergrundinformation:** 
 Sie sind pädagogische Ansprechpartnerin/fachlicher Ansprechpartner für Studierende im berufsbegleitenden dualen Studium bei dem mittelständischen Unternehmen Digits Matter GmbH. Im Rahmen Ihrer Tätigkeit beraten Sie Alex Pflüger, eine Studentin/einen Studenten, bezüglich ihrer/seiner nächsten Einsatzgebiete. Die Wahl des Einsatzgebietes in dieser Phase ist entscheidend für die Spezialisierung und den möglichen Berufseinstieg in die Firma nach dem Studium und daher wichtig. Es gehört zu Ihren pädagogischen Aufgaben eine gute Beratung für diese kritische Entscheidung anzubieten. Zugleich braucht das Unternehmen eine optimale Platzierung der Studierenden. Zudem wird Ihre Beratungsleistung in Abhängigkeit von der Leistung der von Ihnen beratenen Studierenden bewertet. Alex möchte als Nächstes in der Personalentwicklung arbeiten. Seine/Ihre bisherige Leistung weist jedoch darauf hin, dass er/sie sich eher für das Qualitätsmanagement eignet und somit in diesem Bereich eine bessere Leistungsentwicklung verspricht. Sie wissen aus vertraulicher Quelle, dass Alex in eine starke Abneigung gegen die Abteilungsleiterin des Qualitätsmanagements hat. Infolgedessen vermuten Sie, dass die Haltung eng hiermit zusammenhängt. Sie glauben allerdings gehört zu haben, dass die Abteilungsleiterin des Qualitätsmanagements eine positive Meinung über Alex hat. Trotz Ihres Verständnisses für Alex Haltung haben für Sie die optimale prospektive Besetzung Vorrang. Die Wahl des Einsatzgebiets soll Ihrer Ansicht nach der Eignung der Studierenden und nicht ihren/seinen persönlichen Befindlichkeiten entsprechen.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sie besprechen mit Alex über die bevorstehende Entscheidung. 
 Das Gespräch findet zu einem vorher angesetzten Beratungstermin in Ihrem Büro statt.
-• Sachziel: Versuchen Sie Alex dazu zu bringen, als nächstes Einsatzgebiet das Qualitätsmanagement zu wählen.
-• Beziehungsziel: Sie legen großen Wert darauf, dass Alex Sie als fürsorglich wahrnimmt. 
-
-Bitte nutzen Sie die Ihnen im Folgenden zur Verfügung gestellten Informationen für die Gesprächsführung. Sie haben ca. 5 Min. Zeit, um sich auf das Gespräch vorzubereiten. Sie haben anschließend bis zu 10 Min. Zeit für die Durchführung des Gesprächs.
-Verhalten Sie sich im aktuellen Gespräch bitte so, als ob Sie selbst in einer solchen Situation wären.
+• **Sachziel:** Versuchen Sie Alex dazu zu bringen, als nächstes Einsatzgebiet das Qualitätsmanagement zu wählen.
+• **Beziehungsziel:** Sie legen großen Wert darauf, dass Alex Sie als fürsorglich wahrnimmt. 
 """,
 
     # -------------------------------------------------------------------------
@@ -446,18 +443,16 @@ You discuss the upcoming decision with Alex.
 The meeting takes place during a scheduled advising appointment in your office.  
 • **Content goal:** Try to persuade Alex to choose Quality Management as the next placement area.  
 • **Relationship goal:** You place great importance on Alex perceiving you as caring.
-
-Please use the information provided below for conducting the conversation. You have about five minutes to prepare and up to ten minutes to conduct the conversation. Act in this situation as if you were truly in it.
 """,
 
     # -------------------------------------------------------------------------
     # AI PARTNER INSTRUCTIONS (DE) – EXACT, UNCHANGED
     # -------------------------------------------------------------------------
     "partner_de": """
-Hintergrundinformation:
+**Hintergrundinformation:**
 Sie sind Alex Pflüger, und studieren dual bei dem mittelständischen Unternehmen Digits Matter GmbH. Sie befinden sich im letzten Jahr vor Ihrem Abschluss und als Nächstes müssen Sie einen weiteren Einsatzbereich wählen. Obwohl Sie bessere Voraussetzungen (und auch fachliches Interesse) für den Bereich Qualitätsmanagement haben, möchten Sie Ihre Spezialisierung lieber im Bereich Personalentwicklung absolvieren. Der Grund dafür ist Ihre persönliche Abneigung gegenüber der Abteilungsleiterin im Qualitätsmanagement. Sie haben die Erfahrung gemacht, dass diese einen unangenehmen Führungsstil hat und an die Studierenden keine verantwortlichen Aufgaben delegiert. Sie sehen hier also nur begrenzte Möglichkeiten für eine persönliche Weiterentwicklung. Sie nehmen ein Beratungsgespräch bei der zuständigen Beratungsstelle in Anspruch, um die Situation zu besprechen sowie Ihren Wunsch zu reflektieren. Die Beraterin/Der Berater ist eigentlich ein sympathischer Mensch. Trotzdem haben Sie von anderen Studierenden gehört, dass er/sie sehr erfolgsorientiert vorgeht und dass persönliche Wünsche der Studierenden nach dem Erfolg des Unternehmens und der fachbezogenen optimalen Besetzung von Positionen für sie/ihn erst an zweiter Stelle stehen.
 
-Ihre Aufgabe:
+**Ihre Aufgabe:**
 Sie treffen sich mit der zuständigen Fachberatung, um Ihre Situation zu schildern und Ihren Wunsch zu klären. Die Beratung findet auf Ihre Bitte hin statt. Sie möchten die relevanten Informationen und die Meinung des Beraters/der Beraterin einholen, ohne den wahren Grund für Ihre Priorisierung direkt anzusprechen. Das Gespräch findet zu einem zuvor verabredeten Termin im Büro der beratenden Person statt.
 
 Handeln Sie während der Interaktion wie folgt:
