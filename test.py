@@ -956,13 +956,13 @@ ROLEPLAYS[7] = {
 
     "framework": {
         "user": {
-            "social_role": "Strong",
+            "social_role": "strong",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "Weak",
+            "social_role": "weak",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
@@ -988,7 +988,7 @@ Sie sprechen mit dem Schüler/der Schülerin über die anstehende Moderation. Da
     # ------------------------------------------------------------
     "user_en": """
 Please use the information provided below to guide your conversation. You have about 5 minutes to prepare for the conversation.
-You then have up to 10 minutes for conducting the conversation.
+You then have up to 10 minutes to conduct the conversation.
 Please behave in the current conversation as if YOU yourself were in such a situation.
 
 **Background information:**
@@ -1065,13 +1065,13 @@ ROLEPLAYS[8] = {
 
     "framework": {
         "user": {
-            "social_role": "Strong",
+            "social_role": "strong",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "Weak",
+            "social_role": "weak",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
@@ -1152,7 +1152,7 @@ Speak with the counseling teacher about your upcoming career choice. You have as
 
 Act during the interaction as follows:
 • Create a supportive environment and behave in such a way that your counterpart can show his/her best behavior.
-• First state your wish to become an artist.
+• First, state your wish to become an artist.
 • Express your doubts regarding the career prospects of this choice.
 • Mention alternatives for career choices, including those that combine creativity and financial security (architecture or product design).
 • Let yourself be guided in the discussion by questions and justify your positions as clearly and transparently as possible.
