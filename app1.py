@@ -934,13 +934,13 @@ ROLEPLAYS[7] = {
 
     "framework": {
         "user": {
-            "social_role": "equal",
+            "social_role": "strong",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "equal",
+            "social_role": "weak",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
@@ -1043,13 +1043,13 @@ ROLEPLAYS[8] = {
 
     "framework": {
         "user": {
-            "social_role": "equal",
+            "social_role": "strong",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "equal",
+            "social_role": "weak",
             "conversation_intention": "content goal",
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
@@ -1076,11 +1076,11 @@ Führen Sie das Gespräch mit der Schülerin, dem Schüler. Der Termin findet au
     # ------------------------------------------------------------
     "user_en": """
 Please use the information provided below to guide your conversation. You have about 5 minutes to prepare for the conversation.
-You then have up to 10 minutes for conducting the conversation.
+You then have up to 10 minutes to conduct the conversation.
 Please behave in the current conversation as if YOU yourself were in such a situation.
 
 **Background information:**
-You are a teacher at the Theodor-Heuss School and responsible for preparing students for career choices. Your task is to advise the people who come to you in their best interest. In this context, J.Meyer, a student in the graduating class, comes to you. It is about his/her future prospects. The student wants to further qualify immediately after graduation and therefore rules out taking a break after completing school. He/She seeks you out during the counseling hour to speak with you about his/her possibilities.
+You are a teacher at the Theodor-Heuss School and are responsible for preparing students for career choices. Your task is to advise the people who come to you in their best interest. In this context, J.Meyer, a student in the graduating class, comes to you. It is about his/her future prospects. The student wants to further qualify immediately after graduation and therefore rules out taking a break after completing school. He/She seeks you out during the counseling hour to speak with you about his/her possibilities.
 
 **Your task:**
 Conduct the conversation with the student. The meeting takes place at the request of your conversation partner.
