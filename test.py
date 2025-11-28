@@ -236,7 +236,7 @@ def build_system_prompt(roleplay, language):
 
     # Special rules ONLY for roleplays 2,4,7,8 in German
     special_rules = ""
-    if language == "Deutsch" and rp_id in [2, 4, 7, 8]:
+    if language == "Deutsch" and rp_id in [2, 4, 7]:
         special_rules = (
             "\n[FORMALITY RULE]\n"
             "Use ONLY 'Sie/Ihnen/Ihr'. Never use 'du/dir/dich'.\n"
