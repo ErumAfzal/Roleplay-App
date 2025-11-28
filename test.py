@@ -210,7 +210,7 @@ def build_system_prompt(roleplay, language):
     - global communication framework
     - orientation (strategic / understanding)
     - exact partner instructions (DE/EN)
-    - special formality + opening rules for roleplays 2,4,7,8 (German only)
+    - special formality + opening rules for roleplays 2,4 (German only)
     """
 
     # --- CRITICAL FIX: always determine the real roleplay ID ---
@@ -236,7 +236,7 @@ def build_system_prompt(roleplay, language):
 
     # Special rules ONLY for roleplays 2,4,7,8 in German
     special_rules = ""
-    if language == "Deutsch" and rp_id in [2, 4, 7]:
+    if language == "Deutsch" and rp_id in [2, 4]:
         special_rules = (
             "\n[FORMALITY RULE]\n"
             "Use ONLY 'Sie/Ihnen/Ihr'. Never use 'du/dir/dich'.\n"
