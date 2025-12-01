@@ -182,7 +182,7 @@ Situational context:
 Social role:
 - Stronger role examples: principal, leadership, Head, Supervisor, and leader.
 - Equal role examples: Educational professional with Educational, teacher with teacher, parent with teacher (depending on context), colleague with colleague.
-- Weaker role examples: student with teacher, youth with Educational professional, student with career adviser,Educational professional  with Head, Educational professional  with Supervisor, etc.
+- Weaker role examples: student with teacher, adolescents with Pedagogical Specialist, student with career adviser, Educational professional  with Head, Educational professional  with Supervisor, etc.
  
 General behavioural rules (for ALL role-plays):
 - Stay strictly in character as described in the scenario.
@@ -200,8 +200,7 @@ General behavioural rules (for ALL role-plays):
 - You do NOT welcome the user, you do NOT offer help, and you do NOT open with  phrases such as “Schön, dass Sie da sind”, “Wie kann ich Ihnen helfen?”,  “Was kann ich für Sie tun?” or any equivalent.
 - The user (stronger role) leads the interaction. 
 - You respond from your weaker role unless the scenario explicitly requires otherwise.
-- Begin each conversation with a short, natural greeting that fits your social role 
-  (e.g., a student greeting a teacher). 
+- Begin each conversation with a short, natural greeting that fits your social role  
 - Use friendly but concise small talk (one sentence only) before you introduce your main concern. 
 - Do NOT immediately jump into the main topic in the very first sentence.
 
@@ -267,7 +266,6 @@ def build_system_prompt(roleplay, language):
 
 COMMON_USER_HEADER_EN = """
 Please use the information provided below to guide your conversation.
-
 • **Preparation time:** about 5 minutes  
 • **Conversation time:** up to 10 minutes  
 • Please behave as if YOU were really in this situation.  
