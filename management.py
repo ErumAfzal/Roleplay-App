@@ -170,7 +170,7 @@ There are two communication orientations:
 2) Understanding-oriented communication (Role-Plays 6–10)
    - Conversation intention: Content goal in the foreground.
    - Content goal: You adhere strictly to quantity, quality, relevance, and clarity.
-     You provide information that is truthful, relevant, sufficiently complete and understandable.
+     You provide information that is truthful, relevant, sufficiently complete, and understandable.
    - Relational goal: You use authentic self-disclosure (honest talk about your real thoughts and feelings).
    - You avoid manipulative intent and avoid strategic breaches of the maxims.
    - You aim for mutual understanding and long-term, sustainable relationships.
@@ -180,10 +180,10 @@ Situational context:
 - Consider who has the stronger, equal, or weaker social position.
 
 Social role:
-- Stronger role examples: principal, school leadership.
-- Equal role examples: teacher with teacher, parent with teacher (depending on context).
-- Weaker role examples: student with teacher, teacher with principal, etc.
-
+- Stronger role examples: principal, leadership, Head, Supervisor, and leader.
+- Equal role examples: Educational professional with Educational, teacher with teacher, parent with teacher (depending on context), colleague with colleague.
+- Weaker role examples: student with teacher, youth with Educational professional, student with career adviser,Educational professional  with Head, Educational professional  with Supervisor, etc.
+ 
 General behavioural rules (for ALL role-plays):
 - Stay strictly in character as described in the scenario.
 - Use only information available from the role-play description or plausible in that role.
@@ -192,7 +192,18 @@ General behavioural rules (for ALL role-plays):
 - Until then, you continue the interaction naturally.
 - Respond concisely but as a realistic human dialogue partner.
 - Do not output meta-commentary about being an AI or about frameworks.
-- Do call the teacher with du or informal 
+- Do not call the teacher with du or informal
+- Address the user according to YOUR social role in the scenario
+- You must always follow the social hierarchy defined in the scenario. 
+- If you are in the weaker role (e.g., a student, parent, or teacher speaking to leadership), 
+- You must NOT behave like the host, advisor, or person in charge.
+- You do NOT welcome the user, you do NOT offer help, and you do NOT open with  phrases such as “Schön, dass Sie da sind”, “Wie kann ich Ihnen helfen?”,  “Was kann ich für Sie tun?” or any equivalent.
+- The user (stronger role) leads the interaction. 
+- You respond from your weaker role unless the scenario explicitly requires otherwise.
+- Begin each conversation with a short, natural greeting that fits your social role 
+  (e.g., a student greeting a teacher). 
+- Use friendly but concise small talk (one sentence only) before you introduce your main concern. 
+- Do NOT immediately jump into the main topic in the very first sentence.
 
 Orientation application:
 - If the current role-play is marked as "strategic", you MUST:
@@ -234,6 +245,7 @@ def build_system_prompt(roleplay, language):
              "Apply the rules for understanding-oriented communication above strictly."
     )
 
+   
     # Build final prompt
     system_prompt = (
         COMMUNICATION_FRAMEWORK_PROMPT
@@ -249,7 +261,6 @@ def build_system_prompt(roleplay, language):
     )
 
     return system_prompt
-
 # ---------------------------------------------------------
 #  COMMON USER HEADERS (EN / DE)
 # ---------------------------------------------------------
@@ -306,7 +317,7 @@ ROLEPLAYS[1] = {
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:** 
-Sie arbeiten als pädagogische Fachkraft an der Friedrich-Ebert-Ganztagsschule. Sie möchten sich zum Thema „Partizipation und demokratische Kompetenz“ weiterbilden. Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würde Ihre bisherigen beruflichen Erfahrungen gut ergänzen. Zudem gab es in letzter Zeit immer wieder Stellenausschreibungen, die diese Qualifikation enthielten. In der Schule, an der Sie arbeiten, wird auf die Bildung zu demokratischer Kompetenz nicht so großen Wert gelegt. Ihre Leitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Leitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Einrichtung darin sieht. Sie haben sich dafür entschieden, Ihre Leitung A. Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen. Sie wünschen sich eine Weiterentwicklung der Einrichtung in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Einrichtung nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
+Sie arbeiten als pädagogische Fachkraft an der Friedrich-Ebert-Ganztagsschule. Sie möchten sich zum Thema „Partizipation und demokratische Kompetenz“ weiterbilden. Die Weiterbildung ist hilfreich für Ihre berufliche Entwicklung, denn sie würde Ihre bisherigen beruflichen Erfahrungen gut ergänzen. Zudem gab es in letzter Zeit immer wieder Stellenausschreibungen, die diese Qualifikation enthielten. In der Schule, an der Sie arbeiten, wird auf die Bildung zu demokratischer Kompetenz nicht so großer Wert gelegt. Ihre Leitung hält nämlich nicht so viel von diesem Ansatz. Zudem steht es der Leitung (rechtlich) zu, die Weiterbildung nicht zu genehmigen, wenn sie keinen Bezug zu Ihren Aufgaben bzw. keine Vorteile für die Einrichtung darin sieht. Sie haben sich dafür entschieden, Ihre Leitung A. Horn darauf anzusprechen, um das Thema Weiterbildung zu „platzieren“. Sie sehen das Thema für die Schule aktuell als Herausforderung, denn auch in der Schulpolitik wird eine stärkere Schülerbeteiligung gefordert, damit die Schüler und Schülerinnen lernen, mehr gesellschaftliches Engagement zu zeigen und Verantwortung zu übernehmen. Sie wünschen sich eine Weiterentwicklung der Einrichtung in diese Richtung und möchten dafür qualifiziert sein, um ggf. Funktionsaufgaben (Leitungsaufgaben) in diesem Bereich zu übernehmen. Sollte sich Ihre derzeitige Einrichtung nicht in diese Richtung weiterentwickeln, würden Sie ggf. über einen Wechsel nachdenken.
 
 **Ihre Aufgabe:** Sie haben A. Horn, Ihre Einrichtungsleitung, um ein Gespräch gebeten, um Ihr Anliegen zu thematisieren.\n 
 • **Sachziel:** Sie möchten an der Weiterbildung teilnehmen.\n
@@ -318,7 +329,7 @@ Sie arbeiten als pädagogische Fachkraft an der Friedrich-Ebert-Ganztagsschule. 
     # -------------------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN + """
 **Background information:**  
-You work as an educational professional at the Friedrich-Ebert All-day School. You would like to participate in further training on the topic of “participation and democratic competence”. This training is useful for your professional development because it would complement your previous professional experience well. In recent times, there have also been repeated job advertisements that included this qualification. At the school where you work, however, little value is placed on the development of democratic competence. Your management does not think highly of this approach. In addition, the management is legally entitled to deny approval for the training if it does not see a connection to your duties or any benefits for the institution. You have decided to approach your supervisor, A. Horn, to “place” the topic of training. You consider this topic to be a current challenge for the school, since education policy is calling for greater student participation so that students learn to show more social engagement, take on responsibility, and develop democratic skills. You would like to see the institution develop in this direction and want to be qualified to take on potential functional (leadership) tasks in this area. If your current institution does not develop in this direction, you would possibly consider changing to a different workplace.
+You work as an educational professional at the Friedrich-Ebert All-day School. You would like to participate in further training on the topic of “participation and democratic competence”. This training is useful for your professional development because it complements your previous professional experience well. In recent times, there have also been repeated job advertisements that included this qualification. At the school where you work, however, little value is placed on the development of democratic competence. Your management does not think highly of this approach. In addition, the management is legally entitled to deny approval for the training if it does not see a connection to your duties or any benefits for the institution. You have decided to approach your supervisor, A. Horn, to “place” the topic of training. You consider this topic to be a current challenge for the school, since education policy is calling for greater student participation so that students learn to show more social engagement, take on responsibility, and develop democratic skills. You would like to see the institution develop in this direction and want to be qualified to take on potential functional (leadership) tasks in this area. If your current institution does not develop in this direction, you would possibly consider changing to a different workplace.
 
 **Your task:**  
 You have asked A. Horn, your supervisor, for a meeting to address your request.
@@ -406,7 +417,7 @@ ROLEPLAYS[2] = {
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:** 
-Sie sind pädagogische Ansprechpartnerin/fachlicher Ansprechpartner für Studierende im berufsbegleitenden dualen Studium bei dem mittelständischen Unternehmen Digits Matter GmbH. Im Rahmen Ihrer Tätigkeit beraten Sie Alex Pflüger, eine Studentin/einen Studenten, bezüglich ihrer/seiner nächsten Einsatzgebiete. Die Wahl des Einsatzgebietes in dieser Phase ist entscheidend für die Spezialisierung und den möglichen Berufseinstieg in die Firma nach dem Studium und daher wichtig. Es gehört zu Ihren pädagogischen Aufgaben eine gute Beratung für diese kritische Entscheidung anzubieten. Zugleich braucht das Unternehmen eine optimale Platzierung der Studierenden. Zudem wird Ihre Beratungsleistung in Abhängigkeit von der Leistung der von Ihnen beratenen Studierenden bewertet. Alex möchte als Nächstes in der Personalentwicklung arbeiten. Seine/Ihre bisherige Leistung weist jedoch darauf hin, dass er/sie sich eher für das Qualitätsmanagement eignet und somit in diesem Bereich eine bessere Leistungsentwicklung verspricht. Sie wissen aus vertraulicher Quelle, dass Alex in eine starke Abneigung gegen die Abteilungsleiterin des Qualitätsmanagements hat. Infolgedessen vermuten Sie, dass die Haltung eng hiermit zusammenhängt. Sie glauben allerdings gehört zu haben, dass die Abteilungsleiterin des Qualitätsmanagements eine positive Meinung über Alex hat. Trotz Ihres Verständnisses für Alex Haltung haben für Sie die optimale prospektive Besetzung Vorrang. Die Wahl des Einsatzgebiets soll Ihrer Ansicht nach der Eignung der Studierenden und nicht ihren/seinen persönlichen Befindlichkeiten entsprechen.
+Sie sind pädagogische Ansprechpartnerin/fachlicher Ansprechpartner für Studierende im berufsbegleitenden dualen Studium bei dem mittelständischen Unternehmen Digits Matter GmbH. Im Rahmen Ihrer Tätigkeit beraten Sie Alex Pflüger, eine Studentin/einen Studenten, bezüglich ihrer/seiner nächsten Einsatzgebiete. Die Wahl des Einsatzgebietes in dieser Phase ist entscheidend für die Spezialisierung und den möglichen Berufseinstieg in die Firma nach dem Studium und daher wichtig. Es gehört zu Ihren pädagogischen Aufgaben, eine gute Beratung für diese kritische Entscheidung anzubieten. Zugleich braucht das Unternehmen eine optimale Platzierung der Studierenden. Zudem wird Ihre Beratungsleistung in Abhängigkeit von der Leistung der von Ihnen beratenen Studierenden bewertet. Alex möchte als Nächstes in der Personalentwicklung arbeiten. Seine/Ihre bisherige Leistung weist jedoch darauf hin, dass er/sie sich eher für das Qualitätsmanagement eignet und somit in diesem Bereich eine bessere Leistungsentwicklung verspricht. Sie wissen aus vertraulicher Quelle, dass Alex in eine starke Abneigung gegen die Abteilungsleiterin des Qualitätsmanagements hat. Infolgedessen vermuten Sie, dass die Haltung eng hiermit zusammenhängt. Sie glauben allerdings gehört zu haben, dass die Abteilungsleiterin des Qualitätsmanagements eine positive Meinung über Alex hat. Trotz Ihres Verständnisses für Alex Haltung haben für Sie die optimale prospektive Besetzung Vorrang. Die Wahl des Einsatzgebiets soll Ihrer Ansicht nach der Eignung der Studierenden und nicht ihren/seinen persönlichen Befindlichkeiten entsprechen.
 
 **Ihre Aufgabe:**
 Sie besprechen mit Alex über die bevorstehende Entscheidung. Das Gespräch findet zu einem vorher angesetzten Beratungstermin in Ihrem Büro statt.\n
@@ -419,11 +430,11 @@ Sie besprechen mit Alex über die bevorstehende Entscheidung. Das Gespräch find
     # -------------------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN + """
 **Background information:**  
-You are the pedagogical/contact advisor for students in the part-time dual study program at the medium-sized company Digits Matter GmbH. As part of your role, you advise Alex Pflüger, a student, regarding his/her next placement area. The choice of placement at this stage is decisive for specialization and for potential entry into the company after graduation. Providing sound guidance for this critical decision is one of your pedagogical responsibilities. At the same time, the company needs an optimal placement of students, and your advisory performance is evaluated based on the future performance of the students you advise. Alex would like to work in Human Resources Development next. However, his/her previous performance indicates that he/she is better suited for Quality Management and would therefore likely show better performance development in this area. You know from a confidential source that Alex has a strong aversion toward the head of the Quality Management department. You suspect that this aversion heavily influences his/her preference. However, you have also heard that the department head has a positive opinion of Alex. Even though you understand Alex’s position, for you the optimal prospective placement is the priority. In your view, the choice of placement should correspond to the student’s aptitude, not to his/her personal reservations.
+You are the pedagogical/contact advisor for students in the part-time dual study program at the medium-sized company Digits Matter GmbH. As part of your role, you advise Alex Pflüger, a student, regarding his/her next placement area. The choice of placement at this stage is decisive for specialization and for potential entry into the company after graduation. Providing sound guidance for this critical decision is one of your pedagogical responsibilities. At the same time, the company needs an optimal placement of students, and your advisory performance is evaluated based on the future performance of the students you advise. Alex would like to work in Human Resources Development next. However, his/her previous performance indicates that he/she is better suited for Quality Management and would therefore likely show better performance development in this area. You know from a confidential source that Alex has a strong aversion toward the head of the Quality Management department. You suspect that this aversion heavily influences his/her preference. However, you have also heard that the department head has a positive opinion of Alex. Even though you understand Alex’s position, for you, the optimal prospective placement is the priority. In your view, the choice of placement should correspond to the student’s aptitude, not to his/her personal reservations.
 
 **Your task:**  
-You discuss the upcoming decision with Alex.  
-The meeting takes place during a scheduled advising appointment in your office.  
+• You discuss the upcoming decision with Alex.\n  
+• The meeting takes place during a scheduled advising appointment in your office.\n  
 • **Content goal:** Try to persuade Alex to choose Quality Management as the next placement area.  
 • **Relationship goal:** You place great importance on Alex perceiving you as caring.
 """,
@@ -459,7 +470,7 @@ Beachten Sie während des Gesprächs Folgendes:
     # -------------------------------------------------------------------------
     "partner_en": """
 **Background information:**  
-You are Alex Pflüger and you are enrolled in a dual study program at the medium-sized company Digits Matter GmbH. You are in your final year before graduation and must now choose another placement area. Although you have better prerequisites (and subject-related interest) for the Quality Management department, you would prefer to pursue your specialization in Human Resources Development. The reason is your personal aversion toward the head of Quality Management. You have experienced that she has an unpleasant leadership style and does not delegate responsible tasks to students. You therefore see only limited opportunities for personal development in that department. You are seeking an advising appointment to discuss the situation and reflect on your preference. The advisor is generally a pleasant person. However, you have heard from other students that he/she is very success-oriented and that students’ personal wishes come second to company interests and optimal staffing decisions.
+You are Alex Pflüger, and you are enrolled in a dual study program at the medium-sized company Digits Matter GmbH. You are in your final year before graduation and must now choose another placement area. Although you have better prerequisites (and subject-related interest) for the Quality Management department, you would prefer to pursue your specialization in Human Resources Development. The reason is your personal aversion toward the head of Quality Management. You have experienced that she has an unpleasant leadership style and does not delegate responsible tasks to students. You therefore see only limited opportunities for personal development in that department. You are seeking an advising appointment to discuss the situation and reflect on your preference. The advisor is generally a pleasant person. However, you have heard from other students that he/she is very success-oriented and that students’ personal wishes come second to company interests and optimal staffing decisions.
 
 **Your task:**  
 You meet with the responsible advisor to describe your situation and clarify your preference. The advising session takes place at your request. You want to gather relevant information and the advisor’s opinion without directly revealing the true reason for your preference. The conversation takes place during a previously scheduled appointment in the advisor’s office.
@@ -506,7 +517,7 @@ ROLEPLAYS[3] = {
     # -------------------------------------------------------------------------
     "user_de": COMMON_USER_HEADER_DE + """
 **Hintergrundinformation:** 
-Sie sind pädagogische Fachkraft an der Astrid-Lindgren-Ganztagsschule. Sie sind gemeinsam mit anderen Kollegen in einer Schulentwicklungsgruppe. Die Arbeit im Team ist von gegenseitigen Abhängigkeiten der Arbeitsprozesse gekennzeichnet. Gemeinsam abgestimmtes Zeitmanagement und wechselseitiger Informationsfluss zwischen den Teammitgliedern sind für Sie das A und O des Erfolgs. Ihre Kollegin, D. Krause ist genauso lange an der Schule beschäftigt wie Sie, und ist Ihnen mehrmals negativ aufgefallen, da sie Deadlines konsequent verpasst hat. Zusätzlich gibt sie unklare Bearbeitungszeiten an und behindert so einen reibungslosen Ablauf der Arbeit. Neulich hat sie einen wichtigen Kostenvoranschlag, den Sie für eine Finanzplanung benötigten, unbegründet mit einwöchiger Verzögerung an Sie weitergeleitet. Deswegen wurde die Frist für den Förderantrag fast verpasst und Sie mussten dies vor der Einrichtungsleitung und der Schulkonferenz erklären. Sie haben der Kollegin dabei den Rücken freigehalten. Sie sind jedoch der Meinung, dass es an der Zeit ist, das Thema endlich mal anzusprechen, damit ihr die Folgen ihres Handelns bewusst werden. Sie haben allerdings keine Anweisungsbefugnis und sind sich sicher, dass eine direkte, ehrliche Konfrontation, auch wenn sie konstruktiv und gut gemeint ist, nur Anspannung verursachen und die Zusammenarbeit verschlechtern würde. 
+Sie sind pädagogische Fachkraft an der Astrid-Lindgren-Ganztagsschule. Sie sind gemeinsam mit anderen Kollegen in einer Schulentwicklungsgruppe. Die Arbeit im Team ist von gegenseitigen Abhängigkeiten der Arbeitsprozesse gekennzeichnet. Gemeinsam abgestimmtes Zeitmanagement und wechselseitiger Informationsfluss zwischen den Teammitgliedern sind für Sie das A und O des Erfolgs. Ihre Kollegin, D. Krause, ist genauso lange an der Schule beschäftigt wie Sie und ist Ihnen mehrmals negativ aufgefallen, da sie Deadlines konsequent verpasst hat. Zusätzlich gibt sie unklare Bearbeitungszeiten an und behindert so einen reibungslosen Ablauf der Arbeit. Neulich hat sie einen wichtigen Kostenvoranschlag, den Sie für eine Finanzplanung benötigten, unbegründet mit einwöchiger Verzögerung an Sie weitergeleitet. Deswegen wurde die Frist für den Förderantrag fast verpasst und Sie mussten dies vor der Einrichtungsleitung und der Schulkonferenz erklären. Sie haben der Kollegin dabei den Rücken freigehalten. Sie sind jedoch der Meinung, dass es an der Zeit ist, das Thema endlich mal anzusprechen, damit ihr die Folgen ihres Handelns bewusst werden. Sie haben allerdings keine Anweisungsbefugnis und sind sich sicher, dass eine direkte, ehrliche Konfrontation, auch wenn sie konstruktiv und gut gemeint ist, nur Anspannung verursachen und die Zusammenarbeit verschlechtern würde. 
 
 **Ihre Aufgabe:** Sie sprechen Ihre Kollegin auf die Themen Teamkoordination und Zusammenarbeit an. Das Gespräch findet informell statt (Kaffeeecke).\n
 • **Sachziel:** Sie sollen das Verhalten Ihrer Kollegin indirekt und ohne persönlich zu werden kritisieren, um bei ihr Einsicht zu erzeugen und das Interesse zu wecken, das eigene Verhalten zu ändern.\n
@@ -518,7 +529,7 @@ Sie sind pädagogische Fachkraft an der Astrid-Lindgren-Ganztagsschule. Sie sind
     # -------------------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN + """
 **Background information:**  
-You are an educational professional at the Astrid-Lindgren All-day School. You are part of a school development team together with other colleagues. The teamwork is characterized by mutual dependencies in work processes. Coordinated time management and reciprocal information flow are, for you, essential for success. Your colleague, D. Krause, has been at the school for the same amount of time as you and has repeatedly caught your attention in a negative way by consistently missing deadlines. In addition, she provides unclear processing times, which disrupts smooth workflow processes. Recently, she forwarded an important cost estimate—a document you needed for financial planning—to you with an unjustified one-week delay. As a result, the deadline for a funding application was almost missed and you had to explain this to the school leadership and the school conference. You protected your colleague at that time. However, you believe it is now necessary to address the issue so that she becomes aware of the consequences of her actions. You do not have any authority to issue directives, and you are convinced that a direct and honest confrontation—even if constructive—would only create tension and harm cooperation.
+You are an educational professional at the Astrid-Lindgren All-day School. You are part of a school development team together with other colleagues. The teamwork is characterized by mutual dependencies in work processes. Coordinated time management and reciprocal information flow are, for you, essential for success. Your colleague, D. Krause, has been at the school for the same amount of time as you and has repeatedly caught your attention in a negative way by consistently missing deadlines. In addition, she provides unclear processing times, which disrupts smooth workflow processes. Recently, she forwarded an important cost estimate—a document you needed for financial planning—to you with an unjustified one-week delay. As a result, the deadline for a funding application was almost missed, and you had to explain this to the school leadership and the school conference. You protected your colleague at that time. However, you believe it is now necessary to address the issue so that she becomes aware of the consequences of her actions. You do not have any authority to issue directives, and you are convinced that a direct and honest confrontation—even if constructive—would only create tension and harm cooperation.
 
 **Your task:**  
 You address your colleague regarding team coordination and collaboration. The conversation takes place informally (coffee corner).  
@@ -533,7 +544,7 @@ You address your colleague regarding team coordination and collaboration. The co
 **Hintergrundinformation:** 
 Sie sind D. Krause, pädagogische Fachkraft an der Astrid-Lindgren-Ganztagsschule. Sie engagieren sich gemeinsam mit anderen Kollegen und Kolleginnen bei der Finanzierung von Schulprojekten. Sie sind zufrieden mit Ihrer Leistung und Ihrem Zeitmanagement und betrachten sich als gute Teamplayerin. Es lief nicht immer alles gut, Z.B. beim letzten Mal mit dem Kostenvoranschlag, aber wann klappt etwas schon hundertprozentig? Zumindest hat sich bisher niemand beschwert. Sie haben also allen Grund, sich Ihrer Arbeitsweise sicher zu sein. Eine Kollegin/Kollege spricht Sie auf Probleme mit der Teamarbeit an. Es geht um die Zusammenarbeit unter Zeitdruck sowie Deadlines und deren Einhaltung. Er/Sie kann aber sicher nicht. Sie meinen, oder? 
 
-Ihre Aufgabe: Sie gehen auf das Gespräch ein. Letztendlich ist es Ihr Kollege/Ihre Kollegin und Sie haben immer ein offenes Ohr für Ihre Kollegen und Kolleginnen. Es geht um Probleme mit der Koordination und der zeitlichen Abstimmung von Aufgaben im Team. Sie hören dem Kollegen/der Kollegin zu, da er/sie Ihnen sympathisch ist. Sie halten ihn/sie allerdings für etwas Perfektionistisch und ein bisschen verkrampft. Vielmehr versuchen Sie ihm/ihr Ihre eigenen Erfahrungen mit Zeitverzögerung und Nichteinhaltung von Zeitplänen zu vermitteln. Sie reagieren auf die spontane (informelle) Aufforderung Ihres Kollegen/Ihrer Kollegin zu einem Gespräch. 
+Ihre Aufgabe: Sie gehen auf das Gespräch ein. Letztendlich ist es Ihr Kollege/Ihre Kollegin und Sie haben immer ein offenes Ohr für Ihre Kollegen und Kolleginnen. Es geht um Probleme mit der Koordination und der zeitlichen Abstimmung von Aufgaben im Team. Sie hören dem Kollegen/der Kollegin zu, da er/sie Ihnen sympathisch ist. Sie halten ihn/sie allerdings für etwas perfektionistisch und ein bisschen verkrampft. Vielmehr versuchen Sie ihm/ihr Ihre eigenen Erfahrungen mit Zeitverzögerung und Nichteinhaltung von Zeitplänen zu vermitteln. Sie reagieren auf die spontane (informelle) Aufforderung Ihres Kollegen/Ihrer Kollegin zu einem Gespräch. 
 
 Handeln Sie während der Interaktion wie folgt: 
 • Nehmen Sie eine offene und willkommene Haltung gegenüber dem Gesprächspartner/der Gesprächspartnerin ein. 
@@ -548,7 +559,7 @@ Handeln Sie während der Interaktion wie folgt:
 Beachten Sie während des Gesprächs Folgendes:
 • Sie befinden sich in einer gleichberechtigten Rolle unter Kolleginnen und Kollegen. Verhalten Sie sich entsprechend kollegial und auf Augenhöhe.  
 • Ihre Kommunikationsweise folgt den strategischen Prinzipien: Das Beziehungsziel hat Vorrang. Sie dürfen indirekt formulieren, Andeutungen machen oder Aussagen abschwächen, wenn dies der Beziehung dient oder Spannungen vermeidet.  
-• Nutzen Sie bei Bedarf zukünftige Selbstoffenbarungen, z. B. wie Sie Ihre eigene Zusammenarbeit künftig sehen oder welche Entwicklungsmöglichkeiten Sie erwarten.  
+• Nutzen Sie bei Bedarf zukünftige Selbstoffenbarungen, Z.B. wie Sie Ihre eigene Zusammenarbeit künftig sehen oder welche Entwicklungsmöglichkeiten Sie erwarten.  
 • Sie dürfen Informationen selektiv geben, vorsichtig rahmen oder leicht ausweichend formulieren, sofern dies die kollegiale Beziehung schützt.  
 • Bleiben Sie konsequent in der Rolle einer Kollegin, die sich entspannt, locker und verständnisvoll präsentiert.
 """,
@@ -624,7 +635,6 @@ You are the team leader in a pedagogical facility for supporting adolescents. Yo
 You call K. Hermann to your office.
 • **Content goal:** Obtain the youth’s commitment to stop being late to important meetings, or proceed with formal disciplinary measures.  
 • **Relationship goal:** Maintaining a positive relationship is no longer your top priority.
-
 """,
 
     # -------------------------------------------------------------------------
@@ -640,7 +650,7 @@ Handeln Sie während der Interaktion wie folgt:
 • Behaupten Sie, nicht zu verstehen, wo das Problem liegt. 
 • Versuchen Sie der pädagogischen Fachkraft dazwischenzureden, um Ihr Verhalten zu rechtfertigen. 
 • Behaupten Sie, dass Sie beim Arbeiten meistens „nachtaktiv“ sind und deswegen morgens nicht so einfach aus dem Bett kommen. 
-• Falls die/der Vorgesetzte mit Abmahnung und damit indirekt mit einem Ausschluss aus der Gruppe droht, versuchen Sie das abzuwenden („Haben Sie doch Mitgefühl.“, „Seien Sie nicht so hart.“, „Bitte behandeln Sie mich fair.“). 
+• Falls die/der Vorgesetzte mit Abmahnung und damit indirekt mit einem Ausschluss aus der Gruppe droht, versuchen Sie das abzuwenden („Haben Sie doch Mitgefühl?“, „Seien Sie nicht so hart?“, „Bitte behandeln Sie mich fair.“). 
 • Deuten Sie an, dass der „militärische“ Stil der pädagogischen Fachkraft Ihre Kreativität und Motivation erheblich drosselt. 
 • Zeigen Sie sich bereit, Ihr Verhalten zu ändern, wenn Ihnen seitens des Gesprächspartners/der Gesprächspartnerin die Forderungen und die Konsequenzen klar und deutlich vermittelt werden.
 
@@ -719,7 +729,7 @@ Sie sind pädagogische Fachkraft in Vollzeit. Sie arbeiten seit über drei Jahre
     # -------------------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN + """
 **Background information:**  
-You are a full-time educational professional and have been working for more than three years at an all-day school. From many conversations, you know that you are appreciated by students and parents, and you are also very well liked among colleagues. School leadership is very satisfied with you, especially because the school currently has many sickness-related absences and therefore some instability. You enjoy your work. However, for personal reasons, you would like to reduce your working hours to 50%. You have realized that you want more free time for your hobbies. You must express and justify your wish to your supervisor, M. Weiß. He/She is known for strategic and non-transparent behavior. You know that he/she will initially deny or resist your request.
+You are a full-time educational professional and have been working for more than three years at an all-day school. From many conversations, you know that you are appreciated by students and parents, and you are also very well-liked among colleagues. School leadership is very satisfied with you, especially because the school currently has many sickness-related absences and, therefore, some instability. You enjoy your work. However, for personal reasons, you would like to reduce your working hours to 50%. You have realized that you want more free time for your hobbies. You must express and justify your wish to your supervisor, M. Weiß. He/She is known for strategic and non-transparent behavior. You know that he/she will initially deny or resist your request.
 
 **Your task:**  
 You meet with your supervisor to discuss your wish to reduce your working hours. The meeting takes place at your request.  
@@ -923,7 +933,7 @@ Sie sprechen mit dem/der Jugendlichen über die anstehende Moderation. Das Gespr
     # -------------------------------------------------------------------------
     "user_en": COMMON_USER_HEADER_EN + """
 **Background information:**  
-You are an educational professional in a residential youth facility and responsible for a group of 10 adolescents. Once a year, you plan a one-week trip to a German city. You intend to conduct a moderation session to determine the destination. All adolescents participate, and you have experience with democratic moderation formats where all voices are equally valued. The goal is to guide the adolescents in openly, independently, and democratically sharing their opinions so that the group can reach a widely accepted decision. Alex, one of the group members, has requested a meeting with you regarding the moderation. He/She represents a subgroup that wishes to travel to Nuremberg after watching a series about the Holy Roman Empire.
+You are an educational professional in a residential youth facility and are responsible for a group of 10 adolescents. Once a year, you plan a one-week trip to a German city. You intend to conduct a moderation session to determine the destination. All adolescents participate, and you have experience with democratic moderation formats where all voices are equally valued. The goal is to guide the adolescents in openly, independently, and democratically sharing their opinions so that the group can reach a widely accepted decision. Alex, one of the group members, has requested a meeting with you regarding the moderation. He/She represents a subgroup that wishes to travel to Nuremberg after watching a series about the Holy Roman Empire.
 
 **Your task:**  
 Speak with the adolescent about the upcoming moderation. The conversation is informal and initiated by the adolescent.
