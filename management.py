@@ -720,7 +720,7 @@ ROLEPLAYS[5] = {
 Sie sind pädagogische Fachkraft in Vollzeit. Sie arbeiten seit über drei Jahren an einer Ganztagsschule. Sie wissen aus vielen Gesprächen, dass Sie von Ihren Schülerinnen und Schülern und deren Eltern geschätzt werden und darüber hinaus auch im Kollegium sehr beliebt sind. Die Schulleitung ist mit Ihnen sehr zufrieden, gerade auch, weil es an der Schule viele Krankmeldungen gibt und daher einige Unruhe herrscht. Ihnen macht Ihre Arbeit großen Spaß. Sie möchten jedoch aus persönlichen Gründen Ihre Arbeitszeit auf 50% reduzieren. Sie haben gemerkt, dass Sie mehr Freizeit für sich haben möchten, um Ihren Hobbys nachzugehen. Sie müssen jedoch Ihren Wunsch gegenüber Ihrer Leitung, M. Weiß, äußern und begründen. Er/Sie ist für ein strategisches und intransparentes Verhalten bekannt. Sie wissen, dass er/sie Ihren Wunsch in Abrede stellen wird.
 
 **Ihre Aufgabe:** Sie treffen sich mit Ihrer Leitung, um Ihren Wunsch nach Arbeitszeitreduzierung zu besprechen. Das Treffen findet auf Ihren Wunsch statt. 
-• **Sachziel:** Sie möchten Ihre Arbeitszeit auf 50% reduzieren. 
+• **Sachziel:** Sie möchten Ihre Arbeitszeit auf 50% reduzieren.\n 
 • **Beziehungsziel:** Sie möchten weiter in der Einrichtung und zusammen mit Ihrer Schulleitung arbeiten.
 """,
 
