@@ -1308,27 +1308,6 @@ Act during the interaction as follows:
 - **Relationship goal:** You appreciate your colleague and want to maintain a good relationship with him/her. You want to foster a cooperative and respectful collaboration. It is important to welcome the colleague’s viewpoint and experience and jointly develop ideas. It is important to listen to one another, argue transparently, and constructively discuss counter-opinions to support an effective exchange of ideas and create a good foundation for collaboration.
 """
 }
-# ---------------------------------------------------------
-#  AUTO-SAVE CHAT (on every message)
-# ---------------------------------------------------------
-
-def autosave_chat():
-    """
-    Automatically save chat transcripts after each user or assistant message.
-    Saved as: feedback = {"auto_saved": True}
-    Does NOT interrupt UI flow.
-    """
-    if not st.session_state.messages:
-        return
-
-    try:
-        append_chat_and_feedback(
-            st.session_state.meta,
-            st.session_state.messages,
-            {"auto_saved": True},
-        )
-    except Exception as e:
-        st.warning(f"Autosave failed: {e}")
 
 # ---------------------------------------------------------
 #  Streamlit UI & Flow Logic
@@ -1484,7 +1463,6 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 
     if user_input:
         st.session_state.messages.append({"role": "user", "content": user_input})
-        autosave_chat() 
 
         try:
             response = client.chat.completions.create(
@@ -1498,13 +1476,22 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
             reply = f"[Error from OpenAI API: {e}]"
 
         st.session_state.messages.append({"role": "assistant", "content": reply})
-        autosave_chat()
         st.rerun()
 
 if st.session_state.chat_active and not st.session_state.feedback_done:
     if st.button("⏹ End conversation / Gespräch beenden"):
         st.session_state.chat_active = False
+        
 
+# ------------------------------------------
+        # AUTO-SAVE FINAL CHAT IF USER ENDS EARLY
+        # ------------------------------------------
+        append_chat_and_feedback(
+            st.session_state.meta,
+            st.session_state.messages,
+            {"feedback_skipped": True}
+        )
+        st.success("Chat automatically saved.")
 # ---------------------------------------------------------
 #  Feedback after each role-play (Q1–Q12)
 # ---------------------------------------------------------
