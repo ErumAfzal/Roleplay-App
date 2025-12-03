@@ -1482,6 +1482,16 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
     if st.button("⏹ End conversation / Gespräch beenden"):
         st.session_state.chat_active = False
 
+      # ------------------------------------------
+        # AUTO-SAVE FINAL CHAT IF USER ENDS EARLY
+        # ------------------------------------------
+        append_chat_and_feedback(
+            st.session_state.meta,
+            st.session_state.messages,
+            {"feedback_skipped": True}
+        )
+        st.success("Chat automatically saved.")
+
 # ---------------------------------------------------------
 #  Feedback after each role-play (Q1–Q12)
 # ---------------------------------------------------------
