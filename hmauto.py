@@ -1484,6 +1484,7 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 
     if user_input:
         st.session_state.messages.append({"role": "user", "content": user_input})
+        autosave_chat() 
 
         try:
             response = client.chat.completions.create(
@@ -1497,6 +1498,7 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
             reply = f"[Error from OpenAI API: {e}]"
 
         st.session_state.messages.append({"role": "assistant", "content": reply})
+        autosave_chat()
         st.rerun()
 
 if st.session_state.chat_active and not st.session_state.feedback_done:
