@@ -1521,6 +1521,7 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
 
         comment = st.text_area("Optional comment")
         submit_label = "Save feedback & chat"
+
     else:
         q1 = st.radio("Die Persönlichkeit des Chatbots war realistisch und ansprechend", [1, 2, 3, 4, 5], horizontal=True)
         q2 = st.radio("Der Chatbot wirkte zu robotisch", [1, 2, 3, 4, 5], horizontal=True)
@@ -1541,7 +1542,10 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         comment = st.text_area("Optionaler Kommentar")
         submit_label = "Feedback & Chat speichern"
 
-       if st.button(submit_label):
+    # ---------------------------------------------------------
+    #  Submit button
+    # ---------------------------------------------------------
+    if st.button(submit_label):
         feedback_data = {
             "Q1": q1,
             "Q2": q2,
@@ -1567,11 +1571,13 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
 
         st.session_state.feedback_done = True
 
-        # Move from batch1 -> batch2 -> finished
+        # ---------------------------------------------------------
+        #  Move from batch1 → batch2 → finished
+        # ---------------------------------------------------------
         if st.session_state.batch_step == "batch1":
             st.session_state.batch_step = "batch2"
             st.session_state.messages = []
-            st.session_state.autosaved_chat = False   # allow Block 2 autosave to work
+            st.session_state.autosaved_chat = False   # IMPORTANT: enables autosave for Block 2
 
             st.success(
                 "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
@@ -1591,3 +1597,4 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
                 else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
             )
             st.rerun()
+
