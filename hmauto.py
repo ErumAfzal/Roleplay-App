@@ -57,7 +57,6 @@ def get_supabase_client() -> Client | None:
         st.error(f"Failed to set up Supabase client: {e}")
         return None
 
-
 def messages_to_transcript(messages, language: str) -> str:
     """
     Turn [{role, content}, ...] into a readable transcript.
@@ -1569,27 +1568,38 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
 
         st.session_state.feedback_done = True
 
-        # Move from batch1 -> batch2 -> finished
-        if st.session_state.batch_step == "batch1":
-            st.session_state.batch_step = "batch2"
-            st.session_state.messages = []
+        # --- Save to Supabase instead of append_chat_and_feedback() ---
 
-            st.success(
-                "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
-                if language == "English"
-                else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
-            )
-        
-            st.rerun()   # <-- FORCE MOVE TO BLOCK 2
-        
-        else:
-            st.session_state.batch_step = "finished"
-            st.session_state.messages = []
-        
-            st.success(
-                "Thank you! You completed both batches."
-                if language == "English"
-                else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
-            )
+append_chat_and_feedback(
+    st.session_state.meta,
+    st.session_state.messages,
+    feedback_data,
+)
 
-            st.rerun()   # <-- SHOW FINISHED SCREEN IMMEDIATELY
+st.session_state.feedback_done = True
+
+# Move from batch1 -> batch2 -> finished
+if st.session_state.batch_step == "batch1":
+    st.session_state.batch_step = "batch2"
+    st.session_state.messages = []
+    st.session_state.autosaved_chat = False   # <<< FIX: allow Block 2 to autosave
+
+    st.success(
+        "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
+        if language == "English"
+        else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
+    )
+
+    st.rerun()   # <-- FORCE MOVE TO BLOCK 2
+
+else:
+    st.session_state.batch_step = "finished"
+    st.session_state.messages = []
+    st.session_state.autosaved_chat = False   # <<< optional but safe
+
+    st.success(
+        "Thank you! You completed both batches."
+        if language == "English"
+        else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
+    )
+    st.rerun()   # <-- SHOW FINISHED SCREEN IMMEDIATELY
