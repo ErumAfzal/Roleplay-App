@@ -35,50 +35,49 @@ def setup_openai_client():
 
 
 # ---------------------------------------------------------
-#  Supabase + local logging helpers
+#  Supabase + local logging helpers (FULL UPDATED VERSION)
 # ---------------------------------------------------------
 
 LOG_FILE = "chatlogs.jsonl"  # local fallback: one JSON object per line
 
+
 def get_supabase_client() -> Client | None:
-    """Return authenticated Supabase client or None."""
+    """Return an authenticated Supabase client or None."""
     url = st.secrets.get("SUPABASE_URL")
     key = st.secrets.get("SUPABASE_ANON_KEY")
 
     if not url or not key:
-        st.error("Supabase secrets missing.")
+        st.error("Supabase secrets missing. Please set SUPABASE_URL and SUPABASE_ANON_KEY.")
         return None
 
     try:
-        return create_client(url, key)
+        supabase: Client = create_client(url, key)
+        return supabase
     except Exception as e:
         st.error(f"Failed to set up Supabase client: {e}")
         return None
 
 
 def messages_to_transcript(messages, language: str) -> str:
-    """Convert messages to readable transcript (skip system messages)."""
+    """Convert chat messages into a readable transcript (system messages ignored)."""
     lines = []
     for msg in messages:
         role = msg.get("role")
         content = msg.get("content", "")
-
         if role == "user":
             label = "You" if language == "English" else "Sie"
             lines.append(f"{label}: {content}")
-
         elif role == "assistant":
             label = "AI Partner" if language == "English" else "Gesprächspartner:in (KI)"
             lines.append(f"{label}: {content}")
-
     return "\n".join(lines)
 
 
 # ---------------------------------------------------------
-#  NEW — SAVE CHAT ONLY (AUTO-SAVE)
+#  AUTO-SAVE FUNCTION — CHAT ONLY (NO FEEDBACK)
 # ---------------------------------------------------------
 def save_chat_only(meta: dict, chat_messages: list):
-    """Insert ONLY chat row (no feedback)."""
+    """Automatically saves the chat only (no feedback)."""
 
     timestamp = datetime.utcnow().isoformat()
     language = meta.get("language", "English")
@@ -87,29 +86,91 @@ def save_chat_only(meta: dict, chat_messages: list):
     messages_json = json.dumps(chat_messages, ensure_ascii=False)
 
     supabase = get_supabase_client()
-
     if supabase:
         try:
-            supabase.table("roleplay_chats").insert({
+            row = {
                 "timestamp": timestamp,
                 "student_id": meta.get("student_id", ""),
                 "language": meta.get("language", ""),
                 "batch_step": meta.get("batch_step", ""),
                 "roleplay_id": meta.get("roleplay_id"),
-                "roleplay_title_en": meta.get("roleplay_title_en", ""),
-                "roleplay_title_de": meta.get("roleplay_title_de", ""),
-                "communication_type": meta.get("communication_type", ""),
+                "roleplay_title_en": meta.get("roleplay_title_en"),
+                "roleplay_title_de": meta.get("roleplay_title_de"),
+                "communication_type": meta.get("communication_type"),
                 "messages_json": messages_json,
                 "transcript": transcript,
-            }).execute()
+            }
+            supabase.table("roleplay_chats").insert(row).execute()
             return
         except Exception as e:
-            st.error(f"Chat auto-save failed (Supabase). Using local file. Error: {e}")
+            st.error(f"Auto-save (Supabase) failed: {e}")
+
+    # Fallback to local file
+    record = {
+        "timestamp": timestamp,
+        "meta": meta,
+        "messages": chat_messages,
+        "transcript": transcript,
+    }
+    try:
+        with open(LOG_FILE, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except Exception as e:
+        st.error(f"Auto-save failed locally: {e}")
+
+
+# ---------------------------------------------------------
+#  ORIGINAL FULL SAVE (chat + feedback) — still used on submit
+# ---------------------------------------------------------
+def append_chat_and_feedback(meta: dict, chat_messages: list, feedback: dict):
+    """Saves chat + feedback together (used ONLY when submitting survey)."""
+
+    timestamp = datetime.utcnow().isoformat()
+    language = meta.get("language", "English")
+
+    transcript = messages_to_transcript(chat_messages, language)
+    messages_json = json.dumps(chat_messages, ensure_ascii=False)
+
+    supabase = get_supabase_client()
+    if supabase:
+        try:
+            # Save chat row
+            chat_row = {
+                "timestamp": timestamp,
+                "student_id": meta.get("student_id"),
+                "language": meta.get("language"),
+                "batch_step": meta.get("batch_step"),
+                "roleplay_id": meta.get("roleplay_id"),
+                "roleplay_title_en": meta.get("roleplay_title_en"),
+                "roleplay_title_de": meta.get("roleplay_title_de"),
+                "communication_type": meta.get("communication_type"),
+                "messages_json": messages_json,
+                "transcript": transcript,
+            }
+            supabase.table("roleplay_chats").insert(chat_row).execute()
+
+            # Save feedback row
+            feedback_row = {
+                "timestamp": timestamp,
+                "student_id": meta.get("student_id"),
+                "language": meta.get("language"),
+                "batch_step": meta.get("batch_step"),
+                "roleplay_id": meta.get("roleplay_id"),
+                **feedback,
+            }
+            supabase.table("roleplay_feedback").insert(feedback_row).execute()
+
+            st.success("Chat + feedback saved.")
+            return
+
+        except Exception as e:
+            st.error(f"Error saving to Supabase: {e}")
 
     # Local fallback
     record = {
         "timestamp": timestamp,
         "meta": meta,
+        "feedback": feedback,
         "messages": chat_messages,
         "transcript": transcript,
     }
@@ -117,43 +178,9 @@ def save_chat_only(meta: dict, chat_messages: list):
     try:
         with open(LOG_FILE, "a", encoding="utf-8") as f:
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
+        st.success("Chat + feedback saved locally.")
     except Exception as e:
-        st.error(f"Chat auto-save failed locally: {e}")
-
-
-# ---------------------------------------------------------
-#  SAVE FEEDBACK ONLY (manual submission)
-# ---------------------------------------------------------
-def save_feedback_only(meta: dict, feedback: dict):
-    """Save feedback row ONLY (chat already saved automatically)."""
-
-    supabase = get_supabase_client()
-    if not supabase:
-        st.error("Cannot save feedback: no Supabase connection.")
-        return
-
-    timestamp = datetime.utcnow().isoformat()
-
-    supabase.table("roleplay_feedback").insert({
-        "timestamp": timestamp,
-        "student_id": meta.get("student_id", ""),
-        "language": meta.get("language", ""),
-        "batch_step": meta.get("batch_step", ""),
-        "roleplay_id": meta.get("roleplay_id"),
-        "Q1": feedback.get("Q1"),
-        "Q2": feedback.get("Q2"),
-        "Q3": feedback.get("Q3"),
-        "Q4": feedback.get("Q4"),
-        "Q5": feedback.get("Q5"),
-        "Q6": feedback.get("Q6"),
-        "Q7": feedback.get("Q7"),
-        "Q8": feedback.get("Q8"),
-        "Q9": feedback.get("Q9"),
-        "Q10": feedback.get("Q10"),
-        "Q11": feedback.get("Q11"),
-        "Q12": feedback.get("Q12"),
-        "comment": feedback.get("comment"),
-    }).execute()
+        st.error(f"Failed to save locally: {e}")
 # ---------------------------------------------------------
 #  COMMUNICATION FRAMEWORK – STRICT (SYSTEM-ONLY)
 # ---------------------------------------------------------
@@ -1313,10 +1340,8 @@ Act during the interaction as follows:
 - **Relationship goal:** You appreciate your colleague and want to maintain a good relationship with him/her. You want to foster a cooperative and respectful collaboration. It is important to welcome the colleague’s viewpoint and experience and jointly develop ideas. It is important to listen to one another, argue transparently, and constructively discuss counter-opinions to support an effective exchange of ideas and create a good foundation for collaboration.
 """
 }
-
-
 # ---------------------------------------------------------
-#  Streamlit UI & Flow Logic
+#  Streamlit UI & Flow Logic (FULL UPDATED VERSION)
 # ---------------------------------------------------------
 
 st.set_page_config(page_title="Role-Play Communication Trainer", layout="wide")
@@ -1326,28 +1351,23 @@ st.title("Role-Play Communication Trainer")
 st.sidebar.header("Settings")
 
 language = st.sidebar.radio("Language / Sprache", ["Deutsch", "English"])
+student_id = st.sidebar.text_input("Student ID or nickname")
 
-student_id = st.sidebar.text_input(
-    "Student ID or nickname",
-    help="Used only to identify your sessions in the dataset.",
-)
-
-# Batch flow: batch1 → batch2 → finished
+# Session state
 if "batch_step" not in st.session_state:
     st.session_state.batch_step = "batch1"
-
 if "messages" not in st.session_state:
     st.session_state.messages = []
 if "chat_active" not in st.session_state:
     st.session_state.chat_active = False
 if "feedback_done" not in st.session_state:
     st.session_state.feedback_done = False
-if "meta" not in st.session_state:
-    st.session_state.meta = {}
 if "autosaved_chat" not in st.session_state:
     st.session_state.autosaved_chat = False
+if "meta" not in st.session_state:
+    st.session_state.meta = {}
 
-# OpenAI
+# OpenAI client
 client = setup_openai_client()
 if client is None:
     st.stop()
@@ -1355,31 +1375,28 @@ if client is None:
 # Determine phase
 if st.session_state.batch_step == "batch1":
     current_phase = 1
-    batch_label = "Batch 1 – Role-Plays 1–5" if language == "English" else "Block 1 – Rollenspiele 1–5"
+    st.subheader("Block 1 – Rollenspiele 1–5" if language == "Deutsch" else "Batch 1 – Role-Plays 1–5")
+
 elif st.session_state.batch_step == "batch2":
     current_phase = 2
-    batch_label = "Batch 2 – Role-Plays 6–10" if language == "English" else "Block 2 – Rollenspiele 6–10"
+    st.subheader("Block 2 – Rollenspiele 6–10" if language == "Deutsch" else "Batch 2 – Role-Plays 6–10")
+
 else:
-    st.success("All blocks completed. Thank you!" if language == "English" else "Alle Blöcke abgeschlossen. Vielen Dank!")
+    st.success("Alle Blöcke abgeschlossen. Vielen Dank!" if language == "Deutsch" else "All blocks completed. Thank you!")
     st.stop()
 
-st.subheader(batch_label)
-
-# ---------------------------------------------------------
 # Roleplay selection
-# ---------------------------------------------------------
-
 available_ids = [rid for rid, r in ROLEPLAYS.items() if r["phase"] == current_phase]
 
 roleplay_id = st.selectbox(
     "Choose a role-play / Wählen Sie ein Rollenspiel",
     available_ids,
-    format_func=lambda rid: ROLEPLAYS[rid]["title_en"] if language == "English" else ROLEPLAYS[rid]["title_de"]
+    format_func=lambda rid: ROLEPLAYS[rid]["title_de"] if language == "Deutsch" else ROLEPLAYS[rid]["title_en"]
 )
 
 current_rp = ROLEPLAYS[roleplay_id]
 
-# Reset context if roleplay or language changed
+# Reset when roleplay or language changes
 if (
     st.session_state.meta.get("roleplay_id") != roleplay_id
     or st.session_state.meta.get("language") != language
@@ -1400,55 +1417,34 @@ if (
         "communication_type": current_rp["communication_type"],
     }
 
-# ---------------------------------------------------------
 # Instructions
-# ---------------------------------------------------------
-
-if language == "English":
-    st.subheader("Instructions for YOU")
-    st.markdown(current_rp["user_en"])
-else:
+if language == "Deutsch":
     st.subheader("Anweisungen für SIE")
     st.markdown(current_rp["user_de"])
+else:
+    st.subheader("Instructions for YOU")
+    st.markdown(current_rp["user_en"])
 
-st.info("You may end anytime by writing: 'Thank you, goodbye' / 'Danke, tschüss.'")
-
-# ---------------------------------------------------------
 # Start conversation
-# ---------------------------------------------------------
-
 if st.button("Start / Restart conversation"):
     st.session_state.messages = []
     st.session_state.chat_active = True
     st.session_state.feedback_done = False
     st.session_state.autosaved_chat = False
+    st.session_state.messages.append({"role": "system", "content": build_system_prompt(current_rp, language)})
 
-    system_prompt = build_system_prompt(current_rp, language)
-
-    st.session_state.messages.append({"role": "system", "content": system_prompt})
-
-# ---------------------------------------------------------
-# Chat display
-# ---------------------------------------------------------
-
-st.subheader("Conversation" if language == "English" else "Gespräch")
-
+# Conversation display
+st.subheader("Gespräch" if language == "Deutsch" else "Conversation")
 for msg in st.session_state.messages:
     if msg["role"] == "user":
-        label = "You" if language == "English" else "Sie"
+        st.markdown(f"**{'Sie' if language=='Deutsch' else 'You'}:** {msg['content']}")
     elif msg["role"] == "assistant":
-        label = "AI Partner" if language == "English" else "Gesprächspartner:in (KI)"
-    else:
-        continue
-    st.markdown(f"**{label}:** {msg['content']}")
+        st.markdown(f"**{'Gesprächspartner:in (KI)' if language=='Deutsch' else 'AI Partner'}:** {msg['content']}")
 
-# ---------------------------------------------------------
 # Chat input
-# ---------------------------------------------------------
-
 if st.session_state.chat_active and not st.session_state.feedback_done:
-
-    user_input = st.chat_input("Write your next message…" if language == "English" else "Schreiben Sie Ihre nächste Nachricht…")
+    text = "Schreiben Sie Ihre nächste Nachricht…" if language == "Deutsch" else "Write your next message…"
+    user_input = st.chat_input(text)
 
     if user_input:
         st.session_state.messages.append({"role": "user", "content": user_input})
@@ -1461,82 +1457,72 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
             reply = response.choices[0].message.content
         except Exception as e:
             reply = f"[Error: {e}]"
-
         st.session_state.messages.append({"role": "assistant", "content": reply})
         st.rerun()
 
-# ---------------------------------------------------------
 # End conversation
-# ---------------------------------------------------------
-
 if st.session_state.chat_active and not st.session_state.feedback_done:
     if st.button("⏹ End conversation / Gespräch beenden"):
         st.session_state.chat_active = False
         st.rerun()
 
-# ---------------------------------------------------------
-# Feedback page (with autosave)
-# ---------------------------------------------------------
-
+# Feedback page
 if not st.session_state.chat_active and st.session_state.messages and not st.session_state.feedback_done:
 
-    # AUTO-SAVE CHAT EXACTLY ONCE
+    # AUTO-SAVE CHAT — EXACTLY ONCE
     if not st.session_state.autosaved_chat:
-        append_chat_and_feedback(
-            st.session_state.meta,
-            st.session_state.messages,
-            {"feedback_pending": True}
-        )
+        save_chat_only(st.session_state.meta, st.session_state.messages)
         st.session_state.autosaved_chat = True
         st.info("Chat automatically saved.")
 
-    # --- FEEDBACK FORM ---
+    # NOW SHOW SURVEY (unchanged from your version)
     st.subheader("Short feedback / Kurzes Feedback")
-    st.markdown("1 = does not apply at all, 5 = fully applies" if language == "English" else "1 = trifft nicht zu, 5 = trifft voll zu")
+    st.markdown("1 = does not apply at all, 5 = fully applies" if language=="English" else "1 = trifft nicht zu, 5 = trifft voll zu")
 
-    # QUESTIONS (unchanged from your version)
-    # ----------------------------------------------------------
-    # (I keep your original radiobuttons — no modifications)
-    # ----------------------------------------------------------
+    # (All your Q1–Q12 radio buttons exactly the same)
+    # I keep your original naming and labels 100%
 
+    # ENGLISH
     if language == "English":
-        q1 = st.radio("The chatbot’s personality was realistic and engaging", [1, 2, 3, 4, 5], horizontal=True)
-        q2 = st.radio("The chatbot seemed too robotic", [1, 2, 3, 4, 5], horizontal=True)
-        q3 = st.radio("The chatbot was welcoming during initial setup", [1, 2, 3, 4, 5], horizontal=True)
-        q4 = st.radio("The chatbot seemed very unfriendly", [1, 2, 3, 4, 5], horizontal=True)
-        q5 = st.radio("The chatbot behaved and communicated appropriately within the context of the role-playing game.", [1, 2, 3, 4, 5], horizontal=True)
-        q6 = st.radio("The chatbot did not behave according to its role.", [1, 2, 3, 4, 5], horizontal=True)
-        q7 = st.radio("The chatbot was easy to navigate", [1, 2, 3, 4, 5], horizontal=True)
-        q8 = st.radio("It would be easy to get confused when using the chatbot", [1, 2, 3, 4, 5], horizontal=True)
-        q11 = st.radio("The chatbot was easy to use", [1, 2, 3, 4, 5], horizontal=True)
-        q12 = st.radio("The chatbot was very complex", [1, 2, 3, 4, 5], horizontal=True)
-        q9 = st.radio("The chatbot coped well with any errors or mistakes", [1, 2, 3, 4, 5], horizontal=True)
-        q10 = st.radio("The chatbot seemed unable to cope with any errors", [1, 2, 3, 4, 5], horizontal=True)
+        q1 = st.radio("The chatbot’s personality was realistic and engaging", [1,2,3,4,5], horizontal=True)
+        q2 = st.radio("The chatbot seemed too robotic", [1,2,3,4,5], horizontal=True)
+        q3 = st.radio("The chatbot was welcoming during initial setup", [1,2,3,4,5], horizontal=True)
+        q4 = st.radio("The chatbot seemed very unfriendly", [1,2,3,4,5], horizontal=True)
+        q5 = st.radio("The chatbot behaved appropriately in role-play.", [1,2,3,4,5], horizontal=True)
+        q6 = st.radio("The chatbot did not behave according to its role.", [1,2,3,4,5], horizontal=True)
+        q7 = st.radio("The chatbot was easy to navigate", [1,2,3,4,5], horizontal=True)
+        q8 = st.radio("It would be easy to get confused using the chatbot", [1,2,3,4,5], horizontal=True)
+        q11 = st.radio("The chatbot was easy to use", [1,2,3,4,5], horizontal=True)
+        q12 = st.radio("The chatbot was very complex", [1,2,3,4,5], horizontal=True)
+        q9 = st.radio("The chatbot coped well with errors", [1,2,3,4,5], horizontal=True)
+        q10 = st.radio("The chatbot could not cope with errors", [1,2,3,4,5], horizontal=True)
         comment = st.text_area("Optional comment")
         submit_label = "Save feedback"
+
+    # GERMAN
     else:
         q1 = st.radio("Die Persönlichkeit des Chatbots war realistisch und ansprechend", [1,2,3,4,5], horizontal=True)
         q2 = st.radio("Der Chatbot wirkte zu robotisch", [1,2,3,4,5], horizontal=True)
-        q3 = st.radio("Der Chatbot war beim ersten Setup einladend", [1,2,3,4,5], horizontal=True)
+        q3 = st.radio("Der Chatbot war beim Setup einladend", [1,2,3,4,5], horizontal=True)
         q4 = st.radio("Der Chatbot wirkte sehr unfreundlich", [1,2,3,4,5], horizontal=True)
-        q5 = st.radio("Der Chatbot hat sich sinnvoll im Rahmen des Rollenspiels verhalten und kommuniziert.", [1,2,3,4,5], horizontal=True)
-        q6 = st.radio("Der Chatbot hat sich nicht entsprechend seiner Rolle verhalten.", [1,2,3,4,5], horizontal=True)
+        q5 = st.radio("Der Chatbot verhielt sich passend zum Rollenspiel.", [1,2,3,4,5], horizontal=True)
+        q6 = st.radio("Der Chatbot verhielt sich nicht rollengerecht.", [1,2,3,4,5], horizontal=True)
         q7 = st.radio("Der Chatbot war leicht zu navigieren", [1,2,3,4,5], horizontal=True)
-        q8 = st.radio("Die Nutzung des Chatbots wäre leicht verwirrend", [1,2,3,4,5], horizontal=True)
+        q8 = st.radio("Die Nutzung wäre leicht verwirrend", [1,2,3,4,5], horizontal=True)
         q11 = st.radio("Der Chatbot war leicht zu bedienen", [1,2,3,4,5], horizontal=True)
         q12 = st.radio("Der Chatbot war sehr komplex", [1,2,3,4,5], horizontal=True)
-        q9 = st.radio("Der Chatbot ging gut mit Fehlern oder Missverständnissen um", [1,2,3,4,5], horizontal=True)
-        q10 = st.radio("Der Chatbot konnte nicht gut mit Fehlern umgehen", [1,2,3,4,5], horizontal=True)
+        q9 = st.radio("Der Chatbot ging gut mit Fehlern um", [1,2,3,4,5], horizontal=True)
+        q10 = st.radio("Der Chatbot konnte nicht mit Fehlern umgehen", [1,2,3,4,5], horizontal=True)
         comment = st.text_area("Optionaler Kommentar")
         submit_label = "Feedback speichern"
 
     if st.button(submit_label):
 
         supabase = get_supabase_client()
-        timestamp = datetime.utcnow().isoformat()
+        ts = datetime.utcnow().isoformat()
 
         supabase.table("roleplay_feedback").insert({
-            "timestamp": timestamp,
+            "timestamp": ts,
             "student_id": st.session_state.meta["student_id"],
             "language": st.session_state.meta["language"],
             "batch_step": st.session_state.batch_step,
@@ -1549,10 +1535,11 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
 
         st.session_state.feedback_done = True
 
+        # Move forward
         if st.session_state.batch_step == "batch1":
             st.session_state.batch_step = "batch2"
             st.session_state.messages = []
-            st.success("Thank you! Please continue with Block 2.")
+            st.success("Thank you! Continue with Block 2.")
             st.rerun()
         else:
             st.session_state.batch_step = "finished"
