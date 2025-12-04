@@ -40,115 +40,120 @@ def setup_openai_client():
 
 LOG_FILE = "chatlogs.jsonl"  # local fallback: one JSON object per line
 
-
 def get_supabase_client() -> Client | None:
-    """Return an authenticated Supabase client or None."""
+    """Return authenticated Supabase client or None."""
     url = st.secrets.get("SUPABASE_URL")
     key = st.secrets.get("SUPABASE_ANON_KEY")
 
     if not url or not key:
-        st.error("Supabase secrets missing. Please set SUPABASE_URL and SUPABASE_ANON_KEY.")
+        st.error("Supabase secrets missing.")
         return None
 
     try:
-        supabase: Client = create_client(url, key)
-        return supabase
+        return create_client(url, key)
     except Exception as e:
         st.error(f"Failed to set up Supabase client: {e}")
         return None
 
 
 def messages_to_transcript(messages, language: str) -> str:
-    """
-    Turn [{role, content}, ...] into a readable transcript.
-    Skip system messages.
-    """
+    """Convert messages to readable transcript (skip system messages)."""
     lines = []
     for msg in messages:
         role = msg.get("role")
         content = msg.get("content", "")
+
         if role == "user":
             label = "You" if language == "English" else "Sie"
             lines.append(f"{label}: {content}")
+
         elif role == "assistant":
             label = "AI Partner" if language == "English" else "Gesprächspartner:in (KI)"
             lines.append(f"{label}: {content}")
-        # ignore "system"
+
     return "\n".join(lines)
 
 
-def append_chat_and_feedback(meta: dict, chat_messages: list, feedback: dict):
-    """
-    Save chat + feedback.
-    1) Try Supabase first (tables: roleplay_chats, roleplay_feedback)
-    2) If Supabase fails, save locally to chatlogs.jsonl
-    """
+# ---------------------------------------------------------
+#  NEW — SAVE CHAT ONLY (AUTO-SAVE)
+# ---------------------------------------------------------
+def save_chat_only(meta: dict, chat_messages: list):
+    """Insert ONLY chat row (no feedback)."""
+
     timestamp = datetime.utcnow().isoformat()
     language = meta.get("language", "English")
+
     transcript = messages_to_transcript(chat_messages, language)
     messages_json = json.dumps(chat_messages, ensure_ascii=False)
 
-    # First try Supabase
     supabase = get_supabase_client()
+
     if supabase:
         try:
-            # Insert chat row
-            chat_row = {
+            supabase.table("roleplay_chats").insert({
                 "timestamp": timestamp,
                 "student_id": meta.get("student_id", ""),
                 "language": meta.get("language", ""),
                 "batch_step": meta.get("batch_step", ""),
-                "roleplay_id": meta.get("roleplay_id", None),
+                "roleplay_id": meta.get("roleplay_id"),
                 "roleplay_title_en": meta.get("roleplay_title_en", ""),
                 "roleplay_title_de": meta.get("roleplay_title_de", ""),
                 "communication_type": meta.get("communication_type", ""),
                 "messages_json": messages_json,
                 "transcript": transcript,
-            }
-            supabase.table("roleplay_chats").insert(chat_row).execute()
-
-            # Insert feedback row
-            feedback_row = {
-                "timestamp": timestamp,
-                "student_id": meta.get("student_id", ""),
-                "language": meta.get("language", ""),
-                "batch_step": meta.get("batch_step", ""),
-                "roleplay_id": meta.get("roleplay_id", None),
-                "q1": feedback.get("Q1"),
-                "q2": feedback.get("Q2"),
-                "q3": feedback.get("Q3"),
-                "q4": feedback.get("Q4"),
-                "q5": feedback.get("Q5"),
-                "q6": feedback.get("Q6"),
-                "q7": feedback.get("Q7"),
-                "q8": feedback.get("Q8"),
-                "q9": feedback.get("Q9"),
-                "q10": feedback.get("Q10"),
-                "q11": feedback.get("Q11"),
-                "q12": feedback.get("Q12"),
-                "comment": feedback.get("comment"),
-            }
-            supabase.table("roleplay_feedback").insert(feedback_row).execute()
-
-            st.success("Chat and feedback saved to Supabase.")
+            }).execute()
             return
         except Exception as e:
-            st.error(f"Saving to Supabase failed (will use local file instead): {e}")
+            st.error(f"Chat auto-save failed (Supabase). Using local file. Error: {e}")
 
-    # Fallback: local JSONL file
+    # Local fallback
     record = {
         "timestamp": timestamp,
         "meta": meta,
-        "feedback": feedback,
         "messages": chat_messages,
         "transcript": transcript,
     }
+
     try:
         with open(LOG_FILE, "a", encoding="utf-8") as f:
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
-        st.success("Chat and feedback saved locally (fallback).")
     except Exception as e:
-        st.error(f"Failed to save chat and feedback locally: {e}")
+        st.error(f"Chat auto-save failed locally: {e}")
+
+
+# ---------------------------------------------------------
+#  SAVE FEEDBACK ONLY (manual submission)
+# ---------------------------------------------------------
+def save_feedback_only(meta: dict, feedback: dict):
+    """Save feedback row ONLY (chat already saved automatically)."""
+
+    supabase = get_supabase_client()
+    if not supabase:
+        st.error("Cannot save feedback: no Supabase connection.")
+        return
+
+    timestamp = datetime.utcnow().isoformat()
+
+    supabase.table("roleplay_feedback").insert({
+        "timestamp": timestamp,
+        "student_id": meta.get("student_id", ""),
+        "language": meta.get("language", ""),
+        "batch_step": meta.get("batch_step", ""),
+        "roleplay_id": meta.get("roleplay_id"),
+        "Q1": feedback.get("Q1"),
+        "Q2": feedback.get("Q2"),
+        "Q3": feedback.get("Q3"),
+        "Q4": feedback.get("Q4"),
+        "Q5": feedback.get("Q5"),
+        "Q6": feedback.get("Q6"),
+        "Q7": feedback.get("Q7"),
+        "Q8": feedback.get("Q8"),
+        "Q9": feedback.get("Q9"),
+        "Q10": feedback.get("Q10"),
+        "Q11": feedback.get("Q11"),
+        "Q12": feedback.get("Q12"),
+        "comment": feedback.get("comment"),
+    }).execute()
 # ---------------------------------------------------------
 #  COMMUNICATION FRAMEWORK – STRICT (SYSTEM-ONLY)
 # ---------------------------------------------------------
