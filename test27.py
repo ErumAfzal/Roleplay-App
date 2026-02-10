@@ -1514,7 +1514,7 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
                 model="gpt-5.2",
                 messages=st.session_state.messages,
                 temperature=0.7,
-                max_tokens=400,
+                max_completion_tokens=400,
             )
             reply = response.choices[0].message.content
         except Exception as e:
