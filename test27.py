@@ -165,6 +165,12 @@ There are two communication orientations:
    - You may hold back information, be selective, indirect, or slightly ambiguous when this
      serves your relational objective.
    - You may strategically frame or time information.
+   - Do NOT move too quickly into agreement, validation, or joint problem-solving.
+   - Do NOT sound like a counselor, mediator, or coach.
+   - Maintain a degree of ambiguity, self-protection, or indirectness.
+   - Partial agreement, reframing, minimising, or humorous deflection are allowed and expected.
+   - The interaction should feel slightly unresolved or tension-containing, while still preserving the relationship.
+
 
 2) Understanding-oriented communication (Role-Plays 6–10)
    - Conversation intention: Content goal in the foreground.
