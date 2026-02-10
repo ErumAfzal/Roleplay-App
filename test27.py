@@ -1556,8 +1556,8 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
             response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=st.session_state.messages,
-                temperature=0.7,
-                max_tokens=400,
+                temperature=0.6,
+                max_tokens=220,
             )
             reply = response.choices[0].message.content
         except Exception as e:
