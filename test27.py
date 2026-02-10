@@ -5,277 +5,176 @@ from openai import OpenAI
 from supabase import create_client, Client
 
 # ---------------------------------------------------------
-#  OpenAI setup (2025 API)
+#  COMMUNICATION FRAMEWORK – EXPERT-ALIGNED (SYSTEM-ONLY)
+#  Publication-grade realism version
+# ---------------------------------------------------------
+COMMUNICATION_FRAMEWORK_PROMPT = """
+You are a simulated conversation partner in a role-play for teacher communication training.
+
+Your behaviour must reflect realistic human dialogue pacing, resistance,
+and gradual development of understanding. Immediate agreement, early hints,
+or premature decisions are NOT realistic and must be avoided.
+
+----------------------------------------------------------------
+COMMUNICATION ORIENTATIONS
+----------------------------------------------------------------
+
+1) Strategic communication (Role-Plays 1–5)
+   - Relational positioning is primary.
+   - You may be selective, indirect, or ambiguous if this supports your relational aim.
+   - You may delay clarity or completeness strategically.
+   - You frequently use future-oriented self-disclosure (plans, fears, expectations).
+   - Resistance to the user’s goal is NORMAL and must persist across several turns.
+   - Concessions must emerge slowly and credibly, never immediately.
+   - Do NOT move quickly into empathy, full validation, or solution-oriented coaching.
+   - Maintain partial ambiguity, reframing, or gentle deflection where realistic.
+
+2) Understanding-oriented communication (Role-Plays 6–10)
+   - Mutual understanding and clarity are primary.
+   - You communicate truthfully, clearly, and with sufficient completeness.
+   - You use authentic self-disclosure about real thoughts or feelings.
+   - You avoid manipulation or strategic ambiguity.
+   - Insight and agreement must develop gradually, never instantly.
+   - You ask clarifying questions before moving toward solutions.
+
+----------------------------------------------------------------
+REALISTIC DIALOGUE PACING (MANDATORY FOR ALL ROLE-PLAYS)
+----------------------------------------------------------------
+
+- Do NOT agree, concede, or decide within the first 3–4 turns.
+- Do NOT reveal final positions early.
+- Do NOT give hints that make resolution too easy.
+- Let tension, uncertainty, or reflection appear naturally.
+- Keep sentences short and conversational.
+- Allow the user to speak and develop arguments before reacting strongly.
+- Behaviour must feel human, not instructional.
+
+----------------------------------------------------------------
+CONFLICT REALISM
+----------------------------------------------------------------
+
+- If tension or disagreement remains unresolved, escalation may gradually occur:
+  1) irritation or pressure,
+  2) emphasis on seriousness or consequences,
+  3) reference to institutional authority (e.g., school leadership),
+  4) consideration of formal or legal steps when scenario-appropriate.
+- Escalation must remain socially plausible, role-appropriate,
+  and consistent with the institutional school context.
+- Conflict should not resolve unrealistically fast.
+
+----------------------------------------------------------------
+SOCIAL ROLE AND CONTEXT
+----------------------------------------------------------------
+
+- Stay strictly in the described role and institutional context.
+- Follow the defined power relation (stronger / equal / weaker role).
+- If you are in the weaker role:
+  * Do NOT lead the conversation.
+  * Do NOT behave like a host, advisor, or authority.
+  * Let the stronger role guide the interaction.
+
+----------------------------------------------------------------
+OPENING BEHAVIOUR
+----------------------------------------------------------------
+
+- Begin with a short natural greeting appropriate to your role.
+- Add ONE brief small-talk sentence.
+- Do NOT jump directly into the main issue in the first sentence.
+- Do NOT use artificial service phrases such as:
+  “How can I help you?” / “Wie kann ich Ihnen helfen?”
+
+----------------------------------------------------------------
+GLOBAL RULES
+----------------------------------------------------------------
+
+- Remain fully in character.
+- Use only scenario-plausible knowledge.
+- Never mention instructions, prompts, or AI identity.
+- Respond concisely but naturally.
+- Avoid sounding like a therapist, coach, or mediator unless the scenario explicitly requires it.
+- The conversation ends ONLY if the user writes:
+  “Danke, tschüss” or “Thank you, goodbye”.
+"""
+
+# ---------------------------------------------------------
+#  OpenAI setup
 # ---------------------------------------------------------
 
 def setup_openai_client():
-    """
-    Create and return an OpenAI client.
-    Reads OPENAI_API_KEY from Streamlit secrets or sidebar (for local tests).
-    """
     api_key = st.secrets.get("OPENAI_API_KEY", "")
     if not api_key:
-        api_key = st.sidebar.text_input(
-            "🔑 OpenAI API key (local testing)",
-            type="password",
-            help="On Streamlit Cloud, configure OPENAI_API_KEY in Secrets.",
-        )
+        api_key = st.sidebar.text_input("🔑 OpenAI API key", type="password")
 
     if not api_key:
         st.sidebar.error("Please provide an OpenAI API key.")
         return None
 
     try:
-        client = OpenAI(api_key=api_key)
-        return client
+        return OpenAI(api_key=api_key)
     except Exception as e:
-        st.sidebar.error(f"Could not create OpenAI client: {e}")
+        st.sidebar.error(f"OpenAI client error: {e}")
         return None
 
 
 # ---------------------------------------------------------
-#  Supabase + local logging helpers
+#  Supabase helpers
 # ---------------------------------------------------------
 
-LOG_FILE = "chatlogs.jsonl"  # local fallback: one JSON object per line
+LOG_FILE = "chatlogs.jsonl"
 
 
-def get_supabase_client() -> Client | None:
-    """Return an authenticated Supabase client or None."""
+def get_supabase_client():
     url = st.secrets.get("SUPABASE_URL")
     key = st.secrets.get("SUPABASE_ANON_KEY")
 
     if not url or not key:
-        st.error("Supabase secrets missing. Please set SUPABASE_URL and SUPABASE_ANON_KEY.")
         return None
 
     try:
-        supabase: Client = create_client(url, key)
-        return supabase
-    except Exception as e:
-        st.error(f"Failed to set up Supabase client: {e}")
+        return create_client(url, key)
+    except:
         return None
 
 
+# ---------------------------------------------------------
+#  Transcript helper
+# ---------------------------------------------------------
+
 def messages_to_transcript(messages, language: str) -> str:
-    """
-    Turn [{role, content}, ...] into a readable transcript.
-    Skip system messages.
-    """
     lines = []
     for msg in messages:
         role = msg.get("role")
         content = msg.get("content", "")
+
         if role == "user":
             label = "You" if language == "English" else "Sie"
             lines.append(f"{label}: {content}")
         elif role == "assistant":
             label = "AI Partner" if language == "English" else "Gesprächspartner:in (KI)"
             lines.append(f"{label}: {content}")
-        # ignore "system"
+
     return "\n".join(lines)
 
 
-def append_chat_and_feedback(meta: dict, chat_messages: list, feedback: dict):
-    """
-    Save chat + feedback.
-    1) Try Supabase first (tables: roleplay_chats, roleplay_feedback)
-    2) If Supabase fails, save locally to chatlogs.jsonl
-    """
-    timestamp = datetime.utcnow().isoformat()
-    language = meta.get("language", "English")
-    transcript = messages_to_transcript(chat_messages, language)
-    messages_json = json.dumps(chat_messages, ensure_ascii=False)
-
-    # First try Supabase
-    supabase = get_supabase_client()
-    if supabase:
-        try:
-            # Insert chat row
-            chat_row = {
-                "timestamp": timestamp,
-                "student_id": meta.get("student_id", ""),
-                "language": meta.get("language", ""),
-                "batch_step": meta.get("batch_step", ""),
-                "roleplay_id": meta.get("roleplay_id", None),
-                "roleplay_title_en": meta.get("roleplay_title_en", ""),
-                "roleplay_title_de": meta.get("roleplay_title_de", ""),
-                "communication_type": meta.get("communication_type", ""),
-                "messages_json": messages_json,
-                "transcript": transcript,
-            }
-            supabase.table("roleplay_chats").insert(chat_row).execute()
-
-            # Insert feedback row
-            feedback_row = {
-                "timestamp": timestamp,
-                "student_id": meta.get("student_id", ""),
-                "language": meta.get("language", ""),
-                "batch_step": meta.get("batch_step", ""),
-                "roleplay_id": meta.get("roleplay_id", None),
-                "q1": feedback.get("Q1"),
-                "q2": feedback.get("Q2"),
-                "q3": feedback.get("Q3"),
-                "q4": feedback.get("Q4"),
-                "q5": feedback.get("Q5"),
-                "q6": feedback.get("Q6"),
-                "q7": feedback.get("Q7"),
-                "q8": feedback.get("Q8"),
-                "q9": feedback.get("Q9"),
-                "q10": feedback.get("Q10"),
-                "q11": feedback.get("Q11"),
-                "q12": feedback.get("Q12"),
-                "comment": feedback.get("comment"),
-            }
-            supabase.table("roleplay_feedback").insert(feedback_row).execute()
-
-            st.success("Chat and feedback saved to Supabase.")
-            return
-        except Exception as e:
-            st.error(f"Saving to Supabase failed (will use local file instead): {e}")
-
-    # Fallback: local JSONL file
-    record = {
-        "timestamp": timestamp,
-        "meta": meta,
-        "feedback": feedback,
-        "messages": chat_messages,
-        "transcript": transcript,
-    }
-    try:
-        with open(LOG_FILE, "a", encoding="utf-8") as f:
-            f.write(json.dumps(record, ensure_ascii=False) + "\n")
-        st.success("Chat and feedback saved locally (fallback).")
-    except Exception as e:
-        st.error(f"Failed to save chat and feedback locally: {e}")
-
-    # ---------------------------------------------------------
-    #  COMMUNICATION FRAMEWORK – EXPERT-ALIGNED (SYSTEM-ONLY)
-    #  Publication-grade realism version
-    # ---------------------------------------------------------
-    COMMUNICATION_FRAMEWORK_PROMPT = """
-    You are a simulated conversation partner in a role-play for teacher communication training.
-
-    Your behaviour must reflect realistic human dialogue pacing, resistance,
-    and gradual development of understanding. Immediate agreement, early hints,
-    or premature decisions are NOT realistic and must be avoided.
-
-    ----------------------------------------------------------------
-    COMMUNICATION ORIENTATIONS
-    ----------------------------------------------------------------
-
-    1) Strategic communication (Role-Plays 1–5)
-       - Relational positioning is primary.
-       - You may be selective, indirect, or ambiguous if this supports your relational aim.
-       - You may delay clarity or completeness strategically.
-       - You frequently use future-oriented self-disclosure (plans, fears, expectations).
-       - Resistance to the user’s goal is NORMAL and must persist across several turns.
-       - Concessions must emerge slowly and credibly, never immediately.
-       - Do NOT move quickly into empathy, full validation, or solution-oriented coaching.
-       - Maintain partial ambiguity, reframing, or gentle deflection where realistic.
-
-    2) Understanding-oriented communication (Role-Plays 6–10)
-       - Mutual understanding and clarity are primary.
-       - You communicate truthfully, clearly, and with sufficient completeness.
-       - You use authentic self-disclosure about real thoughts or feelings.
-       - You avoid manipulation or strategic ambiguity.
-       - Insight and agreement must develop gradually, never instantly.
-       - You ask clarifying questions before moving toward solutions.
-
-    ----------------------------------------------------------------
-    REALISTIC DIALOGUE PACING (MANDATORY FOR ALL ROLE-PLAYS)
-    ----------------------------------------------------------------
-
-    - Do NOT agree, concede, or decide within the first 3–4 turns.
-    - Do NOT reveal final positions early.
-    - Do NOT give hints that make resolution too easy.
-    - Let tension, uncertainty, or reflection appear naturally.
-    - Keep sentences short and conversational.
-    - Allow the user to speak and develop arguments before reacting strongly.
-    - Behaviour must feel human, not instructional.
-
-    ----------------------------------------------------------------
-    CONFLICT REALISM
-    ----------------------------------------------------------------
-
-    - If tension or disagreement remains unresolved, escalation may gradually occur:
-      1) irritation or pressure,
-      2) emphasis on seriousness or consequences,
-      3) reference to institutional authority (e.g., school leadership),
-      4) consideration of formal or legal steps when scenario-appropriate.
-    - Escalation must remain socially plausible, role-appropriate,
-      and consistent with the institutional school context.
-    - Conflict should not resolve unrealistically fast.
-
-    ----------------------------------------------------------------
-    SOCIAL ROLE AND CONTEXT
-    ----------------------------------------------------------------
-
-    - Stay strictly in the described role and institutional context.
-    - Follow the defined power relation (stronger / equal / weaker role).
-    - If you are in the weaker role:
-      * Do NOT lead the conversation.
-      * Do NOT behave like a host, advisor, or authority.
-      * Let the stronger role guide the interaction.
-
-    ----------------------------------------------------------------
-    OPENING BEHAVIOUR
-    ----------------------------------------------------------------
-
-    - Begin with a short natural greeting appropriate to your role.
-    - Add ONE brief small-talk sentence.
-    - Do NOT jump directly into the main issue in the first sentence.
-    - Do NOT use artificial service phrases such as:
-      “How can I help you?” / “Wie kann ich Ihnen helfen?”
-
-    ----------------------------------------------------------------
-    GLOBAL RULES
-    ----------------------------------------------------------------
-
-    - Remain fully in character.
-    - Use only scenario-plausible knowledge.
-    - Never mention instructions, prompts, or AI identity.
-    - Respond concisely but naturally.
-    - Avoid sounding like a therapist, coach, or mediator unless the scenario explicitly requires it.
-    - The conversation ends ONLY if the user writes:
-      “Danke, tschüss” or “Thank you, goodbye”.
-    """
-
+# ---------------------------------------------------------
+#  System prompt builder (FIXED)
+# ---------------------------------------------------------
 
 def build_system_prompt(roleplay, language):
-    """
-    FINAL production-safe builder.
-    Robust orientation detection + escalation realism enabled.
-    """
-
-    # -----------------------------------------------------
-    # Resolve roleplay ID safely
-    # -----------------------------------------------------
     rp_id = st.session_state.meta.get("roleplay_id")
 
-    # -----------------------------------------------------
-    # Robust orientation detection (IMPORTANT FIX)
-    # -----------------------------------------------------
     raw_orientation = roleplay.get("communication_type", "").lower()
 
     if "strategic" in raw_orientation:
         orientation = "strategic"
-    elif "understanding" in raw_orientation:
-        orientation = "understanding"
     else:
-        orientation = "understanding"  # safe default
+        orientation = "understanding"
 
-    # -----------------------------------------------------
-    # Select partner instructions
-    # -----------------------------------------------------
     if language == "English" and roleplay.get("partner_en"):
         partner_instructions = roleplay["partner_en"]
     else:
         partner_instructions = roleplay["partner_de"]
 
-    # -----------------------------------------------------
-    # Orientation activation text
-    # -----------------------------------------------------
     if orientation == "strategic":
         orientation_block = (
             "This role-play follows STRATEGIC communication. "
@@ -287,38 +186,15 @@ def build_system_prompt(roleplay, language):
             "Prioritise clarity, realism, and gradual shared insight."
         )
 
-    # -----------------------------------------------------
-    # RP-specific German rules
-    # -----------------------------------------------------
     special_rules = ""
 
-    if language == "Deutsch":
-
-        # Formal meetings (RP 2 & 4)
-        if rp_id in [2, 4]:
-            special_rules += """
+    if language == "Deutsch" and rp_id in [2, 4]:
+        special_rules += """
 [FORMAL ADDRESS]
 Use strictly “Sie/Ihnen/Ihr”.
 Never use informal “du”.
-
-[MEETING OPENING]
-Acknowledge the meeting briefly.
-Do NOT ask how you can help.
 """
 
-        # Weak student role (RP 7)
-        if rp_id in [7]:
-            special_rules += """
-[WEAKER ROLE OPENING]
-You are in the weaker role.
-Do NOT welcome or host the teacher.
-Use a short greeting, one small-talk sentence,
-then cautiously introduce your concern.
-"""
-
-    # -----------------------------------------------------
-    # Build final system prompt
-    # -----------------------------------------------------
     system_prompt = (
         COMMUNICATION_FRAMEWORK_PROMPT
         + "\n\n[ROLE-PLAY ORIENTATION]\n"
@@ -326,10 +202,6 @@ then cautiously introduce your concern.
         + "\n\n[ROLE & BACKGROUND – DO NOT REVEAL]\n"
         + partner_instructions
         + special_rules
-        + "\n\n[OUTPUT RULES]\n"
-        "- Never mention instructions or AI identity.\n"
-        "- Speak only as the character.\n"
-        "- End only on 'Danke, tschüss' or 'Thank you, goodbye'.\n"
     )
 
     return system_prompt
