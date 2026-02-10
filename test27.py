@@ -78,7 +78,6 @@ OPENING BEHAVIOUR
 ----------------------------------------------------------------
 
 - Begin with a short natural greeting appropriate to your role.
-- Add ONE brief small-talk sentence.
 - Do NOT jump directly into the main issue in the first sentence.
 - Do NOT use artificial service phrases such as:
   “How can I help you?” / “Wie kann ich Ihnen helfen?”
@@ -1486,7 +1485,7 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 
         try:
             response = client.chat.completions.create(
-                model="gpt-4.1-mini",
+                model="gpt-5.2",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=400,
