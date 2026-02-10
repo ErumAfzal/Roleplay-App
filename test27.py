@@ -1486,7 +1486,7 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 
         try:
             response = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gpt-4.1-mini",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=400,
