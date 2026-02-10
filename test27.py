@@ -1456,7 +1456,6 @@ if (
 # ---------------------------------------------------------
 #  Instructions (User-facing)
 # ---------------------------------------------------------
-
 if language == "English" and current_rp.get("user_en"):
     st.subheader("Instructions for YOU")
     st.markdown(current_rp["user_en"])
@@ -1516,10 +1515,10 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 
         try:
             response = client.chat.completions.create(
-                model="gpt-5.2",
+                model="gpt-4o-mini",
                 messages=st.session_state.messages,
                 temperature=0.7,
-                max_completion_tokens=400,
+                max_tokens=400,
             )
             reply = response.choices[0].message.content
         except Exception as e:
@@ -1531,7 +1530,17 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
 if st.session_state.chat_active and not st.session_state.feedback_done:
     if st.button("⏹ End conversation / Gespräch beenden"):
         st.session_state.chat_active = False
+        
 
+# ------------------------------------------
+        # AUTO-SAVE FINAL CHAT IF USER ENDS EARLY
+        # ------------------------------------------
+        append_chat_and_feedback(
+            st.session_state.meta,
+            st.session_state.messages,
+            {"feedback_skipped": True}
+        )
+        st.success("Chat automatically saved.")
 # ---------------------------------------------------------
 #  Feedback after each role-play (Q1–Q12)
 # ---------------------------------------------------------
@@ -1562,6 +1571,7 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
 
         comment = st.text_area("Optional comment")
         submit_label = "Save feedback & chat"
+
     else:
         q1 = st.radio("Die Persönlichkeit des Chatbots war realistisch und ansprechend", [1, 2, 3, 4, 5], horizontal=True)
         q2 = st.radio("Der Chatbot wirkte zu robotisch", [1, 2, 3, 4, 5], horizontal=True)
@@ -1582,6 +1592,9 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         comment = st.text_area("Optionaler Kommentar")
         submit_label = "Feedback & Chat speichern"
 
+    # ---------------------------------------------------------
+    #  Submit button
+    # ---------------------------------------------------------
     if st.button(submit_label):
         feedback_data = {
             "Q1": q1,
@@ -1599,7 +1612,7 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
             "comment": comment,
         }
 
-        # --- Save to Supabase ---
+        # --- Save CHAT + FEEDBACK ---
         append_chat_and_feedback(
             st.session_state.meta,
             st.session_state.messages,
@@ -1607,29 +1620,30 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         )
 
         st.session_state.feedback_done = True
-        st.session_state.feedback_saved = True  # prevents double save on rerun
 
-        # Move from batch1 -> batch2 -> finished
+        # ---------------------------------------------------------
+        #  Move from batch1 → batch2 → finished
+        # ---------------------------------------------------------
         if st.session_state.batch_step == "batch1":
             st.session_state.batch_step = "batch2"
             st.session_state.messages = []
+            st.session_state.autosaved_chat = False   # IMPORTANT: enables autosave for Block 2
 
             st.success(
                 "Thank you! Batch 1 is completed. Please continue with Batch 2 (Role-Plays 6–10)."
                 if language == "English"
                 else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
             )
-
             st.rerun()
 
         else:
             st.session_state.batch_step = "finished"
             st.session_state.messages = []
+            st.session_state.autosaved_chat = False
 
             st.success(
                 "Thank you! You completed both batches."
                 if language == "English"
                 else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
             )
-
             st.rerun()
