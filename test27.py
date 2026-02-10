@@ -1599,8 +1599,7 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
             "comment": comment,
         }
 
-# --- Save to Supabase instead of append_chat_and_feedback() ---
-
+        # --- Save to Supabase ---
         append_chat_and_feedback(
             st.session_state.meta,
             st.session_state.messages,
@@ -1608,6 +1607,7 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
         )
 
         st.session_state.feedback_done = True
+        st.session_state.feedback_saved = True  # prevents double save on rerun
 
         # Move from batch1 -> batch2 -> finished
         if st.session_state.batch_step == "batch1":
@@ -1619,17 +1619,17 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
                 if language == "English"
                 else "Danke! Block 1 ist abgeschlossen. Bitte machen Sie mit Block 2 (Rollenspiele 6–10) weiter."
             )
-        
-            st.rerun()   # <-- FORCE MOVE TO BLOCK 2
-        
+
+            st.rerun()
+
         else:
             st.session_state.batch_step = "finished"
             st.session_state.messages = []
-        
+
             st.success(
                 "Thank you! You completed both batches."
                 if language == "English"
                 else "Vielen Dank! Sie haben beide Blöcke abgeschlossen."
             )
 
-            st.rerun()   # <-- SHOW FINISHED SCREEN IMMEDIATELY
+            st.rerun()
