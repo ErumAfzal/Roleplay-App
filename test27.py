@@ -1540,45 +1540,81 @@ if st.button("Start / Restart conversation"):
 #  Chat interface
 # ---------------------------------------------------------
 
-st.subheader("Conversation" if language == "English" else "Gespräch")
-
-chat_container = st.container()
-
-with chat_container:
-    for msg in st.session_state.messages:
-        if msg["role"] == "user":
-            label = "You" if language == "English" else "Sie"
-            st.markdown(f"**{label}:** {msg['content']}")
-        elif msg["role"] == "assistant":
-            label = "AI Partner" if language == "English" else "Gesprächspartner:in (KI)"
-            st.markdown(f"**{label}:** {msg['content']}")
-
 if st.session_state.chat_active and not st.session_state.feedback_done:
+
     prompt_label = (
         "Write your next message…" if language == "English" else "Schreiben Sie Ihre nächste Nachricht…"
     )
     user_input = st.chat_input(prompt_label)
 
     if user_input:
+        # ---------------------------------------------
+        # Store user message
+        # ---------------------------------------------
         st.session_state.messages.append({"role": "user", "content": user_input})
 
+        # ---------------------------------------------
+        # Load roleplay + build system prompt
+        # ---------------------------------------------
+        roleplay = ROLEPLAYS[st.session_state.meta["roleplay_id"]]
+        system_prompt = build_system_prompt(roleplay, language)
+
+        # IMPORTANT: system prompt must be FIRST
+        messages = [{"role": "system", "content": system_prompt}] + st.session_state.messages
+
+        # ---------------------------------------------
+        # Orientation detection (robust)
+        # ---------------------------------------------
+        raw_orientation = roleplay["communication_type"].lower()
+        orientation = "strategic" if "strategic" in raw_orientation else "understanding"
+
+        # ---------------------------------------------
+        # Orientation-dependent decoding
+        # ---------------------------------------------
+        if orientation == "strategic":
+            temperature = 0.35          # controlled resistance
+            max_tokens = 180            # SHORT replies (critical fix)
+            freq_penalty = 0.2
+            pres_penalty = 0.1
+        else:  # understanding-oriented
+            temperature = 0.5
+            max_tokens = 260            # still concise
+            freq_penalty = 0.0
+            pres_penalty = 0.0
+
+        # ---------------------------------------------
+        # GPT-5.2 call (correct API)
+        # ---------------------------------------------
         try:
             response = client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=st.session_state.messages,
-                temperature=0.6,
-                max_tokens=220,
+                model="gpt-5.2",
+                messages=messages,
+                temperature=temperature,
+                top_p=0.9,
+                frequency_penalty=freq_penalty,
+                presence_penalty=pres_penalty,
+                max_completion_tokens=max_tokens,
             )
-            reply = response.choices[0].message.content
+            reply = response.choices[0].message.content.strip()
+
         except Exception as e:
             reply = f"[Error from OpenAI API: {e}]"
 
+        # ---------------------------------------------
+        # Store assistant reply
+        # ---------------------------------------------
         st.session_state.messages.append({"role": "assistant", "content": reply})
+
         st.rerun()
 
+
+# ---------------------------------------------
+# End conversation button
+# ---------------------------------------------
 if st.session_state.chat_active and not st.session_state.feedback_done:
     if st.button("⏹ End conversation / Gespräch beenden"):
         st.session_state.chat_active = False
+
 
 # ---------------------------------------------------------
 #  Feedback after each role-play (Q1–Q12)
