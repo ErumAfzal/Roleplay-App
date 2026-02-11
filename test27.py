@@ -1423,56 +1423,71 @@ student_id = st.sidebar.text_input(
     help="Used only to identify your sessions in the dataset.",
 )
 
-# Batch flow control: "batch1", "batch2", "finished"
+# ---------------------------------------------------------
+#  Session state defaults
+# ---------------------------------------------------------
+
 if "batch_step" not in st.session_state:
     st.session_state.batch_step = "batch1"
 
-# Chat/feedback state
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
 if "chat_active" not in st.session_state:
     st.session_state.chat_active = False
+
 if "feedback_done" not in st.session_state:
     st.session_state.feedback_done = False
+
 if "meta" not in st.session_state:
     st.session_state.meta = {}
 
-# OpenAI client
+# ---------------------------------------------------------
+#  OpenAI client
+# ---------------------------------------------------------
+
 client = setup_openai_client()
 if client is None:
     st.stop()
 
-# Determine current batch/phase
+# ---------------------------------------------------------
+#  Determine batch
+# ---------------------------------------------------------
+
 if st.session_state.batch_step == "batch1":
     current_phase = 1
-    batch_label_en = "Batch 1 – Role-Plays 1–5"
-    batch_label_de = "Block 1 – Rollenspiele 1–5"
+    batch_label = "Batch 1 – Role-Plays 1–5" if language == "English" else "Block 1 – Rollenspiele 1–5"
+
 elif st.session_state.batch_step == "batch2":
     current_phase = 2
-    batch_label_en = "Batch 2 – Role-Plays 6–10"
-    batch_label_de = "Block 2 – Rollenspiele 6–10"
+    batch_label = "Batch 2 – Role-Plays 6–10" if language == "English" else "Block 2 – Rollenspiele 6–10"
+
 else:
     current_phase = None
 
+# ---------------------------------------------------------
+#  Finished screen
+# ---------------------------------------------------------
+
 if st.session_state.batch_step == "finished":
     st.success(
-        "You have completed one role-play from Batch 1 and one from Batch 2. Thank you!"
+        "You completed both batches. Thank you!"
         if language == "English"
-        else "Sie haben je ein Rollenspiel aus Block 1 und Block 2 abgeschlossen. Vielen Dank!"
+        else "Sie haben beide Blöcke abgeschlossen. Vielen Dank!"
     )
     st.stop()
 
-batch_title = batch_label_en if language == "English" else batch_label_de
-st.subheader(batch_title)
+st.subheader(batch_label)
 
-# Choose roleplays for this batch
+# ---------------------------------------------------------
+#  Roleplay selection
+# ---------------------------------------------------------
+
 available_ids = [rid for rid, r in ROLEPLAYS.items() if r["phase"] == current_phase]
-
 
 def format_roleplay_option(rid: int) -> str:
     rp = ROLEPLAYS[rid]
     return rp["title_en"] if language == "English" else rp["title_de"]
-
 
 roleplay_id = st.selectbox(
     "Choose a role-play / Wählen Sie ein Rollenspiel",
@@ -1482,7 +1497,10 @@ roleplay_id = st.selectbox(
 
 current_rp = ROLEPLAYS[roleplay_id]
 
-# Reset conversation if roleplay or language or batch changed
+# ---------------------------------------------------------
+#  Reset when roleplay/language changes
+# ---------------------------------------------------------
+
 if (
     st.session_state.meta.get("roleplay_id") != roleplay_id
     or st.session_state.meta.get("language") != language
@@ -1496,16 +1514,14 @@ if (
         "language": language,
         "batch_step": st.session_state.batch_step,
         "roleplay_id": roleplay_id,
-        "roleplay_title_en": current_rp["title_en"],
-        "roleplay_title_de": current_rp["title_de"],
         "communication_type": current_rp["communication_type"],
     }
 
 # ---------------------------------------------------------
-#  Instructions (User-facing)
+#  Instructions
 # ---------------------------------------------------------
 
-if language == "English" and current_rp.get("user_en"):
+if language == "English":
     st.subheader("Instructions for YOU")
     st.markdown(current_rp["user_en"])
 else:
@@ -1514,12 +1530,11 @@ else:
 
 st.info(
     "Suggested maximum conversation time: about 10 minutes. "
-    "You can end the conversation at any time by writing."
-    "“Thank you, goodbye” / „Danke, tschüss.“"
+    "End anytime with 'Thank you, goodbye' / 'Danke, tschüss'."
 )
 
 # ---------------------------------------------------------
-#  Start/restart conversation
+#  Start conversation
 # ---------------------------------------------------------
 
 if st.button("Start / Restart conversation"):
@@ -1530,65 +1545,57 @@ if st.button("Start / Restart conversation"):
     system_prompt = build_system_prompt(current_rp, language)
 
     st.session_state.messages.append(
-        {
-            "role": "system",
-            "content": system_prompt,
-        }
+        {"role": "system", "content": system_prompt}
     )
 
 # ---------------------------------------------------------
-#  Chat interface
+#  CHAT DISPLAY  ← ★ THIS WAS MISSING
+# ---------------------------------------------------------
+
+st.subheader("Conversation" if language == "English" else "Gespräch")
+
+for msg in st.session_state.messages:
+    if msg["role"] == "system":
+        continue  # do not show system prompt
+
+    label = "You" if msg["role"] == "user" else (
+        "AI Partner" if language == "English" else "Gesprächspartner:in (KI)"
+    )
+
+    st.markdown(f"**{label}:** {msg['content']}")
+
+# ---------------------------------------------------------
+#  Chat interaction (GPT-5.2)
 # ---------------------------------------------------------
 
 if st.session_state.chat_active and not st.session_state.feedback_done:
 
-    prompt_label = (
-        "Write your next message…" if language == "English" else "Schreiben Sie Ihre nächste Nachricht…"
-    )
+    prompt_label = "Write your next message…" if language == "English" else "Schreiben Sie Ihre nächste Nachricht…"
     user_input = st.chat_input(prompt_label)
 
     if user_input:
-        # ---------------------------------------------
-        # Store user message
-        # ---------------------------------------------
+
         st.session_state.messages.append({"role": "user", "content": user_input})
 
-        # ---------------------------------------------
-        # Load roleplay + build system prompt
-        # ---------------------------------------------
         roleplay = ROLEPLAYS[st.session_state.meta["roleplay_id"]]
-        system_prompt = build_system_prompt(roleplay, language)
-
-        # IMPORTANT: system prompt must be FIRST
-        messages = [{"role": "system", "content": system_prompt}] + st.session_state.messages
-
-        # ---------------------------------------------
-        # Orientation detection (robust)
-        # ---------------------------------------------
-        raw_orientation = roleplay["communication_type"].lower()
+        raw_orientation = roleplay.get("communication_type", "").lower()
         orientation = "strategic" if "strategic" in raw_orientation else "understanding"
 
-        # ---------------------------------------------
-        # Orientation-dependent decoding
-        # ---------------------------------------------
         if orientation == "strategic":
-            temperature = 0.35          # controlled resistance
-            max_tokens = 180            # SHORT replies (critical fix)
-            freq_penalty = 0.2
-            pres_penalty = 0.1
-        else:  # understanding-oriented
-            temperature = 0.5
-            max_tokens = 260            # still concise
+            temperature = 0.30
+            max_tokens = 140
+            freq_penalty = 0.25
+            pres_penalty = 0.10
+        else:
+            temperature = 0.50
+            max_tokens = 240
             freq_penalty = 0.0
             pres_penalty = 0.0
 
-        # ---------------------------------------------
-        # GPT-5.2 call (correct API)
-        # ---------------------------------------------
         try:
             response = client.chat.completions.create(
                 model="gpt-5.2",
-                messages=messages,
+                messages=st.session_state.messages,
                 temperature=temperature,
                 top_p=0.9,
                 frequency_penalty=freq_penalty,
@@ -1600,21 +1607,16 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
         except Exception as e:
             reply = f"[Error from OpenAI API: {e}]"
 
-        # ---------------------------------------------
-        # Store assistant reply
-        # ---------------------------------------------
         st.session_state.messages.append({"role": "assistant", "content": reply})
-
         st.rerun()
 
+# ---------------------------------------------------------
+#  End conversation
+# ---------------------------------------------------------
 
-# ---------------------------------------------
-# End conversation button
-# ---------------------------------------------
 if st.session_state.chat_active and not st.session_state.feedback_done:
     if st.button("⏹ End conversation / Gespräch beenden"):
         st.session_state.chat_active = False
-
 
 # ---------------------------------------------------------
 #  Feedback after each role-play (Q1–Q12)
