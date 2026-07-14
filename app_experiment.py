@@ -11,9 +11,9 @@ from constants import (
     ExperimentalCondition,
 )
 
-APPLICATION_VERSION = "experiment_app_v1.0.0"
-PROMPT_VERSION = "experiment_prompt_v1.0.0"
-ROLEPLAY_DATA_VERSION = "roleplays_v1.0.0"
+APPLICATION_VERSION = "experiment_app_v1.1.0"
+PROMPT_VERSION = "experiment_prompt_v1.1.0"
+ROLEPLAY_DATA_VERSION = "roleplays_v1.1.0"
 
 # ---------------------------------------------------------
 #  OpenAI setup (2025 API)
@@ -220,7 +220,7 @@ Orientation application:
   * Prioritise relational goals.
   * Allow controlled breaches of quantity, relevance, quality, and clarity if this furthers your strategic aim.
   * Use future-oriented self-disclosure when appropriate.
-- If the current role-play is marked as "understanding", you MUST:
+- If the current role-play is marked as "understanding_oriented", you MUST:
   * Prioritise the content goal and mutual understanding.
   * Adhere strictly to quantity, quality, relevance, and clarity.
   * Use authentic self-disclosure.
@@ -326,23 +326,46 @@ ROLEPLAYS = {}
 
 ROLEPLAYS[1] = {
     "phase": 1,
+    "scenario_code": "RP01",
+    "actors": {"user": 'teacher', "ai_partner": 'school principal'},
     "communication_type": CommunicationType.STRATEGIC.value,
     "title_en": "1. Requesting approval for training on self-directed learning",
     "title_de": "1. Weiterbildung zum selbstgesteuerten Lernen ansprechen",
 
     # Framework for the trainer logic
+    "context": {
+        "organization": 'Friedrich-Ebert School',
+        "setting": 'Requested meeting with the school principal',
+        "reason": 'Request approval for continuing education on self-directed learning',
+        "interaction_conditions": 'A teacher in a weaker position must justify collective benefits for the school to a stronger-position principal',
+    },
+
     "framework": {
         "user": {
             "social_role": SocialRole.WEAKER.value,
             "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
-            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure",
+            "content_goal": 'Obtain approval to attend the continuing-education course on self-directed learning',
+            "relationship_goal": 'Maintain cooperation with the school principal and remain valued at the school',
+            "maxim_behavior": {
+                "quantity": 'breach_permitted',
+                "quality": 'breach_permitted',
+                "relevance": 'breach_permitted',
+                "clarity": 'breach_permitted',
+            },
+            "self_disclosure": 'future_oriented',
         },
         "ai_partner": {
             "social_role": SocialRole.STRONGER.value,
             "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
-            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure",
+            "content_goal": 'Obtain approval to attend the continuing-education course on self-directed learning',
+            "relationship_goal": 'Maintain cooperation with the school principal and remain valued at the school',
+            "maxim_behavior": {
+                "quantity": 'breach_permitted',
+                "quality": 'breach_permitted',
+                "relevance": 'breach_permitted',
+                "clarity": 'breach_permitted',
+            },
+            "self_disclosure": 'future_oriented',
         },
     },
 
@@ -438,23 +461,46 @@ You accept the teacher’s request for a conversation. Act as follows:
 }
 ROLEPLAYS[2] = {
     "phase": 1,
+    "scenario_code": "RP02",
+    "actors": {"user": 'counselling teacher', "ai_partner": 'student'},
     "communication_type": CommunicationType.STRATEGIC.value,
     "title_en": "2. Advising a student on choosing between AGs (Theater-AG vs. Judo-AG)",
     "title_de": "2. Beratung eines Schülers zur Wahl zwischen Theater-AG und Judo-AG",
+
+    "context": {
+        "organization": 'Günter-Grass School',
+        "setting": 'Scheduled counselling meeting in an empty classroom',
+        "reason": 'Support the student in choosing between the drama club and the judo club',
+        "interaction_conditions": 'A counselling teacher in a stronger position advises a student in a weaker position while balancing student and school interests',
+    },
 
     "framework": {
         "user": {
             "social_role": SocialRole.STRONGER.value,
             "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
-            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
+            "content_goal": 'Persuade the student to choose the drama club rather than the judo club',
+            "relationship_goal": 'Be perceived by the student as a caring and supportive counselling teacher',
+            "maxim_behavior": {
+                "quantity": 'breach_permitted',
+                "quality": 'breach_permitted',
+                "relevance": 'breach_permitted',
+                "clarity": 'breach_permitted',
+            },
+            "self_disclosure": 'future_oriented',
         },
         "ai_partner": {
             "social_role": SocialRole.WEAKER.value,
             "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
-            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
-        }
+            "content_goal": 'Persuade the student to choose the drama club rather than the judo club',
+            "relationship_goal": 'Be perceived by the student as a caring and supportive counselling teacher',
+            "maxim_behavior": {
+                "quantity": 'breach_permitted',
+                "quality": 'breach_permitted',
+                "relevance": 'breach_permitted',
+                "clarity": 'breach_permitted',
+            },
+            "self_disclosure": 'future_oriented',
+        },
     },
 
     # ------------------------------------------------------------
@@ -478,6 +524,23 @@ Sie besprechen mit dem Schüler/der Schülerin seine/ihre bevorstehende Entschei
     # ------------------------------------------------------------
     # USER INSTRUCTIONS (ENGLISH – literal translation, preserving AG terms)
     # ------------------------------------------------------------
+    "user_en": COMMON_USER_HEADER_EN + """
+**Background information:**
+You are a teacher at the Günter-Grass School, which is distinguished by a wide range of extracurricular clubs. The drama club contributes particularly strongly to the school’s positive public image because its performances are frequently and extensively reported in the local press. You work as a counselling teacher at the school, and providing students with appropriate guidance is part of your professional responsibilities.
+
+During a scheduled counselling appointment, you advise Jan/Jana Pflüger about the upcoming choice of an extracurricular club. The student has considerable acting talent, and choosing the drama club could positively influence the school’s reputation. At a time of declining student enrolment, a positive public image is especially important. Your performance in the counselling role is also externally evaluated in relation to the successful public presentation of the school.
+
+However, the student would prefer to join the judo club, although physical activity does not appear to suit them particularly well. You know from a confidential source that the student strongly dislikes the teacher who leads the drama club, and you suspect that this is closely related to the preference for the judo club. You have also heard that the drama-club teacher has a positive opinion of the student.
+
+Although you understand the student’s concerns, the school’s reputation and the positive evaluation of your own counselling performance are priorities for you. In your view, the club choice should reflect the student’s abilities rather than personal feelings.
+
+**Your task:**
+Discuss the student’s upcoming decision during a scheduled counselling meeting in an empty classroom.
+
+- **Content goal:** Try to persuade the student to choose the drama club.
+- **Relationship goal:** You want the student to perceive you as a caring teacher.
+""",
+
     "partner_de": """
 Sie sind Jan/Jana Pflüger, Schüler/Schülerin an der Günter-Grass-Schule. Es stehen mehrere AGs zur Wahl, und insbesondere die Theater-AG ist für die öffentliche Außenwirkung der Schule bedeutsam. Andere haben Ihr Talent für Schauspiel bemerkt, und auch Sie selbst haben ein gewisses Interesse daran. Dennoch möchten Sie lieber an der Judo-AG teilnehmen. Der eigentliche Grund dafür ist Ihre persönliche Abneigung gegenüber der Leiterin der Theater-AG. Diesen wahren Grund möchten Sie jedoch nicht offen ansprechen.
 
@@ -522,23 +585,46 @@ Behave respectfully and communicate your motivations clearly. If you feel the te
 }
 ROLEPLAYS[3] = {
     "phase": 1,
+    "scenario_code": "RP03",
+    "actors": {"user": 'teacher colleague', "ai_partner": 'teacher colleague'},
     "communication_type": CommunicationType.STRATEGIC.value,
     "title_en": "3. Addressing a colleague about deadlines and teamwork",
     "title_de": "3. Kollegiale Ansprache zu Deadlines und Teamarbeit",
+
+    "context": {
+        "organization": 'Astrid-Lindgren School',
+        "setting": 'Informal conversation in the coffee corner',
+        "reason": 'Address missed deadlines and coordination problems in a school-development team',
+        "interaction_conditions": 'Equal-status colleagues discuss interdependent work without formal authority',
+    },
 
     "framework": {
         "user": {
             "social_role": SocialRole.EQUAL.value,
             "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
-            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
+            "content_goal": 'Encourage the colleague to recognize and change unreliable deadline behaviour',
+            "relationship_goal": 'Preserve the collegial working relationship and prevent emotional withdrawal',
+            "maxim_behavior": {
+                "quantity": 'breach_permitted',
+                "quality": 'breach_permitted',
+                "relevance": 'breach_permitted',
+                "clarity": 'breach_permitted',
+            },
+            "self_disclosure": 'future_oriented',
         },
         "ai_partner": {
             "social_role": SocialRole.EQUAL.value,
             "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
-            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
-        }
+            "content_goal": 'Encourage the colleague to recognize and change unreliable deadline behaviour',
+            "relationship_goal": 'Preserve the collegial working relationship and prevent emotional withdrawal',
+            "maxim_behavior": {
+                "quantity": 'breach_permitted',
+                "quality": 'breach_permitted',
+                "relevance": 'breach_permitted',
+                "clarity": 'breach_permitted',
+            },
+            "self_disclosure": 'future_oriented',
+        },
     },
 
     # ------------------------------------------------------------
@@ -634,23 +720,46 @@ The good working relationship should be maintained, but not at any price. You ar
 }
 ROLEPLAYS[4] = {
     "phase": 1,
+    "scenario_code": "RP04",
+    "actors": {"user": 'trainee teacher', "ai_partner": 'student'},
     "communication_type": CommunicationType.STRATEGIC.value,
     "title_en": "4. Addressing a student about repeated tardiness and issuing a second warning",
     "title_de": "4. Schüler/in wegen wiederholtem Zuspätkommen ansprechen und zweite Abmahnung aussprechen",
+
+    "context": {
+        "organization": 'Lilly-Truant School',
+        "setting": 'Teacher-initiated meeting in an unused classroom',
+        "reason": 'Address repeated lateness and issue a second warning',
+        "interaction_conditions": 'A teacher in a stronger position confronts a student in a weaker position after earlier interventions failed',
+    },
 
     "framework": {
         "user": {
             "social_role": SocialRole.STRONGER.value,
             "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
-            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
+            "content_goal": 'Obtain a clear commitment that the student will arrive on time and follow school rules',
+            "relationship_goal": 'Maintain sufficient professional cooperation while making consequences explicit',
+            "maxim_behavior": {
+                "quantity": 'breach_permitted',
+                "quality": 'breach_permitted',
+                "relevance": 'breach_permitted',
+                "clarity": 'breach_permitted',
+            },
+            "self_disclosure": 'future_oriented',
         },
         "ai_partner": {
             "social_role": SocialRole.WEAKER.value,
             "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
-            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
-        }
+            "content_goal": 'Obtain a clear commitment that the student will arrive on time and follow school rules',
+            "relationship_goal": 'Maintain sufficient professional cooperation while making consequences explicit',
+            "maxim_behavior": {
+                "quantity": 'breach_permitted',
+                "quality": 'breach_permitted',
+                "relevance": 'breach_permitted',
+                "clarity": 'breach_permitted',
+            },
+            "self_disclosure": 'future_oriented',
+        },
     },
 
     # ------------------------------------------------------------
@@ -738,23 +847,46 @@ Overarching goal: At the same time, the goal could be to find a long-term soluti
 }
 ROLEPLAYS[5] = {
     "phase": 1,
+    "scenario_code": "RP05",
+    "actors": {"user": 'teacher', "ai_partner": 'school principal'},
     "communication_type": CommunicationType.STRATEGIC.value,
     "title_en": "5. Requesting a reduction of working hours from the school principal",
     "title_de": "5. Gespräch über gewünschte Arbeitszeitreduzierung mit der Schulleitung",
+
+    "context": {
+        "organization": 'School led by A. Weiß',
+        "setting": 'Employee-requested meeting in the principal’s office',
+        "reason": 'Negotiate a reduction of working hours from full time to 50 percent',
+        "interaction_conditions": 'A teacher in a weaker position negotiates with a principal in a stronger position during staffing pressure',
+    },
 
     "framework": {
         "user": {
             "social_role": SocialRole.WEAKER.value,
             "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
-            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
+            "content_goal": 'Obtain approval to reduce working hours to 50 percent',
+            "relationship_goal": 'Remain involved in the school and preserve cooperation with school leadership',
+            "maxim_behavior": {
+                "quantity": 'breach_permitted',
+                "quality": 'breach_permitted',
+                "relevance": 'breach_permitted',
+                "clarity": 'breach_permitted',
+            },
+            "self_disclosure": 'future_oriented',
         },
         "ai_partner": {
             "social_role": SocialRole.STRONGER.value,
             "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
-            "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
-            "relational_goal": "future-oriented self-disclosure"
-        }
+            "content_goal": 'Obtain approval to reduce working hours to 50 percent',
+            "relationship_goal": 'Remain involved in the school and preserve cooperation with school leadership',
+            "maxim_behavior": {
+                "quantity": 'breach_permitted',
+                "quality": 'breach_permitted',
+                "relevance": 'breach_permitted',
+                "clarity": 'breach_permitted',
+            },
+            "self_disclosure": 'future_oriented',
+        },
     },
 
     # ------------------------------------------------------------
@@ -837,23 +969,46 @@ Act as follows during the interaction:
 }
 ROLEPLAYS[6] = {
     "phase": 2,
+    "scenario_code": "RP06",
+    "actors": {"user": 'teacher', "ai_partner": 'parent'},
     "communication_type": CommunicationType.UNDERSTANDING_ORIENTED.value,
     "title_en": "6. Parent–Teacher Meeting about Mathematics Grade and Secondary School Recommendation",
     "title_de": "6. Elterngespräch über Mathematiknote und Gymnasialempfehlung",
+
+    "context": {
+        "organization": 'Johann-Julius-Hecker School',
+        "setting": 'Parent-requested meeting in a free classroom',
+        "reason": 'Discuss a mathematics grade and its effect on the secondary-school recommendation',
+        "interaction_conditions": 'Teacher and parent are treated as equal-status participants seeking clarity despite disagreement',
+    },
 
     "framework": {
         "user": {
             "social_role": SocialRole.EQUAL.value,
             "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
-            "content_goal": "adherence to quantity, quality, relevance, and clarity",
-            "relational_goal": "authentic self-disclosure"
+            "content_goal": 'Explain and justify the mathematics grading decision transparently and clarify the assessment criteria',
+            "relationship_goal": 'Remain open, respectful, and constructive toward the parent',
+            "maxim_behavior": {
+                "quantity": 'adherence_required',
+                "quality": 'adherence_required',
+                "relevance": 'adherence_required',
+                "clarity": 'adherence_required',
+            },
+            "self_disclosure": 'authentic',
         },
         "ai_partner": {
             "social_role": SocialRole.EQUAL.value,
             "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
-            "content_goal": "adherence to quantity, quality, relevance, and clarity",
-            "relational_goal": "authentic self-disclosure"
-        }
+            "content_goal": 'Explain and justify the mathematics grading decision transparently and clarify the assessment criteria',
+            "relationship_goal": 'Remain open, respectful, and constructive toward the parent',
+            "maxim_behavior": {
+                "quantity": 'adherence_required',
+                "quality": 'adherence_required',
+                "relevance": 'adherence_required',
+                "clarity": 'adherence_required',
+            },
+            "self_disclosure": 'authentic',
+        },
     },
 
     # ------------------------------------------------------------
@@ -957,23 +1112,46 @@ Overarching goal: You want to support your son’s educational path and ensure t
 }
 ROLEPLAYS[7] = {
     "phase": 2,
+    "scenario_code": "RP07",
+    "actors": {"user": 'history teacher', "ai_partner": 'student'},
     "communication_type": CommunicationType.UNDERSTANDING_ORIENTED.value,
     "title_de": "7. Gespräch über die Moderation zur Festlegung des Ziels der Studienfahrt",
     "title_en": "7. Conversation about the moderation to determine the destination of the study trip",
+
+    "context": {
+        "organization": 'Rosa-Luxemburg School',
+        "setting": 'Informal student-initiated conversation',
+        "reason": 'Clarify neutrality in a moderation session for choosing a study-trip destination',
+        "interaction_conditions": 'A teacher in a stronger position explains a fair process to a student in a weaker position',
+    },
 
     "framework": {
         "user": {
             "social_role": SocialRole.STRONGER.value,
             "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
-            "content_goal": "adherence to quantity, quality, relevance, and clarity",
-            "relational_goal": "authentic self-disclosure"
+            "content_goal": 'Explain the moderator role and the equality of all participants in the decision process',
+            "relationship_goal": 'Treat the student respectfully and preserve future cooperation',
+            "maxim_behavior": {
+                "quantity": 'adherence_required',
+                "quality": 'adherence_required',
+                "relevance": 'adherence_required',
+                "clarity": 'adherence_required',
+            },
+            "self_disclosure": 'authentic',
         },
         "ai_partner": {
             "social_role": SocialRole.WEAKER.value,
             "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
-            "content_goal": "adherence to quantity, quality, relevance, and clarity",
-            "relational_goal": "authentic self-disclosure"
-        }
+            "content_goal": 'Explain the moderator role and the equality of all participants in the decision process',
+            "relationship_goal": 'Treat the student respectfully and preserve future cooperation',
+            "maxim_behavior": {
+                "quantity": 'adherence_required',
+                "quality": 'adherence_required',
+                "relevance": 'adherence_required',
+                "clarity": 'adherence_required',
+            },
+            "self_disclosure": 'authentic',
+        },
     },
 
     # ------------------------------------------------------------
@@ -1066,23 +1244,46 @@ Overarching goal: You want to ensure that the teacher ensures an informed and tr
 
 ROLEPLAYS[8] = {
     "phase": 2,
+    "scenario_code": "RP08",
+    "actors": {"user": 'career-counselling teacher', "ai_partner": 'student'},
     "communication_type": CommunicationType.UNDERSTANDING_ORIENTED.value,
     "title_de": "8. Beratungsgespräch zur Berufswahl",
     "title_en": "8. Counseling conversation about career choice",
+
+    "context": {
+        "organization": 'Theodor-Heuss School',
+        "setting": 'Student-requested career-counselling appointment',
+        "reason": 'Discuss career options combining creativity, qualification, and financial security',
+        "interaction_conditions": 'A counselling teacher in a stronger position must guide without imposing a personal preference',
+    },
 
     "framework": {
         "user": {
             "social_role": SocialRole.STRONGER.value,
             "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
-            "content_goal": "adherence to quantity, quality, relevance, and clarity",
-            "relational_goal": "authentic self-disclosure"
+            "content_goal": 'Support the student in making an informed and self-responsible career decision',
+            "relationship_goal": 'Respect the student as a person responsible for their own decisions',
+            "maxim_behavior": {
+                "quantity": 'adherence_required',
+                "quality": 'adherence_required',
+                "relevance": 'adherence_required',
+                "clarity": 'adherence_required',
+            },
+            "self_disclosure": 'authentic',
         },
         "ai_partner": {
             "social_role": SocialRole.WEAKER.value,
             "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
-            "content_goal": "adherence to quantity, quality, relevance, and clarity",
-            "relational_goal": "authentic self-disclosure"
-        }
+            "content_goal": 'Support the student in making an informed and self-responsible career decision',
+            "relationship_goal": 'Respect the student as a person responsible for their own decisions',
+            "maxim_behavior": {
+                "quantity": 'adherence_required',
+                "quality": 'adherence_required',
+                "relevance": 'adherence_required',
+                "clarity": 'adherence_required',
+            },
+            "self_disclosure": 'authentic',
+        },
     },
 
     # ------------------------------------------------------------
@@ -1178,24 +1379,47 @@ Overarching goal: You want to gain clarity and support in deciding your professi
 
 ROLEPLAYS[9] = {
     "phase": 2,
+    "scenario_code": "RP09",
+    "actors": {"user": 'teacher', "ai_partner": 'school principal'},
     "communication_type": CommunicationType.UNDERSTANDING_ORIENTED.value,
 
     "title_en": "9. Discussing concerns about the introduction of a feedback culture",
     "title_de": "9. Gespräch über die Einführung einer Feedbackkultur",
 
+    "context": {
+        "organization": 'Alexander-von-Humboldt School',
+        "setting": 'Spontaneous conversation with the school principal',
+        "reason": 'Discuss concerns about the introduction and design of a school feedback culture',
+        "interaction_conditions": 'A teacher in a weaker position presents concrete proposals to a principal in a stronger position',
+    },
+
     "framework": {
         "user": {
             "social_role": SocialRole.WEAKER.value,
             "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
-            "content_goal": "adherence to quantity, quality, relevance, and clarity",
-            "relational_goal": "authentic self-disclosure"
+            "content_goal": 'Explain the teacher’s perspective and propose revised or extended feedback criteria',
+            "relationship_goal": 'Maintain constructive cooperation with the school principal',
+            "maxim_behavior": {
+                "quantity": 'adherence_required',
+                "quality": 'adherence_required',
+                "relevance": 'adherence_required',
+                "clarity": 'adherence_required',
+            },
+            "self_disclosure": 'authentic',
         },
         "ai_partner": {
             "social_role": SocialRole.STRONGER.value,
             "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
-            "content_goal": "adherence to quantity, quality, relevance, and clarity",
-            "relational_goal": "authentic self-disclosure"
-        }
+            "content_goal": 'Explain the teacher’s perspective and propose revised or extended feedback criteria',
+            "relationship_goal": 'Maintain constructive cooperation with the school principal',
+            "maxim_behavior": {
+                "quantity": 'adherence_required',
+                "quality": 'adherence_required',
+                "relevance": 'adherence_required',
+                "clarity": 'adherence_required',
+            },
+            "self_disclosure": 'authentic',
+        },
     },
 
     # ---------------------------------------------------------
@@ -1282,24 +1506,47 @@ Overall goal: You want to establish an effective feedback culture at the school 
 }
 ROLEPLAYS[10] = {
     "phase": 2,
+    "scenario_code": "RP10",
+    "actors": {"user": 'teacher colleague', "ai_partner": 'teacher colleague'},
     "communication_type": CommunicationType.UNDERSTANDING_ORIENTED.value,
 
     "title_en": "10. Joint development of a guideline for parent-teacher meetings",
     "title_de": "10. Gemeinsame Entwicklung eines Leitfadens für Elterngespräche",
 
+    "context": {
+        "organization": 'Ekkehart-von-Jürgens School',
+        "setting": 'First jointly agreed planning meeting',
+        "reason": 'Develop a guideline for systematically obtaining performance-relevant information from parents',
+        "interaction_conditions": 'Equal-status colleagues generate and evaluate ideas, including reasoned disagreement and possible withdrawal of weak proposals',
+    },
+
     "framework": {
         "user": {
             "social_role": SocialRole.EQUAL.value,
             "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
-            "content_goal": "adherence to quantity, quality, relevance, and clarity",
-            "relational_goal": "authentic self-disclosure"
+            "content_goal": 'Generate relevant aspects for a parent-teacher meeting guideline',
+            "relationship_goal": 'Maintain respectful, transparent, and cooperative collegial collaboration',
+            "maxim_behavior": {
+                "quantity": 'adherence_required',
+                "quality": 'adherence_required',
+                "relevance": 'adherence_required',
+                "clarity": 'adherence_required',
+            },
+            "self_disclosure": 'authentic',
         },
         "ai_partner": {
             "social_role": SocialRole.EQUAL.value,
             "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
-            "content_goal": "adherence to quantity, quality, relevance, and clarity",
-            "relational_goal": "authentic self-disclosure"
-        }
+            "content_goal": 'Generate relevant aspects for a parent-teacher meeting guideline',
+            "relationship_goal": 'Maintain respectful, transparent, and cooperative collegial collaboration',
+            "maxim_behavior": {
+                "quantity": 'adherence_required',
+                "quality": 'adherence_required',
+                "relevance": 'adherence_required',
+                "clarity": 'adherence_required',
+            },
+            "self_disclosure": 'authentic',
+        },
     },
 
     # ---------------------------------------------------------
@@ -1485,6 +1732,19 @@ if (
         "roleplay_title_en": current_rp["title_en"],
         "roleplay_title_de": current_rp["title_de"],
         "communication_type": current_rp["communication_type"],
+        "scenario_code": current_rp["scenario_code"],
+        "user_social_role": current_rp["framework"]["user"]["social_role"],
+        "ai_partner_social_role": current_rp["framework"]["ai_partner"]["social_role"],
+        "conversation_intention": current_rp["framework"]["ai_partner"]["conversation_intention"],
+        "content_goal": current_rp["framework"]["ai_partner"]["content_goal"],
+        "relationship_goal": current_rp["framework"]["ai_partner"]["relationship_goal"],
+        "maxim_behavior": current_rp["framework"]["ai_partner"]["maxim_behavior"],
+        "self_disclosure": current_rp["framework"]["ai_partner"]["self_disclosure"],
+        "context": current_rp["context"],
+        "application_version": APPLICATION_VERSION,
+        "prompt_version": PROMPT_VERSION,
+        "roleplay_data_version": ROLEPLAY_DATA_VERSION,
+        "condition_id": ExperimentalCondition.C1_PROMPT_ONLY.value,
     }
 
 # ---------------------------------------------------------
