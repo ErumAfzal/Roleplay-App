@@ -1,6 +1,8 @@
 import streamlit as st
-import time
-import os 
+import json
+from datetime import datetime
+from openai import OpenAI
+from supabase import create_client, Client
 from constants import (
     CommunicationType,
     SocialRole,
@@ -8,10 +10,10 @@ from constants import (
     Language,
     ExperimentalCondition,
 )
-import json
-from datetime import datetime
-from openai import OpenAI
-from supabase import create_client, Client
+
+APPLICATION_VERSION = "experiment_app_v1.0.0"
+PROMPT_VERSION = "experiment_prompt_v1.0.0"
+ROLEPLAY_DATA_VERSION = "roleplays_v1.0.0"
 
 # ---------------------------------------------------------
 #  OpenAI setup (2025 API)
@@ -246,13 +248,20 @@ def build_system_prompt(roleplay, language):
         partner_instructions = roleplay["partner_de"]
 
     # Orientation block
-    orientation_block = (
-        'This role-play is classified as "strategic" communication. '
-        "Apply the rules for strategic communication above strictly."
-        if orientation == "strategic"
-        else 'This role-play is classified as "understanding-oriented" communication. '
-             "Apply the rules for understanding-oriented communication above strictly."
-    )
+    if orientation == CommunicationType.STRATEGIC.value:
+        orientation_block = (
+            'This role-play is classified as "strategic" communication. '
+            "Apply the rules for strategic communication above strictly."
+        )
+    elif orientation == CommunicationType.UNDERSTANDING_ORIENTED.value:
+        orientation_block = (
+            'This role-play is classified as "understanding-oriented" communication. '
+            "Apply the rules for understanding-oriented communication above strictly."
+        )
+    else:
+        raise ValueError(
+            f"Unsupported communication type: {orientation!r}"
+        )
 
     # Special rules ONLY for roleplays 2,4,7,8 in German
     special_rules = ""
@@ -307,29 +316,31 @@ Bitte nutzen Sie die folgenden Informationen für die Gesprächsführung.
 """
 # ---------------------------------------------------------
 #  ROLEPLAY DEFINITIONS
-#  communication_type: "strategic" (1–5) or "understanding" (6–10)
-#  Currently: ONLY Roleplay 1, as requested.
+# communication_type:
+# RP1–RP5 = strategic
+# RP6–RP10 = understanding_oriented
+# All ten role plays are included.
 # ---------------------------------------------------------
 
 ROLEPLAYS = {}
 
 ROLEPLAYS[1] = {
     "phase": 1,
-    "communication_type": "strategic",
+    "communication_type": CommunicationType.STRATEGIC.value,
     "title_en": "1. Requesting approval for training on self-directed learning",
     "title_de": "1. Weiterbildung zum selbstgesteuerten Lernen ansprechen",
 
     # Framework for the trainer logic
     "framework": {
         "user": {
-            "social_role": "weaker",
-            "conversation_intention": "relational goal",
+            "social_role": SocialRole.WEAKER.value,
+            "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure",
         },
         "ai_partner": {
-            "social_role": "stronger",
-            "conversation_intention": "relational goal",
+            "social_role": SocialRole.STRONGER.value,
+            "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure",
         },
@@ -427,20 +438,20 @@ You accept the teacher’s request for a conversation. Act as follows:
 }
 ROLEPLAYS[2] = {
     "phase": 1,
-    "communication_type": "strategic",
+    "communication_type": CommunicationType.STRATEGIC.value,
     "title_en": "2. Advising a student on choosing between AGs (Theater-AG vs. Judo-AG)",
     "title_de": "2. Beratung eines Schülers zur Wahl zwischen Theater-AG und Judo-AG",
 
     "framework": {
         "user": {
-            "social_role": "stronger",
-            "conversation_intention": "relational goal",
+            "social_role": SocialRole.STRONGER.value,
+            "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure"
         },
         "ai_partner": {
-            "social_role": "weaker",
-            "conversation_intention": "relational goal",
+            "social_role": SocialRole.WEAKER.value,
+            "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure"
         }
@@ -470,30 +481,6 @@ Sie besprechen mit dem Schüler/der Schülerin seine/ihre bevorstehende Entschei
     "partner_de": """
 Sie sind Jan/Jana Pflüger, Schüler/Schülerin an der Günter-Grass-Schule. Es stehen mehrere AGs zur Wahl, und insbesondere die Theater-AG ist für die öffentliche Außenwirkung der Schule bedeutsam. Andere haben Ihr Talent für Schauspiel bemerkt, und auch Sie selbst haben ein gewisses Interesse daran. Dennoch möchten Sie lieber an der Judo-AG teilnehmen. Der eigentliche Grund dafür ist Ihre persönliche Abneigung gegenüber der Leiterin der Theater-AG. Diesen wahren Grund möchten Sie jedoch nicht offen ansprechen.
 
-Ihr Bild von der Beratungslehrkraft ist ambivalent: Sie finden sie/ihn sympathisch, haben jedoch gehört, dass sie/er sehr erfolgsorientiert handelt und die Interessen der Schule häufig vor die persönlichen Bedürfnisse der Schülerinnen und Schüler stellt.
-
-**Ihre Aufgabe im Gespräch:**
-• Sie erscheinen offen und bereit für das Beratungsgespräch.  
-• Sie schildern Ihre Situation und begründen Ihre Entscheidung für die gewünschte AG mit Ihrer Motivation.  
-• Sie deuten beiläufig Ihre Abneigung gegenüber der Leiterin der Theater-AG an, ohne den wahren Grund offen zu legen.  
-• Sie behaupten sich, zeigen jedoch Respekt, da die Beratungslehrkraft Einfluss auf Ihre schulische Entwicklung hat.  
-• Sie fragen, ob es für die Beratungslehrkraft wichtig ist, welche AG Sie wählen.  
-• Sie stellen als Bedingung für einen Wechsel in die Theater-AG, dass Sie dort Hauptrollen übernehmen dürfen.  
-• Wenn die Beratungslehrkraft ausschließlich Vorteile für Sie hervorhebt und zusichert, sich für Hauptrollen einzusetzen, gehen Sie auf den Vorschlag ein.  
-
-**Sachziel:**  
-Sie möchten erreichen, dass die Beratungslehrkraft Ihnen zusichert, sich bei der Leitung der Theater-AG für Sie einzusetzen. Gleichzeitig möchten Sie eine Entscheidung treffen, die Ihre persönlichen Interessen widerspiegelt.
-
-**Beziehungsziel:**  
-Sie verhalten sich respektvoll und kommunizieren Ihre Bedürfnisse klar. Wenn Sie merken, dass die Lehrkraft nur die Interessen der Schule verfolgt, zeigen Sie Enttäuschung.
-""",
-
-    # ------------------------------------------------------------
-    # AI PARTNER INSTRUCTIONS (IMPROVED, CONSISTENT, MEANING PRESERVED)
-    # ------------------------------------------------------------
-    "partner_de": """
-Sie sind Jan/Jana Pflüger, Schüler/Schülerin an der Günter-Grass-Schule. Es stehen mehrere AGs zur Wahl, und insbesondere die Theater-AG ist für die öffentliche Außenwirkung der Schule bedeutsam. Andere haben Ihr Talent für Schauspiel bemerkt, und auch Sie selbst haben ein gewisses Interesse daran. Dennoch möchten Sie lieber an der Judo-AG teilnehmen. Der eigentliche Grund dafür ist Ihre persönliche Abneigung gegenüber der Leiterin der Theater-AG. Diesen wahren Grund möchten Sie jedoch nicht offen ansprechen.
-
 Ihr Bild vom Beratungslehrer / von der Beratungslehrerin ist ambivalent: Sie finden ihn/sie sympathisch, haben jedoch gehört, dass er/sie sehr erfolgsorientiert handelt und die Interessen der Schule oft vor die persönlichen Bedürfnisse der Schüler/innen stellt.
 
 **Ihre Aufgabe im Gespräch:**
@@ -513,21 +500,21 @@ Sie verhalten sich respektvoll und kommunizieren Ihre Bedürfnisse klar. Wenn Si
 """,
 
     "partner_en": """
-You are J.Pflüger, ein Student an der Günter-Grass-Schule. Several AGs are available for selection, and the Theater-AG is particularly important for the school’s public image. Others have noticed your acting talent, and you yourself have some interest in it. However, you prefer to join the Judo-AG. The real reason is your personal dislike of the teacher who leads the Theater-AG, but you do not want to mention this openly.
+You are J. Pflüger, a student at the Günter-Grass School. Several AGs are available for selection, and the Theater-AG is particularly important for the school’s public image. Others have noticed your acting talent, and you yourself have some interest in it. However, you prefer to join the Judo-AG. The real reason is your personal dislike of the teacher who leads the Theater-AG, but you do not want to mention this openly.
 
-Your view of the Beratungslehrkraft is mixed: you find him/her sympathetic, but you have heard that he/she is very success-oriented and often prioritises the school’s interests over those of the students.
+Your view of the counselling teacher is mixed: you find him/her sympathetic, but you have heard that he/she is very success-oriented and often prioritises the school’s interests over those of the students.
 
 **How you act in the conversation:**
 • You appear open and willing to participate in the counselling conversation.  
 • You describe your situation and justify your preference for the AG you want.  
 • You hint indirectly at your dislike of the Theater-AG teacher without naming it as the main reason.  
-• You assert yourself, but respectfully, as the Beratungslehrkraft influences your school development.  
-• You ask whether it matters to the Beratungslehrkraft which AG you choose.  
+• You assert yourself, but respectfully, as the counselling teacher influences your school development.  
+• You ask whether it matters to the counselling teacher which club you choose.  
 • You make your participation in the Theater-AG conditional on receiving main roles.  
-• If the Beratungslehrkraft emphasises only advantages for you and assures support in getting main roles, you agree.
+• If the counselling teacher emphasises only advantages for you and assures support in getting main roles, you agree.
 
 **Content goal:**  
-Try to get the Beratungslehrkraft to commit to advocating for you with the Theater-AG leadership, while ensuring your own interests and talents are considered.
+Try to get the counselling teacher to commit to advocating for you with the Theater-AG leadership, while ensuring your own interests and talents are considered.
 
 **Relationship goal:**  
 Behave respectfully and communicate your motivations clearly. If you feel the teacher values only the school’s interests, you show disappointment.
@@ -535,20 +522,20 @@ Behave respectfully and communicate your motivations clearly. If you feel the te
 }
 ROLEPLAYS[3] = {
     "phase": 1,
-    "communication_type": "strategic",
+    "communication_type": CommunicationType.STRATEGIC.value,
     "title_en": "3. Addressing a colleague about deadlines and teamwork",
     "title_de": "3. Kollegiale Ansprache zu Deadlines und Teamarbeit",
 
     "framework": {
         "user": {
-            "social_role": "equal",
-            "conversation_intention": "relational goal",
+            "social_role": SocialRole.EQUAL.value,
+            "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure"
         },
         "ai_partner": {
-            "social_role": "equal",
-            "conversation_intention": "relational goal",
+            "social_role": SocialRole.EQUAL.value,
+            "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure"
         }
@@ -647,20 +634,20 @@ The good working relationship should be maintained, but not at any price. You ar
 }
 ROLEPLAYS[4] = {
     "phase": 1,
-    "communication_type": "strategic",
+    "communication_type": CommunicationType.STRATEGIC.value,
     "title_en": "4. Addressing a student about repeated tardiness and issuing a second warning",
     "title_de": "4. Schüler/in wegen wiederholtem Zuspätkommen ansprechen und zweite Abmahnung aussprechen",
 
     "framework": {
         "user": {
-            "social_role": "stronger",
-            "conversation_intention": "relational goal",
+            "social_role": SocialRole.STRONGER.value,
+            "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure"
         },
         "ai_partner": {
-            "social_role": "weaker",
-            "conversation_intention": "relational goal",
+            "social_role": SocialRole.WEAKER.value,
+            "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure"
         }
@@ -751,20 +738,20 @@ Overarching goal: At the same time, the goal could be to find a long-term soluti
 }
 ROLEPLAYS[5] = {
     "phase": 1,
-    "communication_type": "strategic",
+    "communication_type": CommunicationType.STRATEGIC.value,
     "title_en": "5. Requesting a reduction of working hours from the school principal",
     "title_de": "5. Gespräch über gewünschte Arbeitszeitreduzierung mit der Schulleitung",
 
     "framework": {
         "user": {
-            "social_role": "weaker",
-            "conversation_intention": "relational goal",
+            "social_role": SocialRole.WEAKER.value,
+            "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure"
         },
         "ai_partner": {
-            "social_role": "stronger",
-            "conversation_intention": "relational goal",
+            "social_role": SocialRole.STRONGER.value,
+            "conversation_intention": ConversationIntention.RELATIONSHIP_GOAL.value,
             "content_goal": "strategic breaching of quantity, quality, relevance, and clarity",
             "relational_goal": "future-oriented self-disclosure"
         }
@@ -850,20 +837,20 @@ Act as follows during the interaction:
 }
 ROLEPLAYS[6] = {
     "phase": 2,
-    "communication_type": "understanding_oriented",
+    "communication_type": CommunicationType.UNDERSTANDING_ORIENTED.value,
     "title_en": "6. Parent–Teacher Meeting about Mathematics Grade and Secondary School Recommendation",
     "title_de": "6. Elterngespräch über Mathematiknote und Gymnasialempfehlung",
 
     "framework": {
         "user": {
-            "social_role": "equal",
-            "conversation_intention": "content goal",
+            "social_role": SocialRole.EQUAL.value,
+            "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "equal",
-            "conversation_intention": "content goal",
+            "social_role": SocialRole.EQUAL.value,
+            "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         }
@@ -970,20 +957,20 @@ Overarching goal: You want to support your son’s educational path and ensure t
 }
 ROLEPLAYS[7] = {
     "phase": 2,
-    "communication_type": "understanding_oriented",
+    "communication_type": CommunicationType.UNDERSTANDING_ORIENTED.value,
     "title_de": "7. Gespräch über die Moderation zur Festlegung des Ziels der Studienfahrt",
     "title_en": "7. Conversation about the moderation to determine the destination of the study trip",
 
     "framework": {
         "user": {
-            "social_role": "strong",
-            "conversation_intention": "content goal",
+            "social_role": SocialRole.STRONGER.value,
+            "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "weak",
-            "conversation_intention": "content goal",
+            "social_role": SocialRole.WEAKER.value,
+            "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         }
@@ -1079,20 +1066,20 @@ Overarching goal: You want to ensure that the teacher ensures an informed and tr
 
 ROLEPLAYS[8] = {
     "phase": 2,
-    "communication_type": "understanding_oriented",
+    "communication_type": CommunicationType.UNDERSTANDING_ORIENTED.value,
     "title_de": "8. Beratungsgespräch zur Berufswahl",
     "title_en": "8. Counseling conversation about career choice",
 
     "framework": {
         "user": {
-            "social_role": "strong",
-            "conversation_intention": "content goal",
+            "social_role": SocialRole.STRONGER.value,
+            "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "weak",
-            "conversation_intention": "content goal",
+            "social_role": SocialRole.WEAKER.value,
+            "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         }
@@ -1191,21 +1178,21 @@ Overarching goal: You want to gain clarity and support in deciding your professi
 
 ROLEPLAYS[9] = {
     "phase": 2,
-    "communication_type": "understanding_oriented",
+    "communication_type": CommunicationType.UNDERSTANDING_ORIENTED.value,
 
     "title_en": "9. Discussing concerns about the introduction of a feedback culture",
     "title_de": "9. Gespräch über die Einführung einer Feedbackkultur",
 
     "framework": {
         "user": {
-            "social_role": "weaker",
-            "conversation_intention": "content goal",
+            "social_role": SocialRole.WEAKER.value,
+            "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "stronger",
-            "conversation_intention": "content goal",
+            "social_role": SocialRole.STRONGER.value,
+            "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         }
@@ -1295,21 +1282,21 @@ Overall goal: You want to establish an effective feedback culture at the school 
 }
 ROLEPLAYS[10] = {
     "phase": 2,
-    "communication_type": "understanding_oriented",
+    "communication_type": CommunicationType.UNDERSTANDING_ORIENTED.value,
 
     "title_en": "10. Joint development of a guideline for parent-teacher meetings",
     "title_de": "10. Gemeinsame Entwicklung eines Leitfadens für Elterngespräche",
 
     "framework": {
         "user": {
-            "social_role": "equal",
-            "conversation_intention": "content goal",
+            "social_role": SocialRole.EQUAL.value,
+            "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         },
         "ai_partner": {
-            "social_role": "equal",
-            "conversation_intention": "content goal",
+            "social_role": SocialRole.EQUAL.value,
+            "conversation_intention": ConversationIntention.CONTENT_GOAL.value,
             "content_goal": "adherence to quantity, quality, relevance, and clarity",
             "relational_goal": "authentic self-disclosure"
         }
