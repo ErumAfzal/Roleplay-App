@@ -4,7 +4,6 @@ import time
 from datetime import datetime
 from openai import OpenAI
 from supabase import create_client, Client
-
 from constants import (
     CommunicationType,
     SocialRole,
@@ -22,6 +21,17 @@ from experiment_logging import (
 APPLICATION_VERSION = "experiment_app_v1.1.0"
 PROMPT_VERSION = "experiment_prompt_v1.1.0"
 ROLEPLAY_DATA_VERSION = "roleplays_v1.1.0"
+
+MODEL_PROVIDER = "openai"
+MODEL_NAME = "gpt-4o-mini"
+
+GENERATION_CONFIG = {
+    "temperature": 0.7,
+    "top_p": 1.0,
+    "frequency_penalty": 0.0,
+    "presence_penalty": 0.0,
+    "max_completion_tokens": 400,
+}
 
 # ---------------------------------------------------------
 #  OpenAI setup (2025 API)
@@ -1814,20 +1824,67 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
     user_input = st.chat_input(prompt_label)
 
     if user_input:
-        st.session_state.messages.append({"role": "user", "content": user_input})
+        st.session_state.messages.append(
+            {
+                "role": "user",
+                "content": user_input,
+            }
+        )
+
+        request_started = time.perf_counter()
+        error_type = None
+        error_message = None
+
+        prompt_tokens = None
+        completion_tokens = None
+        total_tokens = None
 
         try:
             response = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model=MODEL_NAME,
                 messages=st.session_state.messages,
-                temperature=0.7,
-                max_tokens=400,
+                temperature=GENERATION_CONFIG["temperature"],
+                top_p=GENERATION_CONFIG["top_p"],
+                frequency_penalty=GENERATION_CONFIG["frequency_penalty"],
+                presence_penalty=GENERATION_CONFIG["presence_penalty"],
+                max_tokens=GENERATION_CONFIG["max_completion_tokens"],
             )
-            reply = response.choices[0].message.content
-        except Exception as e:
-            reply = f"[Error from OpenAI API: {e}]"
 
-        st.session_state.messages.append({"role": "assistant", "content": reply})
+            reply = (
+                response.choices[0].message.content or ""
+            ).strip()
+
+            if response.usage is not None:
+                prompt_tokens = response.usage.prompt_tokens
+                completion_tokens = response.usage.completion_tokens
+                total_tokens = response.usage.total_tokens
+
+        except Exception as e:
+            error_type = type(e).__name__
+            error_message = str(e)
+            reply = f"[Error from OpenAI API: {error_message}]"
+
+        latency_seconds = time.perf_counter() - request_started
+
+        st.session_state.messages.append(
+            {
+                "role": "assistant",
+                "content": reply,
+            }
+        )
+
+        if "run_metadata" in st.session_state:
+            st.session_state.run_metadata.update(
+                {
+                    "prompt_tokens": prompt_tokens,
+                    "completion_tokens": completion_tokens,
+                    "total_tokens": total_tokens,
+                    "latency_seconds": latency_seconds,
+                    "error_type": error_type,
+                    "error_message": error_message,
+                }
+            )
+
         st.rerun()
 
 if st.session_state.chat_active and not st.session_state.feedback_done:
