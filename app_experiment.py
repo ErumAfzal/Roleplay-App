@@ -1,14 +1,22 @@
 import streamlit as st
 import json
+import time
 from datetime import datetime
 from openai import OpenAI
 from supabase import create_client, Client
+
 from constants import (
     CommunicationType,
     SocialRole,
     ConversationIntention,
     Language,
     ExperimentalCondition,
+)
+
+from experiment_logging import (
+    build_run_metadata,
+    save_local_run,
+    utc_now_iso,
 )
 
 APPLICATION_VERSION = "experiment_app_v1.1.0"
