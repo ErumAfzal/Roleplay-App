@@ -1,7 +1,6 @@
 import streamlit as st
 import json
 import time
-from datetime import datetime
 from openai import OpenAI
 from supabase import create_client, Client
 from constants import (
@@ -111,7 +110,7 @@ def append_chat_and_feedback(meta: dict, chat_messages: list, feedback: dict):
     1) Try Supabase first (tables: roleplay_chats, roleplay_feedback)
     2) If Supabase fails, save locally to chatlogs.jsonl
     """
-    timestamp = datetime.utcnow().isoformat()
+    timestamp = utc_now_iso()
     language = meta.get("language", "English")
     transcript = messages_to_transcript(chat_messages, language)
     messages_json = json.dumps(chat_messages, ensure_ascii=False)
@@ -1687,6 +1686,8 @@ if "feedback_done" not in st.session_state:
     st.session_state.feedback_done = False
 if "meta" not in st.session_state:
     st.session_state.meta = {}
+if "run_metadata" not in st.session_state:
+    st.session_state.run_metadata = None
 
 # OpenAI client
 client = setup_openai_client()
@@ -1742,6 +1743,7 @@ if (
     st.session_state.messages = []
     st.session_state.chat_active = False
     st.session_state.feedback_done = False
+    st.session_state.run_metadata = None
     st.session_state.meta = {
         "student_id": student_id,
         "language": language,
@@ -1792,6 +1794,42 @@ if st.button("Start / Restart conversation"):
     st.session_state.chat_active = True
 
     system_prompt = build_system_prompt(current_rp, language)
+
+    st.session_state.run_metadata = build_run_metadata(
+        scenario_id=roleplay_id,
+        scenario_code=current_rp["scenario_code"],
+        scenario_title_en=current_rp["title_en"],
+        scenario_title_de=current_rp["title_de"],
+        communication_type=current_rp["communication_type"],
+        user_social_role=current_rp["framework"]["user"]["social_role"],
+        partner_social_role=current_rp["framework"]["ai_partner"]["social_role"],
+        conversation_intention=current_rp["framework"]["ai_partner"][
+            "conversation_intention"
+        ],
+        content_goal=current_rp["framework"]["ai_partner"]["content_goal"],
+        relationship_goal=current_rp["framework"]["ai_partner"][
+            "relationship_goal"
+        ],
+        maxim_behavior=current_rp["framework"]["ai_partner"]["maxim_behavior"],
+        self_disclosure=current_rp["framework"]["ai_partner"][
+            "self_disclosure"
+        ],
+        context=current_rp["context"],
+        language=language,
+        student_id=student_id,
+        batch_step=st.session_state.batch_step,
+        condition_id=ExperimentalCondition.C1_PROMPT_ONLY.value,
+        application_version=APPLICATION_VERSION,
+        prompt_version=PROMPT_VERSION,
+        roleplay_data_version=ROLEPLAY_DATA_VERSION,
+        model_provider=MODEL_PROVIDER,
+        model_name=MODEL_NAME,
+        generation_config=GENERATION_CONFIG,
+        system_prompt=system_prompt,
+        is_test_run=student_id.upper().startswith("TEST_"),
+    )
+
+    st.session_state.meta["run_id"] = st.session_state.run_metadata["run_id"]
 
     st.session_state.messages.append(
         {
@@ -1873,19 +1911,67 @@ if st.session_state.chat_active and not st.session_state.feedback_done:
             }
         )
 
-        if "run_metadata" in st.session_state:
-            st.session_state.run_metadata.update(
-                {
-                    "prompt_tokens": prompt_tokens,
-                    "completion_tokens": completion_tokens,
-                    "total_tokens": total_tokens,
-                    "latency_seconds": latency_seconds,
-                    "error_type": error_type,
-                    "error_message": error_message,
-                }
-            )
+        if st.session_state.run_metadata is not None:
+            run_metadata = st.session_state.run_metadata
+
+            turn_number = run_metadata["number_of_model_calls"] + 1
+            turn_metric = {
+                "turn_number": turn_number,
+                "timestamp_utc": utc_now_iso(),
+                "prompt_tokens": prompt_tokens,
+                "completion_tokens": completion_tokens,
+                "total_tokens": total_tokens,
+                "latency_seconds": latency_seconds,
+                "error_type": error_type,
+                "error_message": error_message,
+            }
+            run_metadata["turn_metrics"].append(turn_metric)
+            run_metadata["number_of_model_calls"] = turn_number
+
+            run_metadata["last_turn_prompt_tokens"] = prompt_tokens
+            run_metadata["last_turn_completion_tokens"] = completion_tokens
+            run_metadata["last_turn_total_tokens"] = total_tokens
+            run_metadata["last_turn_latency_seconds"] = latency_seconds
+            run_metadata["last_error_type"] = error_type
+            run_metadata["last_error_message"] = error_message
+
+            if prompt_tokens is not None:
+                run_metadata["cumulative_prompt_tokens"] += prompt_tokens
+            if completion_tokens is not None:
+                run_metadata["cumulative_completion_tokens"] += completion_tokens
+            if total_tokens is not None:
+                run_metadata["cumulative_total_tokens"] += total_tokens
+
+            run_metadata["total_latency_seconds"] += latency_seconds
 
         st.rerun()
+
+if (
+    st.session_state.run_metadata is not None
+    and st.session_state.run_metadata.get("is_test_run")
+):
+    with st.sidebar.expander("Test-run logging status"):
+        st.json(
+            {
+                "run_id": st.session_state.run_metadata.get("run_id"),
+                "model_calls": st.session_state.run_metadata.get(
+                    "number_of_model_calls"
+                ),
+                "cumulative_total_tokens": st.session_state.run_metadata.get(
+                    "cumulative_total_tokens"
+                ),
+                "total_latency_seconds": round(
+                    st.session_state.run_metadata.get(
+                        "total_latency_seconds",
+                        0.0,
+                    ),
+                    3,
+                ),
+                "last_error_type": st.session_state.run_metadata.get(
+                    "last_error_type"
+                ),
+            }
+        )
 
 if st.session_state.chat_active and not st.session_state.feedback_done:
     if st.button("⏹ End conversation / Gespräch beenden"):
@@ -1965,6 +2051,59 @@ if not st.session_state.chat_active and st.session_state.messages and not st.ses
             st.session_state.messages,
             feedback_data,
         )
+
+        if st.session_state.run_metadata is None:
+            st.error(
+                "Experimental run metadata is missing. "
+                "Please restart the conversation before saving."
+            )
+            st.stop()
+
+        complete_run_record = {
+            **st.session_state.run_metadata,
+            "timestamp_completed_utc": utc_now_iso(),
+            "messages": st.session_state.messages,
+            "transcript": messages_to_transcript(
+                st.session_state.messages,
+                language,
+            ),
+            "feedback": feedback_data,
+        }
+
+        required_fields = (
+            "run_id",
+            "scenario_code",
+            "condition_id",
+            "model_name",
+            "system_prompt",
+            "system_prompt_sha256",
+            "timestamp_started_utc",
+            "timestamp_completed_utc",
+            "messages",
+            "feedback",
+        )
+        missing_fields = [
+            field
+            for field in required_fields
+            if complete_run_record.get(field) in (None, "", [])
+        ]
+
+        if missing_fields:
+            st.error(
+                "Experimental record validation failed. Missing fields: "
+                + ", ".join(missing_fields)
+            )
+            st.stop()
+
+        try:
+            save_local_run(complete_run_record)
+            st.success(
+                "Complete experimental run saved to "
+                "logs/experiment_runs.jsonl."
+            )
+        except Exception as e:
+            st.error(f"Failed to save the experimental run: {e}")
+            st.stop()
 
         st.session_state.feedback_done = True
 
